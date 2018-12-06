@@ -6,24 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Skill Chair</title>
-    <link rel="icon" href="<?php echo base_url(); ?>assets/vendor/html/img/favicon.png">
+    <link rel="icon" href="img/favicon.png">
     <!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--<link href="css/font-awesome.min.css" rel="stylesheet">-->
     <!-- Bootstrap core CSS -->
-    <link href="<?php echo base_url(); ?>assets/vendor/html/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/vendor/html/css/jQuery-ui.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/jQuery-ui.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
-    <link href="<?php echo base_url(); ?>assets/vendor/html/css/mdb.min.css" rel="stylesheet">
+    <link href="css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="<?php echo base_url(); ?>assets/vendor/html/css/style.min.css" rel="stylesheet">
-    <style type="text/css">
-        @media (min-width: 800px) and (max-width: 850px) {
-            .navbar:not(.top-nav-collapse) {
-                background: #59698d !important;
-            }
-        }
-    </style>
+    <link href="css/style.min.css" rel="stylesheet">
     
 </head>
 
@@ -35,7 +28,7 @@
 
             <!-- Brand -->
             <a class="navbar-brand text-center" href="index.html">
-                <img src="<?php echo base_url(); ?>assets/vendor/html/img/logo.png" alt="Skills Chair" height="20px" style="margin-top: -8px;" />
+                <img src="img/logo.png" alt="Skills Chair" height="20px" style="margin-top: -8px;" />
             </a>
 
             <!-- Collapse -->
@@ -221,7 +214,7 @@
                         <a class="nav-link" href="aboutus.html">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('Contactus');?>">Contact Us</a>
+                        <a class="nav-link" href="contactus.html">Contact Us</a>
                     </li>
                 </ul>
 
@@ -230,73 +223,191 @@
         </div>
     </nav>
     <!-- Navbar -->
-	 <!-- On Load Modal -->
-    <div class="modal fade joinus-form" id="joinUsForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            
-            <!-- Modal Starts -->
-            <div class="modal-content">
-                <div class="modal-body">
+
+    <main style="background-image: url(img/page-background-img.png);">
+        
+        <!-- Contact Us Header -->
+        <section class="contactus-bg">
+            <div class="cu-bg-overlay pt-5 pb-5 mt-5">
+
+                <div class="container text-center pt-4 pb-4">
+                    <h1 class="pt-2">Contact Us</h1>
+                </div>
+
+            </div>
+        </section>
+        
+        <!-- Contact Details -->
+        <section class="mt-5">
+            <div class="container">
+
+                <div class="row">
                     
-                    <!-- Modal Body -->
-                    <div class="container-fluid">
-                        <div class="row">
-                            
-                            <!-- Left Side Content -->
-                            <div class="col-md-5 juf-content">
-                                <div class="p-5">
-                                    <p>“ Top highly paid job courses”</p>
-                                    <p>For contact 985xxxxx20</p>
-                                </div>
-                                <div class="jufc-logo text-center">
-                                    <img src="img/logo.png" alt="Skills Chair" height="30px" />
+                    <!-- Contact Detail 1 -->
+                    <div class="col-md-4">
+                        <div class="row contact-detail">
+                            <div class="cd-via">
+                                <div class="z-depth-1 rounded-circle cdv-icon">
+                                    <i class="fa fa-map-marker fa-2x cdv-icon1"></i>
                                 </div>
                             </div>
-                            
-                            <!-- Right Side Form -->
-                            <div class="col-md-7 juf-form-fields pl-5 pr-5 pt-4 pb-4">
-
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <h4 class="modal-title heading w-75">Write to us</h4>
-
-                                <div class="md-form form-group">
-                                    <input type="text" id="ff-name" class="form-control">
-                                    <label for="ff-name">Full Name</label>
-                                </div>
-
-                                <div class="md-form form-group">
-                                    <input type="text" id="ff-cname" class="form-control">
-                                    <label for="ff-cname">Course Name</label>
-                                </div>
-
-                                <div class="md-form form-group">
-                                    <input type="email" id="ff-email" class="form-control">
-                                    <label for="ff-email">Email Address</label>
-                                </div>
-
-                                <div class="md-form form-group">
-                                    <input type="text" id="ff-number" class="form-control">
-                                    <label for="ff-number">Phone Number</label>
-                                </div>
-
-                                <div class="md-form form-group">
-                                    <textarea type="text" id="ff-msg" class="md-textarea form-control"></textarea>
-                                    <label for="ff-msg">Message</label>
-                                </div>
-
-                                <div class="d-flex justify-content-center">
-                                    <button class="btn btn-color btn-md">Submit <i class="fa fa-paper-plane-o ml-1"></i></button>
-                                </div>
-
+                            <div class="cd-through">
+                                <h5 class="mt-0 mb-1 font-weight-bold">Location</h5>
+                                <p><?php echo isset($contact_details['location'])?$contact_details['location']:'' ?></p>
                             </div>
-
                         </div>
+                    </div>
+                    
+                    <!-- Contact Details 2 -->
+                    <div class="col-md-4">
+                        <div class="row contact-detail">
+                            <div class="cd-via">
+                                <div class="z-depth-1 rounded-circle cdv-icon">
+                                    <i class="fa fa-phone fa-2x cdv-icon2"></i>
+                                </div>
+                            </div>
+                            <div class="cd-through">
+                                <h5 class="mt-0 mb-1 font-weight-bold">Phone</h5>
+                                <p class="mb-0"><?php echo isset($contact_details['phone'])?$contact_details['phone']:''?></p>
+                                <p><?php echo isset($contact_details['phone_number'])?$contact_details['phone_number']:''?></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Details 3 -->
+                    <div class="col-md-4">
+                        <div class="row contact-detail">
+                            <div class="cd-via">
+                                <div class="z-depth-1 rounded-circle cdv-icon">
+                                    <i class="fa fa-envelope fa-2x cdv-icon3"></i>
+                                </div>
+                            </div>
+                            <div class="cd-through">
+                                <h5 class="mt-0 mb-1 font-weight-bold">Email</h5>
+                                <p class="mb-0"><?php echo isset($contact_details['email'])?$contact_details['email']:''?></p>
+                                <p><?php echo isset($contact_details['email_id'])?$contact_details['email_id']:''?></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </section>
+        
+        <!-- Contact Us -->
+        <section class="mt-5 pb-5 mb-4">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-7 contact-form">
+                        <!-- Contact Form -->
+                        <form method="post" action="<?php echo base_url('contactus/addpost'); ?>" >
+                            <p class="h4 heading mb-4">Get in Touch with Us</p>
+                            <div class="form-group">
+                                <input type="text"  name="course_name" class="form-control" placeholder="Course Name"  required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text"  name="name" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email"  name="email_id" class="form-control"  placeholder="Email ID" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text"  name="phone"  class="form-control"  pattern="[1-9]{1}[0-9]{9}" maxlength="10" placeholder="Phone Number" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text"  name="location" class="form-control" placeholder="Location" required>
+                            </div>
+                            <div class="text-right">
+                                <button class="btn btn-info btn-md btn-color mb-4" type="submit">
+                                    <i class="fa fa-paper-plane mr-1"></i> Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-md-5">
+                        <!-- Map Location -->
+                        <iframe class="z-depth-1" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30884.089210476883!2d78.39609819323411!3d17.499699017256685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9188ffffffff%3A0x9ab8c5c20aa5ec5a!2sPracha+Technologies!5e0!3m2!1sen!2sin!4v1537964294069" width="100%" height="373" frameborder="0" allowfullscreen></iframe>
                     </div>
 
                 </div>
-            </div>
 
+            </div>
+        </section>
+    
+    </main>
+
+    <!-- Fixed Footer -->
+    <footer class="page-footer font-small fixed-bottom mdb-color darken-4">
+        <div class="container">
+
+            <div class="row">
+
+                <!-- Contact Info -->
+                <div class="col">
+                    <div class="py-2">
+                        <i class="fa fa-phone"></i> Call Us :
+                        <span> +91 9856xxxx20 </span>
+                    </div>
+                </div>
+
+                <!-- Social icons -->
+                <div class="col text-right">
+                    <div class="py-2">
+                        <a href="https://www.facebook.com/" target="_blank">
+                            <i class="fa fa-facebook mr-3"></i>
+                        </a>
+
+                        <a href="https://twitter.com/" target="_blank">
+                            <i class="fa fa-twitter mr-3"></i>
+                        </a>
+
+                        <a href="https://www.youtube.com/" target="_blank">
+                            <i class="fa fa-youtube mr-3"></i>
+                        </a>
+
+                        <a href="https://plus.google.com/" target="_blank">
+                            <i class="fa fa-google-plus mr-3"></i>
+                        </a>
+                    </div>
+                    <!-- Social icons -->
+                </div>
+
+            </div>
         </div>
-    </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Initializations -->
+	<script type="text/javascript">
+        // Animations initialization
+        new WOW().init();
+    </script>
+
+    <script type="text/javascript">
+        $(function() {
+            if ($.browser.msie && $.browser.version.substr(0, 1) < 7) {
+                $('li').has('ul').mouseover(function() {
+                    $(this).children('ul').css('visibility', 'visible');
+                }).mouseout(function() {
+                    $(this).children('ul').css('visibility', 'hidden');
+                });
+            };
+        });
+    </script>
+
+</body>
+
+</html>

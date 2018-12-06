@@ -15,6 +15,7 @@ class Admin_panel extends CI_Controller {
 		$this->load->helper('cookie');
 		$this->load->helper('security');
 		$this->load->model('Admin_model');
+		$this->load->model('Category_model');
 		if($this->session->userdata('skill_user'))
 			{
 				$login_details=$this->session->userdata('skill_user');
