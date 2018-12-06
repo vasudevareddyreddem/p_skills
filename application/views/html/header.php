@@ -249,48 +249,51 @@
                                     <p>For contact 985xxxxx20</p>
                                 </div>
                                 <div class="jufc-logo text-center">
-                                    <img src="img/logo.png" alt="Skills Chair" height="30px" />
+                                    <img src="<?php echo base_url(); ?>assets/vendor/html/img/logo.png" alt="Skills Chair" height="30px" />
                                 </div>
                             </div>
                             
                             <!-- Right Side Form -->
+							
                             <div class="col-md-7 juf-form-fields pl-5 pr-5 pt-4 pb-4">
-
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
+							<form action="<?php echo base_url('user/leadpost'); ?>" method="post">
+                              
                                 <h4 class="modal-title heading w-75">Write to us</h4>
 
                                 <div class="md-form form-group">
-                                    <input type="text" id="ff-name" class="form-control">
+                                    <input type="text" id="name" name="name" class="form-control" required>
                                     <label for="ff-name">Full Name</label>
                                 </div>
 
                                 <div class="md-form form-group">
-                                    <input type="text" id="ff-cname" class="form-control">
+                                    <input type="text" id="course_name" name="course_name" class="form-control" required>
                                     <label for="ff-cname">Course Name</label>
                                 </div>
 
                                 <div class="md-form form-group">
-                                    <input type="email" id="ff-email" class="form-control">
+                                    <input type="email" id="email" name="email" class="form-control" required>
                                     <label for="ff-email">Email Address</label>
                                 </div>
 
                                 <div class="md-form form-group">
-                                    <input type="text" id="ff-number" class="form-control">
+                                    <input type="text" id="phonenumber" name="phonenumber" class="form-control" required>
                                     <label for="ff-number">Phone Number</label>
                                 </div>
 
                                 <div class="md-form form-group">
-                                    <textarea type="text" id="ff-msg" class="md-textarea form-control"></textarea>
+                                    <textarea type="text" id="message" name="message" class="md-textarea form-control" required></textarea>
                                     <label for="ff-msg">Message</label>
                                 </div>
 
                                 <div class="d-flex justify-content-center">
-                                    <button class="btn btn-color btn-md">Submit <i class="fa fa-paper-plane-o ml-1"></i></button>
+                                    <button class="btn btn-color btn-md" type="submit">Submit <i class="fa fa-paper-plane-o ml-1"></i></button>
                                 </div>
-
+							</form>
                             </div>
+							
 
                         </div>
                     </div>
@@ -300,3 +303,12 @@
 
         </div>
     </div>
+	<?php if($this->session->flashdata('success')): ?>
+        <div class="alert_msg1 animated slideInUp bg-succ">
+            <?php echo $this->session->flashdata('success');?> &nbsp; <i class="fa fa-check text-success ico_bac" aria-hidden="true"></i> </div>
+        <?php endif; ?>
+        <?php if($this->session->flashdata('error')): ?>
+        <div class="alert_msg1 animated slideInUp bg-warn">
+            <?php echo $this->session->flashdata('error');?> &nbsp; <i class="fa fa-exclamation-triangle text-success ico_bac" aria-hidden="true"></i> </div>
+        <?php endif; ?>
+		

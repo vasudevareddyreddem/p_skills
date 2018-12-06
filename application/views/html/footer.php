@@ -106,15 +106,18 @@
     </script>
     
     <!-- OnLoad Modal -->
+	 <?php $lead_data=$this->session->userdata('lead_data'); ?>
+        <?php if($lead_data['ip_address']!=$this->input->ip_address() && $lead_data['skill_data']==''){ ?>
     <script type="text/javascript">
         $(window).on('load',function(){
-            var delayMs = 1500; // delay in milliseconds
+            var delayMs = 10; // delay in milliseconds
 
             setTimeout(function(){
                 $('#joinUsForm').modal('show');
             }, delayMs);
         });   
     </script>
+		<?php } ?>
 
 </body>
 

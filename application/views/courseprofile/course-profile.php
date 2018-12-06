@@ -60,7 +60,7 @@
                                         <label>Time</label>
                                            <div class="input-group date">
 									 
-									  <input type="time"  name="time[]" class="form-control" placeholder="Enter Time" >
+									  <input type="text"  name="time[]" class="form-control" placeholder="Enter Time" >
 									</div>
                                     </div>
 									
