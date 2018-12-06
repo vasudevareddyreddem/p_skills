@@ -155,7 +155,7 @@ class Couresprofile extends Admin_panel {
 				       $cnt++;}
 					}
 			
-			$this->session->set_flashdata('success',"course details successfully updated");	
+			$this->session->set_flashdata('success',"course profile details successfully updated");	
 			redirect('couresprofile/lists');	
 			
 			}else{
@@ -190,9 +190,9 @@ class Couresprofile extends Admin_panel {
 							//echo $this->db->last_query();exit;	
 							if(count($statusdata)>0){
 								if($status==1){
-								$this->session->set_flashdata('success',"course details successfully Deactivate.");
+								$this->session->set_flashdata('success',"course profile details successfully Deactivate.");
 								}else{
-									$this->session->set_flashdata('success',"course  details successfully Activate.");
+									$this->session->set_flashdata('success',"course profile  details successfully Activate.");
 								}
 								redirect('couresprofile/lists');
 							}else{
@@ -230,7 +230,7 @@ class Couresprofile extends Admin_panel {
 							
 							$statusdata=$this->Category_model->update_oracle_training_batches_details($t_b_id,$stusdetails);
 							if(count($statusdata)>0){
-								$this->session->set_flashdata('success',"courese details successfully deleted.");
+								$this->session->set_flashdata('success',"course profile details successfully deleted.");
 								redirect('couresprofile/lists');
 							}else{
 									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");

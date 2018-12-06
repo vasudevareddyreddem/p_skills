@@ -3,7 +3,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Sub Category</h1>
+                <h1>Course Profile</h1>
             </div>
         </div>
     </div>
@@ -12,8 +12,8 @@
             <div class="page-title">
                 <ol class="breadcrumb text-right">
 				    <li><a href="#" ></a>Home</li>
-                    <li>Sub Category</li>
-                    <li>Add Sub Category</li>
+                    <li>Course Profile</li>
+                    <li>Add Course Profile</li>
                 </ol>
             </div>
         </div>
@@ -27,20 +27,20 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Add Sub Category</strong>
+                        <strong class="card-title">Add Course Profile</strong>
                     </div>
                     <div class="card-body">
-                        <form  method="post" action="<?php echo base_url('subcategory/addpost'); ?>" id="add_group">
+                        <form  method="post" action="<?php echo base_url(''); ?>" id="add_group">
                             <div class="row"> 
                                 <div class="col-md-6">
 									<div class="form-group">
-								<label class=" control-label">Category Name</label>
+								<label class=" control-label">Course Name</label>
 								<div class="">
-								<select id="category" name="category"  class="form-control select2" style="padding:20px; ">
+								<select id="course_name" name="course_name"  class="form-control select2" style="padding:20px; ">
 								<option value="">Select</option>
-								<?php if(isset($category_data) && count($category_data)>0){ ?>
-									<?php foreach($category_data as $list){ ?>
-										<option value="<?php echo $list['c_id']; ?>"><?php echo $list['category_name']; ?></option>
+								<?php if(isset($course_name) && count($course_name)>0){ ?>
+									<?php foreach($course_name as $list){ ?>
+										<option value="<?php echo $list['s_c_id']; ?>"><?php echo $list['sub_category_name']; ?></option>
 										
 												<?php } ?>
 											   <?php } ?>
@@ -54,8 +54,8 @@
 									
 								   <div class="col-md-6">
 										<div class="form-group">
-											<label>Sub Category Name</label>
-											<input type="text" id="sub_category_name" name="sub_category_name" placeholder="Enter Sub Category Name" class="form-control">
+											<label>Course Profile</label>
+											<input type="text" id="course_profile" name="course_profile" placeholder="Enter Course Profile" class="form-control">
 										</div>
 										</div>
                                    
@@ -76,17 +76,17 @@
     $('#add_group').bootstrapValidator({
 
         fields: {
-            category: {
+            course_name: {
                 validators: {
                     notEmpty: {
-                        message: 'Please Select Category Name'
+                        message: 'Select Course Name Required'
                     }
                 }
             },
-            sub_category_name: {
+            course_profile: {
                 validators: {
                     notEmpty: {
-                        message: 'Please Enter Sub Category Name'
+                        message: ' Course Profile Required'
                     }
                 }
             }

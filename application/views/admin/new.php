@@ -53,7 +53,7 @@
                                         <td>
                                             
 											
-				<a href="<?php echo base_url('subcategory/edit/'.base64_encode($list['s_c_id'])); ?>"  data-toggle="tooltip" title="Edit" ><i class="fa fa-edit btn btn-primary"></i></a>
+				<a href="<?php echo base_url('coursename/edit/'.base64_encode($list['s_c_id'])); ?>"  data-toggle="tooltip" title="Edit" ><i class="fa fa-edit btn btn-primary"></i></a>
 				<a href="javascript;void(0);" onclick="admindeactive('<?php echo base64_encode(htmlentities($list['s_c_id'])).'/'.base64_encode(htmlentities($list['status']));?>');adminstatus('<?php echo $list['status'];?>')" data-toggle="modal" data-target="#myModal" title="Edit"><i class="fa fa-info-circle btn btn-warning"></i></a>
 				<a href="javascript;void(0);" onclick="admindedelete('<?php echo base64_encode(htmlentities($list['s_c_id']));?>');admin('');" data-toggle="modal" data-target="#myModal" title="delete"><i class="fa fa-trash-o btn btn-danger"></i></a>
                      
@@ -108,10 +108,10 @@
 	
 <script>
 function admindeactive(id){
-	$(".popid").attr("href","<?php echo base_url('subcategory/status'); ?>"+"/"+id);
+	$(".popid").attr("href","<?php echo base_url('coursename/status'); ?>"+"/"+id);
 }
 function admindedelete(id){
-	$(".popid").attr("href","<?php echo base_url('subcategory/delete'); ?>"+"/"+id);
+	$(".popid").attr("href","<?php echo base_url('coursename/delete'); ?>"+"/"+id);
 	
 }
 function adminstatus(id){

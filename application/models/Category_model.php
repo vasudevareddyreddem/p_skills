@@ -163,6 +163,18 @@ class Category_model extends CI_Model
 	$this->db->where('t_b_id',$t_b_id);
     return $this->db->update("training_batches",$data);		
 	}
+	/*  course profile*/
+	public function get_course_name_data(){
+	$this->db->select('sub_category.s_c_id,sub_category.sub_category_name')->from('sub_category');
+	$this->db->where('sub_category.status',1);
+	return $this->db->get()->result_array();
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 
