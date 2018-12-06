@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 @include_once( APPPATH . 'controllers/Admin_panel.php');
-class Coursename extends Admin_panel {
+class Course extends Admin_panel {
 
 	public function __construct() 
 	{
@@ -10,7 +10,7 @@ class Coursename extends Admin_panel {
 		
 	}
 	
-	public function add()
+	public function name()
 	{	
 		if($this->session->userdata('skill_user'))
 		{
@@ -19,7 +19,7 @@ class Coursename extends Admin_panel {
 			//echo'<pre>';print_r($data);exit;
 			
 			$this->load->view('admin/header');
-			$this->load->view('coursename/coursename',$data);
+			$this->load->view('course/coursename',$data);
 			$this->load->view('admin/footer');
 		}else{
 			$this->session->set_flashdata('error',"you don't have permission to access");
@@ -36,7 +36,7 @@ class Coursename extends Admin_panel {
 						//echo '<pre>';print_r($check);exit;
 						if(count($check)>0){
 							$this->session->set_flashdata('error',"Course Name already exist. Please use another Course Name.");
-							redirect('coursename/lists');
+							redirect('course/name');
 						}
 			  
 		       $save_data=array(
@@ -52,10 +52,10 @@ class Coursename extends Admin_panel {
 				//echo'<pre>';print_r($save);exit;
 		       if(count($save)>0){
 					$this->session->set_flashdata('success',"Course Name details successfully added");	
-					redirect('coursename/lists');	
+					redirect('course/namelists');	
 					}else{
 						$this->session->set_flashdata('error',"technical problem occurred. please try again once");
-						redirect('coursename/lists');
+						redirect('course/name');
 					}  
 		
 				}else{
@@ -64,7 +64,7 @@ class Coursename extends Admin_panel {
 			}
 	}
 	
-	public function lists()
+	public function namelists()
 	{	
 		if($this->session->userdata('skill_user'))
 		{
@@ -72,14 +72,14 @@ class Coursename extends Admin_panel {
 			$data['subcategory_list']=$this->Category_model->get_subcategory_list();	
 				//echo'<pre>';print_r($data);exit;
 			$this->load->view('admin/header');
-			$this->load->view('coursename/coursename-list',$data);
+			$this->load->view('course/coursename-list',$data);
 			$this->load->view('admin/footer');
 		}else{
 			$this->session->set_flashdata('error',"you don't have permission to access");
 			redirect('admin');
 		}
 	}	
-	public function edit()
+	public function nameedit()
 	{	
 		if($this->session->userdata('skill_user'))
 		{
@@ -89,7 +89,7 @@ class Coursename extends Admin_panel {
 		 $data['edit_sub_category']=$this->Category_model->edit_sub_category_details($subcategory_id);
 				//echo'<pre>';print_r($data);exit;
 			$this->load->view('admin/header');
-			$this->load->view('coursename/edit-coursename',$data);
+			$this->load->view('course/edit-coursename',$data);
 			$this->load->view('admin/footer');
 		}else{
 			$this->session->set_flashdata('error',"you don't have permission to access");
@@ -108,7 +108,7 @@ class Coursename extends Admin_panel {
 					$check=$this->Category_model->check_sub_category_Details_exsists($post['category'],$post['sub_category_name']);
 						if(count($check)>0){
 						$this->session->set_flashdata('error',"Course Name already exist. Please use another Course Name.");
-						redirect('coursename/lists');
+						redirect('course/nameedit/'.base64_encode($post['s_c_id']));
 						}	
 					}
 		       $update_data=array(
@@ -124,10 +124,10 @@ class Coursename extends Admin_panel {
 				 //echo'<pre>';print_r($update);exit;
 		       if(count($update)>0){
 					$this->session->set_flashdata('success',"Course Name details successfully updated");	
-					redirect('coursename/lists');	
+					redirect('course/namelists');	
 					  }else{
 						$this->session->set_flashdata('error',"techechal probelem occur ");
-						redirect('coursename/lists');
+						redirect('course/nameedit');
 					  }    
 				
 					}else{
@@ -136,7 +136,7 @@ class Coursename extends Admin_panel {
 				}
 	}
 	
-	public function status()
+	public function namestatus()
 	{
 if($this->session->userdata('skill_user'))
 		{	
@@ -160,10 +160,10 @@ if($this->session->userdata('skill_user'))
 								}else{
 									$this->session->set_flashdata('success',"Course Name details successfully  Activate.");
 								}
-								redirect('coursename/lists');
+								redirect('course/namelists');
 							}else{
 									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-									redirect('coursename/lists');
+									redirect('course/namelists');
 							}
 						}else{
 						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
@@ -176,7 +176,7 @@ if($this->session->userdata('skill_user'))
 	   }
     }
 	
-	public function delete()
+	public function namedelete()
 		{
 if($this->session->userdata('skill_user'))
 		{	
@@ -192,10 +192,10 @@ if($this->session->userdata('skill_user'))
 							$statusdata=$this->Category_model->update_sub_category_details($s_c_id,$stusdetails);
 							if(count($statusdata)>0){
 								$this->session->set_flashdata('success',"Course Name details successfully  deleted.");
-								redirect('coursename/lists');
+								redirect('course/namelists');
 							}else{
 									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-									redirect('coursename/lists');
+									redirect('course/namelists');
 							}
 						}else{
 						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");

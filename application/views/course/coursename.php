@@ -30,7 +30,7 @@
                         <strong class="card-title">Add Course Name</strong>
                     </div>
                     <div class="card-body">
-                        <form  method="post" action="<?php echo base_url('coursename/addpost'); ?>" id="add_group">
+                        <form  method="post" action="<?php echo base_url('course/addpost'); ?>" id="add_group">
                             <div class="row"> 
                                 <div class="col-md-6">
 									<div class="form-group">

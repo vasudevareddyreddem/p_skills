@@ -38,16 +38,16 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="menu-icon fa fa-users"></i>Course Name Creation</a>
                     <ul class="sub-menu children dropdown-menu">
    
-                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('coursename/add');?>"> Add Course Name</a></li>
-                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('coursename/lists');?>">Course Name List</a></li>
+                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/name');?>"> Add Course Name</a></li>
+                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/namelists');?>">Course Name List</a></li>
                     </ul>
                 </li>
 				<li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="menu-icon fa fa-users"></i>Course Profile</a>
                     <ul class="sub-menu children dropdown-menu">
    
-                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('Courseprofiles/add');?>"> Add Course Profile</a></li>
-                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('Courseprofiles/lists');?>">Course Profile List</a></li>
+                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('courseprofiles/add');?>"> Add Course Profile</a></li>
+                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('courseprofiles/lists');?>">Course Profile List</a></li>
                     </ul>
                 </li>
 				

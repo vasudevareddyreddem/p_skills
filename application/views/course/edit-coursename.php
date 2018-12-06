@@ -29,7 +29,7 @@
                         <strong class="card-title">Edit Course Name</strong>
                     </div>
                     <div class="card-body">
-                        <form  method="post" action="<?php echo base_url('coursename/editpost'); ?>" id="add_group">
+                        <form  method="post" action="<?php echo base_url('course/editpost'); ?>" id="add_group">
 					<input type="hidden" id="s_c_id" name="s_c_id" value="<?php echo isset($edit_sub_category['s_c_id'])?$edit_sub_category['s_c_id']:''; ?>">
 
                             <div class="row"> 
