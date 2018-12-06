@@ -21,7 +21,7 @@
 
 <div class="content mt-3">
     <div class="animated fadeIn">
-	<form id="add_group" method="post" action="<?php echo base_url('couresprofile/addpost');?>">
+	<form id="add_group" method="post" action="<?php echo base_url('couresprofile/editpost');?>">
 	<input type="hidden" id="t_b_id" name="t_b_id" value="<?php echo isset($edit_course_profile['t_b_id'])?$edit_course_profile['t_b_id']:'' ?>">
      <div class="row">
 					<div class="col-md-10">
