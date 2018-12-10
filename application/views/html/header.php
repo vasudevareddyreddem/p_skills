@@ -17,6 +17,7 @@
     <link href="<?php echo base_url(); ?>assets/vendor/html/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="<?php echo base_url(); ?>assets/vendor/html/css/style.min.css" rel="stylesheet">
+	 <script src="https://cllicks.com/assets/vendor/front-end/js/jquery.min.js"></script>
     <style type="text/css">
         @media (min-width: 800px) and (max-width: 850px) {
             .navbar:not(.top-nav-collapse) {

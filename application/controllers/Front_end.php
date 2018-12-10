@@ -15,9 +15,10 @@ class Front_end extends CI_Controller {
 		$this->load->helper('directory');
 		$this->load->helper('cookie');
 		$this->load->helper('security');
-		$this->load->view('html/header');
-	    $this->load->model('Front_end_model');
+		$this->load->model('Front_end_model');
 	    $this->load->model('User_model');
+		//echo '<pre>';print_r($data);exit;
+		$this->load->view('html/header');
 	}
 	
 	

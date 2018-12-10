@@ -53,39 +53,7 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/vendor/html/js/mdb.min.js"></script>
     
     <!-- Initializations -->
-    <script type="text/javascript">
     
-  $( function() {
-    var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
-    $( "#tags" ).autocomplete({
-      source: availableTags
-    });
-  } );
-
-    </script> 
 	
     <script type="text/javascript">
         // Animations initialization

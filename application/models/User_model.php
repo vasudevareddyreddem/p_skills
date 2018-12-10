@@ -14,6 +14,11 @@ class User_model extends CI_Model
 		$this->db->insert('leads_list',$data);
 		return $this->db->insert_id();
 	}
+	public  function get_category_value(){
+		$this->db->select('c_id,course_name_id,c_P_name')->from('course_profile');
+		$this->db->where('course_profile.status',1);
+		return $this->db->get()->result_array();
+	}
 	
 	
 	
