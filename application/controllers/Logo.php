@@ -42,7 +42,7 @@ class Logo extends Admin_panel {
 					 'image'=>isset($image)?$image:'',
 					 'org_image'=>isset($_FILES['image']['name'])?$_FILES['image']['name']:'',
 					 'profile_id'=>isset($post['profile_id'])?$post['profile_id']:'',
-					 'status'=>0,
+					 'status'=>1,
 					 'created_by'=>$login_details['cust_id'],
 					);
 				   $save=$this->Logo_model->save_logo_image($add);	
@@ -74,14 +74,16 @@ class Logo extends Admin_panel {
 			redirect('admin');
 		}
 	}	
-	public function imageedit()
+	public function edit()
 	{	
 		if($this->session->userdata('skill_user'))
 		{
 			$login_details=$this->session->userdata('skill_user');
 			$image_id=base64_decode($this->uri->segment(3));
-			$data['image_details']=$this->Logo_model->get_image_details($image_id);
-			$this->load->view('headerimage/edit',$data);
+			$data['logo_details']=$this->Logo_model->get_logo_details($image_id);
+			$data['course_profle_list']=$this->Logo_model->get_course_profile_list();
+
+			$this->load->view('logo/edit',$data);
 			$this->load->view('admin/footer');
 		}else{
 			$this->session->set_flashdata('error',"you don't have permission to access");
@@ -95,13 +97,14 @@ class Logo extends Admin_panel {
 		 $login_details=$this->session->userdata('skill_user');
 	     $post=$this->input->post();	
 		 // echo'<pre>';print_r($post);exit;
-			$details=$this->Logo_model->get_image_details($post['img_id']);	
+			$details=$this->Logo_model->get_logo_details($post['l_id']);	
 					
 		      if(isset($_FILES['image']['name']) && $_FILES['image']['name']!=''){
+							unlink('assets/logos/'.$details['image']);
 							$temp = explode(".", $_FILES["image"]["name"]);
 							$image = round(microtime(true)) . '.' . end($temp);
 							$org_image=$_FILES["image"]["name"];
-							move_uploaded_file($_FILES['image']['tmp_name'], "assets/headerimages/" . $image);
+							move_uploaded_file($_FILES['image']['tmp_name'], "assets/logos/" . $image);
 						}else{
 							$image=$details['image'];
 							$org_image=$details['org_image'];
@@ -109,17 +112,17 @@ class Logo extends Admin_panel {
 					$add=array(
 					 'image'=>isset($image)?$image:'',
 					 'org_image'=>isset($org_image)?$org_image:'',
-					 'title'=>isset($post['title'])?$post['title']:'',
+					 'profile_id'=>isset($post['profile_id'])?$post['profile_id']:'',
 					 'updated_at'=>date('Y-m-d H:i:s')
 					);
-                $update=$this->Logo_model->update_header_image_details($post['img_id'],$add);	
+                $update=$this->Logo_model->update_logo_details($post['l_id'],$add);	
 				 //echo'<pre>';print_r($update);exit;
 		       if(count($update)>0){
-					$this->session->set_flashdata('success',"Image successfully updated");	
-					redirect('header/imagelists');	
+					$this->session->set_flashdata('success',"Logo successfully updated");	
+					redirect('logo/lists');	
 					  }else{
 						$this->session->set_flashdata('error',"technical problem occurred. Please try again");
-						redirect('header/imageedit/'.base64_encode($post['img_id']));
+						redirect('logo/edit/'.base64_encode($post['l_id']));
 					  }    
 				
 					}else{
@@ -128,41 +131,35 @@ class Logo extends Admin_panel {
 				}
 	}
 	
-	public function imagestatus()
+	public function status()
 	{
 		if($this->session->userdata('skill_user'))
 		{	
          $login_details=$this->session->userdata('skill_user');	
-	             $img_id=base64_decode($this->uri->segment(3));
+	             $l_id=base64_decode($this->uri->segment(3));
 					$status=base64_decode($this->uri->segment(4));
 					if($status==1){
 						$statu=0;
 					}else{
 						$statu=1;
 					}
-					if($status==0){
-						$check=$this->Logo_model->check_images_status();
-						if(count($check)>0){
-							$this->session->set_flashdata('error',"Already one image is active. Please try again once");
-							redirect('header/imagelists');
-						}
-					}
-					if($img_id!=''){
+					
+					if($l_id!=''){
 						$stusdetails=array(
 							'status'=>$statu,
 							'updated_at'=>date('Y-m-d H:i:s')
 							);
-							$statusdata=$this->Logo_model->update_header_image_details($img_id,$stusdetails);
+							$statusdata=$this->Logo_model->update_logo_details($l_id,$stusdetails);
 							if(count($statusdata)>0){
 								if($status==1){
-								$this->session->set_flashdata('success',"Image successfully  Deactivate.");
+								$this->session->set_flashdata('success',"Logo successfully  Deactivate.");
 								}else{
-									$this->session->set_flashdata('success',"Image details successfully  Activate.");
+									$this->session->set_flashdata('success',"Logo successfully  Activate.");
 								}
-								redirect('header/imagelists');
+								redirect('logo/lists');
 							}else{
 									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-									redirect('header/imagelists');
+									redirect('logo/lists');
 							}
 						}else{
 						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
@@ -175,26 +172,26 @@ class Logo extends Admin_panel {
 	   }
     }
 	
-	public function imagedelete()
+	public function delete()
 		{
 if($this->session->userdata('skill_user'))
 		{	
          $login_details=$this->session->userdata('skill_user');	
-	             $img_id=base64_decode($this->uri->segment(3));
+	             $l_id=base64_decode($this->uri->segment(3));
 					if($status==2){
 					}
-					if($img_id!=''){
+					if($l_id!=''){
 						$stusdetails=array(
 							'status'=>2,
 							'updated_at'=>date('Y-m-d H:i:s')
 							);
-							$statusdata=$this->Logo_model->update_header_image_details($img_id,$stusdetails);
+							$statusdata=$this->Logo_model->update_logo_details($l_id,$stusdetails);
 							if(count($statusdata)>0){
-								$this->session->set_flashdata('success',"Course Name details successfully  deleted.");
-								redirect('header/imagelists');
+								$this->session->set_flashdata('success',"Logo successfully  deleted.");
+								redirect('logo/lists');
 							}else{
 								$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-								redirect('header/imagelists');
+								redirect('logo/lists');
 							}
 						}else{
 						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
