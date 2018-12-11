@@ -35,6 +35,11 @@ class User_model extends CI_Model
 		$this->db->where('status',1);
 		return $this->db->get()->row_array();
 	}
+	public  function get_contactus_details(){
+		$this->db->select('*')->from('contactus');
+		$this->db->where('status',1);
+		return $this->db->get()->row_array();
+	}
 	
 	
 	

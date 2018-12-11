@@ -35,7 +35,7 @@
         <div class="container">
 
             <!-- Brand -->
-            <a class="navbar-brand text-center" href="index.html">
+            <a class="navbar-brand text-center" href="<?php echo base_url(); ?>">
                 <img src="<?php echo base_url(); ?>assets/vendor/html/img/logo.png" alt="Skills Chair" height="20px" style="margin-top: -8px;" />
             </a>
 
@@ -246,8 +246,12 @@
                             <!-- Left Side Content -->
                             <div class="col-md-5 juf-content">
                                 <div class="p-5">
-                                    <p>“ Top highly paid job courses”</p>
-                                    <p>For contact 985xxxxx20</p>
+                                    <p>“ Top highly paid job courses” For contact </p>
+                                    <p>
+									 +91 <?php echo isset($contact_details['phone'])?$contact_details['phone']:''; ?>,<br> 
+									 +91 <?php echo isset($contact_details['phone_number'])?$contact_details['phone_number']:''; ?>
+									
+									</p>
                                 </div>
                                 <div class="jufc-logo text-center">
                                     <img src="<?php echo base_url(); ?>assets/vendor/html/img/logo.png" alt="Skills Chair" height="30px" />

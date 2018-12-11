@@ -17,8 +17,9 @@ class Front_end extends CI_Controller {
 		$this->load->helper('security');
 		$this->load->model('Front_end_model');
 	    $this->load->model('User_model');
+		$data['contact_details']=$this->User_model->get_contactus_details();
 		//echo '<pre>';print_r($data);exit;
-		$this->load->view('html/header');
+		$this->load->view('html/header',$data);
 	}
 	
 	
