@@ -11,7 +11,8 @@ class User extends Front_end {
 	public function index()
 	{	
 		
-		$this->load->view('html/index');
+		$data['search_value']=$this->User_model->get_category_value();
+		$this->load->view('html/index',$data);
 		$this->load->view('html/footer');
 	}
 	

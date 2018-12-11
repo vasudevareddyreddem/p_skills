@@ -11,14 +11,19 @@
                 <h2 class="mb-4">
                     <strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In finibus sodales nisi eu accumsan.</strong>
                 </h2>
+									<form action="<?php echo base_url('Courseprofile/search'); ?>" method="post" >
+
                 <div class="search-container">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="tags" placeholder="Search Keywords">
+                        <input type="text" class="form-control tags" id="tags" name="search" placeholder="Search Keywords">
+						<input type="hidden" id="searchid_id" name="searchid_id" value="">
                         <div class="input-group-append">
-                            <button class="btn btn-lg btn-default m-0 px-3 py-2" type="button">Search</button>
+                            <button class="btn btn-lg btn-default m-0 px-3 py-2" type="submit">Search</button>
                         </div>
+						
                     </div>
                 </div>
+				</form>
                 <div class="enrollments">
                     <ul class="list-inline">
                         <li class="list-inline-item e-div">
@@ -42,4 +47,26 @@
         
     </div>
 
+    <script type="text/javascript">
+          $(function() {
+    var homesearch = [<?php foreach($search_value as $lis){ ?> {
+                    value: '<?php echo $lis['c_id']; ?>',
+                    label: '<?php echo $lis['c_P_name']; ?>',
+                }, <?php } ?>];
+                var source = [];
+                var mapping = {};
+                for (var i = 0; i < homesearch.length; ++i) {
+                    source.push(homesearch[i].label);
+                    mapping[homesearch[i].label] = homesearch[i].value;
+                }
+                $('.tags').autocomplete({
+                    minLength: 1,
+                    source: source,
+                    select: function(event, ui) {
+                        $('#searchid_id').val(mapping[ui.item.value]);
+                    }
+                });
     
+    });
+
+    </script> 

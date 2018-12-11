@@ -14,8 +14,14 @@
                 <li class="active">
                     <a href="<?php echo base_url('dashboard'); ?>"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                 </li>
-                <li>
-                    <a href="validations.php"> <i class="menu-icon fa fa-dashboard"></i>Validations </a>
+              
+				<li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="menu-icon fa fa-users"></i>Home Image</a>
+                    <ul class="sub-menu children dropdown-menu">
+   
+                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('header/imageadd');?>"> Add  </a></li>
+                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('header/imagelists');?>"> List</a></li>
+                    </ul>
                 </li>
 				
                 <li class="menu-item-has-children dropdown">
