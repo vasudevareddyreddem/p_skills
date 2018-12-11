@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/admin/css/normalize.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/admin/css/bootstrap.min.css">
+	 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/admin/css/summernote-lite.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/admin/css/select2.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/admin/css/datepicker3.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/admin/css/bootstrapValidator.min.css">

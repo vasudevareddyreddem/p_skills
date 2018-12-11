@@ -1052,6 +1052,23 @@ public function coursedetailsdelete()
 		
 		
 	}	
+	
+	/* Training Course  */
+	public function trainingcourse()
+	{	
+		if($this->session->userdata('skill_user'))
+		{
+			$login_details=$this->session->userdata('skill_user');
+		   $data['category_data']=$this->Category_model->get_Category_data();
+			//echo'<pre>';print_r($data);exit;
+			
+			$this->load->view('courseprofile/trainingcourse',$data);
+			$this->load->view('admin/footer');
+		}else{
+			$this->session->set_flashdata('error',"you don't have permission to access");
+			redirect('admin');
+		}
+	}
 		
 	
 	

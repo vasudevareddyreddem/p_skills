@@ -49,6 +49,9 @@
 						<li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/profile');?>"> Add Course Profile</a></li>
                         <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/profilelists');?>">Course Profile List</a></li>
 						
+						<li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/trainingcourse');?>"> Add Training Course</a></li>
+                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/trainingcourselists');?>">Training Course List</a></li>
+						
 						<li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/trainingbatches');?>"> Add Oracle Training Batches</a></li>
                         <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/trainingbatcheslists');?>">Course Oracle Training Batches List</a></li>
 						

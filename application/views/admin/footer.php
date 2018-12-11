@@ -1,4 +1,11 @@
     </div>
+	<script>
+      $('#summernote').summernote({
+        placeholder: 'Hello stand alone ui',
+      
+        height: 300,
+      });
+    </script>
     <script src="<?php echo base_url(); ?>assets/vendor/admin/js/popper.min.js"></script>
      <script src="<?php echo base_url(); ?>assets/vendor/admin/js/main.js"></script>
 	   <script src="<?php echo base_url(); ?>assets/vendor/admin/js/plugins.js"></script>
@@ -10,6 +17,8 @@
 	 <script src="<?php echo base_url(); ?>assets/vendor/admin/js/Chart.bundle.js"></script>
     <script src="<?php echo base_url(); ?>assets/vendor/admin/js/chartjs-init.js"></script>
 	<script src="<?php echo base_url(); ?>assets/vendor/admin/js/chosen.jquery.min.js"></script>
+		
+
 
 </body>
 </html>
