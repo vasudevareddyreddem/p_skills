@@ -6,7 +6,7 @@ class Header extends Admin_panel {
 	public function __construct() 
 	{
 		parent::__construct();
-		$this->load->model('Category_model');
+		$this->load->model('Header_model');
 		
 	}
 	
@@ -15,11 +15,10 @@ class Header extends Admin_panel {
 		if($this->session->userdata('skill_user'))
 		{
 			$login_details=$this->session->userdata('skill_user');
-		   $data['category_data']=$this->Category_model->get_Category_data();
 			//echo'<pre>';print_r($data);exit;
 			
 			$this->load->view('admin/header');
-			$this->load->view('course/coursename',$data);
+			$this->load->view('headerimage/add');
 			$this->load->view('admin/footer');
 		}else{
 			$this->session->set_flashdata('error',"you don't have permission to access");
@@ -30,66 +29,61 @@ class Header extends Admin_panel {
 		if($this->session->userdata('skill_user'))
 		{
 			$login_details=$this->session->userdata('skill_user');
-	     $post=$this->input->post();	
-		     //echo'<pre>';print_r($post);exit;
-			 $check=$this->Category_model->check_sub_category_Details_exsists($post['category'],$post['sub_category_name']);
-						//echo '<pre>';print_r($check);exit;
-						if(count($check)>0){
-							$this->session->set_flashdata('error',"Course Name already exist. Please use another Course Name.");
-							redirect('course/name');
+				$post=$this->input->post();	
+				//echo'<pre>';print_r($post);exit;
+				if(isset($_FILES['image']['name']) && $_FILES['image']['name']!=''){
+							$temp = explode(".", $_FILES["image"]["name"]);
+							$image = round(microtime(true)) . '.' . end($temp);
+							move_uploaded_file($_FILES['image']['tmp_name'], "assets/headerimages/" . $image);
+						}else{
+							$image='';
 						}
-			  
-		       $save_data=array(
-	            'category'=>isset($post['category'])?$post['category']:'',
-	            'sub_category_name'=>isset($post['sub_category_name'])?$post['sub_category_name']:'',
-				'status'=>1,
-				'created_at'=>date('Y-m-d H:i:s'),
-				'updated_at'=>date('Y-m-d H:i:s'),
-				'created_by'=>isset($login_details['cust_id'])?$login_details['cust_id']:''
-				 );
-				//echo'<pre>';print_r($save_data);exit;
-		        $save=$this->Category_model->save_sub_category_details($save_data);	
-				//echo'<pre>';print_r($save);exit;
-		       if(count($save)>0){
-					$this->session->set_flashdata('success',"Course Name details successfully added");	
-					redirect('course/namelists');	
+					$add=array(
+					 'image'=>isset($image)?$image:'',
+					 'org_image'=>isset($_FILES['image']['name'])?$_FILES['image']['name']:'',
+					 'title'=>isset($post['title'])?$post['title']:'',
+					 'status'=>0,
+					 'created_by'=>$login_details['cust_id'],
+					);
+				   $save=$this->Header_model->save_header_image($add);	
+				   if(count($save)>0){
+						$this->session->set_flashdata('success',"Image successfully added");	
+						redirect('header/imagelists');	
 					}else{
 						$this->session->set_flashdata('error',"technical problem occurred. please try again once");
-						redirect('course/name');
+						redirect('header/imageadd');
 					}  
 		
-				}else{
-				$this->session->set_flashdata('error',"you don't have permission to access");
-				redirect('admin');
-			}
+		}else{
+		 $this->session->set_flashdata('error',"you don't have permission to access");
+		 redirect('admin');
+		}
 	}
 	
-	public function namelists()
+	public function imagelists()
 	{	
 		if($this->session->userdata('skill_user'))
 		{
 			$login_details=$this->session->userdata('skill_user');
-			$data['subcategory_list']=$this->Category_model->get_subcategory_list();	
+			$data['images_list']=$this->Header_model->get_images_list();	
 				//echo'<pre>';print_r($data);exit;
 			$this->load->view('admin/header');
-			$this->load->view('course/coursename-list',$data);
+			$this->load->view('headerimage/list',$data);
 			$this->load->view('admin/footer');
 		}else{
 			$this->session->set_flashdata('error',"you don't have permission to access");
 			redirect('admin');
 		}
 	}	
-	public function nameedit()
+	public function imageedit()
 	{	
 		if($this->session->userdata('skill_user'))
 		{
 			$login_details=$this->session->userdata('skill_user');
-		$subcategory_id=base64_decode($this->uri->segment(3));
-		 $data['category_data']=$this->Category_model->get_Category_data();
-		 $data['edit_sub_category']=$this->Category_model->edit_sub_category_details($subcategory_id);
-				//echo'<pre>';print_r($data);exit;
+			$image_id=base64_decode($this->uri->segment(3));
+			$data['image_details']=$this->Header_model->get_image_details($image_id);
 			$this->load->view('admin/header');
-			$this->load->view('course/edit-coursename',$data);
+			$this->load->view('headerimage/edit',$data);
 			$this->load->view('admin/footer');
 		}else{
 			$this->session->set_flashdata('error',"you don't have permission to access");
@@ -100,34 +94,34 @@ class Header extends Admin_panel {
 	{
 	if($this->session->userdata('skill_user'))
 		{
-			$login_details=$this->session->userdata('skill_user');
+		 $login_details=$this->session->userdata('skill_user');
 	     $post=$this->input->post();	
 		 // echo'<pre>';print_r($post);exit;
-			$sub_category=$this->Category_model->get_sub_category_details($post['s_c_id']);	
-					if($sub_category['category']!=$post['category'] || $sub_category['sub_category_name']!=$post['sub_category_name']){
-					$check=$this->Category_model->check_sub_category_Details_exsists($post['category'],$post['sub_category_name']);
-						if(count($check)>0){
-						$this->session->set_flashdata('error',"Course Name already exist. Please use another Course Name.");
-						redirect('course/nameedit/'.base64_encode($post['s_c_id']));
-						}	
-					}
-		       $update_data=array(
-	            'category'=>isset($post['category'])?$post['category']:'',
-	            'sub_category_name'=>isset($post['sub_category_name'])?$post['sub_category_name']:'',
-				'status'=>1,
-				'created_at'=>date('Y-m-d H:i:s'),
-				'updated_at'=>date('Y-m-d H:i:s'),
-				'created_by'=>isset($login_details['cust_id'])?$login_details['cust_id']:''
-				 );
-				//echo'<pre>';print_r($update_data);exit;
-                $update=$this->Category_model->update_sub_category_details($post['s_c_id'],$update_data);	
+			$details=$this->Header_model->get_image_details($post['img_id']);	
+					
+		      if(isset($_FILES['image']['name']) && $_FILES['image']['name']!=''){
+							$temp = explode(".", $_FILES["image"]["name"]);
+							$image = round(microtime(true)) . '.' . end($temp);
+							$org_image=$_FILES["image"]["name"];
+							move_uploaded_file($_FILES['image']['tmp_name'], "assets/headerimages/" . $image);
+						}else{
+							$image=$details['image'];
+							$org_image=$details['org_image'];
+						}
+					$add=array(
+					 'image'=>isset($image)?$image:'',
+					 'org_image'=>isset($org_image)?$org_image:'',
+					 'title'=>isset($post['title'])?$post['title']:'',
+					 'updated_at'=>date('Y-m-d H:i:s')
+					);
+                $update=$this->Header_model->update_header_image_details($post['img_id'],$add);	
 				 //echo'<pre>';print_r($update);exit;
 		       if(count($update)>0){
-					$this->session->set_flashdata('success',"Course Name details successfully updated");	
-					redirect('course/namelists');	
+					$this->session->set_flashdata('success',"Image successfully updated");	
+					redirect('header/imagelists');	
 					  }else{
-						$this->session->set_flashdata('error',"techechal probelem occur ");
-						redirect('course/nameedit');
+						$this->session->set_flashdata('error',"technical problem occurred. Please try again");
+						redirect('header/imageedit/'.base64_encode($post['img_id']));
 					  }    
 				
 					}else{
@@ -136,34 +130,41 @@ class Header extends Admin_panel {
 				}
 	}
 	
-	public function namestatus()
+	public function imagestatus()
 	{
-if($this->session->userdata('skill_user'))
+		if($this->session->userdata('skill_user'))
 		{	
          $login_details=$this->session->userdata('skill_user');	
-	             $s_c_id=base64_decode($this->uri->segment(3));
+	             $img_id=base64_decode($this->uri->segment(3));
 					$status=base64_decode($this->uri->segment(4));
 					if($status==1){
 						$statu=0;
 					}else{
 						$statu=1;
 					}
-					if($s_c_id!=''){
+					if($status==0){
+						$check=$this->Header_model->check_images_status();
+						if(count($check)>0){
+							$this->session->set_flashdata('error',"Already one image is active. Please try again once");
+							redirect('header/imagelists');
+						}
+					}
+					if($img_id!=''){
 						$stusdetails=array(
 							'status'=>$statu,
 							'updated_at'=>date('Y-m-d H:i:s')
 							);
-							$statusdata=$this->Category_model->update_sub_category_details($s_c_id,$stusdetails);
+							$statusdata=$this->Header_model->update_header_image_details($img_id,$stusdetails);
 							if(count($statusdata)>0){
 								if($status==1){
-								$this->session->set_flashdata('success',"Course Name details successfully  Deactivate.");
+								$this->session->set_flashdata('success',"Image successfully  Deactivate.");
 								}else{
-									$this->session->set_flashdata('success',"Course Name details successfully  Activate.");
+									$this->session->set_flashdata('success',"Image details successfully  Activate.");
 								}
-								redirect('course/namelists');
+								redirect('header/imagelists');
 							}else{
 									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-									redirect('course/namelists');
+									redirect('header/imagelists');
 							}
 						}else{
 						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
@@ -176,26 +177,26 @@ if($this->session->userdata('skill_user'))
 	   }
     }
 	
-	public function namedelete()
+	public function imagedelete()
 		{
 if($this->session->userdata('skill_user'))
 		{	
          $login_details=$this->session->userdata('skill_user');	
-	             $s_c_id=base64_decode($this->uri->segment(3));
+	             $img_id=base64_decode($this->uri->segment(3));
 					if($status==2){
 					}
-					if($s_c_id!=''){
+					if($img_id!=''){
 						$stusdetails=array(
 							'status'=>2,
 							'updated_at'=>date('Y-m-d H:i:s')
 							);
-							$statusdata=$this->Category_model->update_sub_category_details($s_c_id,$stusdetails);
+							$statusdata=$this->Header_model->update_header_image_details($img_id,$stusdetails);
 							if(count($statusdata)>0){
 								$this->session->set_flashdata('success',"Course Name details successfully  deleted.");
-								redirect('course/namelists');
+								redirect('header/imagelists');
 							}else{
-									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-									redirect('course/namelists');
+								$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+								redirect('header/imagelists');
 							}
 						}else{
 						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
