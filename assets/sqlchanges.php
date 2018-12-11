@@ -72,5 +72,6 @@ CREATE TABLE `training_batches` (
 
 
 
-ALTER TABLE `skills`.`training_course`   
-  CHANGE `course_profile` `course_profile` INT(250) NULL;
+ALTER TABLE `skills`.`training_batches`   
+  CHANGE `course_profile` `course_profile` INT(11) NULL;
+
