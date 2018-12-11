@@ -3,7 +3,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Header Image</h1>
+                <h1>Course profile Logo</h1>
             </div>
         </div>
     </div>
@@ -12,7 +12,7 @@
             <div class="page-title">
                 <ol class="breadcrumb text-right">
 				    <li><a href="#" ></a>Home</li>
-                    <li>Header Image</li>
+                    <li>Course profile Logo</li>
                 </ol>
             </div>
         </div>
@@ -26,30 +26,39 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Edit Header Image</strong>
+                        <strong class="card-title">Edit Course profile Logo</strong>
                     </div>
                     <div class="card-body">
-                        <form  method="post" action="<?php echo base_url('header/editpost'); ?>" id="addheaderimage" name="addheaderimage" enctype="multipart/form-data">
-                            <input  type="hidden" id="img_id" name="img_id" value="<?php echo isset($image_details['h_id'])?$image_details['h_id']:''; ?>">
-							<div class="row"> 
-                                <div class="col-md-6">
-									<div class="form-group">
-										<label class=" control-label">Image</label>
-										<div class="">
-											<input type="file" id="image" name="image" class="form-control">
-										</div>
-										</div>
-									
-									
-									
-                                    </div>
-									
-								   <div class="col-md-6">
+                        <form  method="post" action="<?php echo base_url('logo/editpost'); ?>" id="addheaderimage" name="addheaderimage" enctype="multipart/form-data">
+                            <input  type="hidden" id="l_id" name="l_id" value="<?php echo isset($logo_details['l_id'])?$logo_details['l_id']:''; ?>">
+							 <div class="row">
+									<div class="col-md-6">
 										<div class="form-group">
-											<label>Title</label>
-											<input type="text" id="title" name="title" placeholder="Enter Title" class="form-control" value="<?php echo isset($image_details['title'])?$image_details['title']:''; ?>">
+											<label>Course Profile</label>
+											<select type="text" id="profile_id" name="profile_id" class="form-control">
+											<option value="">Select</option>
+											<?php if(isset($course_profle_list) && count($course_profle_list)>0){ ?>
+												<?php foreach($course_profle_list as $list){ ?>
+												<?php if($logo_details['l_id']==$list['c_id']){ ?>
+													<option selected value="<?php echo $list['c_id']; ?>"><?php echo $list['c_P_name']; ?></option>
+												<?php }else{ ?>
+													<option value="<?php echo $list['c_id']; ?>"><?php echo $list['c_P_name']; ?></option>
+												<?php } ?>
+												<?php } ?>
+											<?php } ?>
+											</select>
 										</div>
+									</div>							
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class=" control-label">Logo</label>
+											<div class="">
+												<input type="file" id="image" name="image" class="form-control">
+											</div>
 										</div>
+									</div>
+									
+								 
                                    
                                     </div>
 						      <button type="submit" class="btn btn-sm btn-primary" name="signup" value="Sign up">Update</button>
@@ -75,10 +84,10 @@
 						}
 					}
 				},
-				title: {
+				profile_id: {
 					validators: {
 						notEmpty: {
-							message: 'Title is required'
+							message: 'Profile is required'
 						}
 					}
 				}

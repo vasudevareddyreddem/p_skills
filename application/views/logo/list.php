@@ -4,7 +4,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Header Image List</h1>
+                <h1>Profile logo List</h1>
             </div>
         </div>
     </div>
@@ -13,7 +13,7 @@
             <div class="page-title">
                 <ol class="breadcrumb text-right">
                     <li><a href="#">Home</a></li>
-                    <li>Header Image List</li>
+                    <li>Profile logo List</li>
                 </ol>
             </div>
         </div>
@@ -27,32 +27,32 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Header Image List</strong>
+                        <strong class="card-title">Profile logo List</strong>
                     </div>
                     <div class="card-body">
-					<?php if(isset($images_list) && count($images_list)>0){ ?>
+					<?php if(isset($logo_list) && count($logo_list)>0){ ?>
                         <div class="table-responsive">
                             <table id="example" class="table table-striped table-bordered" style="width:100%;">
                                 <thead>
                                     <tr>
-                                        <th>Image</th>
-										<th>Title</th>
+                                        <th>Logo</th>
+										<th>Profile Name</th>
 										<th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   <?php $cnt=1; foreach($images_list as $list){ ?>
+                                   <?php $cnt=1; foreach($logo_list as $list){ ?>
                                     <tr>
-                                        <td><img src="<?php echo base_url('assets/headerimages/'.$list['image']); ?>" height="100px;" width="100px;"></td>
-										<td><?php echo $list['title']; ?></td>
+                                        <td><img src="<?php echo base_url('assets/logos/'.$list['image']); ?>" height="100px;" width="100px;"></td>
+										<td><?php echo $list['c_P_name']; ?></td>
 										<td><?php if($list['status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>
                                         <td>
                                             
 											
-											<a href="<?php echo base_url('header/imageedit/'.base64_encode($list['h_id'])); ?>"  data-toggle="tooltip" title="Edit" ><i class="fa fa-edit btn btn-primary"></i></a>
-											<a href="javascript;void(0);" onclick="admindeactive('<?php echo base64_encode(htmlentities($list['h_id'])).'/'.base64_encode(htmlentities($list['status']));?>');adminstatus('<?php echo $list['status'];?>')" data-toggle="modal" data-target="#myModal" title="Edit"><i class="fa fa-info-circle btn btn-warning"></i></a>
-											<a href="javascript;void(0);" onclick="admindedelete('<?php echo base64_encode(htmlentities($list['h_id']));?>');admin('');" data-toggle="modal" data-target="#myModal" title="delete"><i class="fa fa-trash-o btn btn-danger"></i></a>
+											<a href="<?php echo base_url('logo/edit/'.base64_encode($list['l_id'])); ?>"  data-toggle="tooltip" title="Edit" ><i class="fa fa-edit btn btn-primary"></i></a>
+											<a href="javascript;void(0);" onclick="admindeactive('<?php echo base64_encode(htmlentities($list['l_id'])).'/'.base64_encode(htmlentities($list['status']));?>');adminstatus('<?php echo $list['status'];?>')" data-toggle="modal" data-target="#myModal" title="Edit"><i class="fa fa-info-circle btn btn-warning"></i></a>
+											<a href="javascript;void(0);" onclick="admindedelete('<?php echo base64_encode(htmlentities($list['l_id']));?>');admin('');" data-toggle="modal" data-target="#myModal" title="delete"><i class="fa fa-trash-o btn btn-danger"></i></a>
 												 
 											
                                         </td>
@@ -105,10 +105,10 @@
 	
 <script>
 function admindeactive(id){
-	$(".popid").attr("href","<?php echo base_url('header/imagestatus'); ?>"+"/"+id);
+	$(".popid").attr("href","<?php echo base_url('logo/status'); ?>"+"/"+id);
 }
 function admindedelete(id){
-	$(".popid").attr("href","<?php echo base_url('header/imagedelete'); ?>"+"/"+id);
+	$(".popid").attr("href","<?php echo base_url('logo/delete'); ?>"+"/"+id);
 	
 }
 function adminstatus(id){

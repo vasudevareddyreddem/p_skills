@@ -23,9 +23,21 @@ class Logo_model extends CI_Model
 	}
 	
 	public  function get_logo_list(){
-		$this->db->select('*')->from('logos_list');
-		$this->db->where('logos_list.status',1);
+		$this->db->select('logos_list.*,course_profile.c_P_name')->from('logos_list');
+		$this->db->join('course_profile ', 'course_profile.c_id = logos_list.profile_id', 'left');
+
+		$this->db->where('logos_list.status !=',2);
 		return $this->db->get()->result_array();
+	}
+	public  function update_logo_details($i_id,$data){
+		$this->db->where('l_id',$i_id);
+		return $this->db->update('logos_list',$data);
+	}
+	
+	public  function get_logo_details($l_id){
+		$this->db->select('logos_list.*')->from('logos_list');
+		$this->db->where('logos_list.l_id',$l_id);
+		return $this->db->get()->row_array();	
 	}
 	
 	
