@@ -72,3 +72,17 @@ CREATE TABLE `training_batches` (
 
 
 
+ALTER TABLE `skills`.`training_batches`   
+  ADD COLUMN `course_profile` INT(11) NULL AFTER `t_b_id`;
+  
+ALTER TABLE `skills`.`training_batches`   
+  ADD COLUMN `durationq` VARCHAR(250) NULL AFTER `title`;
+  
+  ALTER TABLE `skills`.`training_batches`   
+  CHANGE `durationq` `duration` VARCHAR(250) CHARSET latin1 COLLATE latin1_swedish_ci NULL;
+
+  
+  ALTER TABLE `skills`.`training_batches`   
+  ADD COLUMN `hours` VARCHAR(250) NULL AFTER `duration`;
+
+
