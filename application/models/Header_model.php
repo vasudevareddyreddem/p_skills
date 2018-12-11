@@ -34,6 +34,12 @@ class Header_model extends CI_Model
 		return $this->db->get()->result_array();	
 	}
 	
+	/*  leads purpose*/
+	public  function get_all_leads_list(){
+		$this->db->select('*')->from('leads_list');
+		return $this->db->get()->result_array();
+	}
+	
 	
 	
 }

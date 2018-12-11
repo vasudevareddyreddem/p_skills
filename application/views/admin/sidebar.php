@@ -61,14 +61,20 @@
 						<li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/coursedetails');?>"> Add Oracle Finance Course Details</a></li>
                         <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/coursedetailslists');?>">Oracle Finance Course Details List</a></li>
 						
-						
                     </ul>
                 </li>
 				
-               
-				
+				<li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="menu-icon fa fa-users"></i>Course profile Logo</a>
+                    <ul class="sub-menu children dropdown-menu">
+   
+						<li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('logo');?>"> Add</a></li>
+                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('logo/lists');?>">List</a></li>
+						
+                    </ul>
+                </li>
 				<li>
-                    <a href="<?php echo base_url('couresprofile/skills');?>"> <i class="menu-icon fa fa-dashboard"></i>Skills chair</a>
+                    <a href="<?php echo base_url('header/leads');?>"> <i class="menu-icon fa fa-dashboard"></i>Leads</a>
                 </li> 
 				
 				

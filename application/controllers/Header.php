@@ -17,7 +17,6 @@ class Header extends Admin_panel {
 			$login_details=$this->session->userdata('skill_user');
 			//echo'<pre>';print_r($data);exit;
 			
-			$this->load->view('admin/header');
 			$this->load->view('headerimage/add');
 			$this->load->view('admin/footer');
 		}else{
@@ -82,7 +81,6 @@ class Header extends Admin_panel {
 			$login_details=$this->session->userdata('skill_user');
 			$image_id=base64_decode($this->uri->segment(3));
 			$data['image_details']=$this->Header_model->get_image_details($image_id);
-			$this->load->view('admin/header');
 			$this->load->view('headerimage/edit',$data);
 			$this->load->view('admin/footer');
 		}else{
@@ -209,6 +207,19 @@ if($this->session->userdata('skill_user'))
 	   }
     }
 	
+	
+	public function leads(){
+		if($this->session->userdata('skill_user'))
+		{
+			$login_details=$this->session->userdata('skill_user');
+			$data['leads_list']=$this->Header_model->get_all_leads_list();
+			$this->load->view('headerimage/leades',$data);
+			$this->load->view('admin/footer');
+		}else{
+			$this->session->set_flashdata('error',"you don't have permission to access");
+			redirect('admin');
+		}
+	}
 	
 	
 	
