@@ -41,6 +41,12 @@ class User_model extends CI_Model
 		return $this->db->get()->row_array();
 	}
 	
+	/*home  page  category  list purpose*/
+	
+	public  function get_all_category_wise_lists(){
+		
+	}
+	
 	
 	
 }
