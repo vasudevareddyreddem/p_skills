@@ -30,13 +30,17 @@ class Contact extends Admin_panel {
 		{
 			$login_details=$this->session->userdata('skill_user');
 	     $post=$this->input->post();	
-		      //echo'<pre>';print_r($post);exit;
+		     // echo'<pre>';print_r($post);exit;
 			  
 		       $save_data=array(
 	            'phone'=>isset($post['phone'])?$post['phone']:'',
 	            'phone_number'=>isset($post['phone_number'])?$post['phone_number']:'',
 	            'email'=>isset($post['email'])?$post['email']:'',
 	            'email_id'=>isset($post['email_id'])?$post['email_id']:'',
+	            'facebook'=>isset($post['facebook'])?$post['facebook']:'',
+	            'twitter'=>isset($post['twitter'])?$post['twitter']:'',
+	            'googleplus'=>isset($post['googleplus'])?$post['googleplus']:'',
+	            'youtube'=>isset($post['youtube'])?$post['youtube']:'',
 	            'location'=>isset($post['location'])?$post['location']:'',
 				'status'=>1,
 				'created_at'=>date('Y-m-d H:i:s'),
