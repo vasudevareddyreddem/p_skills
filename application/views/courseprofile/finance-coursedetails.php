@@ -39,6 +39,23 @@
 						</thead>
 						<tbody>
 							<tr id='addr0'>
+							<td>
+					 <div class="form-group">
+					<label class=" control-label">Course Profile</label>
+					<div class="">
+					<select id="course_profile" name="course_profile[]"  class="form-control select2" style="padding:20px; ">
+					<option value="">Select</option>
+					<?php if(isset($course_profile_data) && count($course_profile_data)>0){ ?>
+						<?php foreach($course_profile_data as $list){ ?>
+							<option value="<?php echo $list['c_id']; ?>"><?php echo $list['c_P_name']; ?></option>
+							
+									<?php } ?>
+								   <?php } ?>
+								  </select>
+								  </div>
+								 </div>
+									</td>
+							
 								<td>
 									 <div class="form-group">
                                         <label>Title</label>
@@ -111,6 +128,27 @@
   });
 </script>
 <script>
+  $(function () {
+     //Initialize Select2 Elements
+    $(".select2").select2();
+    //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
+    });
+
+    
+  });
+</script>
+    <script>
+        jQuery(document).ready(function() {
+            jQuery(".standardSelect").chosen({
+                disable_search_threshold: 10,
+                no_results_text: "Oops, nothing found!",
+                width: "100%"
+            });
+        });
+    </script>
+<script>
     $(document).ready(function() {
     $('#add_group').bootstrapValidator({
 
@@ -122,6 +160,14 @@
                     }
                 }
             },
+			'course_profile[]': {
+                validators: {
+                    notEmpty: {
+                        message: 'Select Course Profile ' 
+                    }
+                }
+            },
+			
 			 'description[]': {
                 validators: {
                     notEmpty: {

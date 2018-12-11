@@ -205,7 +205,8 @@ class Category_model extends CI_Model
 	return $this->db->insert_id();
 	}
 	public function get_oracle_interview_questions_list(){
-	$this->db->select('interview_questions.*')->from('interview_questions');
+	$this->db->select('interview_questions.*,course_profile.c_P_name')->from('interview_questions');
+	$this->db->join('course_profile', 'course_profile.c_id = interview_questions.course_profile', 'left');
      $this->db->where('interview_questions.status !=',2);
 	 return $this->db->get()->result_array();
 	}
@@ -225,7 +226,8 @@ class Category_model extends CI_Model
 	return $this->db->insert_id();
 	}
 	public function get_oracle_finance_course_details_list(){
-	$this->db->select('course_details.*')->from('course_details');
+	$this->db->select('course_details.*,course_profile.c_P_name')->from('course_details');
+	$this->db->join('course_profile', 'course_profile.c_id = course_details.course_profile', 'left');
      $this->db->where('course_details.status !=',2);
 	 return $this->db->get()->result_array();
 	}

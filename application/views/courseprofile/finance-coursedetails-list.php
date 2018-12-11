@@ -36,6 +36,7 @@
                             <table id="example" class="table table-striped table-bordered" style="width:100%;">
                                 <thead>
                                     <tr>
+									     <th>Course Profile</th>
                                         <th>Title</th>
 										<th>Description </th>
 										<th>Status</th>
@@ -45,6 +46,7 @@
                                 <tbody>
                                    <?php  foreach($oracle_finance_course_details as $list){ ?>
                                     <tr>
+                                        <td><?php echo $list['c_P_name']; ?></td>
                                         <td><?php echo $list['title']; ?></td>
 										<td><?php echo $list['description']; ?></td>
 										<td><?php if($list['status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>
