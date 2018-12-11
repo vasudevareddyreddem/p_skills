@@ -21,12 +21,25 @@
 
 <div class="content mt-3">
     <div class="animated fadeIn">
-	<form id="add_group" method="post" action="<?php echo base_url('couresprofile/addpost');?>">
+	<form id="add_group" method="post" action="<?php echo base_url('course/trainngbatchpost');?>">
      <div class="row">
-					<div class="col-md-10">
+					<div class="col-md-4">
 						<div class="form-group">
-							<label>Enter Title</label>
+							<label>Title</label>
 							<input type="text" class="form-control" placeholder="Enter Title" name="title" >
+							</div>
+						</div>
+						
+						<div class="col-md-4">
+						<div class="form-group">
+							<label>Duration</label>
+							<input type="text" class="form-control" placeholder="Enter Duration" name="duration" >
+							</div>
+						</div>
+						<div class="col-md-4">
+						<div class="form-group">
+							<label>Hours</label>
+							<input type="text" class="form-control" placeholder="Enter Hours" name="hours" >
 							</div>
 						</div>
 					</div>
@@ -91,7 +104,7 @@
      $(document).ready(function(){
       var i=1;
      $("#add_row").click(function(){
-      $('#addr'+i).html("<td><input type='date' name='date[]' id='name"+i+"'  class='form-control pull-right datepicker'/></td><td><input  name='time[]' id='mail"+i+"' type='time' placeholder='Enter time'  class='form-control input-md'></td>");
+      $('#addr'+i).html("<td><input type='date' name='date[]' id='name"+i+"'  class='form-control pull-right datepicker'/></td><td><input  name='time[]' id='mail"+i+"' type='text' placeholder='Enter time'  class='form-control input-md'></td>");
 
       $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
       i++; 
@@ -127,6 +140,21 @@
                     }
                 }
             },
+			 duration: {
+                validators: {
+                    notEmpty: {
+                        message: ' Duration is required ' 
+                    }
+                }
+            },
+			 hours: {
+                validators: {
+                    notEmpty: {
+                        message: ' Hours is required ' 
+                    }
+                }
+            },
+			
             'date[]': {  
                 validators: {
 					notEmpty: {

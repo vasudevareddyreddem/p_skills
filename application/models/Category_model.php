@@ -192,6 +192,7 @@ class Category_model extends CI_Model
 	$this->db->select('c_id')->from('course_profile');
 		$this->db->where('course_name_id',$course_name_id);
 		$this->db->where('c_P_name',$c_P_name);
+		$this->db->where('course_profile.status',1);
 		return $this->db->get()->row_array();
 	}
 	

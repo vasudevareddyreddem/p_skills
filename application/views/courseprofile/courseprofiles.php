@@ -3,7 +3,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Course Name</h1>
+                <h1>Course Profile</h1>
             </div>
         </div>
     </div>
@@ -11,8 +11,9 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li>Course Name</li>
-                    <li>Edit Course Name</li>
+				    <li><a href="#" ></a>Home</li>
+                    <li>Course Profile</li>
+                    <li>Add Course Profile</li>
                 </ol>
             </div>
         </div>
@@ -26,42 +27,38 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Edit Course Name</strong>
+                        <strong class="card-title">Add Course Profile</strong>
                     </div>
                     <div class="card-body">
-                        <form  method="post" action="<?php echo base_url('coursename/editpost'); ?>" id="add_group">
-					<input type="hidden" id="s_c_id" name="s_c_id" value="<?php echo isset($edit_sub_category['s_c_id'])?$edit_sub_category['s_c_id']:''; ?>">
-
+                        <form  method="post" action="<?php echo base_url('course/profilepost'); ?>" id="add_group">
                             <div class="row"> 
                                 <div class="col-md-6">
-								<div class="form-group">
-									<label class=" control-label">Category Name</label>
-									<div class="">
-										<select id="category" name="category"  class="form-control select2" style="padding:20px; " >
-										<option value="">Select</option>
-										<?php if(isset($category_data) && count($category_data)>0){ ?>
-											<?php foreach($category_data as $list){ ?>
-											
-													<?php if($edit_sub_category['category']==$list['c_id']){ ?>
-															<option selected value="<?php echo $list['c_id']; ?>"><?php echo $list['category_name']; ?></option>
-													<?php }else{ ?>
-															<option value="<?php echo $list['c_id']; ?>"><?php echo $list['category_name']; ?></option>
-													<?php } ?>
-											<?php } ?>
-										<?php } ?>
-										</select>
-									</div>
-								</div>
-								
-                                    </div> 
+									<div class="form-group">
+								<label class=" control-label">Course Name</label>
+								<div class="">
+								<select id="course_name_id" name="course_name_id"  class="form-control select2" style="padding:20px; ">
+								<option value="">Select</option>
+								<?php if(isset($course_name) && count($course_name)>0){ ?>
+									<?php foreach($course_name as $list){ ?>
+										<option value="<?php echo $list['s_c_id']; ?>"><?php echo $list['sub_category_name']; ?></option>
+										
+												<?php } ?>
+											   <?php } ?>
+											  </select>
+											  </div>
+											 </div>
 									
-									 <div class="col-md-6">
+									
+									
+                                    </div>
+									
+								   <div class="col-md-6">
 										<div class="form-group">
-											<label>Course Name</label>
-											<input type="text" id="sub_category_name" name="sub_category_name" placeholder="Enter Course Name" class="form-control" value="<?php echo isset($edit_sub_category['sub_category_name'])?$edit_sub_category['sub_category_name']:''; ?>">
+											<label>Course Profile</label>
+											<input type="text" id="c_P_name" name="c_P_name" placeholder="Enter Course Profile" class="form-control">
 										</div>
 										</div>
-									
+                                   
                                     </div>
 						      <button type="submit" class="btn btn-sm btn-primary" name="signup" value="Sign up">Add</button>
                               <button type="reset" class="btn btn-sm btn-danger">Reset</button>
@@ -79,17 +76,17 @@
     $('#add_group').bootstrapValidator({
 
         fields: {
-            category: {
+            course_name_id: {
                 validators: {
                     notEmpty: {
-                        message: 'Please Select Category Name'
+                        message: 'Select Course Name Required'
                     }
                 }
             },
-            sub_category_name: {
+            c_P_name: {
                 validators: {
                     notEmpty: {
-                        message: 'Please Enter Course Name'
+                        message: ' Course Profile Required'
                     }
                 }
             }

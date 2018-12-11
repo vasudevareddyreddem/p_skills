@@ -37,6 +37,8 @@
                                 <thead>
                                     <tr>
                                         <th>Title</th>
+										<th>Duration </th>
+										<th>Hours</th>
                                         <th>Date</th>
 										<th>Status</th>
                                         <th>Action</th>
@@ -46,6 +48,8 @@
                                    <?php  foreach($oracle_training_batches as $list){ ?>
                                     <tr>
                                         <td><?php echo $list['title']; ?></td>
+										<td><?php echo $list['duration']; ?></td>
+										<td><?php echo $list['hours']; ?></td>
                                         <td><?php foreach($list['training_bactch_list'] as $lis) { ?>
 										<?php echo $lis['date']. '<br>'; ?>
 										<?php } ?>
@@ -58,7 +62,7 @@
 										<td><?php if($list['status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>
                                         <td>
                                             
-				<a href="<?php echo base_url('couresprofile/edit/'.base64_encode($list['t_b_id'])); ?>"  data-toggle="tooltip" title="Edit" ><i class="fa fa-edit btn btn-primary"></i></a>
+				<a href="<?php echo base_url('course/trainingbatchesedit/'.base64_encode($list['t_b_id'])); ?>"  data-toggle="tooltip" title="Edit" ><i class="fa fa-edit btn btn-primary"></i></a>
 				<a href="javascript;void(0);" onclick="admindeactive('<?php echo base64_encode(htmlentities($list['t_b_id'])).'/'.base64_encode(htmlentities($list['status']));?>');adminstatus('<?php echo $list['status'];?>')" data-toggle="modal" data-target="#myModal" title="Edit"><i class="fa fa-info-circle btn btn-warning"></i></a>
 				<a href="javascript;void(0);" onclick="admindedelete('<?php echo base64_encode(htmlentities($list['t_b_id']));?>');admin('');" data-toggle="modal" data-target="#myModal" title="delete"><i class="fa fa-trash-o btn btn-danger"></i></a>
                      
@@ -115,10 +119,10 @@
 </div><!-- .content -->
 <script>
 function admindeactive(id){
-	$(".popid").attr("href","<?php echo base_url('couresprofile/status'); ?>"+"/"+id);
+	$(".popid").attr("href","<?php echo base_url('course/trainingbatchesstatus'); ?>"+"/"+id);
 }
 function admindedelete(id){
-	$(".popid").attr("href","<?php echo base_url('couresprofile/delete'); ?>"+"/"+id);
+	$(".popid").attr("href","<?php echo base_url('course/trainingbatchesdelete'); ?>"+"/"+id);
 	
 }
 function adminstatus(id){
