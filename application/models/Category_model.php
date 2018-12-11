@@ -169,13 +169,73 @@ class Category_model extends CI_Model
 	$this->db->where('sub_category.status',1);
 	return $this->db->get()->result_array();
 	}
-	
-	
-	
-	
-	
-	
-	
+	public function save_course_profiles_details($data){
+	$this->db->insert('course_profile',$data);	
+	return $this->db->insert_id();
+	}
+	public function get_courese_profiles_list(){
+	$this->db->select('course_profile.*,sub_category.sub_category_name')->from('course_profile');
+	$this->db->join('sub_category', 'sub_category.s_c_id = course_profile.course_name_id', 'left');
+	$this->db->where('course_profile.status!=',2);
+	return $this->db->get()->result_array();
+	}
+	public function get_edit_courese_profiles($c_id){
+	$this->db->select('*')->from('course_profile');
+	$this->db->where('course_profile.c_id',$c_id);
+	return $this->db->get()->row_array();
+	}
+	public function update_course_profile_details($c_id,$data){
+	$this->db->where('c_id',$c_id);
+    return $this->db->update("course_profile",$data);		
+	}
+	public function check_course_profile_Details_exsists($course_name_id,$c_P_name){
+	$this->db->select('c_id')->from('course_profile');
+		$this->db->where('course_name_id',$course_name_id);
+		$this->db->where('c_P_name',$c_P_name);
+		return $this->db->get()->row_array();
+	}
 	
 
+	
+	/* oracle_interview_questions_details */
+	public function save_oracle_interview_questions_details($data){
+	$this->db->insert('interview_questions',$data);	
+	return $this->db->insert_id();
+	}
+	public function get_oracle_interview_questions_list(){
+	$this->db->select('interview_questions.*')->from('interview_questions');
+     $this->db->where('interview_questions.status !=',2);
+	 return $this->db->get()->result_array();
+	}
+	public function edit_edit_interview_questions_list($i_q_id){
+	$this->db->select('*')->from('interview_questions');
+	$this->db->where('interview_questions.i_q_id',$i_q_id);
+	return $this->db->get()->row_array();
+	}
+	public function update_course_interview_questions_details($i_q_id,$data){
+	$this->db->where('i_q_id',$i_q_id);
+    return $this->db->update("interview_questions",$data);		
+	}
+	
+	
+	public function save_oracle_finance_course_details($data){
+	$this->db->insert('course_details',$data);	
+	return $this->db->insert_id();
+	}
+	public function get_oracle_finance_course_details_list(){
+	$this->db->select('course_details.*')->from('course_details');
+     $this->db->where('course_details.status !=',2);
+	 return $this->db->get()->result_array();
+	}
+	public function edit_course_details_list($c_d_id){
+	$this->db->select('*')->from('course_details');
+	$this->db->where('course_details.c_d_id',$c_d_id);
+	return $this->db->get()->row_array();
+	}
+	public function update_course_details_details($c_d_id,$data){
+	$this->db->where('c_d_id',$c_d_id);
+    return $this->db->update("course_details",$data);		
+	}
+	
+	
 }

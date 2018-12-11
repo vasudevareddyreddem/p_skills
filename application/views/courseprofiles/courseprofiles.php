@@ -30,13 +30,13 @@
                         <strong class="card-title">Add Course Profile</strong>
                     </div>
                     <div class="card-body">
-                        <form  method="post" action="<?php echo base_url(''); ?>" id="add_group">
+                        <form  method="post" action="<?php echo base_url('course/profilepost'); ?>" id="add_group">
                             <div class="row"> 
                                 <div class="col-md-6">
 									<div class="form-group">
 								<label class=" control-label">Course Name</label>
 								<div class="">
-								<select id="course_name" name="course_name"  class="form-control select2" style="padding:20px; ">
+								<select id="course_name_id" name="course_name_id"  class="form-control select2" style="padding:20px; ">
 								<option value="">Select</option>
 								<?php if(isset($course_name) && count($course_name)>0){ ?>
 									<?php foreach($course_name as $list){ ?>
@@ -55,7 +55,7 @@
 								   <div class="col-md-6">
 										<div class="form-group">
 											<label>Course Profile</label>
-											<input type="text" id="course_profile" name="course_profile" placeholder="Enter Course Profile" class="form-control">
+											<input type="text" id="c_P_name" name="c_P_name" placeholder="Enter Course Profile" class="form-control">
 										</div>
 										</div>
                                    
@@ -76,14 +76,14 @@
     $('#add_group').bootstrapValidator({
 
         fields: {
-            course_name: {
+            course_name_id: {
                 validators: {
                     notEmpty: {
                         message: 'Select Course Name Required'
                     }
                 }
             },
-            course_profile: {
+            c_P_name: {
                 validators: {
                     notEmpty: {
                         message: ' Course Profile Required'

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Skill Chair</title>
-    <link rel="icon" href="img/favicon.png">
+    <link rel="icon" href="<?php echo base_url();?>assets/vendor/html/img/favicon.png">
     <!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--<link href="css/font-awesome.min.css" rel="stylesheet">-->
@@ -42,7 +42,7 @@
                 <!-- Left -->
                 <ul class="navbar-nav" id="navbar-menu-list">
                     <li class="nav-item nml-has-dropdown-1">
-                        <a class="nav-link" href="#"><i class="fa fa-th"></i> Categories</a>
+                        <a class="nav-link" href="<?php echo base_url('categories');?>"><i class="fa fa-th"></i> Categories</a>
                         <ul class="z-depth-1 nml-step-1">
                             <?php foreach($category_list as $list){?>
                             <li class="nml-has-dropdown-2">
@@ -82,6 +82,10 @@
                         <a class="nav-link" href="<?php echo base_url('contactus');?>">Contact Us</a>
                     </li>
                 </ul>
+
+				
+				
+				
             </div>
 
         </div>
@@ -90,118 +94,105 @@
 
     <main style="background-image: url(img/page-background-img.png);">
         
-        <!-- Contact Us Header -->
-        <section class="contactus-bg">
-            <div class="cu-bg-overlay pt-5 pb-5 mt-5">
+        <!-- About Us Header -->
+        <section class="aboutus-bg">
+            <div class="au-bg-overlay pt-5 pb-5 mt-5">
 
                 <div class="container text-center pt-4 pb-4">
-                    <h1 class="pt-2">Contact Us</h1>
+                    <h1 class="pt-2">About Us</h1>
                 </div>
 
             </div>
         </section>
         
-        <!-- Contact Details -->
-        <section class="mt-5">
+        <!-- Our Story -->
+        <section class="our-story mt-5">
             <div class="container">
 
+                <h3 class="heading mb-4">Our Story</h3>
                 <div class="row">
-                    
-                    <!-- Contact Detail 1 -->
-                    <div class="col-md-4">
-                        <div class="row contact-detail">
-                            <div class="cd-via">
-                                <div class="z-depth-1 rounded-circle cdv-icon">
-                                    <i class="fa fa-map-marker fa-2x cdv-icon1"></i>
-                                </div>
-                            </div>
-                            <div class="cd-through">
-                                <h5 class="mt-0 mb-1 font-weight-bold">Location</h5>
-                                <p><?php echo isset($contact_details['location'])?$contact_details['location']:'' ?></p>
-                            </div>
-                        </div>
+
+                    <div class="col-md-8">
+                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch. </p>
+                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur put a bird on it squid single-origin coffee butcher vice lomo. </p>
                     </div>
-                    
-                    <!-- Contact Details 2 -->
                     <div class="col-md-4">
-                        <div class="row contact-detail">
-                            <div class="cd-via">
-                                <div class="z-depth-1 rounded-circle cdv-icon">
-                                    <i class="fa fa-phone fa-2x cdv-icon2"></i>
-                                </div>
-                            </div>
-                            <div class="cd-through">
-                                <h5 class="mt-0 mb-1 font-weight-bold">Phone</h5>
-                                <p class="mb-0"><?php echo isset($contact_details['phone'])?$contact_details['phone']:''?></p>
-                                <p><?php echo isset($contact_details['phone_number'])?$contact_details['phone_number']:''?></p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Contact Details 3 -->
-                    <div class="col-md-4">
-                        <div class="row contact-detail">
-                            <div class="cd-via">
-                                <div class="z-depth-1 rounded-circle cdv-icon">
-                                    <i class="fa fa-envelope fa-2x cdv-icon3"></i>
-                                </div>
-                            </div>
-                            <div class="cd-through">
-                                <h5 class="mt-0 mb-1 font-weight-bold">Email</h5>
-                                <p class="mb-0"><?php echo isset($contact_details['email'])?$contact_details['email']:''?></p>
-                                <p><?php echo isset($contact_details['email_id'])?$contact_details['email_id']:''?></p>
-                            </div>
-                        </div>
+                        <img src="<?php echo base_url();?>assets/vendor/html/img/our-story.jpg" alt="Our-Story" class="img-fluid" />
                     </div>
                     
                 </div>
-                
+
             </div>
         </section>
         
-        <!-- Contact Us -->
-        <section class="mt-5 pb-5 mb-4">
+        <!-- Our Mission -->
+        <section class="our-mission mt-5">
             <div class="container">
 
+                <h3 class="heading mb-4">Our Mission</h3>
                 <div class="row">
-
-                    <div class="col-md-7 contact-form">
-                        <!-- Contact Form -->
-                        <form method="post" action="<?php echo base_url('contactus/addpost'); ?>" >
-                            <p class="h4 heading mb-4">Get in Touch with Us</p>
-                            <div class="form-group">
-                                <input type="text"  name="course_name" class="form-control" placeholder="Course Name"  required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text"  name="name" class="form-control" placeholder="Your Name" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email"  name="email_id" class="form-control"  placeholder="Email ID" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text"  name="phone"  class="form-control"  pattern="[1-9]{1}[0-9]{9}" maxlength="10" placeholder="Phone Number" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text"  name="location" class="form-control" placeholder="Location" required>
-                            </div>
-                            <div class="text-right">
-                                <button class="btn btn-info btn-md btn-color mb-4" type="submit">
-                                    <i class="fa fa-paper-plane mr-1"></i> Submit
-                                </button>
-                            </div>
-                        </form>
+                    
+                    <div class="col-md-4">
+                        <img src="<?php echo base_url();?>assets/vendor/html/img/our-mission.jpg" alt="Our-Story" class="img-fluid mb-3" />
                     </div>
-
-                    <div class="col-md-5">
-                        <!-- Map Location -->
-                        <iframe class="z-depth-1" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30884.089210476883!2d78.39609819323411!3d17.499699017256685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9188ffffffff%3A0x9ab8c5c20aa5ec5a!2sPracha+Technologies!5e0!3m2!1sen!2sin!4v1537964294069" width="100%" height="373" frameborder="0" allowfullscreen></iframe>
+                    <div class="col-md-8">
+                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch. </p>
+                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur vice lomo. </p>
                     </div>
-
+                    
                 </div>
 
             </div>
         </section>
-    
+        
+        <!-- Our Vision -->
+        <section class="our-vision mt-5">
+            <div class="container">
+
+                <h3 class="heading mb-4">Our Vision</h3>
+                <div class="row">
+
+                    <div class="col-md-8">
+                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch. </p>
+                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. </p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="<?php echo base_url();?>assets/vendor/html/img/our-vision.jpg" alt="Our-Story" class="img-fluid" />
+                    </div>
+                    
+                </div>
+
+            </div>
+        </section>
+        
+        <!-- Our Values -->
+        <section class="our-values mt-5 pb-5 mb-4">
+            <div class="container">
+
+                <h3 class="heading mb-4">Our Values</h3>
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <img src="<?php echo base_url();?>assets/vendor/html/img/our-values.jpg" alt="Our-Story" class="img-fluid mb-3" />
+                    </div>
+                    <div class="col-md-8">
+                        <ul class="list-unstyled">
+                            <li>Lorem ipsum dolor sit amet Consectetur adipiscing elit Integer molestie lorem at massa</li>
+                            <li>Consectetur adipiscing elit Integer molestie lorem at massa Facilisis in pretium nisl aliquet</li>
+                            <li>Integer molestie lorem at massa</li>
+                            <li>Facilisis in pretium nisl aliquet</li>
+                            <li>Nulla volutpat aliquam velit</li>
+                            <li>Phasellus iaculis neque</li>
+                            <li>Purus sodales ultricies</li>
+                            <li>Vestibulum laoreet porttitor sem</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </section>
+        
     </main>
 
     <!-- Fixed Footer -->

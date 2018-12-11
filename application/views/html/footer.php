@@ -8,8 +8,9 @@
                 <div class="col">
                     <div class="py-2">
                         <i class="fa fa-phone"></i> Call Us :
-                        <span> +91 9856xxxx20 </span>
-                    </div>
+                        <span> <?php echo $contact_details['phone'];?></span>&nbsp;&nbsp;
+                        <span> <?php echo $contact_details['phone_number'];?></span>
+                   </div>
                 </div>
 
                 <!-- Social icons -->

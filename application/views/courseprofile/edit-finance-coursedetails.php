@@ -3,7 +3,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Oracle Training Batches</h1>
+                <h1>Edit Oracle Finance Course Details</h1>
             </div>
         </div>
     </div>
@@ -11,7 +11,7 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li class="active">Oracle Training Batches</li>
+                    <li class="active">Edit Oracle Finance Course Details</li>
                 </ol>
             </div>
         </div>
@@ -21,39 +21,20 @@
 
 <div class="content mt-3">
     <div class="animated fadeIn">
-	<form id="add_group" method="post" action="<?php echo base_url('couresprofile/trainngbatchpost');?>">
-     <div class="row">
-					<div class="col-md-4">
-						<div class="form-group">
-							<label>Title</label>
-							<input type="text" class="form-control" placeholder="Enter Title" name="title" >
-							</div>
-						</div>
-						
-						<div class="col-md-4">
-						<div class="form-group">
-							<label>Duration</label>
-							<input type="text" class="form-control" placeholder="Enter Duration" name="duration" >
-							</div>
-						</div>
-						<div class="col-md-4">
-						<div class="form-group">
-							<label>Hours</label>
-							<input type="text" class="form-control" placeholder="Enter Hours" name="hours" >
-							</div>
-						</div>
-					</div>
+	<form id="add_group" method="post" action="<?php echo base_url('course/editcoursedetailspost');?>">
+        <input type="hidden" id="c_d_id" name="c_d_id" value="<?php echo isset($edit_course_details['c_d_id'])?$edit_course_details['c_d_id']:'' ?>">
+
 		<div class="row">
 		
-			<div class="col-md-10 col-md-offset-10">
+			<div class="col-md-10">
 					<table class="table table-bordered table-hover" id="tab_logic">
 						<thead>
 							<tr >
 								<th class="text-center">
-													Date
+													Title
 												</th>
 								<th class="text-center">
-													Time
+													Description
 												</th>
 							</tr>
 						</thead>
@@ -61,19 +42,21 @@
 							<tr id='addr0'>
 								<td>
 									 <div class="form-group">
-                                        <label>Select Date</label>
+                                        <label>Title</label>
                                            <div class="input-group date">
 									 
-									  <input type="date"  name="date[]" class="form-control" placeholder="DD-MM-YYYY" >
+									  <input type="text"  name="title" class="form-control" placeholder="Enter Title" value="<?php echo isset($edit_course_details['title'])?$edit_course_details['title']:'' ?>">
 									</div>
                                     </div>
 									</td>
 									<td>
 									<div class="form-group">
-                                        <label>Time</label>
+                                        <label>Description</label>
                                            <div class="input-group date">
 									 
-									  <input type="text"  name="time[]" class="form-control" placeholder="Enter Time" >
+									  
+									<textarea class="form-control" rows="5" cols="50" name="description" placeholder="Enter Here..."><?php echo isset($edit_course_details['description'])?$edit_course_details['description']:'' ?></textarea>
+									
 									</div>
                                     </div>
 									
@@ -85,8 +68,7 @@
 								<tr id='addr1'></tr>
 							</tbody>
 						</table>
-						<a id="add_row" class="btn btn-default pull-left">Add Row</a>
-						<a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
+						
 					</div>
         </div>
           <div class="m-t-50 text-center">
@@ -104,7 +86,7 @@
      $(document).ready(function(){
       var i=1;
      $("#add_row").click(function(){
-      $('#addr'+i).html("<td><input type='date' name='date[]' id='name"+i+"'  class='form-control pull-right datepicker'/></td><td><input  name='time[]' id='mail"+i+"' type='text' placeholder='Enter time'  class='form-control input-md'></td>");
+      $('#addr'+i).html("<td><input type='text' name='title[]' id='name"+i+"'  placeholder='Enter Title'  class='form-control'/></td><td><textarea name='description[]' id='name"+i+"' rows='5' cols='40' placeholder='Enter Here...' class='form-control input-md'></textarea></td>");
 
       $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
       i++; 
@@ -140,40 +122,16 @@
                     }
                 }
             },
-			 duration: {
+			 description: {
                 validators: {
                     notEmpty: {
-                        message: ' Duration is required ' 
-                    }
-                }
-            },
-			 hours: {
-                validators: {
-                    notEmpty: {
-                        message: ' Hours is required ' 
-                    }
-                }
-            },
-			
-            'date[]': {  
-                validators: {
-					notEmpty: {
-						message: 'Date  is required'
-					},
-					date: {
-                        format: 'DD-MM-YYYY',
-                        message: 'The value is not a valid date'
-                    }
-				
-				}
-            },
-			'time[]':{
-				 validators: {
-                    notEmpty: {
-                        message: ' Time is required ' 
+                        message: ' Description is required ' 
                     }
                 }
             }
+			
+            
+			
 			
 			
 			

@@ -52,7 +52,7 @@ class Category extends Admin_panel {
 					redirect('category/lists');	
 					}else{
 						$this->session->set_flashdata('error',"technical problem occurred. please try again once");
-						redirect('category/lists');
+						redirect('category/add');
 					}  
 		
 				}else{

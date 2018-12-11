@@ -13,10 +13,16 @@ class Contactus extends Front_end {
 	public function index()
 	{	
 		
+		
+		 $data['category_list']=$this->Front_end_model->get_category_list();	
+		$data['subcategory_list']=$this->Front_end_model->get_subcategory_list();
+        $data['courese_profile_list']=$this->Front_end_model->get_courese_profiles_list();	
+		
+		
 			$data['contact_details']=$this->Front_end_model->contact_details_data();
 			//echo'<pre>';print_r($data);exit;
 			$this->load->view('html/contactus',$data);
-		
+
 	}
 	public function addpost()
 	{	
