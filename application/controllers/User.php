@@ -12,8 +12,12 @@ class User extends Front_end {
 	{	
 		
 		$data['search_value']=$this->User_model->get_category_value();
+		$data['home_image']=$this->User_model->get_home_page_images();
+		$data['category_list']=$this->User_model->get_category_count();
+		$footer['footer_links']=$this->User_model->get_footer_links();
+		//echo '<pre>';print_r($data);exit;
 		$this->load->view('html/index',$data);
-		$this->load->view('html/footer');
+		$this->load->view('html/footer',$footer);
 	}
 	
 	

@@ -20,6 +20,22 @@ class User_model extends CI_Model
 		return $this->db->get()->result_array();
 	}
 	
+	public  function get_home_page_images(){
+		$this->db->select('image,title')->from('header_images');
+		$this->db->where('status',1);
+		return $this->db->get()->row_array();
+	}
+	public  function get_category_count(){
+		$this->db->select('count(course_profile.c_id) as cnt')->from('course_profile');
+		$this->db->where('status',1);
+		return $this->db->get()->row_array();
+	}
+	public  function get_footer_links(){
+		$this->db->select('*')->from('contactus');
+		$this->db->where('status',1);
+		return $this->db->get()->row_array();
+	}
+	
 	
 	
 }

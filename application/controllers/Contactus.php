@@ -16,6 +16,8 @@ class Contactus extends Front_end {
 			$data['contact_details']=$this->Front_end_model->contact_details_data();
 			//echo'<pre>';print_r($data);exit;
 			$this->load->view('html/contactus',$data);
+			$footer['footer_links']=$this->User_model->get_footer_links();
+			$this->load->view('html/footer',$footer);
 		
 	}
 	public function addpost()

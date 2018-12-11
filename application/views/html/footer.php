@@ -8,26 +8,29 @@
                 <div class="col">
                     <div class="py-2">
                         <i class="fa fa-phone"></i> Call Us :
-                        <span> +91 9856xxxx20 </span>
+                        <span>
+							+91 <?php echo isset($footer_links['phone'])?$footer_links['phone']:''; ?> , 
+							+91 <?php echo isset($footer_links['phone_number'])?$footer_links['phone_number']:''; ?>
+						</span>
                     </div>
                 </div>
 
                 <!-- Social icons -->
                 <div class="col text-right">
                     <div class="py-2">
-                        <a href="https://www.facebook.com/" target="_blank">
+                        <a href="<?php echo isset($footer_links['facebook'])?$footer_links['facebook']:''; ?>" target="_blank">
                             <i class="fa fa-facebook mr-3"></i>
                         </a>
 
-                        <a href="https://twitter.com/" target="_blank">
+                        <a href="<?php echo isset($footer_links['twitter'])?$footer_links['twitter']:''; ?>" target="_blank">
                             <i class="fa fa-twitter mr-3"></i>
                         </a>
 
-                        <a href="https://www.youtube.com/" target="_blank">
+                        <a href="<?php echo isset($footer_links['youtube'])?$footer_links['youtube']:''; ?>" target="_blank">
                             <i class="fa fa-youtube mr-3"></i>
                         </a>
 
-                        <a href="https://plus.google.com/" target="_blank">
+                        <a href="<?php echo isset($footer_links['googleplus'])?$footer_links['googleplus']:''; ?>" target="_blank">
                             <i class="fa fa-google-plus mr-3"></i>
                         </a>
                     </div>

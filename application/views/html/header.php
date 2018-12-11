@@ -219,7 +219,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="aboutus.html">About Us</a>
+                        <a class="nav-link" href="<?php echo base_url('aboutus'); ?>">About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url('Contactus');?>">Contact Us</a>

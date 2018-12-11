@@ -1,7 +1,7 @@
 
 
     <!-- Full Page Intro -->
-    <div class="view" style="background-image: url('../assets/vendor/html/img/home-banner.jpg'); background-repeat: no-repeat; background-size: cover;">
+    <div class="view" style="background-image: url('<?php echo base_url('assets/headerimages/'.$home_image['image']); ?>'); background-repeat: no-repeat; background-size: cover;">
 
         <!-- Mask & flexbox options-->
         <div class="mask rgba-black-strong d-flex align-items-center">
@@ -9,7 +9,7 @@
             <!-- Content -->
             <div class="banner-body text-center white-text wow fadeIn">
                 <h2 class="mb-4">
-                    <strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In finibus sodales nisi eu accumsan.</strong>
+                    <strong><?php echo isset($home_image['title'])?$home_image['title']:''; ?></strong>
                 </h2>
 									<form action="<?php echo base_url('Courseprofile/search'); ?>" method="post" >
 
@@ -32,8 +32,8 @@
                                     <i class="fa fa-book fa-3x"></i>
                                 </li>
                                 <li class="list-inline-item">
-                                    <strong class="black-text">Top highly paid job cources</strong><br>
-                                    <a href="#">Enroll Now</a>
+                                    <strong class="black-text">Total Course Profile Count</strong><br>
+                                    <a href="#"><?php echo isset($category_list['cnt'])?$category_list['cnt']:''; ?></a>
                                 </li>
                             </ul>
                         </li>
