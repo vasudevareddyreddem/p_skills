@@ -24,25 +24,48 @@
 	<form id="add_group" method="post" action="<?php echo base_url('course/trainingbatcheseditpost');?>">
 	<input type="hidden" id="t_b_id" name="t_b_id" value="<?php echo isset($edit_course_profile['t_b_id'])?$edit_course_profile['t_b_id']:'' ?>">
      <div class="row">
-					<div class="col-md-4">
+	  <div class="col-md-6">
 						<div class="form-group">
-							<label>Enter Title</label>
-							<input type="text" class="form-control" placeholder="Enter Title" name="title" value="<?php  echo isset($edit_course_profile['title'])?$edit_course_profile['title']:''?>" >
+					<label class=" control-label">Course Profile</label>
+					<div class="">
+					<select id="course_profile" name="course_profile"  class="form-control select2" style="padding:20px; ">
+					<option value="">Select</option>
+					<?php if(isset($course_profile_data) && count($course_profile_data)>0){ ?>
+											<?php foreach($course_profile_data as $list){ ?>
+											
+													<?php if($edit_course_profile['course_profile']==$list['c_id']){ ?>
+															<option selected value="<?php echo $list['c_id']; ?>"><?php echo $list['c_P_name']; ?></option>
+													<?php }else{ ?>
+															<option value="<?php echo $list['c_id']; ?>"><?php echo $list['c_P_name']; ?></option>
+													<?php } ?>
+											<?php } ?>
+										<?php } ?>
+								  </select>
+								  </div>
+								 </div>
+						
+						</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Title</label>
+							<input type="text" class="form-control" placeholder="Enter Title" name="title" value="<?php echo isset($edit_course_profile['title'])?$edit_course_profile['title']:'' ?>">
 							</div>
 						</div>
-						<div class="col-md-4">
-						<div class="form-group">
-							<label>Duration</label>
-							<input type="text" class="form-control" placeholder="Enter Duration" name="duration" value="<?php  echo isset($edit_course_profile['duration'])?$edit_course_profile['duration']:''?>" >
-							</div>
-						</div>
-						<div class="col-md-4">
-						<div class="form-group">
-							<label>Hours</label>
-							<input type="text" class="form-control" placeholder="Enter Hours" name="hours" value="<?php  echo isset($edit_course_profile['hours'])?$edit_course_profile['hours']:''?>" >
-							</div>
 						</div>
 						
+						 <div class="row">
+						<div class="col-md-6">
+						<div class="form-group">
+							<label>Duration</label>
+							<input type="text" class="form-control" placeholder="Enter Duration" name="duration" value="<?php echo isset($edit_course_profile['duration'])?$edit_course_profile['duration']:'' ?>">
+							</div>
+						</div>
+						<div class="col-md-6">
+						<div class="form-group">
+							<label>Hours</label>
+							<input type="text" class="form-control" placeholder="Enter Hours" name="hours" value="<?php echo isset($edit_course_profile['hours'])?$edit_course_profile['hours']:'' ?>">
+							</div>
+						</div>
 					</div>
 		<div class="row">
 		
@@ -121,6 +144,37 @@
 	
 }
 </script>
+<script>
+  $(function () {
+   
+    $('.datepicker').datepicker({
+      autoclose: true
+    });
+
+    
+  });
+</script>
+<script>
+  $(function () {
+     //Initialize Select2 Elements
+    $(".select2").select2();
+    //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
+    });
+
+    
+  });
+</script>
+    <script>
+        jQuery(document).ready(function() {
+            jQuery(".standardSelect").chosen({
+                disable_search_threshold: 10,
+                no_results_text: "Oops, nothing found!",
+                width: "100%"
+            });
+        });
+    </script>
  <script>
      $(document).ready(function(){
       var i=1;
@@ -158,6 +212,13 @@
                 validators: {
                     notEmpty: {
                         message: ' Title is required ' 
+                    }
+                }
+            },
+			course_profile: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please Select Course Profile'
                     }
                 }
             },

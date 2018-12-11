@@ -109,7 +109,8 @@ class Category_model extends CI_Model
 	return $this->db->insert_id();
 	}
 	public function get_oracle_course_traing_list(){
-	$this->db->select('training_batches.*')->from('training_batches');
+	$this->db->select('training_batches.*,course_profile.c_P_name')->from('training_batches');
+	$this->db->join('course_profile', 'course_profile.c_id = training_batches.course_profile', 'left');
 	$this->db->where('training_batches.status !=', 2);
 	 $return=$this->db->get()->result_array();
 	  foreach($return as $list){
@@ -237,6 +238,14 @@ class Category_model extends CI_Model
 	$this->db->where('c_d_id',$c_d_id);
     return $this->db->update("course_details",$data);		
 	}
+	/* Training Course  */
+	public function get_course_profile_data(){
+	$this->db->select('course_profile.c_id,course_profile.c_P_name')->from('course_profile');
+	$this->db->where('course_profile.status',1);
+	return $this->db->get()->result_array();
+	}
+	
+	
 	
 	
 }

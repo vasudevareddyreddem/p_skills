@@ -36,7 +36,8 @@
                             <table id="example" class="table table-striped table-bordered" style="width:100%;">
                                 <thead>
                                     <tr>
-                                        <th>Title</th>
+                                        <th>Course Profile</th>
+										<th>Title</th>
 										<th>Duration </th>
 										<th>Hours</th>
                                         <th>Date</th>
@@ -47,6 +48,7 @@
                                 <tbody>
                                    <?php  foreach($oracle_training_batches as $list){ ?>
                                     <tr>
+										<td><?php echo $list['c_P_name']; ?></td>
                                         <td><?php echo $list['title']; ?></td>
 										<td><?php echo $list['duration']; ?></td>
 										<td><?php echo $list['hours']; ?></td>

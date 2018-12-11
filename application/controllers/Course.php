@@ -422,10 +422,10 @@ if($this->session->userdata('skill_user'))
 		if($this->session->userdata('skill_user'))
 		{
 			$login_details=$this->session->userdata('skill_user');
-		  
+		  $data['course_profile_data']=$this->Category_model->get_course_profile_data();
 			
 			$this->load->view('admin/header');
-			$this->load->view('courseprofile/course-profile');
+			$this->load->view('courseprofile/course-profile',$data);
 			$this->load->view('admin/footer');
 		}else{
 			$this->session->set_flashdata('error',"you don't have permission to access");
@@ -442,6 +442,7 @@ if($this->session->userdata('skill_user'))
             //echo'<pre>';print_r($post);exit;
 		    $save_data=array(
 			'title'=>isset($post['title'])?$post['title']:'',
+			'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
 			'duration'=>isset($post['duration'])?$post['duration']:'',
 			'hours'=>isset($post['hours'])?$post['hours']:'',
 			'status'=>1,
@@ -504,6 +505,7 @@ if($this->session->userdata('skill_user'))
 		{
 			$login_details=$this->session->userdata('skill_user');
 		  $t_b_id=base64_decode($this->uri->segment(3));
+		   $data['course_profile_data']=$this->Category_model->get_course_profile_data();
 			$data['edit_course_profile']=$this->Category_model->edit_oracle_course_traing_list($t_b_id);
 			//echo '<pre>';print_r($data);exit;
 			$this->load->view('admin/header');
@@ -535,6 +537,7 @@ public function trainingbatcheseditpost()
         $post=$this->input->post();
 		//echo '<pre>';print_r($post);exit;
          $update_data=array(
+		 'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
 		 'title'=>isset($post['title'])?$post['title']:'',
 		 'duration'=>isset($post['duration'])?$post['duration']:'',
 		  'hours'=>isset($post['hours'])?$post['hours']:'',
@@ -1059,9 +1062,8 @@ public function coursedetailsdelete()
 		if($this->session->userdata('skill_user'))
 		{
 			$login_details=$this->session->userdata('skill_user');
-		   $data['category_data']=$this->Category_model->get_Category_data();
+		   $data['course_profile_data']=$this->Category_model->get_course_profile_data();
 			//echo'<pre>';print_r($data);exit;
-			
 			$this->load->view('courseprofile/trainingcourse',$data);
 			$this->load->view('admin/footer');
 		}else{
@@ -1070,8 +1072,49 @@ public function coursedetailsdelete()
 		}
 	}
 		
+	public function trainingcoursepost()
+	{	
+		if($this->session->userdata('skill_user'))
+		{
+			$login_details=$this->session->userdata('skill_user');
+		   $post=$this->input->post();
+		  // echo'<pre>';print_r($post);exit;
+           $save_data=array(
+		   'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
+		   'title'=>isset($post['title'])?$post['title']:'',
+		   'status'=>1,
+		   'created_at'=>date('Y-m-d H:i:s'),
+		   'updated_at'=>date('Y-m-d H:i:s'),
+		   'created_by'=>isset($login_details['cust_id'])?$login_details['cust_id']:''
+		   );
+		    //echo'<pre>';print_r($save_data);exit;
+		   
+		   
+		   
+		   
+		}else{
+			$this->session->set_flashdata('error',"you don't have permission to access");
+			redirect('admin');
+		}
+	}
 	
 	
+	
+	
+	
+	public function trainingcourselists()
+	{	
+		if($this->session->userdata('skill_user'))
+		{
+			$login_details=$this->session->userdata('skill_user');
+
+			$this->load->view('courseprofile/trainingcourse-list');
+			$this->load->view('admin/footer');
+		}else{
+			$this->session->set_flashdata('error',"you don't have permission to access");
+			redirect('admin');
+		}
+	}
 	
 	
 	
