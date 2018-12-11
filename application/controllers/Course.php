@@ -1078,7 +1078,7 @@ public function coursedetailsdelete()
 		{
 			$login_details=$this->session->userdata('skill_user');
 		   $post=$this->input->post();
-		  // echo'<pre>';print_r($post);exit;
+		  //echo'<pre>';print_r($post);exit;
            $save_data=array(
 		   'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
 		   'title'=>isset($post['title'])?$post['title']:'',
@@ -1087,7 +1087,7 @@ public function coursedetailsdelete()
 		   'updated_at'=>date('Y-m-d H:i:s'),
 		   'created_by'=>isset($login_details['cust_id'])?$login_details['cust_id']:''
 		   );
-		    //echo'<pre>';print_r($save_data);exit;
+		   // echo'<pre>';print_r($save_data);exit;
 		   
 		   
 		   
