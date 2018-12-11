@@ -21,7 +21,7 @@
 
 <div class="content mt-3">
     <div class="animated fadeIn">
-	<form id="add_group" method="post" action="<?php echo base_url('course/trainingcoursepost');?>">
+	<form id="add_group" method="post" action="<?php echo base_url('course/trainingcoursepost');?>" enctype="multipart/form-data">
      <div class="row">
 	 
 				 <div class="col-md-6">
@@ -105,9 +105,14 @@
                         message: 'Please Select Course Profile'
                     }
                 }
+            },
+            title: {
+                validators: {
+                    notEmpty: {
+                        message: 'title is required'
+                    }
+                }
             }
-            
-			
 			
 			
             }
