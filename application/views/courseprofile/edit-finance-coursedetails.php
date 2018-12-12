@@ -40,8 +40,11 @@
 						<thead>
 							<tr >
 								<th class="text-center">
-													Title
+													Course Profile
 												</th>
+								<th class="text-center">
+													Title
+												</th>				
 								<th class="text-center">
 													Description
 												</th>
