@@ -12,9 +12,8 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li><a href="#">Home</a></li>
                     <li>Category</li>
-                    <li>List</li>
+                    <li>Category List</li>
                 </ol>
             </div>
         </div>

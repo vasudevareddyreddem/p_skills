@@ -265,16 +265,36 @@ class Category_model extends CI_Model
 	$this->db->where('t_c_id',$t_c_id);
     return $this->db->update("training_course",$data);		
 	}
-	
+	public function check_training_course_status(){
+	$this->db->select('*')->from('training_course');	
+	$this->db->where('training_course.status',1);
+	return $this->db->get()->result_array();
+	}
 	/* skill chair */
 	public function save_skillchair_details($data){
 	$this->db->insert('skillchair',$data);	
 	return $this->db->insert_id();
 	}
-	
-	
-	
-	
+	public function get_skillchair_list(){
+	$this->db->select('skillchair.*,course_profile.c_P_name')->from('skillchair');
+	$this->db->join('course_profile', 'course_profile.c_id = skillchair.course_profile', 'left');
+    $this->db->where('skillchair.status !=',2);
+    return $this->db->get()->result_array();
+	}
+	public function edit_skillchair_list($s_id){
+	$this->db->select('*')->from('skillchair');
+	$this->db->where('skillchair.s_id',$s_id);
+	return $this->db->get()->row_array();
+	}
+	public function update_skillchair_details($s_id,$data){
+	$this->db->where('s_id',$s_id);
+    return $this->db->update("skillchair",$data);		
+	}
+	public function check_skillchair_status(){
+	$this->db->select('*')->from('skillchair');
+	$this->db->where('skillchair.status',1);
+	return $this->db->get()->result_array();
+	}
 	
 	
 	

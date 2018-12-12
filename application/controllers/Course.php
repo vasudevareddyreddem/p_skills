@@ -1085,7 +1085,7 @@ public function coursedetailsdelete()
 			$login_details=$this->session->userdata('skill_user');
 		   $post=$this->input->post();
 		  //echo'<pre>';print_r($post);exit;
-
+          
            $save_data=array(
 		   'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
 		   'title'=>isset($post['title'])?$post['title']:'',
@@ -1154,10 +1154,7 @@ public function coursedetailsdelete()
 		       $update_data=array(
 	            'title'=>isset($post['title'])?$post['title']:'',
 		        'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
-				'status'=>0,
-				'created_at'=>date('Y-m-d H:i:s'),
 				'updated_at'=>date('Y-m-d H:i:s'),
-				'created_by'=>isset($login_details['cust_id'])?$login_details['cust_id']:''
 				 );
 				//echo'<pre>';print_r($update_data);exit;
                 $update=$this->Category_model->update_training_course_details_details($post['t_c_id'],$update_data);	
@@ -1187,6 +1184,16 @@ public function coursedetailsdelete()
 					}else{
 						$statu=1;
 					}
+					if($status==0){
+						$check=$this->Category_model->check_training_course_status();
+						if(count($check)>0){
+						$this->session->set_flashdata('error',"Already One Training Course details is Active. Please try again once");	
+							redirect('course/trainingcourselists');
+						}
+						
+					}
+					
+					
 					if($t_c_id!=''){
 						$stusdetails=array(
 							'status'=>$statu,
@@ -1284,7 +1291,7 @@ public function coursedetailsdelete()
 		$add_data=array(
 		'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
 		'title'=>isset($post['title'])?$post['title']:'',
-		'status'=>1,
+		'status'=>0,
 		'created_at'=>date('Y-m-d H:i:s'),
 		'updated_at'=>date('Y-m-d H:i:s'),
 		'created_by'=>isset($login_details['cust_id'])?$login_details['cust_id']:''
@@ -1305,6 +1312,156 @@ public function coursedetailsdelete()
 			redirect('admin');
 		}
 	}
+	public function skillchairlists()
+	{	
+		if($this->session->userdata('skill_user'))
+		{
+			$login_details=$this->session->userdata('skill_user');
+		   $data['skillchair_details']=$this->Category_model->get_skillchair_list();	
+		   	//echo'<pre>';print_r($data);exit;
+			$this->load->view('courseprofile/skillchair-list',$data);
+			$this->load->view('admin/footer');
+		}else{
+			$this->session->set_flashdata('error',"you don't have permission to access");
+			redirect('admin');
+		}
+	}
+	public function skillchairedit()
+	{	
+		if($this->session->userdata('skill_user'))
+		{
+			$login_details=$this->session->userdata('skill_user');
+			$skillchair=base64_decode($this->uri->segment(3));
+			 $data['course_profile_data']=$this->Category_model->get_course_profile_data();
+			$data['edit_skillchair']=$this->Category_model->edit_skillchair_list($skillchair);
+				//echo'<pre>';print_r($data);exit;
+			$this->load->view('courseprofile/edit_skillchair',$data);
+			$this->load->view('admin/footer');
+		}else{
+			$this->session->set_flashdata('error',"you don't have permission to access");
+			redirect('admin');
+		}
+	}
+	public function skillchaireditpost(){
+		if($this->session->userdata('skill_user'))
+		{
+			$login_details=$this->session->userdata('skill_user');
+	     $post=$this->input->post();	
+		  //echo'<pre>';print_r($post);exit;
+		       $update_data=array(
+	            'title'=>isset($post['title'])?$post['title']:'',
+		        'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
+				'updated_at'=>date('Y-m-d H:i:s'),
+				 );
+				//echo'<pre>';print_r($update_data);exit;
+                $update=$this->Category_model->update_skillchair_details($post['s_id'],$update_data);	
+				// echo'<pre>';print_r($update);exit;
+		       if(count($update)>0){
+					$this->session->set_flashdata('success',"Skillchair details successfully updated");	
+					redirect('course/skillchairlists');	
+					  }else{
+						$this->session->set_flashdata('error',"techechal probelem occur ");
+						redirect('course/skillchairedit/'.base64_encode($post['s_id']));
+					  }    
+				
+					}else{
+					$this->session->set_flashdata('error',"you don't have permission to access");
+					redirect('admin');
+				}
+	}
+	
+	public function skillchairstatus(){
+	 if($this->session->userdata('skill_user'))
+		{	
+         $login_details=$this->session->userdata('skill_user');	
+	             $s_id=base64_decode($this->uri->segment(3));
+					$status=base64_decode($this->uri->segment(4));
+					if($status==1){
+						$statu=0;
+					}else{
+						$statu=1;
+					}
+					if($status==0){
+						$check=$this->Category_model->check_skillchair_status();
+						if(count($check)>0){
+							$this->session->set_flashdata('error',"Already One Skillchair Details is Active. Please try again once");
+							redirect('course/skillchairlists');
+						}
+					}
+					
+					if($s_id!=''){
+						$stusdetails=array(
+							'status'=>$statu,
+							'updated_at'=>date('Y-m-d H:i:s')
+							);
+							//echo'<pre>';print_r($stusdetails);exit;
+							$statusdata=$this->Category_model->update_skillchair_details($s_id,$stusdetails);
+							//echo'<pre>';print_r($statusdata);exit;
+							//echo $this->db->last_query();exit;	
+							if(count($statusdata)>0){
+								if($status==1){
+								$this->session->set_flashdata('success',"Skillchair details   successfully Deactivate.");
+								}else{
+									$this->session->set_flashdata('success',"Skillchair details  successfully Activate.");
+								}
+								redirect('course/skillchairlists');
+							}else{
+									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+									redirect('course/skillchairlists');
+							}
+						}
+						else{
+						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+						redirect('dashboard');
+					}	
+	
+	
+          }else{
+			$this->session->set_flashdata('error',"you don't have permission to access");
+			redirect('admin');
+		}
+
+
+}	
+	
+	public function skillchairdelete()
+{
+
+		if($this->session->userdata('skill_user'))
+		{	
+         $login_details=$this->session->userdata('skill_user');	
+	             $s_id=base64_decode($this->uri->segment(3));
+					
+					if($s_id!=''){
+						$stusdetails=array(
+							'status'=>2,
+							'updated_at'=>date('Y-m-d H:i:s')
+							);
+							
+							$statusdata=$this->Category_model->update_skillchair_details($s_id,$stusdetails);
+							if(count($statusdata)>0){
+								$this->session->set_flashdata('success',"Skillchair details  successfully deleted.");
+								redirect('course/skillchairlists');
+							}else{
+									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+									redirect('course/skillchairlists');
+							}
+						}
+						else{
+						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+						redirect('dashboard');
+					}	
+	
+	
+           }else{
+			$this->session->set_flashdata('error',"you don't have permission to access");
+			redirect('admin');
+		}
+
+		
+		
+	}	
+	
 	
 	
 	

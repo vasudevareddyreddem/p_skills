@@ -4,7 +4,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Header Image List</h1>
+                <h1>Header Image</h1>
             </div>
         </div>
     </div>
@@ -12,7 +12,7 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li><a href="#">Home</a></li>
+                    <li>Header Image</li>
                     <li>Header Image List</li>
                 </ol>
             </div>

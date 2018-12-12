@@ -3,7 +3,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Oracle interviewquestions</h1>
+                <h1> Interview Questions</h1>
             </div>
         </div>
     </div>
@@ -11,7 +11,7 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li class="active">Oracle interviewquestions</li>
+                    <li class="active"> Interview Questions</li>
                 </ol>
             </div>
         </div>

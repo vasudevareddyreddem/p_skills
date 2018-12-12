@@ -4,7 +4,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Training Batches</h1>
+                <h1>Header</h1>
             </div>
         </div>
     </div>
@@ -12,8 +12,8 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li>Training Batches</li>
-                    <li>Training Batches List</li>
+                    <li>Header</li>
+                    <li>Header  List</li>
                 </ol>
             </div>
         </div>
@@ -27,48 +27,41 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Training Batches List</strong>
+                        <strong class="card-title">Header List</strong>
                     </div>
                     <div class="card-body">
-					<?php if(isset($oracle_training_batches) && count($oracle_training_batches)>0){ ?>
+					<?php if(isset($header_list) && count($header_list)>0){ ?>
                         <div class="table-responsive">
                             <table id="example" class="table table-striped table-bordered" style="width:100%;">
                                 <thead>
                                     <tr>
-                                        <th>Course Profile</th>
-										<th>Title</th>
-										<th>Duration </th>
-										<th>Hours</th>
-                                        <th>Date</th>
+                                        <th>Video</th>
+										<th>Text</th>
+										<th>Background Colour</th>
 										<th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   <?php  foreach($oracle_training_batches as $list){ ?>
+                                   <?php  foreach($header_list as $list){ ?>
                                     <tr>
-										<td><?php echo $list['c_P_name']; ?></td>
-                                        <td><?php echo $list['title']; ?></td>
-										<td><?php echo $list['duration']; ?></td>
-										<td><?php echo $list['hours']; ?></td>
-                                        <td><?php foreach($list['training_bactch_list'] as $lis) { ?>
-										<?php echo $lis['date']. '<br>'; ?>
-										<?php } ?>
-										</td>
-									 <td><?php foreach($list['training_bactch_list'] as $lis) { ?>
-										<?php echo $lis['time']. '<br>'; ?>
-										<?php } ?>
-										</td>
-										
+                                        <td>
+							<video width="300"  controls>
+							<source src="<?php echo base_url('assets/videos/'.$list['video']); ?>">
+							</video>
+									
+                                      </td>
+										<td><?php echo $list['text']; ?></td>
+										<td><?php echo $list['color_code']; ?></td>
 										<td><?php if($list['status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>
                                         <td>
                                             
-				<a href="<?php echo base_url('course/trainingbatchesedit/'.base64_encode($list['t_b_id'])); ?>"  data-toggle="tooltip" title="Edit" ><i class="fa fa-edit btn btn-primary"></i></a>
-				<a href="javascript;void(0);" onclick="admindeactive('<?php echo base64_encode(htmlentities($list['t_b_id'])).'/'.base64_encode(htmlentities($list['status']));?>');adminstatus('<?php echo $list['status'];?>')" data-toggle="modal" data-target="#myModal" title="Edit"><i class="fa fa-info-circle btn btn-warning"></i></a>
-				<a href="javascript;void(0);" onclick="admindedelete('<?php echo base64_encode(htmlentities($list['t_b_id']));?>');admin('');" data-toggle="modal" data-target="#myModal" title="delete"><i class="fa fa-trash-o btn btn-danger"></i></a>
-                     
-										
-                                           
+											
+											<a href="<?php echo base_url('header/edit/'.base64_encode($list['h_id'])); ?>"  data-toggle="tooltip" title="Edit" ><i class="fa fa-edit btn btn-primary"></i></a>
+											<a href="javascript;void(0);" onclick="admindeactive('<?php echo base64_encode(htmlentities($list['h_id'])).'/'.base64_encode(htmlentities($list['status']));?>');adminstatus('<?php echo $list['status'];?>')" data-toggle="modal" data-target="#myModal" title="Edit"><i class="fa fa-info-circle btn btn-warning"></i></a>
+											<a href="javascript;void(0);" onclick="admindedelete('<?php echo base64_encode(htmlentities($list['h_id']));?>');admin('');" data-toggle="modal" data-target="#myModal" title="delete"><i class="fa fa-trash-o btn btn-danger"></i></a>
+												 
+											
                                         </td>
                                     </tr>
                                     
@@ -80,7 +73,6 @@
 						<?php }else{ ?>
                                <div> No data available</div>
                                     <?php }?>
-						
 						<div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -110,7 +102,6 @@
     </div>
   </div>	
 						
-						
                     </div>
                 </div>
             </div>
@@ -118,31 +109,33 @@
         </div>
     </div><!-- .animated -->
 </div><!-- .content -->
+	
 <script>
 function admindeactive(id){
-	$(".popid").attr("href","<?php echo base_url('course/trainingbatchesstatus'); ?>"+"/"+id);
+	$(".popid").attr("href","<?php echo base_url('header/status'); ?>"+"/"+id);
 }
 function admindedelete(id){
-	$(".popid").attr("href","<?php echo base_url('course/trainingbatchesdelete'); ?>"+"/"+id);
+	$(".popid").attr("href","<?php echo base_url('header/delete'); ?>"+"/"+id);
 	
 }
 function adminstatus(id){
 	if(id==1){
-			$('#content1').html('Are you sure you want to Deactivate?');
+			$('#content1').html('Are you sure you want to deactivate?');
 		
 	}if(id==0){
-			$('#content1').html('Are you sure you want to Activate?');
+			$('#content1').html('Are you sure you want to activate?');
 	}
 }
 
 function admin(id){
-			$('#content1').html('Are you sure you want to Delete?');
+			$('#content1').html('Are you sure you want to delete?');
 
 }
 
 
 
 </script>
+
 <script>
 	$(document).ready(function() {
 		$('#example').DataTable();

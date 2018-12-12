@@ -12,7 +12,7 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li><a href="#">Home</a></li>
+                    <li>Profile logo</li>
                     <li>Profile logo List</li>
                 </ol>
             </div>

@@ -3,7 +3,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Edit Oracle Training Batches</h1>
+                <h1>Edit Training Course</h1>
             </div>
         </div>
     </div>
@@ -11,7 +11,7 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li class="active">Edit Oracle Training Batches</li>
+                    <li class="active">Edit Training Course</li>
                 </ol>
             </div>
         </div>

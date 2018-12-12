@@ -190,7 +190,7 @@ if($this->session->userdata('skill_user'))
 							);
 							$statusdata=$this->Header_model->update_header_image_details($img_id,$stusdetails);
 							if(count($statusdata)>0){
-								$this->session->set_flashdata('success',"Course Name details successfully  deleted.");
+								$this->session->set_flashdata('success',"Image  successfully  deleted.");
 								redirect('header/imagelists');
 							}else{
 								$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
@@ -220,6 +220,216 @@ if($this->session->userdata('skill_user'))
 			redirect('admin');
 		}
 	}
+	
+public function add()
+	{	
+		if($this->session->userdata('skill_user'))
+		{
+			$login_details=$this->session->userdata('skill_user');
+			//echo'<pre>';print_r($data);exit;
+			
+			$this->load->view('header/add');
+			$this->load->view('admin/footer');
+		}else{
+			$this->session->set_flashdata('error',"you don't have permission to access");
+			redirect('admin');
+		}
+	}
+	public function headerpost(){
+		if($this->session->userdata('skill_user'))
+		{
+			$login_details=$this->session->userdata('skill_user');
+				$post=$this->input->post();	
+				//echo'<pre>';print_r($post);exit;
+				
+						if(isset($_FILES['video']['name']) && $_FILES['video']['name']!=''){
+							$temp = explode(".", $_FILES["video"]["name"]);
+							$videos = round(microtime(true)) . '.' . end($temp);
+							move_uploaded_file($_FILES['video']['tmp_name'], "assets/videos/" . $videos);
+						}else{
+							$videos='';
+						}
+					$add=array(
+					 'video'=>isset($videos)?$videos:'',
+					 'org_video'=>isset($_FILES['video']['name'])?$_FILES['video']['name']:'',
+					 'text'=>isset($post['text'])?$post['text']:'',
+					 'color_code'=>isset($post['color_code'])?$post['color_code']:'',
+					 'status'=>0,
+					 'created_at'=>date('Y-m-d H:i:s'),
+					 'updated_at'=>date('Y-m-d H:i:s'),
+					 'created_by'=>isset($login_details['cust_id'])?$login_details['cust_id']:'', 
+					 
+					);
+					//echo'<pre>';print_r($add);exit;
+				   $save=$this->Header_model->save_header_details($add);	
+				   if(count($save)>0){
+						$this->session->set_flashdata('success',"Header details successfully added");	
+						redirect('header/lists');	
+					}else{
+						$this->session->set_flashdata('error',"technical problem occurred. please try again once");
+						redirect('header/add');
+					}  
+		
+		}else{
+		 $this->session->set_flashdata('error',"you don't have permission to access");
+		 redirect('admin');
+		}
+	}
+	public function lists()
+	{	
+		if($this->session->userdata('skill_user'))
+		{
+			$login_details=$this->session->userdata('skill_user');
+			//echo'<pre>';print_r($data);exit;
+			$data['header_list']=$this->Header_model->get_header_list();	
+				//echo'<pre>';print_r($data);exit;
+			$this->load->view('header/list',$data);
+			$this->load->view('admin/footer');
+		}else{
+			$this->session->set_flashdata('error',"you don't have permission to access");
+			redirect('admin');
+		}
+	}
+	public function edit()
+	{	
+		if($this->session->userdata('skill_user'))
+		{
+			$login_details=$this->session->userdata('skill_user');
+			
+			$h_id=base64_decode($this->uri->segment(3));
+			$data['edit_header']=$this->Header_model->get_edit_header_details($h_id);	
+			//echo'<pre>';print_r($data);exit;
+			$this->load->view('header/edit-header',$data);
+			$this->load->view('admin/footer');
+		}else{
+			$this->session->set_flashdata('error',"you don't have permission to access");
+			redirect('admin');
+		}
+	}
+	public function headereditpost()
+	{
+	if($this->session->userdata('skill_user'))
+		{
+		 $login_details=$this->session->userdata('skill_user');
+	     $post=$this->input->post();	
+		  //echo'<pre>';print_r($post);exit;
+			$edit_header=$this->Header_model->get_edit_header_details($post['h_id']);	
+					//echo'<pre>';print_r($edit_header);exit;
+		      
+						
+						if(isset($_FILES['video']['name']) && $_FILES['video']['name']!=''){
+							$temp = explode(".", $_FILES["video"]["name"]);
+							$videos = round(microtime(true)) . '.' . end($temp);
+							$org_images=$_FILES["video"]["name"];
+							move_uploaded_file($_FILES['video']['tmp_name'], "assets/headerimages/" . $videos);
+						}else{
+							$videos=$edit_header['video'];
+							$org_videos=$edit_header['org_video'];
+						}
+						
+					$update_data=array(
+					 'video'=>isset($videos)?$videos:'',
+					 'org_video'=>isset($org_videos)?$org_videos:'',
+					 'text'=>isset($post['text'])?$post['text']:'',
+					 'color_code'=>isset($post['color_code'])?$post['color_code']:'',
+					 'updated_at'=>date('Y-m-d H:i:s'),
+					);
+					
+					//echo'<pre>';print_r($update_data);exit;
+                $update=$this->Header_model->update_header_details($post['h_id'],$update_data);	
+				// echo'<pre>';print_r($update);exit;
+		       if(count($update)>0){
+					$this->session->set_flashdata('success',"Header details successfully updated");	
+					redirect('header/lists');	
+					  }else{
+						$this->session->set_flashdata('error',"technical problem occurred. Please try again");
+						redirect('header/edit/'.base64_encode($post['h_id']));
+					  }    
+				
+					}else{
+					$this->session->set_flashdata('error',"you don't have permission to access");
+					redirect('admin');
+				}
+	}
+	
+	public function status()
+	{
+		if($this->session->userdata('skill_user'))
+		{	
+         $login_details=$this->session->userdata('skill_user');	
+	             $h_id=base64_decode($this->uri->segment(3));
+					$status=base64_decode($this->uri->segment(4));
+					if($status==1){
+						$statu=0;
+					}else{
+						$statu=1;
+					}
+					if($status==0){
+						$check=$this->Header_model->check_header_status();
+						if(count($check)>0){
+							$this->session->set_flashdata('error',"Already one Header details is Active. Please try again once");
+							redirect('header/lists');
+						}
+					}
+					if($h_id!=''){
+						$stusdetails=array(
+							'status'=>$statu,
+							'updated_at'=>date('Y-m-d H:i:s')
+							);
+							$statusdata=$this->Header_model->update_header_details($h_id,$stusdetails);
+							if(count($statusdata)>0){
+								if($status==1){
+								$this->session->set_flashdata('success',"Header details successfully  Deactivate.");
+								}else{
+									$this->session->set_flashdata('success',"Header details  successfully  Activate.");
+								}
+								redirect('header/lists');
+							}else{
+									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+									redirect('header/lists');
+							}
+						}else{
+						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+						redirect('dashboard');
+					}	
+	
+        }else{
+		 $this->session->set_flashdata('error',"Please login and continue");
+		 redirect('admin');  
+	   }
+    }
+	
+	public function delete()
+		{
+if($this->session->userdata('skill_user'))
+		{	
+         $login_details=$this->session->userdata('skill_user');	
+	             $h_id=base64_decode($this->uri->segment(3));
+					if($status==2){
+					}
+					if($h_id!=''){
+						$stusdetails=array(
+							'status'=>2,
+							'updated_at'=>date('Y-m-d H:i:s')
+							);
+							$statusdata=$this->Header_model->update_header_details($h_id,$stusdetails);
+							if(count($statusdata)>0){
+								$this->session->set_flashdata('success',"Header details successfully  deleted.");
+								redirect('header/lists');
+							}else{
+								$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+								redirect('header/lists');
+							}
+						}else{
+						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+						redirect('dashboard');
+					}	
+	
+        }else{
+		 $this->session->set_flashdata('error',"Please login and continue");
+		 redirect('admin');  
+	   }
+    }
 	
 	
 	

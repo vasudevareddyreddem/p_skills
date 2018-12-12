@@ -11,8 +11,8 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-				    <li><a href="#" ></a>Home</li>
                     <li>Header Image</li>
+                    <li>Edit Header Image</li>
                 </ol>
             </div>
         </div>

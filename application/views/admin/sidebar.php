@@ -25,6 +25,15 @@
                 </li>
 				
 				<li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="menu-icon fa fa-users"></i>Header</a>
+                    <ul class="sub-menu children dropdown-menu">
+   
+                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('header/add');?>"> Add  </a></li>
+                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('header/lists');?>"> List</a></li>
+                    </ul>
+                </li>
+				
+				<li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="menu-icon fa fa-users"></i>Category Creation</a>
                     <ul class="sub-menu children dropdown-menu">
    
@@ -47,14 +56,14 @@
 						<li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/skillchair');?>"> Add Skill Chair</a></li>
                         <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/skillchairlists');?>">Skill Chair List</a></li>
 						
-						<li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/trainingbatches');?>"> Add Oracle Training Batches</a></li>
-                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/trainingbatcheslists');?>">Course Oracle Training Batches List</a></li>
+						<li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/trainingbatches');?>"> Add Training Batches</a></li>
+                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/trainingbatcheslists');?>">Training Batches List</a></li>
 						
-						<li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/interviewquestions');?>"> Add Oracle Interview Questions</a></li>
-                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/interviewquestionslists');?>">Oracle Interview Questions List</a></li>
+						<li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/interviewquestions');?>"> Add  Interview Questions</a></li>
+                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/interviewquestionslists');?>">Interview Questions List</a></li>
 						
-						<li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/coursedetails');?>"> Add Oracle Finance Course Details</a></li>
-                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/coursedetailslists');?>">Oracle Finance Course Details List</a></li>
+						<li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/coursedetails');?>"> Add Course Details</a></li>
+                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/coursedetailslists');?>">Course Details List</a></li>
 						
                     </ul>
                 </li>

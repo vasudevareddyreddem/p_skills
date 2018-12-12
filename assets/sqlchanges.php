@@ -112,3 +112,31 @@ CREATE TABLE `skillchair` (
 
   
   
+  
+
+Create Table
+
+CREATE TABLE `header` (
+  `h_id` int(11) NOT NULL AUTO_INCREMENT,
+  `video` varchar(250) DEFAULT NULL,
+  `color_code` varchar(250) DEFAULT NULL,
+  `org_video` varchar(250) DEFAULT NULL,
+  `text` varchar(250) DEFAULT NULL,
+  `status` int(11) DEFAULT '1',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  PRIMARY KEY (`h_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

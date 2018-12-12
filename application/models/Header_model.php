@@ -39,6 +39,33 @@ class Header_model extends CI_Model
 		$this->db->select('*')->from('leads_list');
 		return $this->db->get()->result_array();
 	}
+	/* header purpose */
+	public function save_header_details($data){
+	$this->db->insert('header',$data);
+    return $this->db->insert_id();
+	}
+	public function get_header_list(){
+	$this->db->select('header.*')->from('header');
+	$this->db->where('header.status !=',2);
+	return $this->db->get()->result_array();
+	}
+	public function get_edit_header_details($h_id){
+	$this->db->select('header.*')->from('header');
+	$this->db->where('h_id',$h_id);
+	return $this->db->get()->row_array();
+	}
+	public function update_header_details($h_id,$data){
+	$this->db->where('h_id',$h_id);
+    return $this->db->update('header',$data);
+	}
+	public  function check_header_status(){
+		$this->db->select('*')->from('header');
+		$this->db->where('status',1);
+		return $this->db->get()->result_array();	
+	}
+	
+	
+	
 	
 	
 	

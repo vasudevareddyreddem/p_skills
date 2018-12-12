@@ -4,7 +4,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Oracle Training Course
+                <h1> Training Course
 </h1>
             </div>
         </div>
@@ -13,9 +13,8 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li><a href="#">Home</a></li>
-                    <li>Oracle Training Course</li>
-                    <li>List</li>
+                    <li> Training Course</li>
+                    <li>Training Course List</li>
                 </ol>
             </div>
         </div>
@@ -29,7 +28,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Oracle Training Course List</strong>
+                        <strong class="card-title"> Training Course List</strong>
                     </div>
                     <div class="card-body">
 					<?php if(isset($training_course_details) && count($training_course_details)>0){ ?>
