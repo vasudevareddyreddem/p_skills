@@ -19,7 +19,7 @@ class Front_end extends CI_Controller {
 	    $this->load->model('User_model');
 		$data['contact_details']=$this->User_model->get_contactus_details();
 		$data['category_list']=$this->User_model->get_all_category_wise_lists();
-		echo '<pre>';print_r($data);exit;
+		//echo '<pre>';print_r($data);exit;
 		$this->load->view('html/header',$data);
 	}
 	
