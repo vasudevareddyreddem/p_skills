@@ -86,3 +86,9 @@ ALTER TABLE `skills`.`training_batches`
   ADD COLUMN `hours` VARCHAR(250) NULL AFTER `duration`;
 
 
+ALTER TABLE `skills`.`course_details`   
+  CHANGE `course_profile` `course_profile` INT(12) NULL;
+  
+  
+  ALTER TABLE `skills`.`interview_questions`   
+  CHANGE `course_profile` `course_profile` INT(12) NULL;

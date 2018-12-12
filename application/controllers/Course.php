@@ -677,10 +677,10 @@ public function trainingbatcheseditpost()
 		if($this->session->userdata('skill_user'))
 		{
 			$login_details=$this->session->userdata('skill_user');
-		  
+		   $data['course_profile_data']=$this->Category_model->get_course_profile_data();
 			
 			$this->load->view('admin/header');
-			$this->load->view('courseprofile/interviewquestions');
+			$this->load->view('courseprofile/interviewquestions',$data);
 			$this->load->view('admin/footer');
 		}else{
 			$this->session->set_flashdata('error',"you don't have permission to access");
@@ -699,6 +699,7 @@ public function trainingbatcheseditpost()
 						  $add_data=array(
 						  'title'=>$list,
 						  'description'=>$post['description'][$cnt],
+						  'course_profile'=>$post['course_profile'][$cnt],
 						  'status'=>1,
 						  'created_at'=>date('Y-m-d H:i:s'),
 						  'updated_at'=>date('Y-m-d H:i:s'),
@@ -724,7 +725,7 @@ public function trainingbatcheseditpost()
 		{
 			$login_details=$this->session->userdata('skill_user');
 		  $data['oracle_interview_questions']=$this->Category_model->get_oracle_interview_questions_list();	
-			 //echo '<pre>';print_r($data);exit;
+			// echo '<pre>';print_r($data);exit;
 			$this->load->view('admin/header');
 			$this->load->view('courseprofile/interviewquestions-list',$data);
 			$this->load->view('admin/footer');
@@ -739,6 +740,7 @@ public function trainingbatcheseditpost()
 		{
 			$login_details=$this->session->userdata('skill_user');
 		  $interview=base64_decode($this->uri->segment(3));
+		   $data['course_profile_data']=$this->Category_model->get_course_profile_data();
 			$data['edit_interview_questions']=$this->Category_model->edit_edit_interview_questions_list($interview);
 			//echo '<pre>';print_r($data);exit;
 			$this->load->view('admin/header');
@@ -759,6 +761,7 @@ public function trainingbatcheseditpost()
 		       $update_data=array(
 	            'title'=>isset($post['title'])?$post['title']:'',
 		        'description'=>isset($post['description'])?$post['description']:'',
+		        'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
 				'status'=>1,
 				'created_at'=>date('Y-m-d H:i:s'),
 				'updated_at'=>date('Y-m-d H:i:s'),
@@ -869,10 +872,10 @@ public function interviewquestionsdelete()
 		if($this->session->userdata('skill_user'))
 		{
 			$login_details=$this->session->userdata('skill_user');
-		  
+		   $data['course_profile_data']=$this->Category_model->get_course_profile_data();
 			
 			$this->load->view('admin/header');
-			$this->load->view('courseprofile/finance-coursedetails');
+			$this->load->view('courseprofile/finance-coursedetails',$data);
 			$this->load->view('admin/footer');
 		}else{
 			$this->session->set_flashdata('error',"you don't have permission to access");
@@ -892,6 +895,7 @@ public function interviewquestionsdelete()
 						  $add_data=array(
 						  'title'=>$list,
 						  'description'=>$post['description'][$cnt],
+						  'course_profile'=>$post['course_profile'][$cnt],
 						  'status'=>1,
 						  'created_at'=>date('Y-m-d H:i:s'),
 						  'updated_at'=>date('Y-m-d H:i:s'),
@@ -932,6 +936,7 @@ public function interviewquestionsdelete()
 		{
 			$login_details=$this->session->userdata('skill_user');
 			$course_details=base64_decode($this->uri->segment(3));
+			 $data['course_profile_data']=$this->Category_model->get_course_profile_data();
 			$data['edit_course_details']=$this->Category_model->edit_course_details_list($course_details);
 			$this->load->view('admin/header');
 			$this->load->view('courseprofile/edit-finance-coursedetails',$data);
@@ -950,6 +955,7 @@ public function interviewquestionsdelete()
 		       $update_data=array(
 	            'title'=>isset($post['title'])?$post['title']:'',
 		        'description'=>isset($post['description'])?$post['description']:'',
+		        'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
 				'status'=>1,
 				'created_at'=>date('Y-m-d H:i:s'),
 				'updated_at'=>date('Y-m-d H:i:s'),
