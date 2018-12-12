@@ -93,6 +93,19 @@ class User_model extends CI_Model
 		$this->db->where('logos_list.profile_id',$c_profile_id);
 		return $this->db->get()->result_array();
 	}
+	public  function get_course_details_list($c_profile_id){
+		$this->db->select('*')->from('course_details');
+		$this->db->where('course_details.status',1);
+		$this->db->where('course_details.course_profile',$c_profile_id);
+		return $this->db->get()->result_array();
+	}
+	
+	public  function get_interview_questions_list($c_profile_id){
+		$this->db->select('*')->from('interview_questions');
+		$this->db->where('interview_questions.status',1);
+		$this->db->where('interview_questions.course_profile',$c_profile_id);
+		return $this->db->get()->result_array();
+	}
 	
 	
 	
