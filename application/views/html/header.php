@@ -52,170 +52,30 @@
                     <li class="nav-item nml-has-dropdown-1">
                         <a class="nav-link" href="#"><i class="fa fa-th"></i> Categories</a>
                         <ul class="z-depth-1 nml-step-1">
-                            <li class="nml-has-dropdown-2">
-                                <a href="#">HTML</a>
-                                <ul class="z-depth-2 nml-step-2">
-                                    <li class="nml-has-dropdown-3">
-                                        <a href="#">Item 11</a>
-                                        <ul class="z-depth-3 nml-step-3">
-                                            <li><a href="categories.html">Item 111</a></li>
-                                            <li><a href="categories.html">Item 112</a></li>
-                                            <li><a href="categories.html">Item 113</a></li>
-                                            <li><a href="categories.html">Item 114</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nml-has-dropdown-3">
-                                        <a href="#">Item 12</a>
-                                        <ul class="z-depth-3 nml-step-3">
-                                            <li><a href="categories.html">Item 121</a></li>
-                                            <li><a href="categories.html">Item 122</a></li>
-                                            <li><a href="categories.html">Item 123</a></li>
-                                            <li><a href="categories.html">Item 124</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nml-has-dropdown-3">
-                                        <a href="#">Item 13</a>
-                                        <ul class="z-depth-3 nml-step-3">
-                                            <li><a href="categories.html">Item 131</a></li>
-                                            <li><a href="categories.html">Item 132</a></li>
-                                            <li><a href="categories.html">Item 133</a></li>
-                                            <li><a href="categories.html">Item 134</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nml-has-dropdown-3">
-                                        <a href="#">Item 14</a>
-                                        <ul class="z-depth-3 nml-step-3">
-                                            <li><a href="categories.html">Item 141</a></li>
-                                            <li><a href="categories.html">Item 142</a></li>
-                                            <li><a href="categories.html">Item 143</a></li>
-                                            <li><a href="categories.html">Item 144</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nml-has-dropdown-2">
-                                <a href="#">CSS</a>
-                                <ul class="z-depth-2 nml-step-2">
-                                    <li class="nml-has-dropdown-3">
-                                        <a href="#">Item 11</a>
-                                        <ul class="z-depth-3 nml-step-3">
-                                            <li><a href="categories.html">Item 111</a></li>
-                                            <li><a href="categories.html">Item 112</a></li>
-                                            <li><a href="categories.html">Item 113</a></li>
-                                            <li><a href="categories.html">Item 114</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nml-has-dropdown-3">
-                                        <a href="#">Item 12</a>
-                                        <ul class="z-depth-3 nml-step-3">
-                                            <li><a href="categories.html">Item 121</a></li>
-                                            <li><a href="categories.html">Item 122</a></li>
-                                            <li><a href="categories.html">Item 123</a></li>
-                                            <li><a href="categories.html">Item 124</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nml-has-dropdown-3">
-                                        <a href="#">Item 13</a>
-                                        <ul class="z-depth-3 nml-step-3">
-                                            <li><a href="categories.html">Item 131</a></li>
-                                            <li><a href="categories.html">Item 132</a></li>
-                                            <li><a href="categories.html">Item 133</a></li>
-                                            <li><a href="categories.html">Item 134</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nml-has-dropdown-3">
-                                        <a href="#">Item 14</a>
-                                        <ul class="z-depth-3 nml-step-3">
-                                            <li><a href="categories.html">Item 141</a></li>
-                                            <li><a href="categories.html">Item 142</a></li>
-                                            <li><a href="categories.html">Item 143</a></li>
-                                            <li><a href="categories.html">Item 144</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nml-has-dropdown-2">
-                                <a href="#">Java Script</a>
-                                <ul class="z-depth-2 nml-step-2">
-                                    <li class="nml-has-dropdown-3">
-                                        <a href="#">Item 11</a>
-                                        <ul class="z-depth-3 nml-step-3">
-                                            <li><a href="categories.html">Item 111</a></li>
-                                            <li><a href="categories.html">Item 112</a></li>
-                                            <li><a href="categories.html">Item 113</a></li>
-                                            <li><a href="categories.html">Item 114</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nml-has-dropdown-3">
-                                        <a href="#">Item 12</a>
-                                        <ul class="z-depth-3 nml-step-3">
-                                            <li><a href="categories.html">Item 121</a></li>
-                                            <li><a href="categories.html">Item 122</a></li>
-                                            <li><a href="categories.html">Item 123</a></li>
-                                            <li><a href="categories.html">Item 124</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nml-has-dropdown-3">
-                                        <a href="#">Item 13</a>
-                                        <ul class="z-depth-3 nml-step-3">
-                                            <li><a href="categories.html">Item 131</a></li>
-                                            <li><a href="categories.html">Item 132</a></li>
-                                            <li><a href="categories.html">Item 133</a></li>
-                                            <li><a href="categories.html">Item 134</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nml-has-dropdown-3">
-                                        <a href="#">Item 14</a>
-                                        <ul class="z-depth-3 nml-step-3">
-                                            <li><a href="categories.html">Item 141</a></li>
-                                            <li><a href="categories.html">Item 142</a></li>
-                                            <li><a href="categories.html">Item 143</a></li>
-                                            <li><a href="categories.html">Item 144</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nml-has-dropdown-2">
-                                <a href="#">Bootstrap</a>
-                                <ul class="z-depth-2 nml-step-2">
-                                    <li class="nml-has-dropdown-3">
-                                        <a href="#">Item 11</a>
-                                        <ul class="z-depth-3 nml-step-3">
-                                            <li><a href="categories.html">Item 111</a></li>
-                                            <li><a href="categories.html">Item 112</a></li>
-                                            <li><a href="categories.html">Item 113</a></li>
-                                            <li><a href="categories.html">Item 114</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nml-has-dropdown-3">
-                                        <a href="#">Item 12</a>
-                                        <ul class="z-depth-3 nml-step-3">
-                                            <li><a href="categories.html">Item 121</a></li>
-                                            <li><a href="categories.html">Item 122</a></li>
-                                            <li><a href="categories.html">Item 123</a></li>
-                                            <li><a href="categories.html">Item 124</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nml-has-dropdown-3">
-                                        <a href="#">Item 13</a>
-                                        <ul class="z-depth-3 nml-step-3">
-                                            <li><a href="categories.html">Item 131</a></li>
-                                            <li><a href="categories.html">Item 132</a></li>
-                                            <li><a href="categories.html">Item 133</a></li>
-                                            <li><a href="categories.html">Item 134</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nml-has-dropdown-3">
-                                        <a href="#">Item 14</a>
-                                        <ul class="z-depth-3 nml-step-3">
-                                            <li><a href="categories.html">Item 141</a></li>
-                                            <li><a href="categories.html">Item 142</a></li>
-                                            <li><a href="categories.html">Item 143</a></li>
-                                            <li><a href="categories.html">Item 144</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
+						<?php if(isset($category_list) && count($category_list)>0){ ?>
+								<?php foreach($category_list as $list){ ?>
+									<li class="nml-has-dropdown-2">
+										<a href="#"><?php echo isset($list['category_name'])?$list['category_name']:''; ?></a>
+										<ul class="z-depth-2 nml-step-2">
+											<?php if(isset($list['course_names']) && count($list['course_names'])>0){ ?>
+													<?php foreach($list['course_names'] as $lis){ ?>
+														<li class="nml-has-dropdown-3">
+															<a href="#"><?php echo isset($lis['sub_category_name'])?$lis['sub_category_name']:''; ?></a>
+															<ul class="z-depth-3 nml-step-3">
+																<?php foreach($lis['course_profiles'] as $li){ ?>
+																<li><a href="<?php echo base_url('courseprofile/index/'.base64_encode($li['c_id']).'/'.$li['c_P_name']); ?>"><?php echo isset($li['c_P_name'])?$li['c_P_name']:''; ?></a></li>
+																<?php } ?>
+															</ul>
+														</li>
+													<?php } ?>
+											<?php } ?>
+											
+										</ul>
+									</li>
+									
+								<?php } ?>
+						<?php } ?>
+                            
                         </ul>
                     </li>
                     <li class="nav-item">
