@@ -1089,7 +1089,7 @@ public function coursedetailsdelete()
            $save_data=array(
 		   'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
 		   'title'=>isset($post['title'])?$post['title']:'',
-		   'status'=>1,
+		   'status'=>0,
 		   'created_at'=>date('Y-m-d H:i:s'),
 		   'updated_at'=>date('Y-m-d H:i:s'),
 		   'created_by'=>isset($login_details['cust_id'])?$login_details['cust_id']:''
@@ -1154,7 +1154,7 @@ public function coursedetailsdelete()
 		       $update_data=array(
 	            'title'=>isset($post['title'])?$post['title']:'',
 		        'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
-				'status'=>1,
+				'status'=>0,
 				'created_at'=>date('Y-m-d H:i:s'),
 				'updated_at'=>date('Y-m-d H:i:s'),
 				'created_by'=>isset($login_details['cust_id'])?$login_details['cust_id']:''
