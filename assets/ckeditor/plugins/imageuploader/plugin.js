@@ -5,7 +5,7 @@ CKEDITOR.plugins.add( 'imageuploader', {
 	
     init: function( editor ) {
         // editor.config.filebrowserBrowseUrl = 'ckeditor/plugins/imageuploader/imgbrowser.php';
-        editor.config.filebrowserBrowseUrl = 'https://grfpublishers.com/assets/ckeditor/plugins/imageuploader/imgbrowser.php';
-        editor.config.filebrowserUploadUrl = 'https://grfpublishers.com/assets/ckeditor/plugins/imageuploader/imgupload.php';
+        editor.config.filebrowserBrowseUrl = 'http://localhost/p_skills/assets/ckeditor/plugins/imageuploader/imgbrowser.php';
+        editor.config.filebrowserUploadUrl = 'http://localhost/p_skills/assets/ckeditor/plugins/imageuploader/imgupload.php';
     }
 });
