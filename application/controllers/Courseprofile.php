@@ -31,7 +31,6 @@ class Courseprofile extends Front_end {
 			$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
 			redirect('');
 		}
-		//echo '<pre>';print_r($post);exit;
 		
 	}
 	
