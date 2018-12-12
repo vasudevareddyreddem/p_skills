@@ -3,7 +3,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Edit Training Course</h1>
+                <h1>Training Course</h1>
             </div>
         </div>
     </div>
@@ -11,7 +11,8 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li class="active">Edit Training Course</li>
+                    <li>Training Course</li>
+                    <li>Edit Training Course</li>
                 </ol>
             </div>
         </div>
@@ -21,6 +22,14 @@
 
 <div class="content mt-3">
     <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Edit Training Course</strong>
+                    </div>
+                    <div class="card-body">
 	<form id="add_group" method="post" action="<?php echo base_url('course/trainingcourseeditpost');?>" enctype="multipart/form-data">
 	<input type="hidden" id="t_c_id" name="t_c_id" value="<?php echo isset($edit_training_course['t_c_id'])?$edit_training_course['t_c_id']:''?>">
 
@@ -67,8 +76,12 @@
 			</div>
 		</form>
 		
+   </div>
+                </div>
+            </div>
+        </div>
     </div><!-- .animated -->
-</div> <!-- .content -->
+</div><!-- .content -->
  
 
  <script>

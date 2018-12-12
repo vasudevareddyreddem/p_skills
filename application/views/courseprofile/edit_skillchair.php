@@ -3,7 +3,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Edit Skill Chair</h1>
+                <h1>Skill Chair</h1>
             </div>
         </div>
     </div>
@@ -11,7 +11,8 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li class="active">Edit Skill Chair</li>
+                    <li> Skill Chair</li>
+                    <li>Edit Skill Chair</li>
                 </ol>
             </div>
         </div>
@@ -21,6 +22,14 @@
 
 <div class="content mt-3">
     <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Edit Skill Chair</strong>
+                    </div>
+                    <div class="card-body">
 	<form id="add_group" method="post" action="<?php echo base_url('course/skillchaireditpost');?>" enctype="multipart/form-data">
 	<input type="hidden" id="s_id" name="s_id" value="<?php echo isset($edit_skillchair['s_id'])?$edit_skillchair['s_id']:''?>">
 
@@ -66,9 +75,12 @@
             <button type="reset" class="btn btn-sm btn-danger">Reset</button>
 			</div>
 		</form>
-		
+	 </div>
+                </div>
+            </div>
+        </div>
     </div><!-- .animated -->
-</div> <!-- .content -->
+</div><!-- .content -->
  
 
  <script>

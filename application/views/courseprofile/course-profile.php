@@ -11,7 +11,8 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li class="active"> Training Batches</li>
+                    <li> Training Batches</li>
+                    <li>Add Training Batches</li>
                 </ol>
             </div>
         </div>
@@ -21,6 +22,14 @@
 
 <div class="content mt-3">
     <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Add Training Batches</strong>
+                    </div>
+                    <div class="card-body">
 	<form id="add_group" method="post" action="<?php echo base_url('course/trainngbatchpost');?>">
      <div class="row">
 	  <div class="col-md-6">
@@ -114,8 +123,13 @@
 			</div>
 		</form>
 		
+    	
+     </div>
+                </div>
+            </div>
+        </div>
     </div><!-- .animated -->
-</div> <!-- .content -->
+</div><!-- .content -->
  
  
 

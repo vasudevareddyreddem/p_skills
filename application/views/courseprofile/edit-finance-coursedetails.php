@@ -11,7 +11,8 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li class="active"> Course Details</li>
+                    <li> Course Details</li>
+                    <li>Edit Course Details</li>
                 </ol>
             </div>
         </div>
@@ -21,6 +22,14 @@
 
 <div class="content mt-3">
     <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Edit Course Details</strong>
+                    </div>
+                    <div class="card-body">
 	<form id="add_group" method="post" action="<?php echo base_url('course/editcoursedetailspost');?>">
         <input type="hidden" id="c_d_id" name="c_d_id" value="<?php echo isset($edit_course_details['c_d_id'])?$edit_course_details['c_d_id']:'' ?>">
 
@@ -99,8 +108,12 @@
 			</div>
 		</form>
 		
+     </div>
+                </div>
+            </div>
+        </div>
     </div><!-- .animated -->
-</div> <!-- .content -->
+</div><!-- .content -->
  
  
 

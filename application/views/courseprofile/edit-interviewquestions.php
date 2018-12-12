@@ -3,7 +3,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Edit Oracle interviewquestions</h1>
+                <h1>Interview Questions</h1>
             </div>
         </div>
     </div>
@@ -11,7 +11,8 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li class="active"> Edit Oracle interviewquestions</li>
+                    <li>Interview Questions</li>
+                    <li> Edit Interview Questions</li>
                 </ol>
             </div>
         </div>
@@ -21,6 +22,14 @@
 
 <div class="content mt-3">
     <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Edit Interview Questions</strong>
+                    </div>
+                    <div class="card-body">
 	<form id="add_group" method="post" action="<?php echo base_url('course/editquestions');?>">
     <input type="hidden" id="i_q_id" name="i_q_id" value="<?php echo isset($edit_interview_questions['i_q_id'])?$edit_interview_questions['i_q_id']:'' ?>">
 		<div class="row">
@@ -96,10 +105,12 @@
             <button type="reset" class="btn btn-sm btn-danger">Reset</button>
 			</div>
 		</form>
-		
+	</div>
+                </div>
+            </div>
+        </div>
     </div><!-- .animated -->
-</div> <!-- .content -->
- 
+</div><!-- .content -->
  
 
  <script>

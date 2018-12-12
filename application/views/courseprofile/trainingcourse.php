@@ -11,7 +11,8 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li class="active">Training Course</li>
+                    <li>Training Course</li>
+                    <li>Add Training Course</li>
                 </ol>
             </div>
         </div>
@@ -21,6 +22,14 @@
 
 <div class="content mt-3">
     <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Add Training Course</strong>
+                    </div>
+                    <div class="card-body">
 	<form id="add_group" method="post" action="<?php echo base_url('course/trainingcoursepost');?>" enctype="multipart/form-data">
      <div class="row">
 	 
@@ -61,9 +70,12 @@
 			</div>
 		</form>
 		
+     </div>
+                </div>
+            </div>
+        </div>
     </div><!-- .animated -->
-</div> <!-- .content -->
- 
+</div><!-- .content -->
 
  <script>
       $('#summernote').summernote({
