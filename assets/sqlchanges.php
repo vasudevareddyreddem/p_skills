@@ -92,3 +92,23 @@ ALTER TABLE `skills`.`course_details`
   
   ALTER TABLE `skills`.`interview_questions`   
   CHANGE `course_profile` `course_profile` INT(12) NULL;
+  
+  
+  
+  
+
+Create Table
+
+CREATE TABLE `skillchair` (
+  `s_id` int(11) NOT NULL AUTO_INCREMENT,
+  `course_profile` int(11) DEFAULT NULL,
+  `title` varchar(250) DEFAULT NULL,
+  `status` int(11) DEFAULT '1',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  PRIMARY KEY (`s_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+  
+  

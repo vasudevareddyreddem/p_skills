@@ -1084,8 +1084,7 @@ public function coursedetailsdelete()
 		{
 			$login_details=$this->session->userdata('skill_user');
 		   $post=$this->input->post();
-		  echo'<pre>';print_r($post);
-		  echo'<pre>';print_r($_REQUEST);exit;
+		  //echo'<pre>';print_r($post);exit;
            $save_data=array(
 		   'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
 		   'title'=>isset($post['title'])?$post['title']:'',
@@ -1094,10 +1093,16 @@ public function coursedetailsdelete()
 		   'updated_at'=>date('Y-m-d H:i:s'),
 		   'created_by'=>isset($login_details['cust_id'])?$login_details['cust_id']:''
 		   );
-		   // echo'<pre>';print_r($save_data);exit;
-		   
-		   
-		   
+		   //echo'<pre>';print_r($save_data);exit;
+		    $save=$this->Category_model->save_training_course_details($save_data);	
+				//echo'<pre>';print_r($save);exit;
+		       if(count($save)>0){
+					$this->session->set_flashdata('success'," Training Course details successfully added");	
+					redirect('course/trainingcourselists');	
+					}else{
+						$this->session->set_flashdata('error',"technical problem occurred. please try again once");
+						redirect('course/trainingcourse');
+					}   
 		   
 		}else{
 			$this->session->set_flashdata('error',"you don't have permission to access");
@@ -1114,21 +1119,191 @@ public function coursedetailsdelete()
 		if($this->session->userdata('skill_user'))
 		{
 			$login_details=$this->session->userdata('skill_user');
-
-			$this->load->view('courseprofile/trainingcourse-list');
+		   $data['training_course_details']=$this->Category_model->get_training_course_details_list();	
+		   	//echo'<pre>';print_r($data);exit;
+			$this->load->view('courseprofile/trainingcourse-list',$data);
 			$this->load->view('admin/footer');
 		}else{
 			$this->session->set_flashdata('error',"you don't have permission to access");
 			redirect('admin');
 		}
 	}
+	public function trainingcourseedit()
+	{	
+		if($this->session->userdata('skill_user'))
+		{
+			$login_details=$this->session->userdata('skill_user');
+			$training_course=base64_decode($this->uri->segment(3));
+			 $data['course_profile_data']=$this->Category_model->get_course_profile_data();
+			$data['edit_training_course']=$this->Category_model->edit_training_course_list($training_course);
+				//echo'<pre>';print_r($data);exit;
+			$this->load->view('courseprofile/edit-trainingcourse',$data);
+			$this->load->view('admin/footer');
+		}else{
+			$this->session->set_flashdata('error',"you don't have permission to access");
+			redirect('admin');
+		}
+	}
+	public function trainingcourseeditpost(){
+		if($this->session->userdata('skill_user'))
+		{
+			$login_details=$this->session->userdata('skill_user');
+	     $post=$this->input->post();	
+		  //echo'<pre>';print_r($post);exit;
+		       $update_data=array(
+	            'title'=>isset($post['title'])?$post['title']:'',
+		        'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
+				'status'=>1,
+				'created_at'=>date('Y-m-d H:i:s'),
+				'updated_at'=>date('Y-m-d H:i:s'),
+				'created_by'=>isset($login_details['cust_id'])?$login_details['cust_id']:''
+				 );
+				//echo'<pre>';print_r($update_data);exit;
+                $update=$this->Category_model->update_training_course_details_details($post['t_c_id'],$update_data);	
+				// echo'<pre>';print_r($update);exit;
+		       if(count($update)>0){
+					$this->session->set_flashdata('success',"Training Course details successfully updated");	
+					redirect('course/trainingcourselists');	
+					  }else{
+						$this->session->set_flashdata('error',"techechal probelem occur ");
+						redirect('course/trainingcourseedit/'.base64_encode($post['t_c_id']));
+					  }    
+				
+					}else{
+					$this->session->set_flashdata('error',"you don't have permission to access");
+					redirect('admin');
+				}
+	}
+	
+	public function trainingcoursestatus(){
+	 if($this->session->userdata('skill_user'))
+		{	
+         $login_details=$this->session->userdata('skill_user');	
+	             $t_c_id=base64_decode($this->uri->segment(3));
+					$status=base64_decode($this->uri->segment(4));
+					if($status==1){
+						$statu=0;
+					}else{
+						$statu=1;
+					}
+					if($t_c_id!=''){
+						$stusdetails=array(
+							'status'=>$statu,
+							'updated_at'=>date('Y-m-d H:i:s')
+							);
+							//echo'<pre>';print_r($stusdetails);exit;
+							$statusdata=$this->Category_model->update_training_course_details_details($t_c_id,$stusdetails);
+							//echo'<pre>';print_r($statusdata);exit;
+							//echo $this->db->last_query();exit;	
+							if(count($statusdata)>0){
+								if($status==1){
+								$this->session->set_flashdata('success',"Training Course details   successfully Deactivate.");
+								}else{
+									$this->session->set_flashdata('success',"Training Course details  successfully Activate.");
+								}
+								redirect('course/trainingcourselists');
+							}else{
+									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+									redirect('course/trainingcourselists');
+							}
+						}
+						else{
+						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+						redirect('dashboard');
+					}	
 	
 	
+          }else{
+			$this->session->set_flashdata('error',"you don't have permission to access");
+			redirect('admin');
+		}
+
+
+}	
+	
+	public function trainingcoursedelete()
+{
+
+		if($this->session->userdata('skill_user'))
+		{	
+         $login_details=$this->session->userdata('skill_user');	
+	             $t_c_id=base64_decode($this->uri->segment(3));
+					
+					if($t_c_id!=''){
+						$stusdetails=array(
+							'status'=>2,
+							'updated_at'=>date('Y-m-d H:i:s')
+							);
+							
+							$statusdata=$this->Category_model->update_training_course_details_details($t_c_id,$stusdetails);
+							if(count($statusdata)>0){
+								$this->session->set_flashdata('success',"Training Course details  successfully deleted.");
+								redirect('course/trainingcourselists');
+							}else{
+									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+									redirect('course/trainingcourselists');
+							}
+						}
+						else{
+						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
+						redirect('dashboard');
+					}	
 	
 	
+           }else{
+			$this->session->set_flashdata('error',"you don't have permission to access");
+			redirect('admin');
+		}
+
+		
+		
+	}	
 	
-	
-	
+	/*  skill chair */
+	public function skillchair()
+	{	
+		if($this->session->userdata('skill_user'))
+		{
+			$login_details=$this->session->userdata('skill_user');
+		  $data['course_profile_data']=$this->Category_model->get_course_profile_data();
+			$this->load->view('courseprofile/skillchair',$data);
+			$this->load->view('admin/footer');
+		}else{
+			$this->session->set_flashdata('error',"you don't have permission to access");
+			redirect('admin');
+		}
+	}
+	public function skillchairpost()
+	{
+	if($this->session->userdata('skill_user'))
+		{	
+	   $login_details=$this->session->userdata('skill_user');
+		$post=$this->input->post();
+		//echo'<pre>';print_r($post);exit;
+		$add_data=array(
+		'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
+		'title'=>isset($post['title'])?$post['title']:'',
+		'status'=>1,
+		'created_at'=>date('Y-m-d H:i:s'),
+		'updated_at'=>date('Y-m-d H:i:s'),
+		'created_by'=>isset($login_details['cust_id'])?$login_details['cust_id']:''
+		);
+		//echo'<pre>';print_r($add_data);exit;
+		 $save=$this->Category_model->save_skillchair_details($add_data);	
+				//echo'<pre>';print_r($save);exit;
+		       if(count($save)>0){
+					$this->session->set_flashdata('success'," Skillchair details successfully added");	
+					redirect('course/skillchairlists');	
+					}else{
+						$this->session->set_flashdata('error',"technical problem occurred. please try again once");
+						redirect('course/skillchair');
+					}   
+		   
+		}else{
+			$this->session->set_flashdata('error',"you don't have permission to access");
+			redirect('admin');
+		}
+	}
 	
 	
 	

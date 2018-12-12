@@ -246,6 +246,35 @@ class Category_model extends CI_Model
 	$this->db->where('course_profile.status',1);
 	return $this->db->get()->result_array();
 	}
+	public function save_training_course_details($data){
+	$this->db->insert('training_course',$data);	
+	return $this->db->insert_id();
+	}
+	public function get_training_course_details_list(){
+	$this->db->select('training_course.*,course_profile.c_P_name')->from('training_course');
+	$this->db->join('course_profile', 'course_profile.c_id = training_course.course_profile', 'left');
+    $this->db->where('training_course.status !=',2);
+    return $this->db->get()->result_array();
+	}
+	public function edit_training_course_list($t_c_id){
+	$this->db->select('*')->from('training_course');
+	$this->db->where('training_course.t_c_id',$t_c_id);
+	return $this->db->get()->row_array();
+	}
+	public function update_training_course_details_details($t_c_id,$data){
+	$this->db->where('t_c_id',$t_c_id);
+    return $this->db->update("training_course",$data);		
+	}
+	
+	/* skill chair */
+	public function save_skillchair_details($data){
+	$this->db->insert('skillchair',$data);	
+	return $this->db->insert_id();
+	}
+	
+	
+	
+	
 	
 	
 	

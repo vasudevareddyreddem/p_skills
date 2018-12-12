@@ -4,7 +4,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Oracle Training Batches
+                <h1>Oracle Training Course
 </h1>
             </div>
         </div>
@@ -14,7 +14,7 @@
             <div class="page-title">
                 <ol class="breadcrumb text-right">
                     <li><a href="#">Home</a></li>
-                    <li>Oracle Training Batches</li>
+                    <li>Oracle Training Course</li>
                     <li>List</li>
                 </ol>
             </div>
@@ -29,10 +29,10 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Oracle Training Batches List</strong>
+                        <strong class="card-title">Oracle Training Course List</strong>
                     </div>
                     <div class="card-body">
-					<?php if(isset($oracle_training_batches) && count($oracle_training_batches)>0){ ?>
+					<?php if(isset($training_course_details) && count($training_course_details)>0){ ?>
                         <div class="table-responsive">
                             <table id="example" class="table table-striped table-bordered" style="width:100%;">
                                 <thead>
@@ -45,16 +45,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   <?php  foreach($oracle_training_batches as $list){ ?>
+                                   <?php  foreach($training_course_details as $list){ ?>
                                     <tr>
-                                        <td><?php echo $list['title']; ?></td>
-										<td><?php echo $list['duration']; ?></td>
+                                        <td><?php echo $list['c_P_name']; ?></td>
+										<td><?php echo $list['title']; ?></td>
 										<td><?php if($list['status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>
-                                        
+                                        <td>
                                             
-				<a href="<?php echo base_url('course/trainingbatchesedit/'.base64_encode($list['t_b_id'])); ?>"  data-toggle="tooltip" title="Edit" ><i class="fa fa-edit btn btn-primary"></i></a>
-				<a href="javascript;void(0);" onclick="admindeactive('<?php echo base64_encode(htmlentities($list['t_b_id'])).'/'.base64_encode(htmlentities($list['status']));?>');adminstatus('<?php echo $list['status'];?>')" data-toggle="modal" data-target="#myModal" title="Edit"><i class="fa fa-info-circle btn btn-warning"></i></a>
-				<a href="javascript;void(0);" onclick="admindedelete('<?php echo base64_encode(htmlentities($list['t_b_id']));?>');admin('');" data-toggle="modal" data-target="#myModal" title="delete"><i class="fa fa-trash-o btn btn-danger"></i></a>
+				<a href="<?php echo base_url('course/trainingcourseedit/'.base64_encode($list['t_c_id'])); ?>"  data-toggle="tooltip" title="Edit" ><i class="fa fa-edit btn btn-primary"></i></a>
+				<a href="javascript;void(0);" onclick="admindeactive('<?php echo base64_encode(htmlentities($list['t_c_id'])).'/'.base64_encode(htmlentities($list['status']));?>');adminstatus('<?php echo $list['status'];?>')" data-toggle="modal" data-target="#myModal" title="Edit"><i class="fa fa-info-circle btn btn-warning"></i></a>
+				<a href="javascript;void(0);" onclick="admindedelete('<?php echo base64_encode(htmlentities($list['t_c_id']));?>');admin('');" data-toggle="modal" data-target="#myModal" title="delete"><i class="fa fa-trash-o btn btn-danger"></i></a>
                      
 										
                                            
@@ -67,8 +67,8 @@
                     
                         </div>
 						<?php }else{ ?>
-                               <div> No data available</div>
-                                    <?php }?>
+                       <div> No data available</div>
+                       <?php }?>
 						
 						<div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -109,10 +109,10 @@
 </div><!-- .content -->
 <script>
 function admindeactive(id){
-	$(".popid").attr("href","<?php echo base_url('course/trainingbatchesstatus'); ?>"+"/"+id);
+	$(".popid").attr("href","<?php echo base_url('course/trainingcoursestatus'); ?>"+"/"+id);
 }
 function admindedelete(id){
-	$(".popid").attr("href","<?php echo base_url('course/trainingbatchesdelete'); ?>"+"/"+id);
+	$(".popid").attr("href","<?php echo base_url('course/trainingcoursedelete'); ?>"+"/"+id);
 	
 }
 function adminstatus(id){
