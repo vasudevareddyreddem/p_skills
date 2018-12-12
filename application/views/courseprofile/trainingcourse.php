@@ -47,7 +47,7 @@
 					<div class="col-md-12">
 						<div class="form-group">
 							<label>Title</label>
-							<input type="text" class="form-control" placeholder="Enter Title" name="title"  id="summernote">
+							<textarea type="text" class="ckeditor" placeholder="Enter Title" name="title"  id="summernote"></textarea>
 							</div>
 						</div>
 						
@@ -64,7 +64,6 @@
     </div><!-- .animated -->
 </div> <!-- .content -->
  
- <script src="<?php echo base_url(); ?>assets/vendor/admin/js/summernote.js"></script>
 
  <script>
       $('#summernote').summernote({

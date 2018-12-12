@@ -17,6 +17,10 @@
 	 <script src="<?php echo base_url(); ?>assets/vendor/admin/js/Chart.bundle.js"></script>
     <script src="<?php echo base_url(); ?>assets/vendor/admin/js/chartjs-init.js"></script>
 	<script src="<?php echo base_url(); ?>assets/vendor/admin/js/chosen.jquery.min.js"></script>
+	<script src="<?php echo base_url(); ?>assets/ckeditor/ckeditor.js"></script>
+<script src="<?php echo base_url(); ?>assets/vendor/admin/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+
+
 		
 
 
