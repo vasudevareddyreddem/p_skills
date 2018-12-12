@@ -18,7 +18,6 @@ class Course extends Admin_panel {
 		   $data['category_data']=$this->Category_model->get_Category_data();
 			//echo'<pre>';print_r($data);exit;
 			
-			$this->load->view('admin/header');
 			$this->load->view('course/coursename',$data);
 			$this->load->view('admin/footer');
 		}else{
@@ -71,7 +70,6 @@ class Course extends Admin_panel {
 			$login_details=$this->session->userdata('skill_user');
 			$data['subcategory_list']=$this->Category_model->get_subcategory_list();	
 				//echo'<pre>';print_r($data);exit;
-			$this->load->view('admin/header');
 			$this->load->view('course/coursename-list',$data);
 			$this->load->view('admin/footer');
 		}else{
@@ -88,7 +86,6 @@ class Course extends Admin_panel {
 		 $data['category_data']=$this->Category_model->get_Category_data();
 		 $data['edit_sub_category']=$this->Category_model->edit_sub_category_details($subcategory_id);
 				//echo'<pre>';print_r($data);exit;
-			$this->load->view('admin/header');
 			$this->load->view('course/edit-coursename',$data);
 			$this->load->view('admin/footer');
 		}else{
@@ -219,7 +216,6 @@ if($this->session->userdata('skill_user'))
 		   $data['course_name']=$this->Category_model->get_course_name_data();
 			//echo'<pre>';print_r($data);exit;
 			
-			$this->load->view('admin/header');
 			$this->load->view('courseprofile/courseprofiles',$data);
 			$this->load->view('admin/footer');
 		}else{
@@ -273,7 +269,6 @@ if($this->session->userdata('skill_user'))
 			$login_details=$this->session->userdata('skill_user');
 			$data['courese_profile_list']=$this->Category_model->get_courese_profiles_list();	
 				//echo'<pre>';print_r($data);exit;
-			$this->load->view('admin/header');
 			$this->load->view('courseprofile/courseprofiles-list',$data);
 			$this->load->view('admin/footer');
 		}else{
@@ -292,7 +287,6 @@ if($this->session->userdata('skill_user'))
 			//echo'<pre>';print_r($data);exit;
 			$data['edit_courese_profile']=$this->Category_model->get_edit_courese_profiles($course);	
 			//echo'<pre>';print_r($data);exit;
-			$this->load->view('admin/header');
 			$this->load->view('courseprofile/edit-courseprofiles',$data);
 			$this->load->view('admin/footer');
 		}else{
@@ -424,7 +418,6 @@ if($this->session->userdata('skill_user'))
 			$login_details=$this->session->userdata('skill_user');
 		  $data['course_profile_data']=$this->Category_model->get_course_profile_data();
 			
-			$this->load->view('admin/header');
 			$this->load->view('courseprofile/course-profile',$data);
 			$this->load->view('admin/footer');
 		}else{
@@ -490,7 +483,6 @@ if($this->session->userdata('skill_user'))
 			$login_details=$this->session->userdata('skill_user');
 		  $data['oracle_training_batches']=$this->Category_model->get_oracle_course_traing_list();	
 			 //echo '<pre>';print_r($data);exit;
-			$this->load->view('admin/header');
 			$this->load->view('courseprofile/course-profile-list',$data);
 			$this->load->view('admin/footer');
 		}else{
@@ -508,7 +500,6 @@ if($this->session->userdata('skill_user'))
 		   $data['course_profile_data']=$this->Category_model->get_course_profile_data();
 			$data['edit_course_profile']=$this->Category_model->edit_oracle_course_traing_list($t_b_id);
 			//echo '<pre>';print_r($data);exit;
-			$this->load->view('admin/header');
 			$this->load->view('courseprofile/edit-course-profile',$data);
 			$this->load->view('admin/footer');
 		}else{
@@ -679,7 +670,6 @@ public function trainingbatcheseditpost()
 			$login_details=$this->session->userdata('skill_user');
 		   $data['course_profile_data']=$this->Category_model->get_course_profile_data();
 			
-			$this->load->view('admin/header');
 			$this->load->view('courseprofile/interviewquestions',$data);
 			$this->load->view('admin/footer');
 		}else{
@@ -726,7 +716,6 @@ public function trainingbatcheseditpost()
 			$login_details=$this->session->userdata('skill_user');
 		  $data['oracle_interview_questions']=$this->Category_model->get_oracle_interview_questions_list();	
 			// echo '<pre>';print_r($data);exit;
-			$this->load->view('admin/header');
 			$this->load->view('courseprofile/interviewquestions-list',$data);
 			$this->load->view('admin/footer');
 		}else{
@@ -743,7 +732,6 @@ public function trainingbatcheseditpost()
 		   $data['course_profile_data']=$this->Category_model->get_course_profile_data();
 			$data['edit_interview_questions']=$this->Category_model->edit_edit_interview_questions_list($interview);
 			//echo '<pre>';print_r($data);exit;
-			$this->load->view('admin/header');
 			$this->load->view('courseprofile/edit-interviewquestions',$data);
 			$this->load->view('admin/footer');
 		}else{
@@ -874,7 +862,6 @@ public function interviewquestionsdelete()
 			$login_details=$this->session->userdata('skill_user');
 		   $data['course_profile_data']=$this->Category_model->get_course_profile_data();
 			
-			$this->load->view('admin/header');
 			$this->load->view('courseprofile/finance-coursedetails',$data);
 			$this->load->view('admin/footer');
 		}else{
@@ -922,7 +909,6 @@ public function interviewquestionsdelete()
 			$login_details=$this->session->userdata('skill_user');
 		   $data['oracle_finance_course_details']=$this->Category_model->get_oracle_finance_course_details_list();	
 			
-			$this->load->view('admin/header');
 			$this->load->view('courseprofile/finance-coursedetails-list',$data);
 			$this->load->view('admin/footer');
 		}else{
@@ -938,7 +924,6 @@ public function interviewquestionsdelete()
 			$course_details=base64_decode($this->uri->segment(3));
 			 $data['course_profile_data']=$this->Category_model->get_course_profile_data();
 			$data['edit_course_details']=$this->Category_model->edit_course_details_list($course_details);
-			$this->load->view('admin/header');
 			$this->load->view('courseprofile/edit-finance-coursedetails',$data);
 			$this->load->view('admin/footer');
 		}else{

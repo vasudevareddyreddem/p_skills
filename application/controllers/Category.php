@@ -15,7 +15,6 @@ class Category extends Admin_panel {
 		{
 			$login_details=$this->session->userdata('skill_user');
 			
-			$this->load->view('admin/header');
 			$this->load->view('category/category');
 			$this->load->view('admin/footer');
 		}else{
@@ -68,7 +67,6 @@ class Category extends Admin_panel {
 			$login_details=$this->session->userdata('skill_user');
 			$data['category_list']=$this->Category_model->get_category_list();	
 				//echo'<pre>';print_r($data);exit;
-			$this->load->view('admin/header');
 			$this->load->view('category/category-list',$data);
 			$this->load->view('admin/footer');
 		}else{
@@ -84,7 +82,6 @@ class Category extends Admin_panel {
 		$category_id=base64_decode($this->uri->segment(3));
 		 $data['edit_category']=$this->Category_model->edit_category_details($category_id);
 				//echo'<pre>';print_r($data);exit;
-			$this->load->view('admin/header');
 			$this->load->view('category/edit-category',$data);
 			$this->load->view('admin/footer');
 		}else{

@@ -66,7 +66,6 @@ class Header extends Admin_panel {
 			$login_details=$this->session->userdata('skill_user');
 			$data['images_list']=$this->Header_model->get_images_list();	
 				//echo'<pre>';print_r($data);exit;
-			$this->load->view('admin/header');
 			$this->load->view('headerimage/list',$data);
 			$this->load->view('admin/footer');
 		}else{
