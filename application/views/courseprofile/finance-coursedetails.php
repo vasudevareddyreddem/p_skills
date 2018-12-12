@@ -103,7 +103,7 @@
      $(document).ready(function(){
       var i=1;
      $("#add_row").click(function(){
-      $('#addr'+i).html("<td><select class='form-control select2' style='padding:20px;' name='course_profile[]' id='name"+i+"' ><option value=''>Select</option><?php foreach($course_profile_data as $list){ ?> <option value='<?php echo $list['c_id']; ?>'><?php echo $list['c_P_name']; ?></option><?php } ?></select></td><td><input type='text' name='title[]' id='name"+i+"'  placeholder='Enter Title'  class='form-control'/></td><td><textarea name='description[]' id='name"+i+"' rows='5' cols='40' placeholder='Enter Here...' class='form-control input-md'></textarea></td>");
+      $('#addr'+i).html("<td><select class='form-control select2'  name='course_profile[]' id='course_profile' ><option value=''>Select</option><?php foreach($course_profile_data as $list){ ?> <option value='<?php echo $list['c_id']; ?>'><?php echo $list['c_P_name']; ?></option><?php } ?></select></td><td><input type='text' name='title[]' id='name"+i+"'  placeholder='Enter Title'  class='form-control'/></td><td><textarea name='description[]' id='name"+i+"' rows='5' cols='40' placeholder='Enter Here...' class='form-control input-md'></textarea></td>");
 
       $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
       i++; 
