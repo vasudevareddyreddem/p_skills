@@ -29,7 +29,7 @@
                         <strong class="card-title">Add Reviews & Rating</strong>
                     </div>
                     <div class="card-body">
-                        <form  method="post" action="<?php echo base_url('reviews/addpost'); ?>" id="addheaderimage" name="addheaderimage" enctype="multipart/form-data">
+                        <form  method="post" action="<?php echo base_url('reviewsratings/addpost'); ?>" id="addheaderimage" name="addheaderimage" enctype="multipart/form-data">
                             <div class="row">
 											
 									<div class="col-md-6">
@@ -51,34 +51,44 @@
 						</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class=" control-label">Reviews</label>
+											<label class=" control-label">Name</label>
 											<div class="">
-												<input type="text" id="reviews" name="reviews" placeholder=" Enter Reviews" class="form-control">
+												<input type="text" id="name" name="name" placeholder=" Enter Name" class="form-control">
 											</div>
 										</div>
 									</div>
-										</div>
-									<div class="row">
+										
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class=" control-label">Rating</label>
+											<label class=" control-label">Image</label>
 											<div class="">
-												<input type="text" id="rating" name="rating" placeholder=" Enter Rating" class="form-control">
+												<input type="file" id="image" name="image"  class="form-control">
 											</div>
 										</div>
-									</div>
-								
-									
-								 <div class="col-md-6">
+									</div>	
+										
+									<div class="col-md-6">
 										<div class="form-group">
 											<label class=" control-label">Star</label>
-											<div class="">
-												<input type="text" id="star" name="star" placeholder=" Enter Star" class="form-control">
-											</div>
+											 <select class="form-control" name="star"  >
+												<option value="">Select Star</option>
+												<option value="1 Star">1 Star</option>
+												<option value="2 Star">2 Star</option>
+												<option value="3 Star">3 Star</option>
+												<option value="4 Star">4 Star</option>
+												<option value="4 Star">5 Star</option>
+											  </select>
 										</div>
 									</div>
-                                   
-                                    </div>
+									
+								
+									<div class="col-md-12">
+										<div class="form-group">
+                                               <label>Text</label>
+                                       <textarea class="form-control" name="text" rows="3" placeholder="Enter Text"></textarea>
+                                         </div>
+									</div>
+									</div>
 								<div class="m-t-50 text-center">
 						      <button type="submit" class="btn btn-sm btn-primary" name="signup" value="Sign up">Add</button>
                               <button type="reset" class="btn btn-sm btn-danger">Reset</button>
@@ -125,24 +135,34 @@
 					}
 				},
 				
-				reviews: {
+				name: {
                 validators: {
 					notEmpty: {
-						message: 'Reviews is required'
+						message: 'Name is required'
 					}
 				}
             },
-				rating: {
+				text: {
                 validators: {
 					notEmpty: {
-						message: 'Rating is required'
+						message: 'Text is required'
 					}
 				}
             },
+			image: {
+					validators: {
+						notEmpty: {
+							message: 'Image is required'
+						},regexp: {
+						regexp: "(.*?)\.(png|jpeg|jpg|gif)$",
+						message: 'Uploaded file is not a valid. Only png,jpg,jpeg,gif files are allowed'
+						}
+					}
+				},
 				star: {
 					validators: {
 						notEmpty: {
-							message: 'Star is required'
+							message: 'Please Select Star'
 						}
 					}
 				}

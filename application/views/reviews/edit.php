@@ -29,7 +29,7 @@
                         <strong class="card-title">Edit Reviews & Rating</strong>
                     </div>
                     <div class="card-body">
-                        <form  method="post" action="<?php echo base_url('reviews/editpost'); ?>" id="addheaderimage" name="addheaderimage" enctype="multipart/form-data">
+                        <form  method="post" action="<?php echo base_url('reviewsratings/editpost'); ?>" id="addheaderimage" name="addheaderimage" enctype="multipart/form-data">
 						<input type="hidden" name="r_id" id="r_id" value="<?php echo isset($edit_reviews_rating['r_id'])?$edit_reviews_rating['r_id']:''?>">
                             <div class="row">
 											
@@ -55,34 +55,44 @@
 						</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class=" control-label">Reviews</label>
+											<label class=" control-label">Name</label>
 											<div class="">
-												<input type="text" id="reviews" name="reviews" placeholder=" Enter Reviews" class="form-control" value="<?php echo isset($edit_reviews_rating['reviews'])?$edit_reviews_rating['reviews']:''?>" >
+												<input type="text" id="name" name="name" placeholder=" Enter Name" class="form-control" value="<?php echo isset($edit_reviews_rating['name'])?$edit_reviews_rating['name']:''?>" >
 											</div>
 										</div>
 									</div>
-										</div>
-									<div class="row">
+										
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class=" control-label">Rating</label>
+											<label class=" control-label">Image</label>
 											<div class="">
-												<input type="text" id="rating" name="rating" placeholder=" Enter Rating" class="form-control" value="<?php echo isset($edit_reviews_rating['rating'])?$edit_reviews_rating['rating']:''?>" >
+												<input type="file" id="image" name="image"  class="form-control" value="<?php echo isset($edit_reviews_rating['image'])?$edit_reviews_rating['image']:''?>" >
 											</div>
 										</div>
-									</div>
-								
-									
-								 <div class="col-md-6">
+									</div>	
+										
+									<div class="col-md-6">
 										<div class="form-group">
 											<label class=" control-label">Star</label>
-											<div class="">
-												<input type="text" id="star" name="star" placeholder=" Enter Star" class="form-control" value="<?php echo isset($edit_reviews_rating['star'])?$edit_reviews_rating['star']:''?>" >
-											</div>
+											 <select class="form-control" name="star">
+												<option value="">Select Star</option>
+												<option value="1 Star" <?php if($edit_reviews_rating['star']=='1 Star'){ echo "selected"; } ?> >1 Star</option>
+												<option value="2 Star" <?php if($edit_reviews_rating['star']=='2 Star'){ echo "selected"; } ?>>2 Star</option>
+												<option value="3 Star" <?php if($edit_reviews_rating['star']=='3 Star'){ echo "selected"; } ?>>3 Star</option>
+												<option value="4 Star" <?php if($edit_reviews_rating['star']=='4 Star'){ echo "selected"; } ?>>4 Star</option>
+												<option value="5 Star" <?php if($edit_reviews_rating['star']=='5 Star'){ echo "selected"; } ?>>5 Star</option>
+											  </select>
 										</div>
 									</div>
-                                   
-                                    </div>
+									
+								
+									<div class="col-md-12">
+										<div class="form-group">
+                                               <label>Text</label>
+                                       <textarea class="form-control" name="text" rows="3" placeholder="Enter Text"><?php echo isset($edit_reviews_rating['text'])?$edit_reviews_rating['text']:''?></textarea>
+                                         </div>
+									</div>
+									</div>
 								<div class="m-t-50 text-center">
 						      <button type="submit" class="btn btn-sm btn-primary" name="signup" value="Sign up">Add</button>
                               <button type="reset" class="btn btn-sm btn-danger">Reset</button>
@@ -128,24 +138,34 @@
 						}
 					}
 				},
-				reviews: {
-					validators: {
-						notEmpty: {
-							message: 'Reviews is required'
-						}
+				
+				name: {
+                validators: {
+					notEmpty: {
+						message: 'Name is required'
 					}
-				},
-				rating: {
+				}
+            },
+				text: {
+                validators: {
+					notEmpty: {
+						message: 'Text is required'
+					}
+				}
+            },
+			image: {
 					validators: {
-						notEmpty: {
-							message: 'Rating is required'
+						
+						regexp: {
+						regexp: "(.*?)\.(png|jpeg|jpg|gif)$",
+						message: 'Uploaded file is not a valid. Only png,jpg,jpeg,gif files are allowed'
 						}
 					}
 				},
 				star: {
 					validators: {
 						notEmpty: {
-							message: 'Star is required'
+							message: 'Please Select Star'
 						}
 					}
 				}

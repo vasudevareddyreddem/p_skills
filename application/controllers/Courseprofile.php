@@ -20,6 +20,8 @@ class Courseprofile extends Front_end {
 		$data['trainees_participated_from']=$this->User_model->get_course_profile_logo_list($course_profile_id);
 		$data['course_details_list']=$this->User_model->get_course_details_list($course_profile_id);
 		$data['interview_questions_list']=$this->User_model->get_interview_questions_list($course_profile_id);
+		$data['feedback_participants']=$this->User_model->get_feedback_participants_list($course_profile_id);
+		//echo'<pre>';print_r($data);exit;
 		$this->load->view('html/categories',$data);
 		$this->load->view('html/footer');
 	}

@@ -36,9 +36,10 @@
                                 <thead>
                                     <tr>
 									    <th>Course Profile</th>
-                                        <th>Reviews</th>
-										<th>Rating</th>
+                                        <th>Name</th>
+										<th>Image</th>
 										<th>Star</th>
+										<th>Text</th>
 										<th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -47,14 +48,15 @@
                                    <?php $cnt=1; foreach($reviews_rating_list as $list){ ?>
                                     <tr>
 										<td><?php echo $list['c_P_name']; ?></td>
-										<td><?php echo $list['reviews']; ?></td>
-										<td><?php echo $list['rating']; ?></td>
+										<td><?php echo $list['name']; ?></td>
+										<td><img src="<?php echo base_url('assets/feedbackimages/'.$list['image']); ?>" height="100px;" width="100px;"></td>
 										<td><?php echo $list['star']; ?></td>
+										<td><?php echo $list['text']; ?></td>
 										<td><?php if($list['status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>
                                         <td>
                                             
 											
-											<a href="<?php echo base_url('reviews/edit/'.base64_encode($list['r_id'])); ?>"  data-toggle="tooltip" title="Edit" ><i class="fa fa-edit btn btn-primary"></i></a>
+											<a href="<?php echo base_url('reviewsratings/edit/'.base64_encode($list['r_id'])); ?>"  data-toggle="tooltip" title="Edit" ><i class="fa fa-edit btn btn-primary"></i></a>
 											<a href="javascript;void(0);" onclick="admindeactive('<?php echo base64_encode(htmlentities($list['r_id'])).'/'.base64_encode(htmlentities($list['status']));?>');adminstatus('<?php echo $list['status'];?>')" data-toggle="modal" data-target="#myModal" title="Edit"><i class="fa fa-info-circle btn btn-warning"></i></a>
 											<a href="javascript;void(0);" onclick="admindedelete('<?php echo base64_encode(htmlentities($list['r_id']));?>');admin('');" data-toggle="modal" data-target="#myModal" title="delete"><i class="fa fa-trash-o btn btn-danger"></i></a>
 												 
@@ -109,10 +111,10 @@
 	
 <script>
 function admindeactive(id){
-	$(".popid").attr("href","<?php echo base_url('reviews/status'); ?>"+"/"+id);
+	$(".popid").attr("href","<?php echo base_url('Reviewsratings/status'); ?>"+"/"+id);
 }
 function admindedelete(id){
-	$(".popid").attr("href","<?php echo base_url('reviews/delete'); ?>"+"/"+id);
+	$(".popid").attr("href","<?php echo base_url('Reviewsratings/delete'); ?>"+"/"+id);
 	
 }
 function adminstatus(id){

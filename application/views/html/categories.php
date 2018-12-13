@@ -470,61 +470,30 @@
 	<?php } ?>
 	
 	<!-- Feedback -->
+	<?php if(isset($feedback_participants) && count($feedback_participants)>0){ ?>
 	<section class="feedback mt-5">
         <div class="container">
             
             <h3 class="heading mb-4">Feedback from our Participants</h3>
             <ul class="list-unstyled">
+				
+				 <?php foreach($feedback_participants as $list){ ?>
 				<li class="media bg-f8f8f8 p-4">
-					<img class="d-flex mr-3 img-fluid z-depth-1 rounded-circle" src="img/feedback/img1.jpg" alt="Person 1">
+					<img class="d-flex mr-3 img-fluid z-depth-1 rounded-circle" src="<?php echo base_url('assets/feedbackimages/'.$list['image']); ?>" alt="Person 3">
 					<div class="media-body">
-						<h5 class="mt-0 mb-1 font-weight-bold">Person 1</h5>
-						<span class="comment">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-						vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia
-						congue felis in faucibus.</span>
+						<h5 class="mt-0 mb-1 font-weight-bold"><?php echo isset($list['name'])?$list['name']:''; ?></h5>
+						<span class="comment">
+						<?php echo isset($list['text'])?$list['text']:''; ?>
+						</span>
 					</div>
 				</li>
-				<li class="media bg-ffffff p-4">
-					<img class="d-flex mr-3 img-fluid z-depth-1 rounded-circle" src="img/feedback/img2.jpg" alt="Person 2">
-					<div class="media-body">
-						<h5 class="mt-0 mb-1 font-weight-bold">Person 2</h5>
-						<span class="comment">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-						vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia
-						congue felis in faucibus.</span>
-					</div>
-				</li>
-				<li class="media bg-f8f8f8 p-4">
-					<img class="d-flex mr-3 img-fluid z-depth-1 rounded-circle" src="img/feedback/img3.jpg" alt="Person 3">
-					<div class="media-body">
-						<h5 class="mt-0 mb-1 font-weight-bold">Person 3</h5>
-						<span class="comment">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-						vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia
-						congue felis in faucibus.</span>
-					</div>
-				</li>
-				<li class="media bg-ffffff p-4">
-					<img class="d-flex mr-3 img-fluid z-depth-1 rounded-circle" src="img/feedback/img4.jpg" alt="Person 4">
-					<div class="media-body">
-						<h5 class="mt-0 mb-1 font-weight-bold">Person 4</h5>
-						<span class="comment">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-						vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia
-						congue felis in faucibus.</span>
-					</div>
-				</li>
-				<li class="media bg-f8f8f8 p-4">
-					<img class="d-flex mr-3 img-fluid z-depth-1 rounded-circle" src="img/feedback/img5.jpg" alt="Person 5">
-					<div class="media-body">
-						<h5 class="mt-0 mb-1 font-weight-bold">Person 5</h5>
-						<span class="comment">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-						vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia
-						congue felis in faucibus.</span>
-					</div>
-				</li>
+				 <?php }?>
+				
 			</ul>
 			
         </div>
     </section>
-    
+    <?php }?>
 	<!-- Reviews -->
 	<section class="randr mt-5">
         <div class="container">

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 @include_once( APPPATH . 'controllers/Admin_panel.php');
-class Reviews extends Admin_panel {
+class Reviewsratings extends Admin_panel {
 
 	public function __construct() 
 	{
@@ -30,12 +30,23 @@ class Reviews extends Admin_panel {
 			$login_details=$this->session->userdata('skill_user');
 				$post=$this->input->post();	
 				//echo'<pre>';print_r($post);exit;
+				
+				if(isset($_FILES['image']['name']) && $_FILES['image']['name']!=''){
+							$temp = explode(".", $_FILES["image"]["name"]);
+							$images = round(microtime(true)) . '.' . end($temp);
+							move_uploaded_file($_FILES['image']['tmp_name'], "assets/feedbackimages/" . $images);
+						}else{
+							$images='';
+						}
+				
 					$add=array(
 					 'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
-					 'reviews'=>isset($post['reviews'])?$post['reviews']:'',
-					 'rating'=>isset($post['rating'])?$post['rating']:'',
+					 'name'=>isset($post['name'])?$post['name']:'',
+					 'text'=>isset($post['text'])?$post['text']:'',
 					 'star'=>isset($post['star'])?$post['star']:'',
-					 'status'=>0,
+					 'image'=>isset($images)?$images:'',
+					 'org_image'=>isset($_FILES['image']['name'])?$_FILES['image']['name']:'',
+					 'status'=>1,
 					 'created_at'=>date('Y-m-d H:i:s'),
 					 'created_by'=>$login_details['cust_id'],
 					);
@@ -44,10 +55,10 @@ class Reviews extends Admin_panel {
 		// echo'<pre>';print_r($save);exit;
 		if(count($save)>0){
 				$this->session->set_flashdata('success',"Reviews & Rating successfully added");	
-				redirect('reviews/lists');	
+				redirect('reviewsratings/lists');	
 			}else{
 				$this->session->set_flashdata('error',"technical problem occurred. please try again once");
-				redirect('reviews/add');
+				redirect('reviewsratings/add');
 			}  
 			}else{
 			 $this->session->set_flashdata('error',"you don't have permission to access");
@@ -93,11 +104,23 @@ class Reviews extends Admin_panel {
 			$login_details=$this->session->userdata('skill_user');
 				$post=$this->input->post();	
 				//echo'<pre>';print_r($post);exit;
+			$edit_reviews_rating=$this->Reviews_model->get_edit_reviews_rating_list($post['r_id']);
+				if(isset($_FILES['image']['name']) && $_FILES['image']['name']!=''){
+							$temp = explode(".", $_FILES["image"]["name"]);
+							$images = round(microtime(true)) . '.' . end($temp);
+							$org_images=$_FILES["image"]["name"];
+							move_uploaded_file($_FILES['image']['tmp_name'], "assets/feedbackimages/" . $images);
+						}else{
+							$images=$edit_reviews_rating['image'];
+							$org_images=$edit_reviews_rating['org_image'];
+						}
 					$update_data=array(
 					 'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
-					 'reviews'=>isset($post['reviews'])?$post['reviews']:'',
-					 'rating'=>isset($post['rating'])?$post['rating']:'',
+					 'name'=>isset($post['name'])?$post['name']:'',
+					 'text'=>isset($post['text'])?$post['text']:'',
 					 'star'=>isset($post['star'])?$post['star']:'',
+					 'image'=>isset($images)?$images:'',
+					 'org_image'=>isset($_FILES['image']['name'])?$_FILES['image']['name']:'',
 					 'updated_at'=>date('Y-m-d H:i:s'),
 					);
 				 //echo'<pre>';print_r($update_data);exit;
@@ -105,10 +128,10 @@ class Reviews extends Admin_panel {
 		 //echo'<pre>';print_r($update);exit;
 		if(count($update)>0){
 				$this->session->set_flashdata('success',"Reviews & Rating successfully updated");	
-				redirect('reviews/lists');	
+				redirect('reviewsratings/lists');	
 			}else{
 				$this->session->set_flashdata('error',"technical problem occurred. please try again once");
-				redirect('reviews/edit/'.base64_encode($post['r_id']));
+				redirect('reviewsratings/edit/'.base64_encode($post['r_id']));
 			}  
 			}else{
 			 $this->session->set_flashdata('error',"you don't have permission to access");
@@ -127,13 +150,7 @@ class Reviews extends Admin_panel {
 					}else{
 						$statu=1;
 					}
-					if($status==0){
-						$check=$this->Reviews_model->check_reviews_ratings_status();
-						if(count($check)>0){
-							$this->session->set_flashdata('error',"Already One Reviews & Rating is Active. Please try again once");
-							redirect('reviews/lists');
-						}
-					}
+					
 					if($r_id!=''){
 						$stusdetails=array(
 							'status'=>$statu,
@@ -146,10 +163,10 @@ class Reviews extends Admin_panel {
 								}else{
 									$this->session->set_flashdata('success',"Reviews & Rating successfully  Activate.");
 								}
-								redirect('reviews/lists');
+								redirect('reviewsratings/lists');
 							}else{
 									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-									redirect('reviews/lists');
+									redirect('reviewsratings/lists');
 							}
 						}else{
 						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
@@ -178,10 +195,10 @@ if($this->session->userdata('skill_user'))
 							$statusdata=$this->Reviews_model->update_reviews_rating_details($r_id,$stusdetails);
 							if(count($statusdata)>0){
 								$this->session->set_flashdata('success',"Reviews & Rating  successfully  deleted.");
-								redirect('reviews/lists');
+								redirect('reviewsratings/lists');
 							}else{
 								$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-								redirect('reviews/lists');
+								redirect('reviewsratings/lists');
 							}
 						}else{
 						$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");

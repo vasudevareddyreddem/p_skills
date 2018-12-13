@@ -106,7 +106,12 @@ class User_model extends CI_Model
 		$this->db->where('interview_questions.course_profile',$c_profile_id);
 		return $this->db->get()->result_array();
 	}
-	
+	public function get_feedback_participants_list($c_profile_id){
+	$this->db->select('*')->from('reviews_rating');
+		$this->db->where('reviews_rating.status',1);
+		$this->db->where('reviews_rating.course_profile',$c_profile_id);
+		return $this->db->get()->result_array();
+	}
 	
 	
 }

@@ -36,7 +36,7 @@
                                 <thead>
                                     <tr>
                                         <th>Logo</th>
-										<th>Profile Name</th>
+										<th>Course Profile</th>
 										<th>Status</th>
                                         <th>Action</th>
                                     </tr>
