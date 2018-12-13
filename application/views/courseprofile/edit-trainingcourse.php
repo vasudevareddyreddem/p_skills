@@ -57,7 +57,15 @@
 						
 						</div>
 	                   
-	 
+	                 <div class="col-md-6">
+										<div class="form-group">
+											<label class=" control-label">Paragraph</label>
+											<div class="">
+												<input type="text" id="paragraph" name="paragraph" placeholder=" Enter Paragraph" class="form-control" value="<?php echo isset($edit_training_course['paragraph'])?$edit_training_course['paragraph']:''?>">
+											</div>
+										</div>
+									</div>
+	                  
 	              
 					<div class="col-md-12">
 						<div class="form-group">

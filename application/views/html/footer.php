@@ -18,19 +18,19 @@
                 <!-- Social icons -->
                 <div class="col text-right">
                     <div class="py-2">
-                        <a href="<?php echo isset($footer_links['facebook'])?$footer_links['facebook']:''; ?>" target="_blank">
+                        <a href="http://<?php echo isset($footer_links['facebook'])?$footer_links['facebook']:''; ?>" target="_blank">
                             <i class="fa fa-facebook mr-3"></i>
                         </a>
 
-                        <a href="<?php echo isset($footer_links['twitter'])?$footer_links['twitter']:''; ?>" target="_blank">
+                        <a href="http://<?php echo isset($footer_links['twitter'])?$footer_links['twitter']:''; ?>" target="_blank">
                             <i class="fa fa-twitter mr-3"></i>
                         </a>
 
-                        <a href="<?php echo isset($footer_links['youtube'])?$footer_links['youtube']:''; ?>" target="_blank">
+                        <a href="http://<?php echo isset($footer_links['youtube'])?$footer_links['youtube']:''; ?>" target="_blank">
                             <i class="fa fa-youtube mr-3"></i>
                         </a>
 
-                        <a href="<?php echo isset($footer_links['googleplus'])?$footer_links['googleplus']:''; ?>" target="_blank">
+                        <a href="http://<?php echo isset($footer_links['googleplus'])?$footer_links['googleplus']:''; ?>" target="_blank">
                             <i class="fa fa-google-plus mr-3"></i>
                         </a>
                     </div>

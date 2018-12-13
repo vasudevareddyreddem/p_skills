@@ -8,8 +8,8 @@
                 <div class="row">
 
                     <div class="col-md-12">
-                        <h3 class="mb-0">Oracle Apps R12 Financials Training</h3>
-                        <h5 class="mb-3">Oracle Apps Financials R12 Self Paced Training Videos with Live Screen Sharing of Oracle Apps R12 Vision Instance</h5>
+                        <h3 class="mb-0"><?php echo isset($course_name)?$course_name:''; ?> Apps R12 Financials Training</h3>
+                        <h5 class="mb-3"><?php echo isset($header_list['text'])?$header_list['text']:''?></h5>
                         <div class="category-header-details">
                             <ul class="list-inline mb-2">
                                 <li class="list-inline-item chd-rating-stars">
@@ -22,20 +22,16 @@
                                     </ul>
                                 </li>
                                 <li class="list-inline-item chd-rating mr-3">
-                                    <strong> <span>4.5</span> (<span>1000 ratings</span>)</strong>
+                                    <strong> <span><?php echo isset($review_count['review'])?$review_count['review']:'';?></span> (<span><?php echo(isset($ratings['rating'])?$ratings['rating']:'')/(isset($review_count['review'])?$review_count['review']:'')?> Rating</span>)</strong>
                                 </li>
-                                <li class="list-inline-item chd-enrols mr-3">
-                                    <strong> <span>500</span> students enrolled</strong>
+                                
+                                <li class="list-inline-item mr-3">
+                                    <strong> Created by <span><?php echo isset($header_list['username'])?$header_list['username']:''?></span> </strong>
                                 </li>
                                 <li class="list-inline-item mr-3">
-                                    <strong> Created by <span>John Leo</span> </strong>
+                                    <strong> Last Updated <span><?php echo isset($header_list['updated_at'])?$header_list['updated_at']:''?></span> </strong>
                                 </li>
-                                <li class="list-inline-item mr-3">
-                                    <strong> Last Updated <span>23/11/2018</span> </strong>
-                                </li>
-                                <li class="list-inline-item">
-                                    <strong> <i class="fa fa-comment"></i> English </strong>
-                                </li>
+                               
                             </ul>
 
                             <ul class="list-inline chd-line2">
@@ -53,58 +49,34 @@
     <section class="category-details mt-5">
         <div class="container">
             
-            <h3 class="heading mb-4">Oracle Financials Training Course</h3>
+            <h3 class="heading mb-4"><?php echo isset($course_name)?$course_name:''; ?> Financials Training Course</h3>
 			<div class="row">
-				
 				<div class="col-md-8 cd-part-1">
-					<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+				<?php foreach($training_course as $list){?>
+					<p><?php echo isset($list['paragraph'])?$list['paragraph']:''?></p>
+					
 					<div class="row">
 						<div class="col-md-6">
 							<ul class="list-unstyled">
-								<li>Lorem ipsum dolor sit amet</li>
-								<li>Consectetur adipiscing elit</li>
-								<li>Integer molestie lorem at massa</li>
-								<li>Facilisis in pretium nisl aliquet</li>
-								<li>Nulla volutpat aliquam velit</li>
-								<li>Phasellus iaculis neque</li>
-								<li>Purus sodales ultricies</li>
-								<li>Vestibulum laoreet porttitor sem</li>
-								<li>Ac tristique libero volutpat at</li>
-								<li>Faucibus porta lacus fringilla vel</li>
+						
+								<li><?php echo isset($list['title'])?$list['title']:''?></li>
+							
 							</ul>
 						</div>						
-						<div class="col-md-6">
-							<ul class="list-unstyled">
-								<li>Lorem ipsum dolor sit amet</li>
-								<li>Consectetur adipiscing elit</li>
-								<li>Integer molestie lorem at massa</li>
-								<li>Facilisis in pretium nisl aliquet</li>
-								<li>Nulla volutpat aliquam velit</li>
-								<li>Phasellus iaculis neque</li>
-								<li>Purus sodales ultricies</li>
-								<li>Vestibulum laoreet porttitor sem</li>
-								<li>Ac tristique libero volutpat at</li>
-								<li>Faucibus porta lacus fringilla vel</li>
-							</ul>
-						</div>
+						
 					</div>
+					<?php } ?>
 				</div>
 				
 				<div class="col-md-4 cd-part-2">
 					<!-- Default form login -->
-					<form class="text-center p-3" method="" action="">
+					<form class="text-center p-3" method="post" action="<?php echo base_url('courseprofile/addpost'); ?>">
 						<p class="h4 mb-4">I am Interested in this course</p>
-						<input type="text" id="" class="form-control mb-2" placeholder="Course Name">
-						<input type="text" id="" class="form-control mb-2" placeholder="Name">
-						<input type="email" id="" class="form-control mb-2" placeholder="E-mail">
-						<input type="text" id="" class="form-control mb-2" placeholder="Mobile Number">
-						<select class="form-control mb-2">
-							<option selected disabled>Location</option>
-							<option value="">Option 1</option>
-							<option value="">Option 2</option>
-							<option value="">Option 3</option>
-							<option value="">Option 4</option>
-						</select>
+						<input type="text" id="course_name" name="course_name" class="form-control mb-2" placeholder="Course Name">
+						<input type="text" id="name"  name="name"  class="form-control mb-2" placeholder="Name">
+						<input type="email" id="email_id" name="email_id" class="form-control mb-2" placeholder="E-mail">
+						<input type="text" id="phone" name="phone" class="form-control mb-2" placeholder="Mobile Number">
+						<input type="text" id="location" name="location" class="form-control mb-2" placeholder="Location">
 						<div class="clearfix">&nbsp;</div>
 						<button class="btn btn-info btn-block mb-2" type="submit">Contact Me</button>
 					</form>
@@ -116,24 +88,21 @@
 	</section>
         
     <!-- Why Skill Chair -->
+	<?php if(isset($skillchair) && count($skillchair)>0){ ?>
     <section class="why-sc mt-5">
         <div class="container">
             
-            <h3 class="heading mb-4">Why Skill Chair?</h3>
+            <h3 class="heading mb-4"><?php echo isset($course_name)?$course_name:''; ?> Why Skill Chair?</h3>
 			<div class="row">
 				
 				<div class="col-md-12 wsc-points">
                     <ul class="list-unstyled">
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer luctus ipsum sed maximus porttitor. </li>
-                        <li>Quisque consequat ornare urna, in elementum lacus luctus vel. Curabitur posuere tellus at gravida ultricies. Maecenas sed cursus nisi.</li>
-                        <li>Integer id nisl ultricies, euismod lorem at, ultricies nisi. Curabitur auctor eros sit amet massa suscipit, fermentum bibendum purus feugiat. </li>
-                        <li>In feugiat pharetra mi, nec dapibus nibh consectetur eget. Aliquam leo sem, dignissim ut interdum non, sagittis non arcu. </li>
-                        <li>Etiam rutrum, nisi non volutpat lobortis, sem leo vulputate mauris, et luctus orci magna at nisi. Fusce euismod non ligula vel mollis.</li>
-                        <li>Sed ligula dui, ultricies eu est eget, semper cursus ante. Phasellus efficitur eu urna elementum mattis.</li>
-                        <li>Morbi aliquam, massa eget malesuada dapibus, enim enim faucibus velit, bibendum congue felis ex et arcu. Nunc in suscipit mi. </li>
-                        <li>Mauris nisi dolor, eleifend in velit in, consectetur hendrerit est. Suspendisse ut dui a nibh vehicula mattis commodo sed ligula. </li>
-                        <li>Mauris tempus dolor vel ligula dapibus, et faucibus elit convallis. Vestibulum luctus nibh ac dolor rutrum dictum.</li>
-                        <li>Suspendisse tristique augue et nulla mattis, ac fringilla diam pellentesque. Praesent rutrum nunc ipsum, in posuere ipsum pulvinar vitae.</li>
+					
+                        <?php foreach($skillchair as $list){?>
+						<li><?php echo isset($list['title'])?$list['title']:'' ?></li>
+						<?php }?>
+						
+					
                     </ul>
 				</div>
 				
@@ -141,8 +110,9 @@
 			
 		</div>
 	</section>
-    
-    <!-- Course Timing -->
+    <?php }?>
+   <!-- Course Timing -->
+	<?php if(isset($training_batches) && count($training_batches)>0){ ?>
     <section class="course-schedule mt-5">
         <div class="container">
             
@@ -150,273 +120,78 @@
             <div class="row">
                 
                 <!-- Weekend Track -->
+				<?php foreach($training_batches as $lis){?>
                 <div class="col-md-4 cs-tracks">
+				
                     <div class="z-depth-1 bg-ffffff p-2">
                         
-                        <h5 class="text-center mt-3">Weekend Track</h5>
+                        <h5 class="text-center mt-3"><?php echo isset($lis['title'])?$lis['title']:''?></h5>
+						
                         <ul class="list-inline text-center mt-3">
                             <li class="list-inline-item cst-dur mr-0 pr-3">
-                                <strong>Duration : 23</strong> <small>Weekends</small>
+                                <strong>Duration :<?php echo isset($lis['duration'])?$lis['duration']:''?></strong> <small>Weekends</small>
                             </li>
                             <li class="list-inline-item cst-hours mr-0 pl-3">
-                                <strong>Hours: <span>2hr</span>/day</strong>
+                                <strong>Hours: <span><?php echo isset($lis['hours'])?$lis['hours']:''?></span>/day</strong>
                             </li>
                         </ul>
                         
                         <!-- Batch's -->
                         <div class="cs-batchs mt-4">
+					
+						
                             <ul class="list-inline text-center">
-                                
+                             <?php foreach($lis['training_bactch_list'] as $list){?>
                                 <!-- Batch Timings -->
+								
                                 <li class="list-inline-item cs-batch mb-3 mr-3">
+								
                                     <div class="row pl-3 pr-3">
+									
                                         <div class="col4 text-center pl-2 pr-2 csb-dm">
-                                            <small><b>23</b></small>
+										
+                                            <small><b><?php echo  date('d',strtotime($list['date'])); ?></b></small>
                                             <br>
-                                            <small><b>Nov</b></small>
+                                            <small><b><?php echo  date('M',strtotime($list['date'])); ?></b></small>
+									
                                         </div>
                                         <div class="col8 text-center pl-3 pr-2 csb-wt">
-                                            <small>Friday</small>
+									
+                                            <small><?php echo date('l', strtotime($list['date'])); ?></small>
                                             <br>
-                                            <small>7:30 PM</small>
+                                            <small><?php echo isset($list['time'])?$list['time']:''?></small>
+									
                                         </div>
+										
                                     </div>
+									
+									
                                 </li>
-                                
-                                <!-- Batch Timings -->
-                                <li class="list-inline-item cs-batch mb-3 mr-3">
-                                    <div class="row pl-3 pr-3">
-                                        <div class="col4 text-center pl-2 pr-2 csb-dm">
-                                            <small><b>23</b></small>
-                                            <br>
-                                            <small><b>Nov</b></small>
-                                        </div>
-                                        <div class="col8 text-center pl-3 pr-2 csb-wt">
-                                            <small>Friday</small>
-                                            <br>
-                                            <small>7:30 PM</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                
-                                <!-- Batch Timings -->
-                                <li class="list-inline-item cs-batch mb-3 mr-3">
-                                    <div class="row pl-3 pr-3">
-                                        <div class="col4 text-center pl-2 pr-2 csb-dm">
-                                            <small><b>23</b></small>
-                                            <br>
-                                            <small><b>Nov</b></small>
-                                        </div>
-                                        <div class="col8 text-center pl-3 pr-2 csb-wt">
-                                            <small>Friday</small>
-                                            <br>
-                                            <small>7:30 PM</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                
-                                <!-- Batch Timings -->
-                                <li class="list-inline-item cs-batch mb-3 mr-3">
-                                    <div class="row pl-3 pr-3">
-                                        <div class="col4 text-center pl-2 pr-2 csb-dm">
-                                            <small><b>23</b></small>
-                                            <br>
-                                            <small><b>Nov</b></small>
-                                        </div>
-                                        <div class="col8 text-center pl-3 pr-2 csb-wt">
-                                            <small>Friday</small>
-                                            <br>
-                                            <small>7:30 PM</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                
+                                	
+                               <?php }?>
+                               							   
                             </ul>
+							
                         </div>
                         
+                       
                     </div>
+					
                 </div>
+                <?php }?>
+               
                 
-                <!-- Regular Track -->
-                <div class="col-md-4 cs-tracks">
-                    <div class="z-depth-1 bg-f8f8f8 p-2">
-                        
-                        <h5 class="text-center mt-3">Regular Track</h5>
-                        <ul class="list-inline text-center mt-3">
-                            <li class="list-inline-item cst-dur mr-0 pr-3">
-                                <strong>Duration : 23</strong> <small>Weekends</small>
-                            </li>
-                            <li class="list-inline-item cst-hours mr-0 pl-3">
-                                <strong>Hours: <span>2hr</span>/day</strong>
-                            </li>
-                        </ul>
-                        
-                        <!-- Batch's -->
-                        <div class="cs-batchs mt-4">
-                            <ul class="list-inline text-center">
-                                
-                                <!-- Batch Timings -->
-                                <li class="list-inline-item cs-batch mb-3 mr-3">
-                                    <div class="row pl-3 pr-3">
-                                        <div class="col4 text-center pl-2 pr-2 csb-dm">
-                                            <small><b>23</b></small>
-                                            <br>
-                                            <small><b>Nov</b></small>
-                                        </div>
-                                        <div class="col8 text-center pl-3 pr-2 csb-wt">
-                                            <small>Friday</small>
-                                            <br>
-                                            <small>7:30 PM</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                
-                                <!-- Batch Timings -->
-                                <li class="list-inline-item cs-batch mb-3 mr-3">
-                                    <div class="row pl-3 pr-3">
-                                        <div class="col4 text-center pl-2 pr-2 csb-dm">
-                                            <small><b>23</b></small>
-                                            <br>
-                                            <small><b>Nov</b></small>
-                                        </div>
-                                        <div class="col8 text-center pl-3 pr-2 csb-wt">
-                                            <small>Friday</small>
-                                            <br>
-                                            <small>7:30 PM</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                
-                                <!-- Batch Timings -->
-                                <li class="list-inline-item cs-batch mb-3 mr-3">
-                                    <div class="row pl-3 pr-3">
-                                        <div class="col4 text-center pl-2 pr-2 csb-dm">
-                                            <small><b>23</b></small>
-                                            <br>
-                                            <small><b>Nov</b></small>
-                                        </div>
-                                        <div class="col8 text-center pl-3 pr-2 csb-wt">
-                                            <small>Friday</small>
-                                            <br>
-                                            <small>7:30 PM</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                
-                                <!-- Batch Timings -->
-                                <li class="list-inline-item cs-batch mb-3 mr-3">
-                                    <div class="row pl-3 pr-3">
-                                        <div class="col4 text-center pl-2 pr-2 csb-dm">
-                                            <small><b>23</b></small>
-                                            <br>
-                                            <small><b>Nov</b></small>
-                                        </div>
-                                        <div class="col8 text-center pl-3 pr-2 csb-wt">
-                                            <small>Friday</small>
-                                            <br>
-                                            <small>7:30 PM</small>
-                                        </div>
-                                    </div>
-                                </li>
-                                
-                            </ul>
-                        </div>
-                        
-                    </div>
-                </div>
-                
-                <!-- Fast Track -->
-                <div class="col-md-4 cs-tracks">
-                    <div class="z-depth-1 bg-ffffff p-2">
-
-                        <h5 class="text-center mt-3">Fast Track</h5>
-                        <ul class="list-inline text-center mt-3">
-                            <li class="list-inline-item cst-dur mr-0 pr-3">
-                                <strong>Duration : 23</strong> <small>Weekends</small>
-                            </li>
-                            <li class="list-inline-item cst-hours mr-0 pl-3">
-                                <strong>Hours: <span>2hr</span>/day</strong>
-                            </li>
-                        </ul>
-
-                        <!-- Batch's -->
-                        <div class="cs-batchs mt-4">
-                            <ul class="list-inline text-center">
-
-                                <!-- Batch Timings -->
-                                <li class="list-inline-item cs-batch mb-3 mr-3">
-                                    <div class="row pl-3 pr-3">
-                                        <div class="col4 text-center pl-2 pr-2 csb-dm">
-                                            <small><b>23</b></small>
-                                            <br>
-                                            <small><b>Nov</b></small>
-                                        </div>
-                                        <div class="col8 text-center pl-3 pr-2 csb-wt">
-                                            <small>Friday</small>
-                                            <br>
-                                            <small>7:30 PM</small>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <!-- Batch Timings -->
-                                <li class="list-inline-item cs-batch mb-3 mr-3">
-                                    <div class="row pl-3 pr-3">
-                                        <div class="col4 text-center pl-2 pr-2 csb-dm">
-                                            <small><b>23</b></small>
-                                            <br>
-                                            <small><b>Nov</b></small>
-                                        </div>
-                                        <div class="col8 text-center pl-3 pr-2 csb-wt">
-                                            <small>Friday</small>
-                                            <br>
-                                            <small>7:30 PM</small>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <!-- Batch Timings -->
-                                <li class="list-inline-item cs-batch mb-3 mr-3">
-                                    <div class="row pl-3 pr-3">
-                                        <div class="col4 text-center pl-2 pr-2 csb-dm">
-                                            <small><b>23</b></small>
-                                            <br>
-                                            <small><b>Nov</b></small>
-                                        </div>
-                                        <div class="col8 text-center pl-3 pr-2 csb-wt">
-                                            <small>Friday</small>
-                                            <br>
-                                            <small>7:30 PM</small>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <!-- Batch Timings -->
-                                <li class="list-inline-item cs-batch mb-3 mr-3">
-                                    <div class="row pl-3 pr-3">
-                                        <div class="col4 text-center pl-2 pr-2 csb-dm">
-                                            <small><b>23</b></small>
-                                            <br>
-                                            <small><b>Nov</b></small>
-                                        </div>
-                                        <div class="col8 text-center pl-3 pr-2 csb-wt">
-                                            <small>Friday</small>
-                                            <br>
-                                            <small>7:30 PM</small>
-                                        </div>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
+               
+				
+				
+				
+				
                 
             </div>
             
         </div>
     </section>
+    <?php }?>
     	<?php if(isset($course_details_list) && count($course_details_list)>0){ ?>
     <!-- Course Details -->
     <section class="course-details mt-5">
@@ -424,7 +199,7 @@
             
             <h3 class="heading mb-4"><?php echo isset($course_name)?$course_name:''; ?> Course Details</h3>
             <div id="accordion1">
-                 <?php $cnt=1;foreach($interview_questions_list as $list){ ?>
+                 <?php $cnt=1;foreach($course_details_list as $list){ ?>
                 <div class="card">
                     <div class="card-header" data-toggle="collapse" data-target="#courseOne<?php echo $cnt; ?>">
                         <h6 class="mb-0"><?php echo isset($list['title'])?$list['title']:''; ?></h6>
@@ -502,7 +277,9 @@
 			<div class="row rating-div">
 			
 				<div class="col-md-4 ratings-percent text-center p-3">
-					<h1 class="text-white">4.5</h1>
+				
+					<h1 class="text-white"><?php echo isset($review_count['review'])?$review_count['review']:'';?></h1>
+					
 					<ul class="list-inline mb-1">
 						<li class="list-inline-item"><i class="fa fa-star"></i></li>
 						<li class="list-inline-item"><i class="fa fa-star"></i></li>
@@ -510,13 +287,14 @@
 						<li class="list-inline-item"><i class="fa fa-star"></i></li>
 						<li class="list-inline-item"><i class="fa fa-star-half-full"></i></li>
 					</ul>
-					<p>1,000 Rating</p>
+					<p><?php echo(isset($ratings['rating'])?$ratings['rating']:'')/(isset($review_count['review'])?$review_count['review']:'')?> Rating</p>
+				
 				</div>
 				
 				<div class="col-md-7 rating-bars p-3">
 					<div class="row mb-2">
 						<div class="col-md-3 col-sm-3 star-rating">
-							<strong>5 Star</strong>
+							<strong><?php echo(isset($ratings['rating'])?$ratings['rating']:'')/(isset($review_count['review'])?$review_count['review']:'')?>  Star</strong>
 						</div>
 						<div class="col-md-9 col-sm-9">
 							<div class="progress mt-1">
@@ -524,46 +302,10 @@
 							</div>
 						</div>
 					</div>
-					<div class="row mb-2">
-						<div class="col-md-3 col-sm-3 star-rating">
-							<strong>4 Star</strong>
-						</div>
-						<div class="col-md-9 col-sm-9">
-							<div class="progress mt-1">
-								<div class="progress-bar progress-bar-striped bg-success" style="width:70%"></div>
-							</div>
-						</div>
-					</div>
-					<div class="row mb-2">
-						<div class="col-md-3 col-sm-3 star-rating">
-							<strong>3 Star</strong>
-						</div>
-						<div class="col-md-9 col-sm-9">
-							<div class="progress mt-1">
-								<div class="progress-bar progress-bar-striped bg-default" style="width:40%"></div>
-							</div>
-						</div>
-					</div>
-					<div class="row mb-2">
-						<div class="col-md-3 col-sm-3 star-rating">
-							<strong>2 Star</strong>
-						</div>
-						<div class="col-md-9 col-sm-9">
-							<div class="progress mt-1">
-								<div class="progress-bar progress-bar-striped bg-warning" style="width:20%"></div>
-							</div>
-						</div>
-					</div>
-					<div class="row mb-2">
-						<div class="col-md-3 col-sm-3 star-rating">
-							<strong>1 Star</strong>
-						</div>
-						<div class="col-md-9 col-sm-9">
-							<div class="progress mt-1">
-								<div class="progress-bar progress-bar-striped bg-danger" style="width:5%"></div>
-							</div>
-						</div>
-					</div>
+					
+					
+					
+					
 				</div>
 				
 			</div>

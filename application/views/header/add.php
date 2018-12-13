@@ -31,6 +31,7 @@
                     <div class="card-body">
                         <form  method="post" action="<?php echo base_url('header/headerpost'); ?>" id="addheaderimage" name="addheaderimage" enctype="multipart/form-data">
                             <div class="row"> 
+							
                                 <div class="col-md-4">
 									<div class="form-group">
 										<label class=" control-label">Video</label>

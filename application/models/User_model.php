@@ -112,6 +112,74 @@ class User_model extends CI_Model
 		$this->db->where('reviews_rating.course_profile',$c_profile_id);
 		return $this->db->get()->result_array();
 	}
+	public function get_review_count_data($c_profile_id){
+	$this->db->select('count(reviews_rating.name)as review')->from('reviews_rating');
+	$this->db->where('reviews_rating.status',1);
+	$this->db->where('reviews_rating.course_profile',$c_profile_id);
+	return $this->db->get()->row_array();
+	}
+	public function get_total_rating($c_profile_id){
+	$this->db->select('SUM(reviews_rating.star)as rating')->from('reviews_rating');
+	$this->db->where('reviews_rating.status',1);
+	$this->db->where('reviews_rating.course_profile',$c_profile_id);
+	return $this->db->get()->row_array();
+	}
+	public function get_skillchair_list($c_profile_id){
+	$this->db->select('*')->from('skillchair');
+		$this->db->where('skillchair.status',1);
+		$this->db->where('skillchair.course_profile',$c_profile_id);
+		return $this->db->get()->result_array();
+	}
+	public function get_training_course_list($c_profile_id){
+	$this->db->select('*')->from('training_course');
+	$this->db->where('training_course.status',1);
+	$this->db->where('training_course.course_profile',$c_profile_id);
+	return $this->db->get()->result_array();
+	}
+	public function get_training_batches_list($c_profile_id){
+	$this->db->select('*')->from('training_batches');
+	$this->db->where('training_batches.status',1);
+	$this->db->where('training_batches.course_profile',$c_profile_id);
+	$return=$this->db->get()->result_array();
+	foreach($return as $list){
+	   $lists=$this->get_date_wise_data($list['t_b_id']);
+	   //echo '<pre>';print_r($lists);exit;
+	   $data[$list['t_b_id']]=$list;
+	   $data[$list['t_b_id']]['training_bactch_list']=$lists;
+	   
+	  }
+	if(!empty($data)){
+	   
+	   return $data;
+	   
+	  }
+ }
+	public function get_date_wise_data($t_b_id){
+	$this->db->select('*')->from('track');
+	$this->db->where('track.status',1);
+	$this->db->where('track.t_b_id',$t_b_id);
+	return $this->db->get()->result_array();
+	}
+	public function get_header_list(){
+	$this->db->select('header.*,admin.username')->from('header');
+	$this->db->join('admin', 'admin.cust_id = header.created_by', 'left');
+	$this->db->where('header.status',1);
+	return $this->db->get()->row_array();
+	}
+	
+	
+	
+	
+	
+	/* contact me*/
+	public function save_contact_info($data){
+		$this->db->insert('contact_info',$data);
+		return $this->db->insert_id();
+	}
+	public function get_contact_info(){
+		$this->db->select('*')->from('contact_info');
+		return $this->db->get()->row_array();
+	}
 	
 	
 }

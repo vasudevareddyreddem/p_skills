@@ -50,8 +50,15 @@
 								 </div>
 						
 						</div>
-	                   
-	 
+	                   <div class="col-md-6">
+										<div class="form-group">
+											<label class=" control-label">Paragraph</label>
+											<div class="">
+												<input type="text" id="paragraph" name="paragraph" placeholder=" Enter Paragraph" class="form-control">
+											</div>
+										</div>
+									</div>
+	                  
 	              
 					<div class="col-md-12">
 						<div class="form-group">
@@ -117,6 +124,14 @@
                     }
                 }
             },
+			paragraph: {
+                validators: {
+                    notEmpty: {
+                        message: 'Paragraph is required'
+                    }
+                }
+            },
+			
             title: {
                 validators: {
                     notEmpty: {

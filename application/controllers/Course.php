@@ -1074,6 +1074,7 @@ public function coursedetailsdelete()
            $save_data=array(
 		   'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
 		   'title'=>isset($post['title'])?$post['title']:'',
+		   'paragraph'=>isset($post['paragraph'])?$post['paragraph']:'',
 		   'status'=>0,
 		   'created_at'=>date('Y-m-d H:i:s'),
 		   'updated_at'=>date('Y-m-d H:i:s'),
@@ -1138,6 +1139,7 @@ public function coursedetailsdelete()
 		  //echo'<pre>';print_r($post);exit;
 		       $update_data=array(
 	            'title'=>isset($post['title'])?$post['title']:'',
+	            'paragraph'=>isset($post['paragraph'])?$post['paragraph']:'',
 		        'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
 				'updated_at'=>date('Y-m-d H:i:s'),
 				 );
@@ -1169,8 +1171,10 @@ public function coursedetailsdelete()
 					}else{
 						$statu=1;
 					}
+		
 					if($status==0){
 						$check=$this->Category_model->check_training_course_status();
+						echo'<pre>';print_r($check);exit;
 						if(count($check)>0){
 						$this->session->set_flashdata('error',"Already One Training Course details is Active. Please try again once");	
 							redirect('course/trainingcourselists');

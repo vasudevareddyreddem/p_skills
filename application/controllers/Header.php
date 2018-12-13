@@ -226,8 +226,8 @@ public function add()
 		{
 			$login_details=$this->session->userdata('skill_user');
 			//echo'<pre>';print_r($data);exit;
-			
-			$this->load->view('header/add');
+			$data['course_profile_data']=$this->Header_model->get_course_profile_data();
+			$this->load->view('header/add',$data);
 			$this->load->view('admin/footer');
 		}else{
 			$this->session->set_flashdata('error',"you don't have permission to access");
@@ -296,6 +296,7 @@ public function add()
 			$login_details=$this->session->userdata('skill_user');
 			
 			$h_id=base64_decode($this->uri->segment(3));
+			$data['course_profile_data']=$this->Header_model->get_course_profile_data();
 			$data['edit_header']=$this->Header_model->get_edit_header_details($h_id);	
 			//echo'<pre>';print_r($data);exit;
 			$this->load->view('header/edit-header',$data);
@@ -319,8 +320,8 @@ public function add()
 						if(isset($_FILES['video']['name']) && $_FILES['video']['name']!=''){
 							$temp = explode(".", $_FILES["video"]["name"]);
 							$videos = round(microtime(true)) . '.' . end($temp);
-							$org_images=$_FILES["video"]["name"];
-							move_uploaded_file($_FILES['video']['tmp_name'], "assets/headerimages/" . $videos);
+							move_uploaded_file($_FILES['video']['tmp_name'], "assets/videos/" . $videos);
+						
 						}else{
 							$videos=$edit_header['video'];
 							$org_videos=$edit_header['org_video'];
@@ -328,7 +329,7 @@ public function add()
 						
 					$update_data=array(
 					 'video'=>isset($videos)?$videos:'',
-					 'org_video'=>isset($org_videos)?$org_videos:'',
+					 'org_video'=>isset($_FILES['video']['name'])?$_FILES['video']['name']:'',
 					 'text'=>isset($post['text'])?$post['text']:'',
 					 'color_code'=>isset($post['color_code'])?$post['color_code']:'',
 					 'updated_at'=>date('Y-m-d H:i:s'),

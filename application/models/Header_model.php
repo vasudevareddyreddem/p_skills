@@ -64,7 +64,11 @@ class Header_model extends CI_Model
 		return $this->db->get()->result_array();	
 	}
 	
-	
+	public function get_course_profile_data(){
+	$this->db->select('course_profile.c_id,course_profile.c_P_name')->from('course_profile');
+	$this->db->where('course_profile.status',1);
+	return $this->db->get()->result_array();
+	}
 	
 	
 	
