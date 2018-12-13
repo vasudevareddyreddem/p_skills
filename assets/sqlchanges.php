@@ -132,6 +132,21 @@ CREATE TABLE `header` (
   
   
   
+Create Table
+
+CREATE TABLE `reviews_rating` (
+  `r_id` int(11) NOT NULL AUTO_INCREMENT,
+  `course_profile` varchar(250) DEFAULT NULL,
+  `reviews` varchar(250) DEFAULT NULL,
+  `rating` varchar(250) DEFAULT NULL,
+  `star` varchar(250) DEFAULT NULL,
+  `status` int(11) DEFAULT '1',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  PRIMARY KEY (`r_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1
+
   
   
   
