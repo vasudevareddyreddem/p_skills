@@ -1365,13 +1365,15 @@ public function coursedetailsdelete()
          $login_details=$this->session->userdata('skill_user');	
 	             $s_id=base64_decode($this->uri->segment(3));
 					$status=base64_decode($this->uri->segment(4));
+					$profile_id=base64_decode($this->uri->segment(5));
+					//exit;
 					if($status==1){
 						$statu=0;
 					}else{
 						$statu=1;
 					}
 					if($status==0){
-						$check=$this->Category_model->check_skillchair_status();
+						$check=$this->Category_model->check_profile_skillchair_status($profile_id);
 						if(count($check)>0){
 							$this->session->set_flashdata('error',"Already One Skillchair Details is Active. Please try again once");
 							redirect('course/skillchairlists');

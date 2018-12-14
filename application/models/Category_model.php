@@ -295,6 +295,12 @@ class Category_model extends CI_Model
 	$this->db->where('skillchair.status',1);
 	return $this->db->get()->result_array();
 	}
+	public function check_profile_skillchair_status($profile_id){
+	$this->db->select('*')->from('skillchair');
+	$this->db->where('skillchair.course_profile',$profile_id);
+	$this->db->where('skillchair.status',1);
+	return $this->db->get()->result_array();
+	}
 	
 	
 	
