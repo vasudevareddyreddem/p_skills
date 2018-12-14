@@ -265,8 +265,9 @@ class Category_model extends CI_Model
 	$this->db->where('t_c_id',$t_c_id);
     return $this->db->update("training_course",$data);		
 	}
-	public function check_training_course_status(){
+	public function check_training_course_status($profile_id){
 	$this->db->select('*')->from('training_course');	
+	$this->db->where('training_course.course_profile',$profile_id);
 	$this->db->where('training_course.status',1);
 	return $this->db->get()->result_array();
 	}

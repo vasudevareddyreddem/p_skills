@@ -132,14 +132,17 @@ CREATE TABLE `header` (
   
   
   
+
 Create Table
 
 CREATE TABLE `reviews_rating` (
   `r_id` int(11) NOT NULL AUTO_INCREMENT,
   `course_profile` varchar(250) DEFAULT NULL,
-  `reviews` varchar(250) DEFAULT NULL,
-  `rating` varchar(250) DEFAULT NULL,
+  `name` varchar(250) DEFAULT NULL,
   `star` varchar(250) DEFAULT NULL,
+  `image` varchar(250) DEFAULT NULL,
+  `org_image` varchar(250) DEFAULT NULL,
+  `text` varchar(250) DEFAULT NULL,
   `status` int(11) DEFAULT '1',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -149,9 +152,13 @@ CREATE TABLE `reviews_rating` (
 
   
   
+  ALTER TABLE `skills`.`header`   
+  DROP COLUMN `course_profile`, 
+  ADD COLUMN `course_profile` INT(11) NULL AFTER `h_id`;
+
   
-  
-  
-  
+  ALTER TABLE `skills`.`training_course`   
+  DROP COLUMN `paragraph`, 
+  ADD COLUMN `paragraph` VARCHAR(250) NULL AFTER `t_c_id`;
   
   

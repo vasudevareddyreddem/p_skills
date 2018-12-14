@@ -252,6 +252,7 @@ public function add()
 					 'video'=>isset($videos)?$videos:'',
 					 'org_video'=>isset($_FILES['video']['name'])?$_FILES['video']['name']:'',
 					 'text'=>isset($post['text'])?$post['text']:'',
+					 'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
 					 'color_code'=>isset($post['color_code'])?$post['color_code']:'',
 					 'status'=>0,
 					 'created_at'=>date('Y-m-d H:i:s'),
@@ -331,6 +332,7 @@ public function add()
 					 'video'=>isset($videos)?$videos:'',
 					 'org_video'=>isset($_FILES['video']['name'])?$_FILES['video']['name']:'',
 					 'text'=>isset($post['text'])?$post['text']:'',
+					 'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
 					 'color_code'=>isset($post['color_code'])?$post['color_code']:'',
 					 'updated_at'=>date('Y-m-d H:i:s'),
 					);
@@ -359,6 +361,7 @@ public function add()
          $login_details=$this->session->userdata('skill_user');	
 	             $h_id=base64_decode($this->uri->segment(3));
 					$status=base64_decode($this->uri->segment(4));
+					$profile_id=base64_decode($this->uri->segment(5));
 					if($status==1){
 						$statu=0;
 					}else{

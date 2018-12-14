@@ -31,8 +31,24 @@
                     <div class="card-body">
                         <form  method="post" action="<?php echo base_url('header/headerpost'); ?>" id="addheaderimage" name="addheaderimage" enctype="multipart/form-data">
                             <div class="row"> 
+							<div class="col-md-6">
+						<div class="form-group">
+					<label class=" control-label">Course Profile</label>
+					<div class="">
+					<select id="course_profile" name="course_profile"  class="form-control select2" style="padding:20px; ">
+					<option value="">Select</option>
+					<?php if(isset($course_profile_data) && count($course_profile_data)>0){ ?>
+						<?php foreach($course_profile_data as $list){ ?>
+							<option value="<?php echo $list['c_id']; ?>"><?php echo $list['c_P_name']; ?></option>
 							
-                                <div class="col-md-4">
+									<?php } ?>
+								   <?php } ?>
+								  </select>
+								  </div>
+								 </div>
+						
+						</div>
+                                <div class="col-md-6">
 									<div class="form-group">
 										<label class=" control-label">Video</label>
 										<div class="">
@@ -41,14 +57,14 @@
 										</div>
                                     </div>
 									
-								   <div class="col-md-4">
+								   <div class="col-md-6">
 										<div class="form-group">
 											<label>Text</label>
 											<input type="text" id="title" name="text" placeholder="Enter Text" class="form-control">
 										</div>
 										</div>
 										
-										 <div class="col-md-4">
+										 <div class="col-md-6">
 									<div class="form-group">
 										<label class=" control-label">Background Colour</label>
 										<div class="">

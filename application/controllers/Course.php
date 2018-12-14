@@ -1166,6 +1166,7 @@ public function coursedetailsdelete()
          $login_details=$this->session->userdata('skill_user');	
 	             $t_c_id=base64_decode($this->uri->segment(3));
 					$status=base64_decode($this->uri->segment(4));
+					$profile_id=base64_decode($this->uri->segment(5));
 					if($status==1){
 						$statu=0;
 					}else{
@@ -1173,8 +1174,8 @@ public function coursedetailsdelete()
 					}
 		
 					if($status==0){
-						$check=$this->Category_model->check_training_course_status();
-						echo'<pre>';print_r($check);exit;
+						$check=$this->Category_model->check_training_course_status($profile_id);
+						//echo'<pre>';print_r($check);exit;
 						if(count($check)>0){
 						$this->session->set_flashdata('error',"Already One Training Course details is Active. Please try again once");	
 							redirect('course/trainingcourselists');
