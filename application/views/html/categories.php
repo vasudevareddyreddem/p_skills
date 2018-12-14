@@ -72,11 +72,11 @@
 					<!-- Default form login -->
 					<form class="text-center p-3" method="post" action="<?php echo base_url('courseprofile/addpost'); ?>">
 						<p class="h4 mb-4">I am Interested in this course</p>
-						<input type="text" id="course_name" name="course_name" class="form-control mb-2" placeholder="Course Name">
-						<input type="text" id="name"  name="name"  class="form-control mb-2" placeholder="Name">
-						<input type="email" id="email_id" name="email_id" class="form-control mb-2" placeholder="E-mail">
-						<input type="text" id="phone" name="phone" class="form-control mb-2" placeholder="Mobile Number">
-						<input type="text" id="location" name="location" class="form-control mb-2" placeholder="Location">
+						<input type="text" id="course_name" name="course_name" class="form-control mb-2" placeholder="Course Name" required>
+						<input type="text" id="name"  name="name"  class="form-control mb-2" placeholder="Name" required>
+						<input type="email" id="email_id" name="email_id" class="form-control mb-2" placeholder="E-mail" required>
+						<input type="text" id="phone" name="phone" class="form-control mb-2" pattern="[1-9]{1}[0-9]{9}" maxlength="10" placeholder="Mobile Number" required>
+						<input type="text" id="location" name="location" class="form-control mb-2" placeholder="Location" required>
 						<div class="clearfix">&nbsp;</div>
 						<button class="btn btn-info btn-block mb-2" type="submit">Contact Me</button>
 					</form>

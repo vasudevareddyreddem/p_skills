@@ -45,7 +45,8 @@ class Header_model extends CI_Model
     return $this->db->insert_id();
 	}
 	public function get_header_list(){
-	$this->db->select('header.*')->from('header');
+	$this->db->select('header.*,course_profile.c_P_name')->from('header');
+	$this->db->join('course_profile', 'course_profile.c_id = header.course_profile', 'left');
 	$this->db->where('header.status !=',2);
 	return $this->db->get()->result_array();
 	}
@@ -58,10 +59,11 @@ class Header_model extends CI_Model
 	$this->db->where('h_id',$h_id);
     return $this->db->update('header',$data);
 	}
-	public  function check_header_status(){
+	public  function check_header_status($profile_id){
 		$this->db->select('*')->from('header');
-		$this->db->where('status',1);
-		return $this->db->get()->result_array();	
+	$this->db->where('header.course_profile',$profile_id);
+	$this->db->where('header.status',1);
+	return $this->db->get()->result_array();
 	}
 	
 	public function get_course_profile_data(){

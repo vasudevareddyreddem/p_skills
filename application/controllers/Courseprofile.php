@@ -26,7 +26,7 @@ class Courseprofile extends Front_end {
 		$data['skillchair']=$this->User_model->get_skillchair_list($course_profile_id);
 		$data['training_course']=$this->User_model->get_training_course_list($course_profile_id);
 		$data['training_batches']=$this->User_model->get_training_batches_list($course_profile_id);
-		$data['header_list']=$this->User_model->get_header_list();
+		$data['header_list']=$this->User_model->get_header_list($course_profile_id);
 		$footer['footer_links']=$this->User_model->get_footer_links();
 		//echo'<pre>';print_r($data);exit;
 		$this->load->view('html/categories',$data);

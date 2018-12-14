@@ -52,7 +52,7 @@
 							</video>
 									
                                       </td>
-										<td><?php echo $list['text']; ?></td>
+										<td><?php echo $list['c_P_name']; ?></td>
 										<td><?php echo $list['text']; ?></td>
 										<td><?php echo $list['color_code']; ?></td>
 										<td><?php if($list['status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>
