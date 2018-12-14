@@ -183,10 +183,22 @@
 <main style="background-image: url(img/page-background-img.png);">
     
     <!-- Course Details -->
-    <section class="category-header">
-        <div class="ch-bg-overlay pt-5 pb-4 mt-5">
+    <section class="container-fluid category-header">
+        
+        <div class="row mt-5">
+            <div class="col-md-8">
+                <div class="ch-background" style="background-color:#000000;"></div>
+            </div>
+            <div class="col-md-4">
+                <video class="video-fluid" autoplay loop muted>
+                    <source src="https://mdbootstrap.com/img/video/Tropical.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </div>
+        
+        <div class="ch-content">
             
-            <div class="container pt-3 pb-3">
+            <div class="container">
                 <div class="row">
 
                     <div class="col-md-12">
@@ -1060,8 +1072,8 @@
         theme: '',
         language: 'en',
         stars: 5,
-        filledStar: '<i class="glyphicon glyphicon-star"></i>',
-        emptyStar: '<i class="glyphicon glyphicon-star-empty"></i>',
+        filledStar: '<i class="fa fa-star"></i>',
+        emptyStar: '<i class="fa fa-star-o"></i>',
         containerClass: '',
         size: 'md',
         animate: true,
