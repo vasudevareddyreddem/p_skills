@@ -42,7 +42,7 @@
 					<?php if(isset($course_profile_data) && count($course_profile_data)>0){ ?>
 											<?php foreach($course_profile_data as $list){ ?>
 											
-													<?php if($edit_training_course['course_profile']==$list['c_id']){ ?>
+													<?php if($edit_header['course_profile']==$list['c_id']){ ?>
 															<option selected value="<?php echo $list['c_id']; ?>"><?php echo $list['c_P_name']; ?></option>
 													<?php }else{ ?>
 															<option value="<?php echo $list['c_id']; ?>"><?php echo $list['c_P_name']; ?></option>
