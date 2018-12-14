@@ -97,19 +97,6 @@ class Courseprofile extends Front_end {
            $save=$this->User_model->save_leads($save_data);
 		   //echo'<pre>';print_r($save);exit;
 			 if(count($save)>0){
-				 $contact=$this->User_model->get_leads();
-				// echo'<pre>';print_r($contact);exit;
-				 $this->load->library('email');
-				 $this->load->library('email');
-				 $this->email->set_newline("\r\n");
-				 $this->email->set_mailtype("html");
-				 $this->email->from($post['email']);
-				 $this->email->to($contact['email']);
-				 $this->email->subject('Contact us - Request');
-				 $body='Name:'.$post['name']. '<br> Course Name :'.$post['course_name'].'<br> Email:'.$post['email'].'<br> Phone  Number :'.$post['phonenumber'].'<br> Message :'.$post['message'];
-				 //echo'<pre>';print_r($body);exit;
-				 $this->email->message($body);
-				 $this->email->send();
 				$this->session->set_flashdata('success',"Your message was successfully sent.");
 				redirect($this->agent->referrer());
 				}else{
