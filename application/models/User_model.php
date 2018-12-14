@@ -160,10 +160,11 @@ class User_model extends CI_Model
 	$this->db->where('track.t_b_id',$t_b_id);
 	return $this->db->get()->result_array();
 	}
-	public function get_header_list(){
+	public function get_header_list($c_profile_id){
 	$this->db->select('header.*,admin.username')->from('header');
 	$this->db->join('admin', 'admin.cust_id = header.created_by', 'left');
 	$this->db->where('header.status',1);
+	$this->db->where('header.course_profile',$c_profile_id);
 	return $this->db->get()->row_array();
 	}
 	

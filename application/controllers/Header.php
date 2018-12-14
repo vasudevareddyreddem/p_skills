@@ -368,7 +368,8 @@ public function add()
 						$statu=1;
 					}
 					if($status==0){
-						$check=$this->Header_model->check_header_status();
+						$check=$this->Header_model->check_header_status($profile_id);
+						//echo'<pre>';print_r($check);exit;
 						if(count($check)>0){
 							$this->session->set_flashdata('error',"Already one Header details is Active. Please try again once");
 							redirect('header/lists');
