@@ -35,7 +35,7 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label>Course Profile</label>
-											<select type="text" id="profile_id" name="profile_id" class="form-control">
+											<select type="text" id="profile_id" name="profile_id" class="form-control select2">
 											<option value="">Select</option>
 											<?php if(isset($course_profle_list) && count($course_profle_list)>0){ ?>
 												<?php foreach($course_profle_list as $list){ ?>
@@ -70,8 +70,36 @@
         </div>
     </div><!-- .animated -->
 </div><!-- .content -->
+<script>
+  $(function () {
+     //Initialize Select2 Elements
+    $(".select2").select2();
+    //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
+    });
 
-
+    
+  });
+</script>
+<script>
+        jQuery(document).ready(function() {
+            jQuery(".standardSelect").chosen({
+                disable_search_threshold: 10,
+                no_results_text: "Oops, nothing found!",
+                width: "100%"
+            });
+        });
+    </script>
+    <script>
+        jQuery(document).ready(function() {
+            jQuery(".standardSelect").chosen({
+                disable_search_threshold: 10,
+                no_results_text: "Oops, nothing found!",
+                width: "100%"
+            });
+        });
+    </script>
 <script>
     $(document).ready(function() {
     $('#addheaderimage').bootstrapValidator({

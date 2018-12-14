@@ -15,7 +15,6 @@ class Category_model extends CI_Model
 	public function check_category_already($category_name){
 		$this->db->select('category.*')->from('category');
 		$this->db->where('category.category_name',$category_name);
-		$this->db->where('category.status ',0);
 		return $this->db->get()->row_array();
 	}
 	public function get_category_list(){
@@ -193,7 +192,6 @@ class Category_model extends CI_Model
 	$this->db->select('c_id')->from('course_profile');
 		$this->db->where('course_name_id',$course_name_id);
 		$this->db->where('c_P_name',$c_P_name);
-		$this->db->where('course_profile.status',1);
 		return $this->db->get()->row_array();
 	}
 	
