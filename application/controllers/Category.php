@@ -33,7 +33,7 @@ class Category extends Admin_panel {
 			  //echo'<pre>';print_r($check_category_exit);exit;
 				if(count($check_category_exit)>0){
 					$this->session->set_flashdata('error',"category Name already exist. Please use another category name");
-					redirect('category/lists');
+					redirect('category/add/'.base64_encode($post['c_id']));
 				}	
 			  
 		       $save_data=array(
@@ -101,7 +101,7 @@ class Category extends Admin_panel {
 						$check=$this->Category_model->check_category_data_exsists($post['category_name']);
 						if(count($check)>0){
 						$this->session->set_flashdata('error',"Category Name already exist. Please use another Category name");
-						redirect('category/lists');
+						redirect('category/edit/'.base64_encode($post['c_id']));
 						}	
 					}	
 		       $update_data=array(
@@ -119,7 +119,7 @@ class Category extends Admin_panel {
 					redirect('category/lists');	
 					  }else{
 						$this->session->set_flashdata('error',"techechal probelem occur ");
-						redirect('category/lists');
+						redirect('category/edit/'.base64_encode($post['c_id']));
 					  }    
 				
 					}else{
