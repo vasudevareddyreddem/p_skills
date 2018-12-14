@@ -60,11 +60,16 @@ class Courseprofile extends Front_end {
 }
 			$data['review_count']=$this->User_model->get_review_count_data($course_profile_id);
 			$data['ratings']=$this->User_model->get_total_rating($course_profile_id);
-			$data['start_rating']=$data['ratings']['rating']/$data['review_count']['cnt'];
+			if($data['ratings']['rating']!=''){
+				$data['start_rating']=$data['ratings']['rating']/$data['review_count']['cnt'];
+			}else{
+				$data['start_rating']=0;
+			}
+		
 		$data['skillchair']=$this->User_model->get_skillchair_list($course_profile_id);
 		$data['training_course']=$this->User_model->get_training_course_list($course_profile_id);
 		$data['training_batches']=$this->User_model->get_training_batches_list($course_profile_id);
-		//echo'<pre>';print_r($data);exit;
+		//echo'<pre>';print_r($data['ratings']);exit;
 		$this->load->view('html/categories',$data);
 		$this->load->view('html/footer',$footer);
 	}
