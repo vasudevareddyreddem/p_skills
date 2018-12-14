@@ -113,7 +113,7 @@ class User_model extends CI_Model
 		return $this->db->get()->result_array();
 	}
 	public function get_review_count_data($c_profile_id){
-	$this->db->select('count(reviews_rating.name)as review')->from('reviews_rating');
+	$this->db->select('count(reviews_rating.r_id)as cnt')->from('reviews_rating');
 	$this->db->where('reviews_rating.status',1);
 	$this->db->where('reviews_rating.course_profile',$c_profile_id);
 	return $this->db->get()->row_array();
@@ -167,11 +167,6 @@ class User_model extends CI_Model
 	$this->db->where('header.course_profile',$c_profile_id);
 	return $this->db->get()->row_array();
 	}
-	
-	
-	
-	
-	
 	/* contact me*/
 	public function save_contact_info($data){
 		$this->db->insert('contact_info',$data);
@@ -181,6 +176,14 @@ class User_model extends CI_Model
 		$this->db->select('*')->from('contact_info');
 		return $this->db->get()->row_array();
 	}
+	
+	/* one  star data*/
+	public  function get_overall_star_data($c_profile_id){
+		$this->db->select('*')->from('reviews_rating');
+		$this->db->where('reviews_rating.course_profile',$c_profile_id);
+		return $this->db->get()->result_array();
+	}
+	
 	
 	
 }
