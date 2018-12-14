@@ -190,7 +190,7 @@
                 <div class="row">
 
                     <div class="col-md-12">
-                        <h3 class="mb-0"><?php echo isset($course_name)?$course_name:''; ?> Apps R12 Financials Training</h3>
+                        <h3 class="mb-0"><?php echo isset($course_name)?$course_name:''; ?></h3>
                         <h5 class="mb-3"><?php echo isset($header_list['text'])?$header_list['text']:''?></h5>
                         <div class="category-header-details">
                             <ul class="list-inline mb-2">
@@ -244,9 +244,9 @@
 						<p class="h4 mb-4">I am Interested in this course</p>
 						<input type="text" id="course_name" name="course_name" class="form-control mb-2" placeholder="Course Name" required>
 						<input type="text" id="name"  name="name"  class="form-control mb-2" placeholder="Name" required>
-						<input type="email" id="email_id" name="email_id" class="form-control mb-2" placeholder="E-mail" required>
-						<input type="text" id="phone" name="phone" class="form-control mb-2" pattern="[1-9]{1}[0-9]{9}" maxlength="10" placeholder="Mobile Number" required>
-						<input type="text" id="location" name="location" class="form-control mb-2" placeholder="Location" required>
+						<input type="email" id="email" name="email" class="form-control mb-2" placeholder="E-mail" required>
+						<input type="text" id="phonenumber" name="phonenumber" class="form-control mb-2" pattern="[1-9]{1}[0-9]{9}" maxlength="10" placeholder="Mobile Number" required>
+						<input type="text" id="message" name="message" class="form-control mb-2" placeholder="Message" required>
 						<div class="clearfix">&nbsp;</div>
 						<button class="btn btn-info btn-block mb-2" type="submit">Contact Me</button>
 					</form>
@@ -279,7 +279,7 @@
     <section class="course-schedule mt-5">
         <div class="container">
             
-            <h3 class="heading mb-4">Oracle Training Batches</h3>
+            <h3 class="heading mb-4"><?php echo isset($course_name)?$course_name:''; ?> Training Batches</h3>
             <div class="row">
                 
                 <!-- Weekend Track -->
@@ -417,6 +417,7 @@
 				
 				 <?php foreach($feedback_participants as $list){ ?>
 				<li class="media bg-f8f8f8 p-4">
+				
 					<img class="d-flex mr-3 img-fluid z-depth-1 rounded-circle" src="<?php echo base_url('assets/feedbackimages/'.$list['image']); ?>" alt="Person 3">
 					<div class="media-body">
 						<h5 class="mt-0 mb-1 font-weight-bold"><?php echo isset($list['name'])?$list['name']:''; ?></h5>

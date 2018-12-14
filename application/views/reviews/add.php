@@ -72,11 +72,11 @@
 											<label class=" control-label">Star</label>
 											 <select class="form-control" name="star"  >
 												<option value="">Select Star</option>
-												<option value="1 Star">1 Star</option>
-												<option value="2 Star">2 Star</option>
-												<option value="3 Star">3 Star</option>
-												<option value="4 Star">4 Star</option>
-												<option value="4 Star">5 Star</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="4">5</option>
 											  </select>
 										</div>
 									</div>

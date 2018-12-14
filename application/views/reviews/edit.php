@@ -41,7 +41,7 @@
 					<option value="">Select</option>
 					<?php if(isset($course_profile_data) && count($course_profile_data)>0){ ?>
 												<?php foreach($course_profile_data as $list){ ?>
-												<?php if($edit_reviews_rating['r_id']==$list['c_id']){ ?>
+												<?php if($edit_reviews_rating['course_profile']==$list['c_id']){ ?>
 													<option selected value="<?php echo $list['c_id']; ?>"><?php echo $list['c_P_name']; ?></option>
 												<?php }else{ ?>
 													<option value="<?php echo $list['c_id']; ?>"><?php echo $list['c_P_name']; ?></option>
@@ -76,11 +76,11 @@
 											<label class=" control-label">Star</label>
 											 <select class="form-control" name="star">
 												<option value="">Select Star</option>
-												<option value="1 Star" <?php if($edit_reviews_rating['star']=='1 Star'){ echo "selected"; } ?> >1 Star</option>
-												<option value="2 Star" <?php if($edit_reviews_rating['star']=='2 Star'){ echo "selected"; } ?>>2 Star</option>
-												<option value="3 Star" <?php if($edit_reviews_rating['star']=='3 Star'){ echo "selected"; } ?>>3 Star</option>
-												<option value="4 Star" <?php if($edit_reviews_rating['star']=='4 Star'){ echo "selected"; } ?>>4 Star</option>
-												<option value="5 Star" <?php if($edit_reviews_rating['star']=='5 Star'){ echo "selected"; } ?>>5 Star</option>
+												<option value="1" <?php if($edit_reviews_rating['star']=='1'){ echo "selected"; } ?> >1</option>
+												<option value="2" <?php if($edit_reviews_rating['star']=='2'){ echo "selected"; } ?>>2</option>
+												<option value="3" <?php if($edit_reviews_rating['star']=='3'){ echo "selected"; } ?>>3</option>
+												<option value="4" <?php if($edit_reviews_rating['star']=='4'){ echo "selected"; } ?>>4</option>
+												<option value="5" <?php if($edit_reviews_rating['star']=='5'){ echo "selected"; } ?>>5</option>
 											  </select>
 										</div>
 									</div>
