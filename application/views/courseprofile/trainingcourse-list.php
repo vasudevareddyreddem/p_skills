@@ -38,7 +38,6 @@
                                     <tr>
                                         
 										<th>Course Profile </th>
-										<th>Paragraph</th>
 										<th>Title</th>
 										<th>Status</th>
                                         <th>Action</th>
@@ -48,7 +47,6 @@
                                    <?php  foreach($training_course_details as $list){ ?>
                                     <tr>
                                         <td><?php echo $list['c_P_name']; ?></td>
-										<td><?php echo $list['paragraph']; ?></td>
 										<td><?php echo $list['title']; ?></td>
 										<td><?php if($list['status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>
                                         <td>
