@@ -49,24 +49,12 @@
     <section class="category-details mt-5">
         <div class="container">
             
-            <h3 class="heading mb-4"><?php echo isset($course_name)?$course_name:''; ?> Financials Training Course</h3>
+            <h3 class="heading mb-4"><?php echo isset($course_name)?$course_name:''; ?> Training Course</h3>
 			<div class="row">
-				<div class="col-md-8 cd-part-1">
-				<?php foreach($training_course as $list){?>
-					<p><?php echo isset($list['paragraph'])?$list['paragraph']:''?></p>
-					
-					<div class="row">
-						<div class="col-md-6">
-							<ul class="list-unstyled">
-						
-								<li><?php echo isset($list['title'])?$list['title']:''?></li>
-							
-							</ul>
-						</div>						
-						
+					<div class="col-md-8">
+					<?php echo isset($training_course['title'])?$training_course['title']:''?>
 					</div>
-					<?php } ?>
-				</div>
+				
 				
 				<div class="col-md-4 cd-part-2">
 					<!-- Default form login -->
@@ -88,22 +76,15 @@
 	</section>
         
     <!-- Why Skill Chair -->
-	<?php if(isset($skillchair) && count($skillchair)>0){ ?>
+	<?php if(isset($skillchair) && $skillchair!=''){ ?>
     <section class="why-sc mt-5">
         <div class="container">
             
-            <h3 class="heading mb-4"><?php echo isset($course_name)?$course_name:''; ?> Why Skill Chair?</h3>
+            <h3 class="heading mb-4"> Why <?php echo isset($course_name)?$course_name:''; ?> ?</h3>
 			<div class="row">
 				
 				<div class="col-md-12 wsc-points">
-                    <ul class="list-unstyled">
-					
-                        <?php foreach($skillchair as $list){?>
-						<li><?php echo isset($list['title'])?$list['title']:'' ?></li>
-						<?php }?>
-						
-					
-                    </ul>
+						<?php echo isset($skillchair['title'])?$skillchair['title']:'' ?>
 				</div>
 				
 			</div>

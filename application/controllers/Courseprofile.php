@@ -28,7 +28,7 @@ class Courseprofile extends Front_end {
 		$data['training_batches']=$this->User_model->get_training_batches_list($course_profile_id);
 		$data['header_list']=$this->User_model->get_header_list();
 		$footer['footer_links']=$this->User_model->get_footer_links();
-		//echo'<pre>';print_r($data);exit;
+		//echo'<pre>';print_r($data['training_course']);exit;
 		$this->load->view('html/categories',$data);
 		$this->load->view('html/footer',$footer);
 	}

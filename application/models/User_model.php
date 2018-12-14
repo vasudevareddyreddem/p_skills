@@ -128,13 +128,13 @@ class User_model extends CI_Model
 	$this->db->select('*')->from('skillchair');
 		$this->db->where('skillchair.status',1);
 		$this->db->where('skillchair.course_profile',$c_profile_id);
-		return $this->db->get()->result_array();
+		return $this->db->get()->row_array();
 	}
 	public function get_training_course_list($c_profile_id){
 	$this->db->select('*')->from('training_course');
 	$this->db->where('training_course.status',1);
 	$this->db->where('training_course.course_profile',$c_profile_id);
-	return $this->db->get()->result_array();
+	return $this->db->get()->row_array();
 	}
 	public function get_training_batches_list($c_profile_id){
 	$this->db->select('*')->from('training_batches');
