@@ -169,16 +169,8 @@ class User_model extends CI_Model
 	}
 	
 	
-	
-	
-	
-	/* contact me*/
-	public function save_contact_info($data){
-		$this->db->insert('contact_info',$data);
-		return $this->db->insert_id();
-	}
-	public function get_contact_info(){
-		$this->db->select('*')->from('contact_info');
+	public function get_leads(){
+		$this->db->select('*')->from('leads_list');
 		return $this->db->get()->row_array();
 	}
 	
