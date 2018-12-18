@@ -27,7 +27,7 @@
                 <div class="row">
 
                     <div class="col-md-12">
-                         <h3 class="mb-0"><?php echo isset($course_name)?$course_name:''; ?></h3>
+                         <h3 class="mb-0"><?php echo isset($course_name['c_P_name'])?$course_name['c_P_name']:''; ?></h3>
                         <h5 class="mb-3"><?php echo isset($header_list['text'])?$header_list['text']:''; ?></h5>
                        
                         <div class="category-header-details">
@@ -62,7 +62,7 @@
     <section class="category-details mt-5">
         <div class="container">
             
-            <h3 class="heading mb-4"><?php echo isset($course_name)?$course_name:''; ?> Training Course</h3>
+            <h3 class="heading mb-4"><?php echo isset($course_name['c_P_name'])?$course_name['c_P_name']:''; ?> Training Course</h3>
 			<div class="row">
 					<div class="col-md-8">
 					<?php echo isset($training_course['title'])?$training_course['title']:''?>
@@ -93,7 +93,7 @@
     <section class="why-sc mt-5">
         <div class="container">
             
-            <h3 class="heading mb-4"> Why <?php echo isset($course_name)?$course_name:''; ?> ?</h3>
+            <h3 class="heading mb-4"> Why <?php echo isset($course_name['c_P_name'])?$course_name['c_P_name']:''; ?> ?</h3>
 			<div class="row">
 				
 				<div class="col-md-12 wsc-points">
@@ -110,7 +110,7 @@
     <section class="course-schedule mt-5">
         <div class="container">
             
-            <h3 class="heading mb-4"><?php echo isset($course_name)?$course_name:''; ?> Training Batches</h3>
+            <h3 class="heading mb-4"><?php echo isset($course_name['c_P_name'])?$course_name['c_P_name']:''; ?> Training Batches</h3>
             <div class="row">
                 
                 <!-- Weekend Track -->
@@ -191,7 +191,7 @@
     <section class="course-details mt-5">
         <div class="container">
             
-            <h3 class="heading mb-4"><?php echo isset($course_name)?$course_name:''; ?> Course Details</h3>
+            <h3 class="heading mb-4"><?php echo isset($course_name['c_P_name'])?$course_name['c_P_name']:''; ?> Course Details</h3>
             <div id="accordion1">
                  <?php $cnt=1;foreach($course_details_list as $list){ ?>
                 <div class="card">
@@ -217,7 +217,7 @@
     <section class="interview-q mt-5">
         <div class="container">
             
-            <h3 class="heading mb-4"><?php echo isset($course_name)?$course_name:''; ?>  Interview Questions</h3>
+            <h3 class="heading mb-4"><?php echo isset($course_name['c_P_name'])?$course_name['c_P_name']:''; ?>  Interview Questions</h3>
             <div id="accordion2">
                 <?php $cnt=1;foreach($interview_questions_list as $list){ ?>
                 <div class="card">

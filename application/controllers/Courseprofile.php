@@ -16,7 +16,8 @@ class Courseprofile extends Front_end {
 			$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
 			redirect('');
 		}
-		$data['course_name']=$this->uri->segment(4);
+		$data['course_name']=$this->User_model->course_name_list($course_profile_id);
+		//echo'<pre>';print_r($data);exit;
 		$footer['footer_links']=$this->User_model->get_footer_links();
 		$data['header_list']=$this->User_model->get_header_list($course_profile_id);
 

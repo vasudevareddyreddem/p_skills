@@ -172,10 +172,16 @@ class User_model extends CI_Model
 	/* one  star data*/
 	public  function get_overall_star_data($c_profile_id){
 		$this->db->select('*')->from('reviews_rating');
+		$this->db->where('reviews_rating.status',1);
 		$this->db->where('reviews_rating.course_profile',$c_profile_id);
 		return $this->db->get()->result_array();
 	}
 	
-	
+	public function course_name_list($course_profile_id){
+	$this->db->select('course_profile.*')->from('course_profile');
+	$this->db->where('course_profile.status',1);
+	$this->db->where('course_profile.c_id',$course_profile_id);
+	return $this->db->get()->row_array();
+	}
 	
 }
