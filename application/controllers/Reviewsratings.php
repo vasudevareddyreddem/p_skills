@@ -31,6 +31,7 @@ class Reviewsratings extends Admin_panel {
 				$post=$this->input->post();	
 				//echo'<pre>';print_r($post);exit;
 				
+
 				if(isset($_FILES['image']['name']) && $_FILES['image']['name']!=''){
 							$temp = explode(".", $_FILES["image"]["name"]);
 							$images = round(microtime(true)) . '.' . end($temp);

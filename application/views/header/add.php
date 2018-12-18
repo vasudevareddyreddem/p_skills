@@ -91,6 +91,13 @@
     $(document).ready(function() {
     $('#addheaderimage').bootstrapValidator({
 		fields: {
+			course_profile: {
+					validators: {
+						notEmpty: {
+							message: 'Course Profile is required'
+						}
+					}
+				},
 				video: {
 					validators: {
 						regexp: {
@@ -112,7 +119,7 @@
 							message: 'Background Colour is required'
 						}
 					}
-				},
+				}
 				
 				
 			}

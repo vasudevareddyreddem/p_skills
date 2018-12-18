@@ -97,6 +97,13 @@
     $(document).ready(function() {
     $('#addheaderimage').bootstrapValidator({
 		fields: {
+			course_profile: {
+					validators: {
+						notEmpty: {
+							message: 'Course Profile is required'
+						}
+					}
+				},
 				video: {
 					validators: {
 						regexp: {
@@ -112,15 +119,13 @@
 						}
 					}
 				},
-				image: {
+				color_code: {
 					validators: {
-						regexp: {
-						regexp: "(.*?)\.(png|jpeg|jpg|gif)$",
-						message: 'Uploaded file is not a valid. Only png,jpg,jpeg,gif files are allowed'
+						notEmpty: {
+							message: 'Background Colour is required'
 						}
 					}
 				}
-				
 				
 			}
         })

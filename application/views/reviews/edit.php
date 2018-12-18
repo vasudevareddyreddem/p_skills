@@ -155,7 +155,6 @@
             },
 			image: {
 					validators: {
-						
 						regexp: {
 						regexp: "(.*?)\.(png|jpeg|jpg|gif)$",
 						message: 'Uploaded file is not a valid. Only png,jpg,jpeg,gif files are allowed'

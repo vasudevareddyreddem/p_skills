@@ -82,7 +82,7 @@
                         <a class="nav-link" href="<?php echo base_url('aboutus'); ?>">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url('Contactus');?>">Contact Us</a>
+                        <a class="nav-link" href="<?php echo base_url('contactus');?>">Contact Us</a>
                     </li>
                 </ul>
 
