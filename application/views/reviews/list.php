@@ -49,7 +49,11 @@
                                     <tr>
 										<td><?php echo $list['c_P_name']; ?></td>
 										<td><?php echo $list['name']; ?></td>
+										 <?php if(!empty($list['image']) && file_exists('assets/feedbackimages/'.$list['image'])){ ?>
 										<td><img src="<?php echo base_url('assets/feedbackimages/'.$list['image']); ?>" height="100px;" width="100px;"></td>
+										<?php }else{ ?>
+										<td><img src="<?php echo base_url('assets/vendor/admin/img/flower.jpg'); ?>" height="100px;" width="100px;"></td>
+                                        <?php }?>
 										<td><?php echo $list['star']; ?></td>
 										<td><?php echo $list['text']; ?></td>
 										<td><?php if($list['status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>

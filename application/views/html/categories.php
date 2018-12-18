@@ -248,8 +248,11 @@
 				
 				 <?php foreach($feedback_participants as $list){ ?>
 				<li class="media bg-f8f8f8 p-4">
-				
+				      <?php if(!empty($list['image']) && file_exists('assets/feedbackimages/'.$list['image'])){ ?>
 					<img class="d-flex mr-3 img-fluid z-depth-1 rounded-circle" src="<?php echo base_url('assets/feedbackimages/'.$list['image']); ?>" alt="Person 3">
+					<?php }else{ ?>
+					<img class="d-flex mr-3 img-fluid z-depth-1 rounded-circle" src="<?php echo base_url("assets/vendor/admin/img/flower.jpg"); ?>" alt="">
+					<?php } ?>
 					<div class="media-body">
 						<h5 class="mt-0 mb-1 font-weight-bold"><?php echo isset($list['name'])?$list['name']:''; ?></h5>
 						<span class="comment">
