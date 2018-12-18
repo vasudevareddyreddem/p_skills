@@ -32,7 +32,7 @@
                                     <i class="fa fa-book fa-3x"></i>
                                 </li>
                                 <li class="list-inline-item">
-                                    <strong class="black-text">Total Course Profile Count</strong><br>
+                                    <strong class="black-text">Top highly paid job courses</strong><br>
                                     <a href="#"><?php echo isset($category_list['cnt'])?$category_list['cnt']:''; ?></a>
                                 </li>
                             </ul>
