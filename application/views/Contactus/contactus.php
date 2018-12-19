@@ -156,8 +156,8 @@
                         message: 'Facebook link is required'
                     },
                     regexp: {
-                        regexp: /^(https?:\/\/)?((w{3}\.)?)facebook\.com\/(#!\/)?[A-Z a-z0-9_]+$/,
-                        message: 'Facebook link format not correct try again once'
+                        regexp: /^(http(s)?(:\/\/))?(www\.)?facebook\.com(\/.*)?$/,
+                        message: 'Facebook link format valid. For  https://www.facebook.com'
                     }
 
                 }
@@ -167,8 +167,8 @@
                         message: 'Twitter link is required'
                     },
                     regexp: {
-                        regexp: /^(https?:\/\/)?((w{3}\.)?)twitter\.com\/(#!\/)?[A-Z a-z0-9_]+$/,
-                        message: 'Twitter link format not correct try again once'
+                        regexp: /^(http(s)?(:\/\/))?(www\.)?twitter\.com(\/.*)?$/,
+                        message: 'Twitter link format valid. For  https://www.twitter.com'
                     }
 
                 }
@@ -178,8 +178,8 @@
                         message: 'Youtube link is required'
                     },
                     regexp: {
-                        regexp: /^(https?:\/\/)?((w{3}\.)?)youtube\.com\/(#!\/)?[A-Z a-z0-9_]+$/,
-                        message: 'Youtube link format not correct try again once'
+                        regexp: /^(http(s)?(:\/\/))?(www\.)?youtube\.com(\/.*)?$/,
+                        message: 'Youtube link format valid. For  https://www.youtube.com'
                     }
 
                 }
@@ -189,8 +189,8 @@
                         message: 'Google Plus link is required'
                     },
                     regexp: {
-                        regexp: /^(https?:\/\/)?((w{3}\.)?)plus.google\.com\/(#!\/)?[A-Z a-z0-9_]+$/,
-                        message: 'Google Plus link format not correct try again once'
+                        regexp: /^(http(s)?(:\/\/))?(www\.)?google\.com(\/.*)?$/,
+                        message: 'Google Plus link format valid. For  https://www.google.com'
                     }
 
                 }
