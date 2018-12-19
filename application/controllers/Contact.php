@@ -16,7 +16,6 @@ class Contact extends Admin_panel {
 			$login_details=$this->session->userdata('skill_user');
 			$data['contact_details']=$this->Category_model->contact_details_data();
 			//echo'<pre>';print_r($data);exit;
-			$this->load->view('admin/header');
 			$this->load->view('contactus/contactus',$data);
 			$this->load->view('admin/footer');
 		}else{
@@ -58,7 +57,7 @@ class Contact extends Admin_panel {
 					$this->session->set_flashdata('success',"contactus details successfully added");	
 					redirect('contact/add');	
 					}else{
-					$this->session->set_flashdata('success',"contactus details successfully added");
+					$this->session->set_flashdata('success',"contactus details successfully updated");
 					redirect('contact/add');
 					}  
 		
