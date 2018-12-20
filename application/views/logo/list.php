@@ -4,7 +4,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Profile logo List</h1>
+                <h1>Trainees Participated logo </h1>
             </div>
         </div>
     </div>
@@ -12,8 +12,8 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li>Profile logo</li>
-                    <li>Profile logo List</li>
+                    <li>Trainees Participated logo</li>
+                    <li>Trainees Participated logo List</li>
                 </ol>
             </div>
         </div>
@@ -27,7 +27,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Profile logo List</strong>
+                        <strong class="card-title">Trainees Participated logo List</strong>
                     </div>
                     <div class="card-body">
 					<?php if(isset($logo_list) && count($logo_list)>0){ ?>

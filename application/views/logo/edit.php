@@ -3,7 +3,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Course profile Logo</h1>
+                <h1>Trainees Participated Logo</h1>
             </div>
         </div>
     </div>
@@ -11,7 +11,7 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li>Course profile Logo</li>
+                    <li>Trainees Participated Logo</li>
                     <li>Edit Course profile Logo</li>
                 </ol>
             </div>
@@ -26,7 +26,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Edit Course profile Logo</strong>
+                        <strong class="card-title">Edit Trainees Participated Logo</strong>
                     </div>
                     <div class="card-body">
                         <form  method="post" action="<?php echo base_url('logo/editpost'); ?>" id="addheaderimage" name="addheaderimage" enctype="multipart/form-data">
