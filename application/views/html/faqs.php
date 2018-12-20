@@ -1,10 +1,10 @@
 <!-- Interview Questions -->
 
-    <section class="interview-q mt-5">
+    <section class="interview-q mt-5" style="padding:40px;">
 	<div class="ch-content">
         <div class="container">
             
-            <h3 class="heading mb-4">Interview Questions</h3>
+            <h3 class="heading mb-4">FAQ's</h3>
 			<?php if(isset($interview_questions_list) && count($interview_questions_list)>0){ ?>
             <div id="accordion2">
                 <?php $cnt=1;foreach($interview_questions_list as $list){ ?>
