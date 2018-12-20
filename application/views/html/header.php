@@ -84,6 +84,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url('contactus');?>">Contact Us</a>
                     </li>
+					<li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url('interviewquestions');?>">Interview Questions</a>
+                    </li>
                 </ul>
 
             </div>

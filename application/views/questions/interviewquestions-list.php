@@ -35,7 +35,6 @@
                             <table id="example" class="table table-striped table-bordered" style="width:100%;">
                                 <thead>
                                     <tr>
-									    <th>Course Profile</th> 
                                         <th>Title</th>
 										<th>Description </th>
 										<th>Status</th>
@@ -45,13 +44,12 @@
                                 <tbody>
                                    <?php  foreach($oracle_interview_questions as $list){ ?>
                                     <tr>
-                                        <td><?php echo $list['c_P_name']; ?></td>
                                         <td><?php echo $list['title']; ?></td>
 										<td><?php echo $list['description']; ?></td>
 										<td><?php if($list['status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>
                                         <td>
                                             
-				<a href="<?php echo base_url('course/interviewquestionsedit/'.base64_encode($list['i_q_id'])); ?>"  data-toggle="tooltip" title="Edit" ><i class="fa fa-edit btn btn-primary"></i></a>
+				<a href="<?php echo base_url('questions/interviewquestionsedit/'.base64_encode($list['i_q_id'])); ?>"  data-toggle="tooltip" title="Edit" ><i class="fa fa-edit btn btn-primary"></i></a>
 				<a href="javascript;void(0);" onclick="admindeactive('<?php echo base64_encode(htmlentities($list['i_q_id'])).'/'.base64_encode(htmlentities($list['status']));?>');adminstatus('<?php echo $list['status'];?>')" data-toggle="modal" data-target="#myModal" title="Edit"><i class="fa fa-info-circle btn btn-warning"></i></a>
 				<a href="javascript;void(0);" onclick="admindedelete('<?php echo base64_encode(htmlentities($list['i_q_id']));?>');admin('');" data-toggle="modal" data-target="#myModal" title="delete"><i class="fa fa-trash-o btn btn-danger"></i></a>
                      
@@ -108,10 +106,10 @@
 </div><!-- .content -->
 <script>
 function admindeactive(id){
-	$(".popid").attr("href","<?php echo base_url('course/interviewquestionsstatus'); ?>"+"/"+id);
+	$(".popid").attr("href","<?php echo base_url('questions/interviewquestionsstatus'); ?>"+"/"+id);
 }
 function admindedelete(id){
-	$(".popid").attr("href","<?php echo base_url('course/interviewquestionsdelete'); ?>"+"/"+id);
+	$(".popid").attr("href","<?php echo base_url('questions/interviewquestionsdelete'); ?>"+"/"+id);
 	
 }
 function adminstatus(id){
