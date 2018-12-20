@@ -173,7 +173,7 @@ p{
 }
 
 #navbar-menu-list ul ul {
-    top: 0;
+    top: 50%;
     left: 100%;
     width: 100%;
     height: auto;
