@@ -1,6 +1,6 @@
 /*
 SQLyog Community v11.52 (64 bit)
-MySQL - 10.1.32-MariaDB : Database - skills
+MySQL - 10.1.31-MariaDB : Database - skills
 *********************************************************************
 */
 
@@ -40,7 +40,7 @@ CREATE TABLE `admin` (
 
 /*Data for the table `admin` */
 
-insert  into `admin`(`cust_id`,`role_id`,`username`,`email_id`,`name`,`mobile`,`location`,`password`,`org_password`,`profile_pic`,`status`,`created_at`,`updated_at`,`created_by`) values (1,1,'admin','admin@gmail.com','admin','1234567890','sdsad','e10adc3949ba59abbe56e057f20f883e','123456','1543906894.jpg',1,'2018-08-03 15:41:02','2018-08-03 15:41:04',0);
+insert  into `admin`(`cust_id`,`role_id`,`username`,`email_id`,`name`,`mobile`,`location`,`password`,`org_password`,`profile_pic`,`status`,`created_at`,`updated_at`,`created_by`) values (1,1,'admin','admin@gmail.com','admin','1234567890','sdsad','e10adc3949ba59abbe56e057f20f883e','123456','1545383616.jpg',1,'2018-08-03 15:41:02','2018-08-03 15:41:04',0);
 
 /*Table structure for table `category` */
 
@@ -49,16 +49,16 @@ DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category` (
   `c_id` int(11) NOT NULL AUTO_INCREMENT,
   `category_name` varchar(250) DEFAULT NULL,
-  `status` int(1) DEFAULT NULL,
+  `status` int(11) DEFAULT '1',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`c_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 /*Data for the table `category` */
 
-insert  into `category`(`c_id`,`category_name`,`status`,`created_at`,`updated_at`,`created_by`) values (1,'curd',2,'2018-12-04 10:57:05','2018-12-04 13:32:11',1),(2,'milk',2,'2018-12-04 10:33:45','2018-12-12 06:36:52',1),(5,'html',2,'2018-12-04 13:55:06','2018-12-04 13:55:41',1),(6,'html',2,'2018-12-04 13:56:42','2018-12-04 14:39:34',1),(7,'html',2,'2018-12-04 13:56:56','2018-12-04 14:39:05',1),(8,'javascript',2,'2018-12-04 14:37:49','2018-12-12 06:36:56',1),(9,'html',2,'2018-12-04 14:39:39','2018-12-12 06:37:00',1),(10,'Java',1,'2018-12-12 06:37:08','2018-12-12 06:37:08',1),(11,'Html',1,'2018-12-12 06:37:19','2018-12-12 06:37:19',1),(12,'CSS',1,'2018-12-12 06:37:25','2018-12-12 06:37:25',1),(13,'Database',1,'2018-12-12 06:37:38','2018-12-12 06:37:38',1);
+insert  into `category`(`c_id`,`category_name`,`status`,`created_at`,`updated_at`,`created_by`) values (16,'html',1,'2018-12-18 12:51:28','2018-12-18 12:51:28',1),(17,'powder',1,'2018-12-18 12:51:36','2018-12-18 12:51:36',1),(18,'category',1,'2018-12-19 07:51:30','2018-12-19 07:51:30',1);
 
 /*Table structure for table `contact_info` */
 
@@ -73,11 +73,9 @@ CREATE TABLE `contact_info` (
   `location` varchar(250) DEFAULT NULL,
   `create_at` datetime DEFAULT NULL,
   PRIMARY KEY (`con_info_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `contact_info` */
-
-insert  into `contact_info`(`con_info_id`,`course_name`,`name`,`email_id`,`phone`,`location`,`create_at`) values (1,'html','vasu','vasu@gmail.com','7013319056','kurnool','2018-12-05 07:57:45'),(2,'html','kasi','admin@gmail.com','8500226782','kurnool','2018-12-05 08:09:17'),(3,'html','kasi','admin@gmail.com','8500226782','kurnool','2018-12-05 08:09:51'),(4,'html','kasi','admin@gmail.com','8500226782','kurnool','2018-12-05 08:10:30'),(5,'html','kasi','admin@gmail.com','8500226782','kurnool','2018-12-05 08:12:23'),(6,'html','kasi','admin@gmail.com','8500226782','kurnool','2018-12-05 08:14:06'),(7,'','','','','','2018-12-05 08:15:52'),(8,'','','','','','2018-12-05 08:15:55'),(9,'','','','','','2018-12-05 08:17:16'),(10,'html','kasi','admin@gmail.com','8500226782','kurnool','2018-12-05 09:45:06'),(11,'html','kasi','admin@gmail.com','8500226782','kurnool','2018-12-05 09:46:20'),(12,'html','kasi','admin@gmail.com','8500226782','kurnool','2018-12-05 09:46:44'),(13,'html','kasi','admin@gmail.com','8500226782','kurnool','2018-12-05 09:47:08');
 
 /*Table structure for table `contactus` */
 
@@ -89,21 +87,21 @@ CREATE TABLE `contactus` (
   `phone_number` varchar(250) DEFAULT NULL,
   `email` varchar(250) DEFAULT NULL,
   `email_id` varchar(250) DEFAULT NULL,
+  `facebook` varchar(250) DEFAULT NULL,
+  `twitter` varchar(250) DEFAULT NULL,
+  `googleplus` varchar(250) DEFAULT NULL,
+  `youtube` varchar(250) DEFAULT NULL,
   `location` varchar(250) DEFAULT NULL,
-  `facebook` text,
-  `twitter` text,
-  `googleplus` text,
-  `youtube` text,
   `status` int(11) DEFAULT '1',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`contact_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `contactus` */
 
-insert  into `contactus`(`contact_id`,`phone`,`phone_number`,`email`,`email_id`,`location`,`facebook`,`twitter`,`googleplus`,`youtube`,`status`,`created_at`,`updated_at`,`created_by`) values (1,'7013319096','9097557020','team@sillchair.com','support@sillchair.com','Plot no-177, Sri Vani Nilayam, Sardar Patel Nagar, KPHB Colony, Hyderabad, Telangana 500090','https://facebook.com/skills','https://twitter.com/test1','https://plus.google.com/PrachaTechnologies','https://youtube.com/test1',1,'2018-12-11 08:39:48','2018-12-11 08:39:48',1);
+insert  into `contactus`(`contact_id`,`phone`,`phone_number`,`email`,`email_id`,`facebook`,`twitter`,`googleplus`,`youtube`,`location`,`status`,`created_at`,`updated_at`,`created_by`) values (3,'7013319036','8013319089','team@sillchair.com','support@sillchair.com','http://www.facebook.com','https://www.twitter.com','https://www.google.com','https://www.youtube.com','\r\nPlot no-177, Sri Vani Nilayam, Sardar Patel Nagar, IDPL Staff Cooperative Housing Society, Kukatpally Housing Board Colony, Kukatpally, Hyderabad, Telangana 500090',1,'2018-12-19 13:38:47','2018-12-19 13:38:47',1);
 
 /*Table structure for table `course_details` */
 
@@ -113,17 +111,17 @@ CREATE TABLE `course_details` (
   `c_d_id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(250) DEFAULT NULL,
   `course_profile` int(12) DEFAULT NULL,
-  `description` longtext,
+  `description` varchar(250) DEFAULT NULL,
   `status` int(1) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`c_d_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `course_details` */
 
-insert  into `course_details`(`c_d_id`,`title`,`course_profile`,`description`,`status`,`created_at`,`updated_at`,`created_by`) values (11,' General Ledger',6,'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a ',1,'2018-12-12 08:11:59','2018-12-12 08:11:59',1),(12,' Accounts Payable',6,'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a ',1,'2018-12-12 08:12:23','2018-12-12 08:12:23',1),(13,'General Ledger',6,'hello',1,'2018-12-14 07:10:18','2018-12-14 07:10:18',1);
+insert  into `course_details`(`c_d_id`,`title`,`course_profile`,`description`,`status`,`created_at`,`updated_at`,`created_by`) values (1,'test1',13,'hjgh',1,'2018-12-19 07:54:53','2018-12-20 12:30:45',1),(2,'test3',13,'hjhg',1,'2018-12-19 07:54:53','2018-12-20 12:30:47',1),(3,'test3',13,'copy',1,'2018-12-20 12:30:28','2018-12-20 12:30:49',1);
 
 /*Table structure for table `course_profile` */
 
@@ -135,14 +133,14 @@ CREATE TABLE `course_profile` (
   `c_P_name` varchar(250) DEFAULT NULL,
   `status` int(11) DEFAULT '1',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`c_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 /*Data for the table `course_profile` */
 
-insert  into `course_profile`(`c_id`,`course_name_id`,`c_P_name`,`status`,`created_at`,`updated_at`,`created_by`) values (5,16,'css',2,'2018-12-12 11:09:39','2018-12-12 06:39:39',1),(6,17,'OOPS',1,'2018-12-12 06:39:33','2018-12-12 06:39:33',1),(7,17,'Inherirance',1,'2018-12-12 06:40:11','2018-12-12 06:40:11',1),(8,18,'Functions',1,'2018-12-12 06:40:32','2018-12-12 06:40:32',1),(9,18,'Multiplue inheritance',1,'2018-12-12 06:40:54','2018-12-12 06:40:54',1),(10,19,'Mobile view',1,'2018-12-12 06:41:14','2018-12-12 06:41:14',1),(11,19,'Tablet view',1,'2018-12-12 06:41:31','2018-12-12 06:41:31',1),(12,20,'dynamic  attributes',1,'2018-12-12 06:41:51','2018-12-12 06:41:51',1),(13,20,'classes',1,'2018-12-12 06:42:11','2018-12-12 06:42:11',1);
+insert  into `course_profile`(`c_id`,`course_name_id`,`c_P_name`,`status`,`created_at`,`updated_at`,`created_by`) values (11,26,'bootstrap',1,'2018-12-18 14:17:08','2018-12-18 14:17:08',1),(12,27,'Oracle Fusion Financials',1,'2018-12-18 14:17:31','2018-12-18 14:17:31',1),(13,28,'course profile',1,'2018-12-19 07:52:01','2018-12-19 07:52:01',1);
 
 /*Table structure for table `header` */
 
@@ -160,11 +158,11 @@ CREATE TABLE `header` (
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`h_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 /*Data for the table `header` */
 
-insert  into `header`(`h_id`,`course_profile`,`video`,`color_code`,`org_video`,`text`,`status`,`created_at`,`updated_at`,`created_by`) values (8,6,'1544767228.mp4','#80ff00','0.7879420015366459050.694556001534825844back2.mp4','helo hi  how are you ',0,'2018-12-14 07:00:28','2018-12-14 07:00:28',1);
+insert  into `header`(`h_id`,`course_profile`,`video`,`color_code`,`org_video`,`text`,`status`,`created_at`,`updated_at`,`created_by`) values (11,2,'1545133245.mp4','#80ff00','1544610500.mp4','text123',2,'2018-12-18 12:40:44','2018-12-18 12:54:05',1),(12,5,'1545133390.mp4','#00ffff','1544614034.mp4','text123',2,'2018-12-18 12:43:09','2018-12-18 12:54:02',1),(13,7,'1545134037.mp4','#8080ff','1544610500.mp4','text123',1,'2018-12-18 12:53:57','2018-12-18 12:54:29',1),(14,8,'1545134062.mp4','#00ffff','','text123',1,'2018-12-18 12:54:21','2018-12-18 12:54:45',1),(15,12,'1545139111.mp4','#0000ff','','text123',1,'2018-12-18 14:18:31','2018-12-18 14:19:25',1),(16,11,'1545139296.mp4','#008040','1545134062.mp4','text12',1,'2018-12-18 14:20:54','2018-12-18 14:21:35',1),(17,13,'1545202384.mp4','#ff00ff','1544610500.mp4','hello',1,'2018-12-19 07:53:04','2018-12-19 08:17:06',1),(18,13,'1545203849.mp4','#0000ff','1544612371.mp4','text12',0,'2018-12-19 08:17:29','2018-12-19 08:17:29',1);
 
 /*Table structure for table `header_images` */
 
@@ -180,11 +178,11 @@ CREATE TABLE `header_images` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`h_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 /*Data for the table `header_images` */
 
-insert  into `header_images`(`h_id`,`image`,`org_image`,`title`,`status`,`created_at`,`updated_at`,`created_by`) values (1,'1544507928.jpg','gallery-1.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. In finibus sodales nisi eu accumsan.',1,'2018-12-11 12:39:17','2018-12-11 08:09:17',1),(2,'1544509451.jpg','gallery-6.jpg','bnbvn testing',0,'2018-12-11 12:39:13','2018-12-11 08:09:13',1);
+insert  into `header_images`(`h_id`,`image`,`org_image`,`title`,`status`,`created_at`,`updated_at`,`created_by`) values (8,'1545134005.jpg','1543906593.jpg','friut',1,'2018-12-18 17:23:32','2018-12-18 12:53:32',1),(9,'1545202116.jpg','1545135426.jpg','friut',0,'2018-12-19 12:18:35',NULL,1);
 
 /*Table structure for table `interview_questions` */
 
@@ -204,7 +202,7 @@ CREATE TABLE `interview_questions` (
 
 /*Data for the table `interview_questions` */
 
-insert  into `interview_questions`(`i_q_id`,`title`,`course_profile`,`description`,`status`,`created_at`,`updated_at`,`created_by`) values (10,'Question 1',7,'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a ',1,'2018-12-12 07:51:01','2018-12-12 07:51:01',1),(11,'Question 2',6,'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a ',1,'2018-12-12 07:51:42','2018-12-12 07:51:42',1),(12,'Question 3',6,'\r\nAnim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put ',1,'2018-12-12 07:51:57','2018-12-12 07:51:57',1),(13,'Question 4',6,'\r\nAnim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put ',1,'2018-12-12 07:52:58','2018-12-12 07:52:58',1);
+insert  into `interview_questions`(`i_q_id`,`title`,`course_profile`,`description`,`status`,`created_at`,`updated_at`,`created_by`) values (1,'test3',NULL,'fhngfbj',2,'2018-12-20 14:24:03','2018-12-21 05:55:50',1),(2,'General Ledger',NULL,'ghgfjhg',2,'2018-12-20 14:24:03','2018-12-21 05:53:55',1),(3,'gbjnh',NULL,'hjhg',2,'2018-12-21 05:56:01','2018-12-21 05:56:18',1),(4,'hjhgj',NULL,'hgjghk',2,'2018-12-21 05:56:01','2018-12-21 05:56:22',1),(5,'jklj',NULL,'kjl',2,'2018-12-21 05:57:14','2018-12-21 05:59:43',1),(6,'kjl',NULL,'kjl',2,'2018-12-21 05:56:36','2018-12-21 05:59:45',1),(7,'kjl',NULL,'kjl',2,'2018-12-21 05:56:36','2018-12-21 05:59:47',1),(8,'papa',NULL,'power',1,'2018-12-21 06:00:09','2018-12-21 06:00:09',1),(9,'va',NULL,'van',1,'2018-12-21 06:01:18','2018-12-21 06:01:18',1),(10,'tghj',NULL,'gfju',1,'2018-12-21 06:01:10','2018-12-21 06:01:10',1),(11,'g',NULL,'gg',1,'2018-12-21 07:00:57','2018-12-21 09:37:20',1),(12,'General Ledger',NULL,'hj',2,'2018-12-21 06:59:12','2018-12-21 07:00:45',1),(13,'hgjh',NULL,'jhk',1,'2018-12-21 07:00:30','2018-12-21 10:13:49',1);
 
 /*Table structure for table `leads_list` */
 
@@ -219,11 +217,11 @@ CREATE TABLE `leads_list` (
   `message` text,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`l_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `leads_list` */
 
-insert  into `leads_list`(`l_id`,`name`,`course_name`,`email`,`phonenumber`,`message`,`created_at`) values (1,'vasudevareddy','html','testing@gmail.com','8500050944','testing ','2018-12-06 13:45:21'),(2,'bayapu','css','maxcure@gmail.com','8500226782','testing purpose','2018-12-06 13:48:18'),(3,'siva','php','sivareddy@gmail.com','8528528522','testinghsgfd','2018-12-06 13:57:17');
+insert  into `leads_list`(`l_id`,`name`,`course_name`,`email`,`phonenumber`,`message`,`created_at`) values (1,'kasi','html','kasi@gmail.com','7013319056','course doing syudy','2018-12-21 09:38:18');
 
 /*Table structure for table `logos_list` */
 
@@ -239,11 +237,11 @@ CREATE TABLE `logos_list` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`l_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 /*Data for the table `logos_list` */
 
-insert  into `logos_list`(`l_id`,`image`,`org_image`,`profile_id`,`status`,`created_at`,`updated_at`,`created_by`) values (4,'1544532629.jpg','gallery-6.jpg','4',2,'2018-12-12 11:12:39','2018-12-12 06:42:39',1),(5,'1544532656.jpg','gallery-4.jpg','5',2,'2018-12-12 11:12:35','2018-12-12 06:42:35',1),(6,'1544593350.jpg','gallery-1.jpg','6',1,'2018-12-12 11:12:30',NULL,1),(7,'1544593370.jpg','gallery-3.jpg','6',1,'2018-12-12 11:12:49',NULL,1),(8,'1544593379.jpg','gallery-6.jpg','7',1,'2018-12-12 11:12:58',NULL,1),(9,'1544593390.jpg','gallery-5.jpg','11',1,'2018-12-12 11:13:10',NULL,1),(10,'1544593501.jpg','bg-01.jpg','13',1,'2018-12-12 11:15:01',NULL,1),(11,'1544593513.jpg','bg-03.jpg','8',1,'2018-12-12 11:15:12',NULL,1);
+insert  into `logos_list`(`l_id`,`image`,`org_image`,`profile_id`,`status`,`created_at`,`updated_at`,`created_by`) values (3,'1544534160.jpg','1543906561.jpg','1',2,'2018-12-11 18:46:36','2018-12-11 14:16:36',1),(4,'1544534170.jpg','1543906894.jpg','2',2,'2018-12-11 18:46:30','2018-12-11 14:16:30',1),(5,'1544598256.jpg','1543906593.jpg','2',1,'2018-12-12 12:34:15',NULL,1),(6,'1545202347.png','1544608802.png','13',1,'2018-12-19 12:22:26',NULL,1),(7,'1545289879.jpg','1544507928.jpg','13',1,'2018-12-20 12:41:18',NULL,1);
 
 /*Table structure for table `reviews_rating` */
 
@@ -262,11 +260,11 @@ CREATE TABLE `reviews_rating` (
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`r_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 
 /*Data for the table `reviews_rating` */
 
-insert  into `reviews_rating`(`r_id`,`course_profile`,`name`,`star`,`image`,`org_image`,`text`,`status`,`created_at`,`updated_at`,`created_by`) values (4,'6','kasiumamahesh','3 Star','1544767173.jpg','128.jpg','testing',1,'2018-12-14 06:59:33',NULL,1);
+insert  into `reviews_rating`(`r_id`,`course_profile`,`name`,`star`,`image`,`org_image`,`text`,`status`,`created_at`,`updated_at`,`created_by`) values (45,'8','siva','3','1545135435.png','mobile-background.png','vbnv',1,'2018-12-18 13:03:32','2018-12-18 13:17:14',1),(46,'7','vasu','3','1545135426.jpg','admin.jpg','tuhytr',1,'2018-12-18 13:12:46','2018-12-18 13:17:06',1),(47,'7','kali','3','','','gfhgf',1,'2018-12-18 13:17:29',NULL,1),(48,'12','vasu','3','','','yuiyi',1,'2018-12-18 14:27:06',NULL,1),(49,'12','vasu','4','1545139697.jpg','1544777666.jpg','hjh',1,'2018-12-18 14:28:17',NULL,1),(50,'13','kasi','4','1545202409.jpg','1544777666.jpg','thujyt',1,'2018-12-19 07:53:29',NULL,1);
 
 /*Table structure for table `skillchair` */
 
@@ -275,7 +273,7 @@ DROP TABLE IF EXISTS `skillchair`;
 CREATE TABLE `skillchair` (
   `s_id` int(11) NOT NULL AUTO_INCREMENT,
   `course_profile` int(11) DEFAULT NULL,
-  `title` longtext,
+  `title` varchar(250) DEFAULT NULL,
   `status` int(11) DEFAULT '1',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -285,7 +283,7 @@ CREATE TABLE `skillchair` (
 
 /*Data for the table `skillchair` */
 
-insert  into `skillchair`(`s_id`,`course_profile`,`title`,`status`,`created_at`,`updated_at`,`created_by`) values (1,6,'<p>tesing mdjvg</p>\r\n',0,'2018-12-14 05:49:03','2018-12-14 07:27:16',1),(2,7,'<p>like&nbsp; this</p>\r\n',1,'2018-12-14 05:49:21','2018-12-14 05:55:19',1),(3,6,'<p>like&nbsp; that</p>\r\n',0,'2018-12-14 05:55:35','2018-12-14 05:55:35',1),(4,6,'<div class=\"row\">\r\n<div class=\"col-md-12 wsc-points\">\r\n<ul>\r\n	<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer luctus ipsum sed maximus porttitor.</li>\r\n	<li>Quisque consequat ornare urna, in elementum lacus luctus vel. Curabitur posuere tellus at gravida ultricies. Maecenas sed cursus nisi.</li>\r\n	<li>Integer id nisl ultricies, euismod lorem at, ultricies nisi. Curabitur auctor eros sit amet massa suscipit, fermentum bibendum purus feugiat.</li>\r\n	<li>In feugiat pharetra mi, nec dapibus nibh consectetur eget. Aliquam leo sem, dignissim ut interdum non, sagittis non arcu.</li>\r\n	<li>Etiam rutrum, nisi non volutpat lobortis, sem leo vulputate mauris, et luctus orci magna at nisi. Fusce euismod non ligula vel mollis.</li>\r\n	<li>Sed ligula dui, ultricies eu est eget, semper cursus ante. Phasellus efficitur eu urna elementum mattis.</li>\r\n	<li>Morbi aliquam, massa eget malesuada dapibus, enim enim faucibus velit, bibendum congue felis ex et arcu. Nunc in suscipit mi.</li>\r\n	<li>Mauris nisi dolor, eleifend in velit in, consectetur hendrerit est. Suspendisse ut dui a nibh vehicula mattis commodo sed ligula.</li>\r\n	<li>Mauris tempus dolor vel ligula dapibus, et faucibus elit convallis. Vestibulum luctus nibh ac dolor rutrum dictum.</li>\r\n	<li>Suspendisse tristique augue et nulla mattis, ac fringilla diam pellentesque. Praesent rutrum nunc ipsum, in posuere ipsum pulvinar vitae.</li>\r\n</ul>\r\n</div>\r\n</div>\r\n',1,'2018-12-14 07:09:54','2018-12-14 07:27:21',1),(5,6,'<div class=\"cd-part-1 col-md-8\">\r\n<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&#39;t heard of them accusamus labore sustainable VHS.</p>\r\n\r\n<div class=\"row\">\r\n<div class=\"col-md-6\">\r\n<ul>\r\n	<li>Lorem ipsum dolor sit amet</li>\r\n	<li>Consectetur adipiscing elit</li>\r\n	<li>Integer molestie lorem at massa</li>\r\n	<li>Facilisis in pretium nisl aliquet</li>\r\n	<li>Nulla volutpat aliquam velit</li>\r\n	<li>Phasellus iaculis neque</li>\r\n	<li>Purus sodales ultricies</li>\r\n	<li>Vestibulum laoreet porttitor sem</li>\r\n	<li>Ac tristique libero volutpat at</li>\r\n	<li>Faucibus porta lacus fringilla vel</li>\r\n</ul>\r\n</div>\r\n\r\n<div class=\"col-md-6\">\r\n<ul>\r\n	<li>Lorem ipsum dolor sit amet</li>\r\n	<li>Consectetur adipiscing elit</li>\r\n	<li>Integer molestie lorem at massa</li>\r\n	<li>Facilisis in pretium nisl aliquet</li>\r\n	<li>Nulla volutpat aliquam velit</li>\r\n	<li>Phasellus iaculis neque</li>\r\n	<li>Purus sodales ultricies</li>\r\n	<li>Vestibulum laoreet porttitor sem</li>\r\n	<li>Ac tristique libero volutpat at</li>\r\n	<li>Faucibus porta lacus fringilla vel</li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n',0,'2018-12-14 07:13:07','2018-12-14 07:13:07',1);
+insert  into `skillchair`(`s_id`,`course_profile`,`title`,`status`,`created_at`,`updated_at`,`created_by`) values (1,5,'<p>hello world</p>\r\n',2,'2018-12-12 12:37:30','2018-12-18 12:51:17',1),(2,6,'<p>hello&nbsp;</p>\r\n',2,'2018-12-12 12:37:51','2018-12-18 12:51:19',1),(3,5,'<p>boos</p>\r\n',2,'2018-12-12 14:08:05','2018-12-18 12:51:21',1),(4,6,'<p>vhgbfvgjmn</p>\r\n',2,'2018-12-18 12:47:37','2018-12-18 12:51:23',1),(5,13,'<p>gjhgjhg</p>\r\n',0,'2018-12-19 07:55:20','2018-12-19 07:55:20',1);
 
 /*Table structure for table `sub_category` */
 
@@ -295,16 +293,16 @@ CREATE TABLE `sub_category` (
   `s_c_id` int(11) NOT NULL AUTO_INCREMENT,
   `category` varchar(250) DEFAULT NULL,
   `sub_category_name` varchar(250) DEFAULT NULL,
-  `status` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT '1',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`s_c_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 /*Data for the table `sub_category` */
 
-insert  into `sub_category`(`s_c_id`,`category`,`sub_category_name`,`status`,`created_at`,`updated_at`,`created_by`) values (4,'1','heritagecompany',2,'2018-12-04 12:51:17','2018-12-04 12:55:26',1),(5,'1','heritage',2,'2018-12-04 12:57:13','2018-12-04 13:42:53',1),(10,'1','heritagecompany',2,'2018-12-04 12:56:23','2018-12-12 06:38:22',1),(11,'7','css',2,'2018-12-04 13:58:13','2018-12-12 06:38:18',1),(12,'8','js',2,'2018-12-04 14:48:41','2018-12-12 06:38:15',1),(13,'','',2,'2018-12-11 06:29:05','2018-12-11 06:29:12',1),(14,'2','test',2,'2018-12-11 11:07:33','2018-12-12 06:38:11',1),(15,'2','test2',2,'2018-12-11 11:07:58','2018-12-12 06:38:07',1),(16,'2','test3',2,'2018-12-11 11:09:04','2018-12-12 06:38:04',1),(17,'10','JEE',1,'2018-12-12 06:37:55','2018-12-12 06:37:55',1),(18,'10','J2E',1,'2018-12-12 06:38:34','2018-12-12 06:38:34',1),(19,'11','Bootstrap',1,'2018-12-12 06:38:51','2018-12-12 06:38:51',1),(20,'11','Html5',1,'2018-12-12 06:39:04','2018-12-12 06:39:04',1);
+insert  into `sub_category`(`s_c_id`,`category`,`sub_category_name`,`status`,`created_at`,`updated_at`,`created_by`) values (25,'15','tester',2,'2018-12-18 12:45:57','2018-12-18 12:51:53',1),(26,'16','css',1,'2018-12-18 12:51:43','2018-12-18 12:51:43',1),(27,'17','course',1,'2018-12-18 12:52:04','2018-12-18 12:52:04',1),(28,'18','course name',1,'2018-12-19 07:51:48','2018-12-19 07:51:48',1);
 
 /*Table structure for table `track` */
 
@@ -320,11 +318,9 @@ CREATE TABLE `track` (
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`t_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `track` */
-
-insert  into `track`(`t_id`,`t_b_id`,`date`,`time`,`status`,`created_at`,`updated_at`,`created_by`) values (10,1,'2018-12-14','12:12',1,'2018-12-06 11:59:55','2018-12-06 11:59:55',1),(11,1,'2018-12-15','12:10',1,'2018-12-06 11:59:55','2018-12-06 11:59:55',1),(19,8,'2018-12-11','03 pm',1,'2018-12-11 14:00:50','2018-12-11 14:00:50',1),(20,8,'2018-12-12','12 am',1,'2018-12-11 14:00:50','2018-12-11 14:00:50',1),(21,7,'2018-12-14','10:10',1,'2018-12-11 14:02:18','2018-12-11 14:02:18',1),(24,5,'2018-12-14','12:10',1,'2018-12-11 14:02:42','2018-12-11 14:02:42',1),(25,5,'2018-12-19','12 am',1,'2018-12-11 14:02:42','2018-12-11 14:02:42',1);
 
 /*Table structure for table `training_batches` */
 
@@ -332,8 +328,8 @@ DROP TABLE IF EXISTS `training_batches`;
 
 CREATE TABLE `training_batches` (
   `t_b_id` int(11) NOT NULL AUTO_INCREMENT,
-  `course_profile` int(11) DEFAULT NULL,
   `title` varchar(250) DEFAULT NULL,
+  `course_profile` int(11) DEFAULT NULL,
   `duration` varchar(250) DEFAULT NULL,
   `hours` varchar(250) DEFAULT NULL,
   `status` int(11) DEFAULT '1',
@@ -341,11 +337,9 @@ CREATE TABLE `training_batches` (
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`t_b_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `training_batches` */
-
-insert  into `training_batches`(`t_b_id`,`course_profile`,`title`,`duration`,`hours`,`status`,`created_at`,`updated_at`,`created_by`) values (5,3,'Weekend Track','30 days','120hrs',1,'2018-12-11 14:02:42','2018-12-11 14:02:42',1),(6,NULL,'Weekend Track',NULL,NULL,2,'2018-12-06 11:58:16','2018-12-06 12:00:05',1),(7,1,'Regular Track','30 days','120hrs',1,'2018-12-11 14:02:18','2018-12-11 14:02:18',1),(8,2,'mrng hours','30 days','120hrs',1,'2018-12-11 14:00:50','2018-12-11 14:00:50',1);
 
 /*Table structure for table `training_course` */
 
@@ -355,17 +349,17 @@ CREATE TABLE `training_course` (
   `t_c_id` int(11) NOT NULL AUTO_INCREMENT,
   `paragraph` varchar(250) DEFAULT NULL,
   `course_profile` varchar(250) DEFAULT NULL,
-  `title` longtext,
+  `title` varchar(250) DEFAULT NULL,
   `status` int(11) DEFAULT '1',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`t_c_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 /*Data for the table `training_course` */
 
-insert  into `training_course`(`t_c_id`,`paragraph`,`course_profile`,`title`,`status`,`created_at`,`updated_at`,`created_by`) values (6,'likethis  ','6','<div class=\"cd-part-1 col-md-12\">\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Hello&nbsp; HI </strong></p>\r\n\r\n<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3</p>\r\n</div>\r\n',1,'2018-12-14 07:06:39','2018-12-14 07:23:36',1),(7,'testing','6','<div class=\"cd-part-1 col-md-8\">\r\n<div class=\"cd-part-1 col-md-8\">\r\n<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&#39;t heard of them accusamus labore sustainable VHS.</p>\r\n\r\n<div class=\"row\">\r\n<div class=\"col-md-6\">\r\n<ul>\r\n	<li>Lorem ipsum dolor sit amet</li>\r\n	<li>Consectetur adipiscing elit</li>\r\n	<li>Integer molestie lorem at massa</li>\r\n	<li>Facilisis in pretium nisl aliquet</li>\r\n	<li>Nulla volutpat aliquam velit</li>\r\n	<li>Phasellus iaculis neque</li>\r\n	<li>Purus sodales ultricies</li>\r\n	<li>Vestibulum laoreet porttitor sem</li>\r\n	<li>Ac tristique libero volutpat at</li>\r\n	<li>Faucibus porta lacus fringilla vel</li>\r\n</ul>\r\n</div>\r\n\r\n<div class=\"col-md-6\">\r\n<ul>\r\n	<li>Lorem ipsum dolor sit amet</li>\r\n	<li>Consectetur adipiscing elit</li>\r\n	<li>Integer molestie lorem at massa</li>\r\n	<li>Facilisis in pretium nisl aliquet</li>\r\n	<li>Nulla volutpat aliquam velit</li>\r\n	<li>Phasellus iaculis neque</li>\r\n	<li>Purus sodales ultricies</li>\r\n	<li>Vestibulum laoreet porttitor sem</li>\r\n	<li>Ac tristique libero volutpat at</li>\r\n	<li>Faucibus porta lacus fringilla vel</li>\r\n</ul>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n',2,'2018-12-14 07:11:42','2018-12-14 07:23:32',1);
+insert  into `training_course`(`t_c_id`,`paragraph`,`course_profile`,`title`,`status`,`created_at`,`updated_at`,`created_by`) values (11,NULL,'5','<p>yjhgkj</p>\r\n',1,'2018-12-18 12:45:11','2018-12-18 12:45:18',1),(12,NULL,'5','<p>hjkjh</p>\r\n',0,'2018-12-18 12:45:32','2018-12-18 12:45:32',1),(13,NULL,'13','<ol>\r\n	<li>\r\n	<p>Oracle Fusion Financials, which include general ledger, receivables, payables, asset tracking, expense management, and cash management functionality.</p>\r\n	</li>\r\n	<li>\r\n	<p>Oracle Fusion Accounting Hub, providing the integration and',0,'2018-12-19 07:54:03','2018-12-19 07:54:03',1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
