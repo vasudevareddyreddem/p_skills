@@ -10,7 +10,7 @@ class Questions extends Admin_panel {
 		
 	}
 	
-    public function interviewquestions()
+    public function add()
 	{	
 		if($this->session->userdata('skill_user'))
 		{
@@ -25,7 +25,7 @@ class Questions extends Admin_panel {
 		}
 	}
 	
-	public function addquestions()
+	public function addpost()
 	{
 	if($this->session->userdata('skill_user'))
 		{
@@ -48,7 +48,7 @@ class Questions extends Admin_panel {
 				       $cnt++;}
 					}
 		             $this->session->set_flashdata('success',"Interview Questions successfully added");	
-				redirect('questions/interviewquestionslists');	 
+				redirect('questions/lists');	 
 		        // exit;
 		
 	     }else{
@@ -56,7 +56,7 @@ class Questions extends Admin_panel {
 			redirect('admin');
 		}
 	}
-	public function interviewquestionslists()
+	public function lists()
 	{	
 		if($this->session->userdata('skill_user'))
 		{
@@ -70,7 +70,7 @@ class Questions extends Admin_panel {
 			redirect('admin');
 		}
 	}
-	public function interviewquestionsedit()
+	public function edit()
 	{	
 		if($this->session->userdata('skill_user'))
 		{
@@ -86,7 +86,7 @@ class Questions extends Admin_panel {
 			redirect('admin');
 		}
 	}
-	public function editquestions(){
+	public function editpost(){
 		if($this->session->userdata('skill_user'))
 		{
 			$login_details=$this->session->userdata('skill_user');
@@ -105,10 +105,10 @@ class Questions extends Admin_panel {
 				 //echo'<pre>';print_r($update);exit;
 		       if(count($update)>0){
 					$this->session->set_flashdata('success',"Interview Questions successfully updated");	
-					redirect('questions/interviewquestionslists');	
+					redirect('questions/lists');	
 					  }else{
 						$this->session->set_flashdata('error',"techechal probelem occur ");
-						redirect('questions/interviewquestionsedit/'.base64_encode($post['i_q_id']));
+						redirect('questions/edit/'.base64_encode($post['i_q_id']));
 					  }    
 				
 					}else{
@@ -117,7 +117,7 @@ class Questions extends Admin_panel {
 				}
 	}
 	
-	public function interviewquestionsstatus(){
+	public function status(){
 	 if($this->session->userdata('skill_user'))
 		{	
          $login_details=$this->session->userdata('skill_user');	
@@ -143,10 +143,10 @@ class Questions extends Admin_panel {
 								}else{
 									$this->session->set_flashdata('success',"Interview Questions  details successfully Activate.");
 								}
-								redirect('questions/interviewquestionslists');
+								redirect('questions/lists');
 							}else{
 									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-									redirect('questions/interviewquestionslists');
+									redirect('questions/lists');
 							}
 						}
 						else{
@@ -162,7 +162,7 @@ class Questions extends Admin_panel {
 
 
 }	
-public function interviewquestionsdelete()
+public function delete()
 {
 
 		if($this->session->userdata('skill_user'))
@@ -179,10 +179,10 @@ public function interviewquestionsdelete()
 							$statusdata=$this->Category_model->update_course_interview_questions_details($i_q_id,$stusdetails);
 							if(count($statusdata)>0){
 								$this->session->set_flashdata('success',"Interview Questions details successfully deleted.");
-								redirect('questions/interviewquestionslists');
+								redirect('questions/lists');
 							}else{
 									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
-									redirect('questions/interviewquestionslists');
+									redirect('questions/lists');
 							}
 						}
 						else{

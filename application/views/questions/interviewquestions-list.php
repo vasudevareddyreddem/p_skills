@@ -4,7 +4,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Interview Questions</h1>
+                <h1>FAQ's</h1>
             </div>
         </div>
     </div>
@@ -12,8 +12,8 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li>Interview Questions</li>
-                    <li>Interview Questions List</li>
+                    <li>FAQ's</li>
+                    <li>FAQ's List</li>
                 </ol>
             </div>
         </div>
@@ -27,7 +27,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Interview Questions List</strong>
+                        <strong class="card-title">FAQ's List</strong>
                     </div>
                     <div class="card-body">
 					<?php if(isset($oracle_interview_questions) && count($oracle_interview_questions)>0){ ?>
@@ -49,7 +49,7 @@
 										<td><?php if($list['status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>
                                         <td>
                                             
-				<a href="<?php echo base_url('questions/interviewquestionsedit/'.base64_encode($list['i_q_id'])); ?>"  data-toggle="tooltip" title="Edit" ><i class="fa fa-edit btn btn-primary"></i></a>
+				<a href="<?php echo base_url('questions/edit/'.base64_encode($list['i_q_id'])); ?>"  data-toggle="tooltip" title="Edit" ><i class="fa fa-edit btn btn-primary"></i></a>
 				<a href="javascript;void(0);" onclick="admindeactive('<?php echo base64_encode(htmlentities($list['i_q_id'])).'/'.base64_encode(htmlentities($list['status']));?>');adminstatus('<?php echo $list['status'];?>')" data-toggle="modal" data-target="#myModal" title="Edit"><i class="fa fa-info-circle btn btn-warning"></i></a>
 				<a href="javascript;void(0);" onclick="admindedelete('<?php echo base64_encode(htmlentities($list['i_q_id']));?>');admin('');" data-toggle="modal" data-target="#myModal" title="delete"><i class="fa fa-trash-o btn btn-danger"></i></a>
                      
@@ -106,10 +106,10 @@
 </div><!-- .content -->
 <script>
 function admindeactive(id){
-	$(".popid").attr("href","<?php echo base_url('questions/interviewquestionsstatus'); ?>"+"/"+id);
+	$(".popid").attr("href","<?php echo base_url('questions/status'); ?>"+"/"+id);
 }
 function admindedelete(id){
-	$(".popid").attr("href","<?php echo base_url('questions/interviewquestionsdelete'); ?>"+"/"+id);
+	$(".popid").attr("href","<?php echo base_url('questions/delete'); ?>"+"/"+id);
 	
 }
 function adminstatus(id){

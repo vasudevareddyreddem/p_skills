@@ -3,7 +3,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1> Interview Questions</h1>
+                <h1>FAQ's</h1>
             </div>
         </div>
     </div>
@@ -11,8 +11,8 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li> Interview Questions</li>
-                    <li>Add Interview Questions</li>
+                    <li> FAQ's</li>
+                    <li>Add FAQ's</li>
                 </ol>
             </div>
         </div>
@@ -27,10 +27,10 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Add Interview Questions</strong>
+                        <strong class="card-title">Add FAQ's</strong>
                     </div>
                     <div class="card-body">
-	<form id="add_group" method="post" action="<?php echo base_url('questions/addquestions');?>">
+	<form id="add_group" method="post" action="<?php echo base_url('questions/addpost');?>">
     
 		<div class="row">
 		

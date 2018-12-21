@@ -36,8 +36,8 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="menu-icon fa fa-users"></i>FAQ's</a>
                     <ul class="sub-menu children dropdown-menu">
    
-                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('questions/interviewquestions');?>">Add  FAQ's</a></li>
-                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('questions/interviewquestionslists');?>">FAQ's List</a></li>
+                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('questions/add');?>">Add  FAQ's</a></li>
+                        <li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('questions/lists');?>">FAQ's List</a></li>
                     </ul>
                 </li>
 				
