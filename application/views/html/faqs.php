@@ -1,7 +1,7 @@
 <!-- Interview Questions -->
 
     <section class="interview-q mt-5" style="padding:40px;">
-	<div class="ch-content">
+	<div class="">
         <div class="container">
             
             <h3 class="heading mb-4">FAQ's</h3>
