@@ -47,7 +47,7 @@ class Questions extends Admin_panel {
 
 				       $cnt++;}
 					}
-		             $this->session->set_flashdata('success',"Interview Questions successfully added");	
+		             $this->session->set_flashdata('success',"FAQ's  successfully added");	
 				redirect('questions/lists');	 
 		        // exit;
 		
@@ -104,7 +104,7 @@ class Questions extends Admin_panel {
                 $update=$this->Category_model->update_course_interview_questions_details($post['i_q_id'],$update_data);	
 				 //echo'<pre>';print_r($update);exit;
 		       if(count($update)>0){
-					$this->session->set_flashdata('success',"Interview Questions successfully updated");	
+					$this->session->set_flashdata('success',"FAQ's  successfully updated");	
 					redirect('questions/lists');	
 					  }else{
 						$this->session->set_flashdata('error',"techechal probelem occur ");
@@ -139,9 +139,9 @@ class Questions extends Admin_panel {
 							//echo $this->db->last_query();exit;	
 							if(count($statusdata)>0){
 								if($status==1){
-								$this->session->set_flashdata('success',"Interview Questions details  successfully Deactivate.");
+								$this->session->set_flashdata('success',"FAQ's successfully Deactivate.");
 								}else{
-									$this->session->set_flashdata('success',"Interview Questions  details successfully Activate.");
+									$this->session->set_flashdata('success',"FAQ's successfully Activate.");
 								}
 								redirect('questions/lists');
 							}else{
@@ -178,7 +178,7 @@ public function delete()
 							
 							$statusdata=$this->Category_model->update_course_interview_questions_details($i_q_id,$stusdetails);
 							if(count($statusdata)>0){
-								$this->session->set_flashdata('success',"Interview Questions details successfully deleted.");
+								$this->session->set_flashdata('success',"FAQ's successfully deleted.");
 								redirect('questions/lists');
 							}else{
 									$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
