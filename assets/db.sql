@@ -117,11 +117,11 @@ CREATE TABLE `course_details` (
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`c_d_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `course_details` */
 
-insert  into `course_details`(`c_d_id`,`title`,`course_profile`,`description`,`status`,`created_at`,`updated_at`,`created_by`) values (1,'test1',13,'hjgh',1,'2018-12-19 07:54:53','2018-12-20 12:30:45',1),(2,'test3',13,'hjhg',1,'2018-12-19 07:54:53','2018-12-20 12:30:47',1),(3,'test3',13,'copy',1,'2018-12-20 12:30:28','2018-12-20 12:30:49',1);
+insert  into `course_details`(`c_d_id`,`title`,`course_profile`,`description`,`status`,`created_at`,`updated_at`,`created_by`) values (1,'test1',13,'hjgh',1,'2018-12-19 07:54:53','2018-12-20 12:30:45',1),(2,'test3',13,'hjhg',1,'2018-12-19 07:54:53','2018-12-20 12:30:47',1),(3,'test3',13,'copy',1,'2018-12-20 12:30:28','2018-12-20 12:30:49',1),(4,'bmn b ',13,'mn',1,'2018-12-21 14:17:46','2018-12-21 14:17:46',1);
 
 /*Table structure for table `course_profile` */
 
@@ -191,18 +191,17 @@ DROP TABLE IF EXISTS `interview_questions`;
 CREATE TABLE `interview_questions` (
   `i_q_id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(250) DEFAULT NULL,
-  `course_profile` int(12) DEFAULT NULL,
   `description` varchar(250) DEFAULT NULL,
   `status` int(11) DEFAULT '1',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`i_q_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 /*Data for the table `interview_questions` */
 
-insert  into `interview_questions`(`i_q_id`,`title`,`course_profile`,`description`,`status`,`created_at`,`updated_at`,`created_by`) values (1,'test3',NULL,'fhngfbj',2,'2018-12-20 14:24:03','2018-12-21 05:55:50',1),(2,'General Ledger',NULL,'ghgfjhg',2,'2018-12-20 14:24:03','2018-12-21 05:53:55',1),(3,'gbjnh',NULL,'hjhg',2,'2018-12-21 05:56:01','2018-12-21 05:56:18',1),(4,'hjhgj',NULL,'hgjghk',2,'2018-12-21 05:56:01','2018-12-21 05:56:22',1),(5,'jklj',NULL,'kjl',2,'2018-12-21 05:57:14','2018-12-21 05:59:43',1),(6,'kjl',NULL,'kjl',2,'2018-12-21 05:56:36','2018-12-21 05:59:45',1),(7,'kjl',NULL,'kjl',2,'2018-12-21 05:56:36','2018-12-21 05:59:47',1),(8,'papa',NULL,'power',1,'2018-12-21 06:00:09','2018-12-21 06:00:09',1),(9,'va',NULL,'van',1,'2018-12-21 06:01:18','2018-12-21 06:01:18',1),(10,'tghj',NULL,'gfju',1,'2018-12-21 06:01:10','2018-12-21 06:01:10',1),(11,'g',NULL,'gg',1,'2018-12-21 07:00:57','2018-12-21 09:37:20',1),(12,'General Ledger',NULL,'hj',2,'2018-12-21 06:59:12','2018-12-21 07:00:45',1),(13,'hgjh',NULL,'jhk',1,'2018-12-21 07:00:30','2018-12-21 10:13:49',1);
+insert  into `interview_questions`(`i_q_id`,`title`,`description`,`status`,`created_at`,`updated_at`,`created_by`) values (14,'test3','hjhgk',1,'2018-12-21 13:06:41','2018-12-21 13:06:41',1),(15,'hjgh','kjhkl',1,'2018-12-21 13:06:41','2018-12-21 13:06:41',1),(16,'test3','hjgh',1,'2018-12-21 14:15:00','2018-12-21 14:15:00',1);
 
 /*Table structure for table `leads_list` */
 
@@ -347,7 +346,6 @@ DROP TABLE IF EXISTS `training_course`;
 
 CREATE TABLE `training_course` (
   `t_c_id` int(11) NOT NULL AUTO_INCREMENT,
-  `paragraph` varchar(250) DEFAULT NULL,
   `course_profile` varchar(250) DEFAULT NULL,
   `title` varchar(250) DEFAULT NULL,
   `status` int(11) DEFAULT '1',
@@ -355,11 +353,11 @@ CREATE TABLE `training_course` (
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`t_c_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 /*Data for the table `training_course` */
 
-insert  into `training_course`(`t_c_id`,`paragraph`,`course_profile`,`title`,`status`,`created_at`,`updated_at`,`created_by`) values (11,NULL,'5','<p>yjhgkj</p>\r\n',1,'2018-12-18 12:45:11','2018-12-18 12:45:18',1),(12,NULL,'5','<p>hjkjh</p>\r\n',0,'2018-12-18 12:45:32','2018-12-18 12:45:32',1),(13,NULL,'13','<ol>\r\n	<li>\r\n	<p>Oracle Fusion Financials, which include general ledger, receivables, payables, asset tracking, expense management, and cash management functionality.</p>\r\n	</li>\r\n	<li>\r\n	<p>Oracle Fusion Accounting Hub, providing the integration and',0,'2018-12-19 07:54:03','2018-12-19 07:54:03',1);
+insert  into `training_course`(`t_c_id`,`course_profile`,`title`,`status`,`created_at`,`updated_at`,`created_by`) values (11,'13','<p>yjhgkj</p>\r\n',1,'2018-12-18 12:45:11','2018-12-21 14:19:05',1),(12,'12','<p>hjkjh</p>\r\n',0,'2018-12-18 12:45:32','2018-12-21 14:19:12',1),(13,'13','<ol>\r\n	<li>\r\n	<p>Oracle Fusion Financials, which include general ledger, receivables, payables, asset tracking, expense management, and cash management functionality.</p>\r\n	</li>\r\n	<li>\r\n	<p>Oracle Fusion Accounting Hub, providing the integration and',0,'2018-12-19 07:54:03','2018-12-19 07:54:03',1),(14,'13','<p>n,mn.,k.k</p>\r\n',0,'2018-12-21 14:17:57','2018-12-21 14:17:57',1),(15,'13','<p>yuiyik</p>\r\n',0,'2018-12-21 14:22:42','2018-12-21 14:22:42',1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
