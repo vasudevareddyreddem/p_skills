@@ -84,7 +84,7 @@
 				profile_id: {
 					validators: {
 						notEmpty: {
-							message: 'Profile is required'
+							message: 'Course Profile is required'
 						}
 					}
 				}

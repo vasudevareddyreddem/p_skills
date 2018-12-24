@@ -67,6 +67,20 @@ class Contact extends Admin_panel {
 			}
 	}
 	
+   public function lists()
+	{	
+		if($this->session->userdata('skill_user'))
+		{
+			
+			$data['contact_list']=$this->Category_model->get_contact_details_list();
+			 //echo'<pre>';print_r($data);exit;
+			$this->load->view('contactus/list',$data);
+			$this->load->view('admin/footer');
+		}else{
+			$this->session->set_flashdata('error',"you don't have permission to access");
+			redirect('admin');
+		}
+	}
  
 	
 	

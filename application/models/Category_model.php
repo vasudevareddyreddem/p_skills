@@ -300,6 +300,11 @@ class Category_model extends CI_Model
 	return $this->db->get()->result_array();
 	}
 	
+	/* contact list */
+	public function get_contact_details_list(){
+	$this->db->select('*')->from('contact_info');
+	return $this->db->get()->result_array();
+	}
 	
 	
 	

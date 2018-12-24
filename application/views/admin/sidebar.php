@@ -100,7 +100,9 @@
 				 <li>
                     <a href="<?php echo base_url('contact/add'); ?>"> <i class="menu-icon fa fa-dashboard"></i>Contact Us</a>
                 </li>
-				
+				<li>
+                    <a href="<?php echo base_url('contact/lists'); ?>"> <i class="menu-icon fa fa-dashboard"></i>Contact List</a>
+                </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>

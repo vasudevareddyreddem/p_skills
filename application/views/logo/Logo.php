@@ -82,7 +82,7 @@ class Logo extends Admin_panel {
 			$image_id=base64_decode($this->uri->segment(3));
 			$data['logo_details']=$this->Logo_model->get_logo_details($image_id);
 			$data['course_profle_list']=$this->Logo_model->get_course_profile_list();
-             //echo'<pre>';print_r($data);exit;
+
 			$this->load->view('logo/edit',$data);
 			$this->load->view('admin/footer');
 		}else{
