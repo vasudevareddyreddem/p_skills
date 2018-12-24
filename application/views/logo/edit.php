@@ -39,7 +39,7 @@
 											<option value="">Select</option>
 											<?php if(isset($course_profle_list) && count($course_profle_list)>0){ ?>
 												<?php foreach($course_profle_list as $list){ ?>
-												<?php if($logo_details['l_id']==$list['c_id']){ ?>
+												<?php if($logo_details['profile_id']==$list['c_id']){ ?>
 													<option selected value="<?php echo $list['c_id']; ?>"><?php echo $list['c_P_name']; ?></option>
 												<?php }else{ ?>
 													<option value="<?php echo $list['c_id']; ?>"><?php echo $list['c_P_name']; ?></option>
