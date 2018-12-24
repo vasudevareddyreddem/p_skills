@@ -40,7 +40,7 @@ CREATE TABLE `admin` (
 
 /*Data for the table `admin` */
 
-insert  into `admin`(`cust_id`,`role_id`,`username`,`email_id`,`name`,`mobile`,`location`,`password`,`org_password`,`profile_pic`,`status`,`created_at`,`updated_at`,`created_by`) values (1,1,'admin','admin@gmail.com','admin','1234567890','sdsad','e10adc3949ba59abbe56e057f20f883e','123456','1545383616.jpg',1,'2018-08-03 15:41:02','2018-08-03 15:41:04',0);
+insert  into `admin`(`cust_id`,`role_id`,`username`,`email_id`,`name`,`mobile`,`location`,`password`,`org_password`,`profile_pic`,`status`,`created_at`,`updated_at`,`created_by`) values (1,1,'admin','admin@gmail.com','admin','1234567890','sdsad','e10adc3949ba59abbe56e057f20f883e','123456','1545627785.jpg',1,'2018-08-03 15:41:02','2018-08-03 15:41:04',0);
 
 /*Table structure for table `category` */
 
@@ -97,7 +97,7 @@ CREATE TABLE `contactus` (
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`contact_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `contactus` */
 
@@ -197,11 +197,11 @@ CREATE TABLE `interview_questions` (
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`i_q_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 /*Data for the table `interview_questions` */
 
-insert  into `interview_questions`(`i_q_id`,`title`,`description`,`status`,`created_at`,`updated_at`,`created_by`) values (14,'test3','hjhgk',1,'2018-12-21 13:06:41','2018-12-21 13:06:41',1),(15,'hjgh','kjhkl',1,'2018-12-21 13:06:41','2018-12-21 13:06:41',1),(16,'test3','hjgh',1,'2018-12-21 14:15:00','2018-12-21 14:15:00',1);
+insert  into `interview_questions`(`i_q_id`,`title`,`description`,`status`,`created_at`,`updated_at`,`created_by`) values (14,'test3','hjhgk',2,'2018-12-21 13:06:41','2018-12-24 06:01:57',1),(15,'hjgh','kjhkl',2,'2018-12-21 13:06:41','2018-12-24 06:01:55',1),(16,'test3','hjgh',2,'2018-12-21 14:15:00','2018-12-24 06:01:59',1),(17,'test5','efrdg',1,'2018-12-24 06:02:13','2018-12-24 06:02:13',1),(18,'fdgv','fg',1,'2018-12-24 06:02:24','2018-12-24 06:02:24',1),(19,'fg','df',1,'2018-12-24 06:02:24','2018-12-24 06:02:24',1),(20,'df','f',1,'2018-12-24 06:02:24','2018-12-24 06:02:24',1),(21,'d','fdbg',1,'2018-12-24 06:04:49','2018-12-24 06:04:49',1),(22,'dfgv','fg',1,'2018-12-24 06:04:49','2018-12-24 06:04:49',1);
 
 /*Table structure for table `leads_list` */
 
