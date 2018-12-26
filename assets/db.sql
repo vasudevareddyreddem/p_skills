@@ -73,9 +73,11 @@ CREATE TABLE `contact_info` (
   `location` varchar(250) DEFAULT NULL,
   `create_at` datetime DEFAULT NULL,
   PRIMARY KEY (`con_info_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `contact_info` */
+
+insert  into `contact_info`(`con_info_id`,`course_name`,`name`,`email_id`,`phone`,`location`,`create_at`) values (1,'java','vasu','vasu@gmail.com','7013319036','HYDERABAD','2018-12-24 15:20:36'),(2,'Oracle Fusion Financials','kasi','kasi@gmail.com','9490856025','kurnool','2018-12-24 15:20:52'),(3,'java','vasu','sid@gmail.com','8197557026','CHITTOR','2018-12-24 10:51:29');
 
 /*Table structure for table `contactus` */
 
@@ -190,18 +192,19 @@ DROP TABLE IF EXISTS `interview_questions`;
 
 CREATE TABLE `interview_questions` (
   `i_q_id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(250) DEFAULT NULL,
-  `description` varchar(250) DEFAULT NULL,
+  `title` text,
+  `course_profile` int(12) DEFAULT NULL,
+  `description` text,
   `status` int(11) DEFAULT '1',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`i_q_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 /*Data for the table `interview_questions` */
 
-insert  into `interview_questions`(`i_q_id`,`title`,`description`,`status`,`created_at`,`updated_at`,`created_by`) values (14,'test3','hjhgk',2,'2018-12-21 13:06:41','2018-12-24 06:01:57',1),(15,'hjgh','kjhkl',2,'2018-12-21 13:06:41','2018-12-24 06:01:55',1),(16,'test3','hjgh',2,'2018-12-21 14:15:00','2018-12-24 06:01:59',1),(17,'test5','efrdg',1,'2018-12-24 06:02:13','2018-12-24 06:02:13',1),(18,'fdgv','fg',1,'2018-12-24 06:02:24','2018-12-24 06:02:24',1),(19,'fg','df',1,'2018-12-24 06:02:24','2018-12-24 06:02:24',1),(20,'df','f',1,'2018-12-24 06:02:24','2018-12-24 06:02:24',1),(21,'d','fdbg',1,'2018-12-24 06:04:49','2018-12-24 06:04:49',1),(22,'dfgv','fg',1,'2018-12-24 06:04:49','2018-12-24 06:04:49',1);
+insert  into `interview_questions`(`i_q_id`,`title`,`course_profile`,`description`,`status`,`created_at`,`updated_at`,`created_by`) values (26,'test3',13,'ghjgj',1,'2018-12-26 14:03:15','2018-12-26 14:03:15',1),(27,'course',13,'hgjhgkj',1,'2018-12-26 14:03:15','2018-12-26 14:03:15',1);
 
 /*Table structure for table `leads_list` */
 
@@ -236,11 +239,11 @@ CREATE TABLE `logos_list` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`l_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 /*Data for the table `logos_list` */
 
-insert  into `logos_list`(`l_id`,`image`,`org_image`,`profile_id`,`status`,`created_at`,`updated_at`,`created_by`) values (3,'1544534160.jpg','1543906561.jpg','1',2,'2018-12-11 18:46:36','2018-12-11 14:16:36',1),(4,'1544534170.jpg','1543906894.jpg','2',2,'2018-12-11 18:46:30','2018-12-11 14:16:30',1),(5,'1544598256.jpg','1543906593.jpg','2',1,'2018-12-12 12:34:15',NULL,1),(6,'1545202347.png','1544608802.png','13',1,'2018-12-19 12:22:26',NULL,1),(7,'1545289879.jpg','1544507928.jpg','13',1,'2018-12-20 12:41:18',NULL,1);
+insert  into `logos_list`(`l_id`,`image`,`org_image`,`profile_id`,`status`,`created_at`,`updated_at`,`created_by`) values (3,'1544534160.jpg','1543906561.jpg','1',2,'2018-12-11 18:46:36','2018-12-11 14:16:36',1),(4,'1544534170.jpg','1543906894.jpg','2',2,'2018-12-11 18:46:30','2018-12-11 14:16:30',1),(5,'1544598256.jpg','1543906593.jpg','11',1,'2018-12-24 13:02:35','2018-12-24 08:32:35',1),(6,'1545633032.jpg','1544593390.jpg','13',1,'2018-12-24 12:00:41','2018-12-24 07:30:41',1),(7,'1545633009.jpg','1544593501.jpg','13',1,'2018-12-24 12:00:09','2018-12-24 07:30:09',1),(8,'1545633970.jpg','1544593370.jpg','11',1,'2018-12-24 12:28:47','2018-12-24 07:58:47',1);
 
 /*Table structure for table `reviews_rating` */
 
