@@ -38,7 +38,9 @@
 					<table class="table table-bordered table-hover" id="tab_logic">
 						<thead>
 							<tr >
-								
+								<th class="text-center">
+													Course Profile
+												</th>	
 									<th class="text-center">
 													Title
 												</th>			
@@ -49,7 +51,26 @@
 						</thead>
 						<tbody>
 							<tr id='addr0'>
-							
+							<td>
+					 <div class="form-group">
+					<label class=" control-label">Course Profile</label>
+					<div class="">
+					<select id="course_profile" name="course_profile"  class="form-control select2" style="padding:20px; ">
+					<option value="">Select</option>
+					<?php if(isset($course_profile_data) && count($course_profile_data)>0){ ?>
+											<?php foreach($course_profile_data as $list){ ?>
+											
+													<?php if($edit_interview_questions['course_profile']==$list['c_id']){ ?>
+															<option selected value="<?php echo $list['c_id']; ?>"><?php echo $list['c_P_name']; ?></option>
+													<?php }else{ ?>
+															<option value="<?php echo $list['c_id']; ?>"><?php echo $list['c_P_name']; ?></option>
+													<?php } ?>
+											<?php } ?>
+										<?php } ?>
+								  </select>
+								  </div>
+								 </div>
+									</td>
 							
 								<td>
 									 <div class="form-group">

@@ -40,7 +40,10 @@
 							<tr >
 								
 												<th class="text-center">
-													Title
+													Course Profile
+												</th>
+												<th class="text-center">
+												Title	Course Profile
 												</th>
 								<th class="text-center">
 													Description
@@ -49,7 +52,22 @@
 						</thead>
 						<tbody>
 							<tr id='addr0'>
-								
+								<td>
+						<div class="form-group">
+					<label class=" control-label">Course Profile</label>
+					<div class="">
+					<select id="course_profile" name="course_profile[]"  class="form-control select2" style="padding:20px; ">
+					<option value="">Select</option>
+					<?php if(isset($course_profile_data) && count($course_profile_data)>0){ ?>
+						<?php foreach($course_profile_data as $list){ ?>
+							<option value="<?php echo $list['c_id']; ?>"><?php echo $list['c_P_name']; ?></option>
+							
+									<?php } ?>
+								   <?php } ?>
+								  </select>
+								  </div>
+								 </div>
+						</td>
 									<td>
 									 <div class="form-group">
                                         <label>Title</label>
@@ -102,7 +120,7 @@
      $(document).ready(function(){
       var i=1;
      $("#add_row").click(function(){
-      $('#addr'+i).html("<td><input type='text' name='title[]' id='name"+i+"'  placeholder='Enter Title'  class='form-control'/></td><td><textarea name='description[]' id='name"+i+"' rows='5' cols='40' placeholder='Enter Here...' class='form-control input-md'></textarea></td>");
+      $('#addr'+i).html("<td><select class='form-control select2'  name='course_profile[]' id='course_profile' ><option value=''>Select</option><?php foreach($course_profile_data as $list){ ?> <option value='<?php echo $list['c_id']; ?>'><?php echo $list['c_P_name']; ?></option><?php } ?></select></td><td><input type='text' name='title[]' id='name"+i+"'  placeholder='Enter Title'  class='form-control'/></td><td><textarea name='description[]' id='name"+i+"' rows='5' cols='40' placeholder='Enter Here...' class='form-control input-md'></textarea></td>");
 
       $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
       i++; 

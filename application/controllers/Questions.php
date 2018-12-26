@@ -37,6 +37,7 @@ class Questions extends Admin_panel {
 						  $add_data=array(
 						  'title'=>$list,
 						  'description'=>$post['description'][$cnt],
+						  'course_profile'=>$post['course_profile'][$cnt],
 						  'status'=>1,
 						  'created_at'=>date('Y-m-d H:i:s'),
 						  'updated_at'=>date('Y-m-d H:i:s'),
@@ -95,6 +96,7 @@ class Questions extends Admin_panel {
 		       $update_data=array(
 	            'title'=>isset($post['title'])?$post['title']:'',
 		        'description'=>isset($post['description'])?$post['description']:'',
+		        'course_profile'=>isset($post['course_profile'])?$post['course_profile']:'',
 				'status'=>1,
 				'created_at'=>date('Y-m-d H:i:s'),
 				'updated_at'=>date('Y-m-d H:i:s'),

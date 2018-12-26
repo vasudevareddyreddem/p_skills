@@ -35,7 +35,8 @@
                             <table id="example" class="table table-striped table-bordered" style="width:100%;">
                                 <thead>
                                     <tr>
-                                        <th>Title</th>
+                                        <th>Course Profile	</th>
+										<th>Title</th>
 										<th>Description </th>
 										<th>Status</th>
                                         <th>Action</th>
@@ -44,7 +45,8 @@
                                 <tbody>
                                    <?php  foreach($oracle_interview_questions as $list){ ?>
                                     <tr>
-                                        <td><?php echo $list['title']; ?></td>
+                                        <td><?php echo $list['c_P_name']; ?></td>
+										<td><?php echo $list['title']; ?></td>
 										<td><?php echo $list['description']; ?></td>
 										<td><?php if($list['status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>
                                         <td>
