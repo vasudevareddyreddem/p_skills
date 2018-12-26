@@ -77,7 +77,8 @@
                                         <ul class="dropdown-menu" aria-labelledby="dropdown2-1-1">
                                         <?php foreach($lis['course_profiles'] as $li){ ?>
                                             <li><a href="<?php echo base_url('courseprofile/index/'.base64_encode($li['c_id']).'/'.$li['c_P_name']); ?>"><?php echo isset($li['c_P_name'])?$li['c_P_name']:''; ?></a></li>
-                                            <li></li>
+                                            <?php } ?><?php foreach($lis['course_profiles'] as $li){ ?>
+                                            <li><a href="<?php echo base_url('courseprofile/index/'.base64_encode($li['c_id']).'/'.$li['c_P_name']); ?>"><?php echo isset($li['c_P_name'])?$li['c_P_name']:''; ?></a></li>
                                         <?php } ?>
                                         </ul>
                                     </li>
@@ -255,47 +256,3 @@
             <?php echo $this->session->flashdata('error');?> &nbsp; <i class="fa fa-exclamation-triangle text-success ico_bac" aria-hidden="true"></i> </div>
         <?php endif; ?>
     
-    
-<!--
-<script>
-$(document).ready(function(){
-  $('.dropdown-submenu a.d-test').on("click", function(e){
-    $(this).next('ul').show();
-    e.stopPropagation();
-    e.preventDefault();
-  });
-});
-</script>
--->
-		
-<script>
-$(document).ready(function () {
-
-    $('.navbar .dropdown-item').on('click', function (e) {
-        var $el = $(this).children('.dropdown-toggle');
-        var $parent = $el.offsetParent(".dropdown-menu");
-        $(this).parent("li").toggleClass('open');
-
-        if (!$parent.parent().hasClass('navbar-nav')) {
-            if ($parent.hasClass('show')) {
-                $parent.removeClass('show');
-                $el.next().removeClass('show');
-                $el.next().css({"top": -999, "left": -999});
-            } else {
-                $parent.parent().find('.show').removeClass('show');
-                $parent.addClass('show');
-                $el.next().addClass('show');
-                $el.next().css({"top": "-1px", "left": "100%"});
-            }
-            e.preventDefault();
-            e.stopPropagation();
-        }
-    });
-
-    $('.navbar .dropdown').on('hidden.bs.dropdown', function () {
-        $(this).find('li.dropdown').removeClass('show open');
-        $(this).find('ul.dropdown-menu').removeClass('show open');
-    });
-
-});
-</script>
