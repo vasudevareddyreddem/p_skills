@@ -23,6 +23,7 @@ class Courseprofile extends Front_end {
 
 		$data['trainees_participated_from']=$this->User_model->get_course_profile_logo_list($course_profile_id);
 		$data['course_details_list']=$this->User_model->get_course_details_list($course_profile_id);
+		$data['faq_list']=$this->User_model->get_interview_questions_list_list($course_profile_id);
 		$data['feedback_participants']=$this->User_model->get_feedback_participants_list($course_profile_id);
 			$data['review_lists']=$this->User_model->get_overall_star_data($course_profile_id);
 			if(count($data['review_lists'])>0){
@@ -69,7 +70,7 @@ class Courseprofile extends Front_end {
 		$data['skillchair']=$this->User_model->get_skillchair_list($course_profile_id);
 		$data['training_course']=$this->User_model->get_training_course_list($course_profile_id);
 		$data['training_batches']=$this->User_model->get_training_batches_list($course_profile_id);
-		//echo'<pre>';print_r($data['ratings']);exit;
+		//echo'<pre>';print_r($data['faq_list']);exit;
 		$this->load->view('html/categories',$data);
 		$this->load->view('html/footer',$footer);
 	}

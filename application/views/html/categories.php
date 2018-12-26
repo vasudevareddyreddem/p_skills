@@ -62,7 +62,7 @@
     <section class="category-details mt-5">
         <div class="container">
             
-            <h3 class="heading mb-4"><?php echo isset($course_name['c_P_name'])?$course_name['c_P_name']:''; ?> Training Course</h3>
+            <h3 class="heading mb-4"> Training Course</h3>
 			<div class="row">
 					<div class="col-md-8">
 					<?php echo isset($training_course['title'])?$training_course['title']:''?>
@@ -93,7 +93,7 @@
     <section class="why-sc mt-5">
         <div class="container">
             
-            <h3 class="heading mb-4"> Why <?php echo isset($course_name['c_P_name'])?$course_name['c_P_name']:''; ?> ?</h3>
+            <h3 class="heading mb-4"> Why Skillchair ?</h3>
 			<div class="row">
 				
 				<div class="col-md-12 wsc-points">
@@ -110,7 +110,7 @@
     <section class="course-schedule mt-5">
         <div class="container">
             
-            <h3 class="heading mb-4"><?php echo isset($course_name['c_P_name'])?$course_name['c_P_name']:''; ?> Training Batches</h3>
+            <h3 class="heading mb-4">Training Batches</h3>
             <div class="row">
                 
                 <!-- Weekend Track -->
@@ -191,7 +191,7 @@
     <section class="course-details mt-5">
         <div class="container">
             
-            <h3 class="heading mb-4"><?php echo isset($course_name['c_P_name'])?$course_name['c_P_name']:''; ?> Course Details</h3>
+            <h3 class="heading mb-4"> Course Details</h3>
             <div id="accordion1">
                  <?php $cnt=1;foreach($course_details_list as $list){ ?>
                 <div class="card">
@@ -211,7 +211,40 @@
         </div>
     </section>
 	<?php } ?>
-    
+    <!-- Interview Questions -->
+	
+	
+	
+	
+	
+<?php if(isset($faq_list) && count($faq_list)>0){ ?>
+    <section class="interview-q mt-5" style="padding:40px;">
+	<div class="">
+        <div class="container">
+            
+            <h3 class="heading mb-4">FAQ's</h3>
+			
+            <div id="accordion2">
+                <?php $cnt=1;foreach($faq_list as $list){ ?>
+                <div class="card">
+                    <div class="card-header" data-toggle="collapse" data-target="#faqOne<?php echo $cnt; ?>">
+                        <h6 class="mb-0"><?php echo isset($list['title'])?$list['title']:''; ?></h6>
+                    </div>
+                    <div id="faqOne<?php echo $cnt; ?>" class="collapse" data-parent="#accordion2">
+                        <div class="card-body">
+                           <?php echo isset($list['description'])?$list['description']:''; ?>
+                        </div>
+                    </div>
+                </div>
+				<?php $cnt++;} ?>
+                
+            </div>
+			
+             
+        </div>
+		 </div>
+    </section>
+	<?php }?>
 	<!-- Feedback -->
 	<?php if(isset($feedback_participants) && count($feedback_participants)>0){ ?>
 	<section class="feedback mt-5">
