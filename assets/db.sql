@@ -111,9 +111,9 @@ DROP TABLE IF EXISTS `course_details`;
 
 CREATE TABLE `course_details` (
   `c_d_id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(250) DEFAULT NULL,
+  `title` text,
   `course_profile` int(12) DEFAULT NULL,
-  `description` varchar(250) DEFAULT NULL,
+  `description` text,
   `status` int(1) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -164,7 +164,7 @@ CREATE TABLE `header` (
 
 /*Data for the table `header` */
 
-insert  into `header`(`h_id`,`course_profile`,`video`,`color_code`,`org_video`,`text`,`status`,`created_at`,`updated_at`,`created_by`) values (11,2,'1545133245.mp4','#80ff00','1544610500.mp4','text123',2,'2018-12-18 12:40:44','2018-12-18 12:54:05',1),(12,5,'1545133390.mp4','#00ffff','1544614034.mp4','text123',2,'2018-12-18 12:43:09','2018-12-18 12:54:02',1),(13,7,'1545134037.mp4','#8080ff','1544610500.mp4','text123',1,'2018-12-18 12:53:57','2018-12-18 12:54:29',1),(14,8,'1545134062.mp4','#00ffff','','text123',1,'2018-12-18 12:54:21','2018-12-18 12:54:45',1),(15,12,'1545139111.mp4','#0000ff','','text123',1,'2018-12-18 14:18:31','2018-12-18 14:19:25',1),(16,11,'1545139296.mp4','#008040','1545134062.mp4','text12',1,'2018-12-18 14:20:54','2018-12-18 14:21:35',1),(17,13,'1545202384.mp4','#ff00ff','1544610500.mp4','hello',1,'2018-12-19 07:53:04','2018-12-19 08:17:06',1),(18,13,'1545203849.mp4','#0000ff','1544612371.mp4','text12',0,'2018-12-19 08:17:29','2018-12-19 08:17:29',1);
+insert  into `header`(`h_id`,`course_profile`,`video`,`color_code`,`org_video`,`text`,`status`,`created_at`,`updated_at`,`created_by`) values (11,2,'1545133245.mp4','#80ff00','1544610500.mp4','text123',2,'2018-12-18 12:40:44','2018-12-18 12:54:05',1),(12,5,'1545133390.mp4','#00ffff','1544614034.mp4','text123',2,'2018-12-18 12:43:09','2018-12-18 12:54:02',1),(13,13,'1545134037.mp4','#8080ff','','text123',1,'2018-12-18 12:53:57','2018-12-26 14:09:44',1),(14,8,'1545134062.mp4','#00ffff','','text123',1,'2018-12-18 12:54:21','2018-12-18 12:54:45',1),(15,12,'1545139111.mp4','#0000ff','','text123',1,'2018-12-18 14:18:31','2018-12-18 14:19:25',1),(16,11,'1545139296.mp4','#008040','1545134062.mp4','text12',1,'2018-12-18 14:20:54','2018-12-18 14:21:35',1),(17,13,'1545202384.mp4','#ff00ff','1544610500.mp4','hello',1,'2018-12-19 07:53:04','2018-12-19 08:17:06',1),(18,13,'1545203849.mp4','#0000ff','1544612371.mp4','text12',0,'2018-12-19 08:17:29','2018-12-19 08:17:29',1);
 
 /*Table structure for table `header_images` */
 
@@ -200,11 +200,11 @@ CREATE TABLE `interview_questions` (
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`i_q_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 
 /*Data for the table `interview_questions` */
 
-insert  into `interview_questions`(`i_q_id`,`title`,`course_profile`,`description`,`status`,`created_at`,`updated_at`,`created_by`) values (26,'test3',13,'ghjgj',1,'2018-12-26 14:03:15','2018-12-26 14:03:15',1),(27,'course',13,'hgjhgkj',1,'2018-12-26 14:03:15','2018-12-26 14:03:15',1);
+insert  into `interview_questions`(`i_q_id`,`title`,`course_profile`,`description`,`status`,`created_at`,`updated_at`,`created_by`) values (26,'test3',13,'ghjgj',1,'2018-12-26 14:03:15','2018-12-26 14:03:15',1),(27,'course',13,'hgjhgkj',1,'2018-12-26 14:03:15','2018-12-26 14:03:15',1),(28,'test3',12,'gjmhg',1,'2018-12-27 06:55:02','2018-12-27 06:55:02',1),(29,'test4',12,'jml',1,'2018-12-27 06:55:13','2018-12-27 06:55:13',1);
 
 /*Table structure for table `leads_list` */
 
@@ -349,7 +349,7 @@ DROP TABLE IF EXISTS `training_course`;
 
 CREATE TABLE `training_course` (
   `t_c_id` int(11) NOT NULL AUTO_INCREMENT,
-  `course_profile` varchar(250) DEFAULT NULL,
+  `course_profile` int(12) DEFAULT NULL,
   `title` varchar(250) DEFAULT NULL,
   `status` int(11) DEFAULT '1',
   `created_at` datetime DEFAULT NULL,
@@ -360,7 +360,7 @@ CREATE TABLE `training_course` (
 
 /*Data for the table `training_course` */
 
-insert  into `training_course`(`t_c_id`,`course_profile`,`title`,`status`,`created_at`,`updated_at`,`created_by`) values (11,'13','<p>yjhgkj</p>\r\n',1,'2018-12-18 12:45:11','2018-12-21 14:19:05',1),(12,'12','<p>hjkjh</p>\r\n',0,'2018-12-18 12:45:32','2018-12-21 14:19:12',1),(13,'13','<ol>\r\n	<li>\r\n	<p>Oracle Fusion Financials, which include general ledger, receivables, payables, asset tracking, expense management, and cash management functionality.</p>\r\n	</li>\r\n	<li>\r\n	<p>Oracle Fusion Accounting Hub, providing the integration and',0,'2018-12-19 07:54:03','2018-12-19 07:54:03',1),(14,'13','<p>n,mn.,k.k</p>\r\n',0,'2018-12-21 14:17:57','2018-12-21 14:17:57',1),(15,'13','<p>yuiyik</p>\r\n',0,'2018-12-21 14:22:42','2018-12-21 14:22:42',1);
+insert  into `training_course`(`t_c_id`,`course_profile`,`title`,`status`,`created_at`,`updated_at`,`created_by`) values (11,13,'<p>yjhgkj</p>\r\n',1,'2018-12-18 12:45:11','2018-12-21 14:19:05',1),(12,12,'<p>hjkjh</p>\r\n',0,'2018-12-18 12:45:32','2018-12-21 14:19:12',1),(13,13,'<ol>\r\n	<li>\r\n	<p>Oracle Fusion Financials, which include general ledger, receivables, payables, asset tracking, expense management, and cash management functionality.</p>\r\n	</li>\r\n	<li>\r\n	<p>Oracle Fusion Accounting Hub, providing the integration and',0,'2018-12-19 07:54:03','2018-12-19 07:54:03',1),(14,13,'<p>n,mn.,k.k</p>\r\n',0,'2018-12-21 14:17:57','2018-12-21 14:17:57',1),(15,13,'<p>yuiyik</p>\r\n',0,'2018-12-21 14:22:42','2018-12-21 14:22:42',1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
