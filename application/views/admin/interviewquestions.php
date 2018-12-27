@@ -43,7 +43,7 @@
 													Course Profile
 												</th>
 												<th class="text-center">
-												Title	
+												Title	Course Profile
 												</th>
 								<th class="text-center">
 													Description

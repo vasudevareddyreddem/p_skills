@@ -67,19 +67,22 @@
                                 <a class="dropdown-toggle" id="dropdown2-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <?php echo isset($list['category_name'])?$list['category_name']:''; ?>
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdown2-1">
+                                <ul class="dropdown-menu2" aria-labelledby="dropdown2-1">
                                 <?php if(isset($list['course_names']) && count($list['course_names'])>0){ ?>
 								    <?php foreach($list['course_names'] as $lis){ ?>
                                     <li class="dropdown-item dropdown">
                                         <a class="dropdown-toggle" id="dropdown2-1-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <?php echo isset($lis['sub_category_name'])?$lis['sub_category_name']:''; ?>
                                         </a>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdown2-1-1">
+                                        <ul class="dropdown-menu3" >
                                         <?php foreach($lis['course_profiles'] as $li){ ?>
-                                            <li><a href="<?php echo base_url('courseprofile/index/'.base64_encode($li['c_id']).'/'.$li['c_P_name']); ?>"><?php echo isset($li['c_P_name'])?$li['c_P_name']:''; ?></a></li>
-                                            
+                                            <li class="dropdown-item dropdown">
+											<a href="<?php echo base_url('courseprofile/index/'.base64_encode($li['c_id']).'/'.$li['c_P_name']); ?>"><?php echo isset($li['c_P_name'])?$li['c_P_name']:''; ?></a>
+                                            </li>
                                         <?php } ?>
+										
                                         </ul>
+										
                                     </li>
                                     <?php } ?>
 				                <?php } ?>

@@ -63,34 +63,63 @@
         new WOW().init();
     </script>
 
-    <script>
+   <script>
         $(document).ready(function () {
 
             $('.navbar .dropdown-item').on('click', function (e) {
                 var $el = $(this).children('.dropdown-toggle');
+                var $e2 = $(this).children('.dropdown-toggle');
+                var $e3 = $(this).children('.dropdown-toggle');
                 var $parent = $el.offsetParent(".dropdown-menu");
+                var $parent1 = $el.offsetParent(".dropdown-menu");
+                var $parent2 = $el.offsetParent(".dropdown-menu");
                 $(this).parent("li").toggleClass('open');
 
-                if (!$parent.parent().hasClass('navbar-nav')) {
+                if (!$parent.parent,parent1().hasClass('navbar-nav')) {
+					
                     if ($parent.hasClass('show')) {
                         $parent.removeClass('show');
                         $el.next().removeClass('show');
+                        $e2.next().removeClass('show');
+                        $e2.next().removeClass('show');
                         $el.next().css({"top": -999, "left": -999});
+                        $e2.next().css({"top": -999, "left": -999});
                     } else {
                         $parent.parent().find('.show').removeClass('show');
                         $parent.addClass('show');
                         $el.next().addClass('show');
+                        $e2.next().addClass('show');
                         $el.next().css({"top": "-1px", "left": "100%"});
+                        $e2.next().css({"top": "-1px", "left": "100%"});
                     }
-                    e.preventDefault();
-                    e.stopPropagation();
-                }
+                   e.preventDefault();
+                   e.stopPropagation();
+                }else{
+					
+					if ($parent.hasClass('open')) {
+                        $parent2.removeClass('open');
+                        $e3.next().removeClass('open');
+                        $e3.next().css({"top": -999, "left": -999});
+                    } else {
+                        $parent.parent().find('.open').removeClass('open');
+                        $parent2.addClass('open');
+                        $e3.next().addClass('open');
+                        $e3.next().css({"top": "-1px", "left": "100%"});
+                    }
+                   e.preventDefault();
+                   e.stopPropagation();
+					
+					
+				}
+				
+				
+				
+				
+				
+				
             });
 
-            $('.navbar .dropdown').on('hidden.bs.dropdown', function () {
-                $(this).find('li.dropdown').removeClass('show open');
-                $(this).find('ul.dropdown-menu').removeClass('show open');
-            });
+            
 
         });
     </script>
