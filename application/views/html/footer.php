@@ -68,62 +68,37 @@
 
             $('.navbar .dropdown-item').on('click', function (e) {
                 var $el = $(this).children('.dropdown-toggle');
-                var $e2 = $(this).children('.dropdown-toggle');
-                var $e3 = $(this).children('.dropdown-toggle');
                 var $parent = $el.offsetParent(".dropdown-menu");
-                var $parent1 = $el.offsetParent(".dropdown-menu");
-                var $parent2 = $el.offsetParent(".dropdown-menu");
                 $(this).parent("li").toggleClass('open');
 
-                if (!$parent.parent,parent1().hasClass('navbar-nav')) {
+                if (!$parent.parent().hasClass('navbar-nav')) {
+					//alert('ok');
 					
                     if ($parent.hasClass('show')) {
                         $parent.removeClass('show');
                         $el.next().removeClass('show');
-                        $e2.next().removeClass('show');
-                        $e2.next().removeClass('show');
                         $el.next().css({"top": -999, "left": -999});
-                        $e2.next().css({"top": -999, "left": -999});
                     } else {
                         $parent.parent().find('.show').removeClass('show');
                         $parent.addClass('show');
                         $el.next().addClass('show');
-                        $e2.next().addClass('show');
                         $el.next().css({"top": "-1px", "left": "100%"});
-                        $e2.next().css({"top": "-1px", "left": "100%"});
                     }
                    e.preventDefault();
                    e.stopPropagation();
-                }else{
-					
-					if ($parent.hasClass('open')) {
-                        $parent2.removeClass('open');
-                        $e3.next().removeClass('open');
-                        $e3.next().css({"top": -999, "left": -999});
-                    } else {
-                        $parent.parent().find('.open').removeClass('open');
-                        $parent2.addClass('open');
-                        $e3.next().addClass('open');
-                        $e3.next().css({"top": "-1px", "left": "100%"});
-                    }
-                   e.preventDefault();
-                   e.stopPropagation();
-					
-					
-				}
-				
-				
-				
-				
-				
-				
+                }
+            });
+			 $('.navbar .dropdown-item1').on('click', function (e) {
+           val = $(this).attr("href");
+            newurl = val + '/' + month;
+            $(this).attr("href", newurl);
+
             });
 
             
 
         });
     </script>
-    
     <!-- Hoverable Dropdown -->
 <!--
     <script type="text/javascript">
