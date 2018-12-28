@@ -76,8 +76,8 @@
                                         </a>
                                         <ul class="dropdown-menu" >
                                         <?php foreach($lis['course_profiles'] as $li){ ?>
-                                            <li class="dropdown-item1 ">
-											<a href="<?php echo base_url('courseprofile/index/'.base64_encode($li['c_id']).'/'.$li['c_P_name']); ?>"><?php echo isset($li['c_P_name'])?$li['c_P_name']:''; ?></a>
+                                            <li class="dropdown-item">
+											<span class="cat-link" onclick="location.href='<?php echo base_url('courseprofile/index/'.base64_encode($li['c_id']).'/'.$li['c_P_name']); ?>' "><?php echo isset($li['c_P_name'])?$li['c_P_name']:''; ?></span>
                                             </li>
                                         <?php } ?>
 										

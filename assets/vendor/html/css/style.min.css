@@ -141,6 +141,22 @@ p{
     padding: 0px;
 }
 
+.cat-link{
+    padding: 10px;
+    font-size: .9375rem;
+	font-weight: 500;
+	margin-bottom:6px;
+	cursor: pointer; 
+	width: 100%; 
+	display: block;
+}
+
+.cat-link:hover {
+    border-left: 3px solid #59698d;
+    background: #ededed;
+    color: #59698d;
+}
+
 /*
 .navbar .dropdown-toggle, .navbar .dropdown-menu a {
     cursor: pointer;
