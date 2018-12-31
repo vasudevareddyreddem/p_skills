@@ -226,6 +226,7 @@
 			
             <div id="accordion2">
                 <?php $cnt=1;foreach($faq_list as $list){ ?>
+				<?php if($cnt <=2){ ?>
                 <div class="card">
                     <div class="card-header" data-toggle="collapse" data-target="#faqOne<?php echo $cnt; ?>">
                         <h6 class="mb-0"><?php echo isset($list['title'])?$list['title']:''; ?></h6>
@@ -236,7 +237,11 @@
                         </div>
                     </div>
                 </div>
+				<?php } ?>
 				<?php $cnt++;} ?>
+				<?php if(isset($faq_list) && count($faq_list)>2){ ?>
+				<div><a href="<?php echo base_url('courseprofile/morefaqs/'.$course_name['c_P_name'].'/'.$course_profile_id); ?>"><b>Load more</b></a></div>
+				<?php } ?>
                 
             </div>
 			
