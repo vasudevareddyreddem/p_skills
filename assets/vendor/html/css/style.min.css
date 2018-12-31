@@ -353,6 +353,7 @@ p{
 .banner-body{
     margin-left: 40px;
     margin-right: 40px;
+    width: 100%;
 }
 
 .search-container {
