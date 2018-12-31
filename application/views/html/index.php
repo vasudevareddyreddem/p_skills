@@ -4,7 +4,7 @@
     <div class="view" style="background-image: url('<?php echo base_url('assets/headerimages/'.$home_image['image']); ?>'); background-repeat: no-repeat; background-size: cover;">
 
         <!-- Mask & flexbox options-->
-        <div class="mask rgba-black-strong d-flex align-items-center">
+        <div class="mask rgba-black-strong d-flex align-items-center justify-content-center">
 
             <!-- Content -->
             <div class="banner-body text-center white-text wow fadeIn">

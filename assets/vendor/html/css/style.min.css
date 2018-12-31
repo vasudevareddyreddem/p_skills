@@ -129,6 +129,7 @@ p{
     width: 100%;
     font-weight: 500;
     color: #525252;
+    word-wrap: break-word;
 }
 
 .dropdown-menu a:hover {
@@ -184,8 +185,11 @@ p{
         border-bottom: .3em solid transparent;
         border-top: .3em solid transparent;
         border-left: .3em solid;
-        float: right;
-        margin-top: 7px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 5px;
     }
 }
 
