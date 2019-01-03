@@ -200,9 +200,13 @@ p{
     position: absolute;
     top: 100%;
     z-index: 1;
-    width: 18%;
+    width: 20%;
     min-height: 80vh;
     background: #fefefe;
+}
+
+#navbar-menu-list ul li:nth-child(even){
+    background: #efefef;
 }
 
 .nml-has-dropdown-1:hover .nml-step-1:before{
@@ -230,8 +234,7 @@ p{
 }
 
 #navbar-menu-list ul li:hover {
-    border-left: 3px solid #59698d;
-    background: #ededed;
+    border-left: 4px solid #59698d;
 }
 
 #navbar-menu-list ul li:hover > a::after {
@@ -243,7 +246,7 @@ p{
     transform: translateY(-50%);
 }
 
-#navbar-menu-list .nml-step-1 .nml-step-2 .nml-step-3 li:hover > a:before {
+#navbar-menu-list .nml-step-1 .nml-step-2 .nml-step-3 li:hover > a::after {
     content:"";
 }
 
