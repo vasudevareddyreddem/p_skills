@@ -226,7 +226,7 @@
 			
             <div id="accordion2">
                 <?php $cnt=1;foreach($faq_list as $list){ ?>
-				<?php if($cnt <=2){ ?>
+				<?php if($cnt <=5){ ?>
                 <div class="card">
                     <div class="card-header" data-toggle="collapse" data-target="#faqOne<?php echo $cnt; ?>">
                         <h6 class="mb-0"><?php echo isset($list['title'])?$list['title']:''; ?></h6>
@@ -239,8 +239,25 @@
                 </div>
 				<?php } ?>
 				<?php $cnt++;} ?>
-				<?php if(isset($faq_list) && count($faq_list)>2){ ?>
-				<div><a href="<?php echo base_url('courseprofile/morefaqs/'.$course_name['c_P_name'].'/'.$course_profile_id); ?>"><b>Load more</b></a></div>
+				
+				<div style="display:none" id="showmore1">
+				 <?php $cnt=1;foreach($faq_list as $list){ ?>
+				<?php if($cnt >5){ ?>
+                <div class="card">
+                    <div class="card-header" data-toggle="collapse" data-target="#faqOne<?php echo $cnt; ?>">
+                        <h6 class="mb-0"><?php echo isset($list['title'])?$list['title']:''; ?></h6>
+                    </div>
+                    <div id="faqOne<?php echo $cnt; ?>" class="collapse" data-parent="#accordion2">
+                        <div class="card-body">
+                           <?php echo isset($list['description'])?$list['description']:''; ?>
+                        </div>
+                    </div>
+                </div>
+				<?php } ?>
+				<?php $cnt++;} ?>
+				</div>
+				<?php if(isset($faq_list) && count($faq_list)>5){ ?>
+				<div><a id="readmore1"><b>Read More ....</b></a></div>
 				<?php } ?>
                 
             </div>
@@ -373,3 +390,25 @@
 	</main>
 
  <script src="<?php echo base_url(); ?>assets/vendor/html/js/starts.js"></script>
+ <script>
+  $(document).ready(function(){
+		var cnt=2;
+		$("#readmore1").click(function(){
+				$("#loadcon1").slideToggle("slow", "linear");
+				if((cnt % 2) === 0){
+			$("#readmore1").text("Read Less..");
+			}else{
+				$("#readmore1").text("Read More..");
+			}
+			cnt++;
+		});
+		 $('#readmore1').click(function(){
+          $('#showmore1').toggle();
+
+      });
+      
+      
+       
+    });
+ </script>
+ 
