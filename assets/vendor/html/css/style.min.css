@@ -108,18 +108,17 @@ p{
     .navbar {
         background-color: #212121;
     }
-/*
     .navbar-collapse.collapse.show{
         height: 300px;
         overflow-x: hidden;
         overflow-y: scroll;
     }
-*/
 }
 
 /* Multi DropDown 
 =================================================================================================== */
 
+/*
 .dropdown-menu {
     padding: 0px;
     border-radius: 0px;
@@ -158,24 +157,6 @@ p{
     color: #59698d;
 }
 
-/*
-.navbar .dropdown-toggle, .navbar .dropdown-menu a {
-    cursor: pointer;
-}
-
-.navbar .dropdown-item.active, .navbar .dropdown-item:active {
-    color: inherit;
-    text-decoration: none;
-    background-color: inherit;
-}
-
-.navbar .dropdown-item:focus, .navbar .dropdown-item:hover {
-    color: #16181b;
-    text-decoration: none;
-    background-color: #f8f9fa;
-}
-*/
-
 @media (min-width: 767px) {
     .navbar .dropdown-toggle:not(.nav-link)::after {
         display: inline-block;
@@ -193,8 +174,24 @@ p{
     }
 }
 
+.navbar .dropdown-toggle, .navbar .dropdown-menu a {
+    cursor: pointer;
+}
 
-/*
+.navbar .dropdown-item.active, .navbar .dropdown-item:active {
+    color: inherit;
+    text-decoration: none;
+    background-color: inherit;
+}
+
+.navbar .dropdown-item:focus, .navbar .dropdown-item:hover {
+    color: #16181b;
+    text-decoration: none;
+    background-color: #f8f9fa;
+}
+
+*/
+
 #navbar-menu-list ul {
     margin: 0px;
     padding: 0px;
@@ -204,11 +201,11 @@ p{
     top: 100%;
     z-index: 1;
     width: 18%;
-    height: auto;
+    min-height: 80vh;
     background: #fefefe;
 }
 
-.nml-has-dropdown-1 .nml-step-1:before{
+.nml-has-dropdown-1:hover .nml-step-1:before{
     content:"\f0d8";
     font: normal normal normal 22px/1 FontAwesome;
     font-size: 30px;
@@ -218,7 +215,7 @@ p{
     left: 15px;
 }
 
-#navbar-menu-list li:focus-within > ul {
+#navbar-menu-list li:hover > ul {
     opacity: 1;
     visibility: visible;
     margin: 0;
@@ -229,6 +226,7 @@ p{
     display: block;
     color: #59698d;
     font-weight: 400;
+    word-wrap: break-word;
 }
 
 #navbar-menu-list ul li:hover {
@@ -236,28 +234,26 @@ p{
     background: #ededed;
 }
 
-#navbar-menu-list ul li:hover > a:before {
+#navbar-menu-list ul li:hover > a::after {
     content:"\f105";
     font: normal normal normal 22px/1 FontAwesome;
     right: 10px;
 	position:absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
-*/
 
-/*
 #navbar-menu-list .nml-step-1 .nml-step-2 .nml-step-3 li:hover > a:before {
     content:"";
 }
 
 #navbar-menu-list ul ul {
-    top: 0%;
+    top: 0;
     left: 100%;
     width: 100%;
-    height: auto;
+    min-height: 80vh;
 }
-*/
 
-/*
 @media only screen and (max-width:992px) {
     
     .nml-has-dropdown-1:hover .nml-step-1:before{
@@ -265,12 +261,13 @@ p{
     }
     
     #navbar-menu-list ul {
-        background: rgba(89, 105, 141, 0);
+        background: #59698d;
+        min-height: auto;
     }
     
     #navbar-menu-list ul li:hover {
         border-left: 0px solid #ffffff;
-        background: rgba(89, 105, 141, 0);
+        background: #59698d;
     }
     
     #navbar-menu-list ul li a {
@@ -306,7 +303,7 @@ p{
         background: rgba(221, 221, 221, 0.10);
     }
     
-    #navbar-menu-list li.nml-has-dropdown-2:focus-within ul.nml-step-2 {
+    #navbar-menu-list li.nml-has-dropdown-2:hover ul.nml-step-2 {
         position: relative;
         visibility: visible;
         opacity: 1;
@@ -318,7 +315,7 @@ p{
         background: rgba(221, 221, 221, 0.30);
     }
     
-    #navbar-menu-list li.nml-has-dropdown-3:focus-within ul.nml-step-3 {
+    #navbar-menu-list li.nml-has-dropdown-3:hover ul.nml-step-3 {
         position: relative;
         visibility: visible;
         opacity: 1;
@@ -337,15 +334,19 @@ p{
         margin-right: 0px;
     }
     
-    #navbar-menu-list ul li:hover > a:before {
+    #navbar-menu-list ul li:hover > a:after {
         content:"\f107";
         font: normal normal normal 22px/1 FontAwesome;
         right: 10px;
         position:absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    #navbar-menu-list ul ul {
+        min-height: auto;
     }
 
 }
-*/
 
 /* Full Page Intro  & Navbar 
 ===================================================================================== */

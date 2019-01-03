@@ -58,7 +58,7 @@
 
                 <!-- Left -->
                 <ul class="navbar-nav" id="navbar-menu-list">
-                     <li class="nav-item dropdown">
+                     <!--<li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-th"></i> Categories</a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown2">
                         <?php if(isset($category_list) && count($category_list)>0){ ?>
@@ -91,8 +91,38 @@
                             <?php } ?>     
 				        <?php } ?>
                         </ul>
-                    </li>
+                    </li>-->
                    
+                    <li class="nav-item nml-has-dropdown-1">
+                        <a class="nav-link" href="#"><i class="fa fa-th"></i> Categories</a>
+                        <ul class="z-depth-1 nml-step-1">
+                        <?php if(isset($category_list) && count($category_list)>0){ ?>
+                            <?php foreach($category_list as $list){ ?>
+                            <li class="nml-has-dropdown-2">
+                                <a href="#"><?php echo isset($list['category_name'])?$list['category_name']:''; ?></a>
+                                <ul class="z-depth-2 nml-step-2">
+                                <?php if(isset($list['course_names']) && count($list['course_names'])>0){ ?>
+								    <?php foreach($list['course_names'] as $lis){ ?>
+                                    <li class="nml-has-dropdown-3">
+                                        <a href="#">
+                                            <?php echo isset($lis['sub_category_name'])?$lis['sub_category_name']:''; ?>
+                                        </a>
+                                        <ul class="z-depth-3 nml-step-3">
+                                        <?php foreach($lis['course_profiles'] as $li){ ?>
+                                            <li><a href="<?php echo base_url('courseprofile/index/'.base64_encode($li['c_id']).'/'.$li['c_P_name']); ?>"><?php echo isset($li['c_P_name'])?$li['c_P_name']:''; ?></a>
+                                            </li>
+                                        <?php } ?>
+                                        </ul>
+                                    </li>
+                                    <?php } ?>
+				                <?php } ?>
+                                </ul>
+                            </li>
+                            <?php } ?>
+				        <?php } ?>
+                        </ul>
+                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url('aboutus'); ?>">About Us</a>
                     </li>
@@ -100,36 +130,6 @@
                         <a class="nav-link" href="<?php echo base_url('contactus');?>">Contact Us</a>
                     </li>
 					
-                    <!--
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown2</a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdown2">
-                            <li class="dropdown-item dropdown">
-                                <a class="dropdown-toggle" id="dropdown2-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown2.1</a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdown2-1">
-                                    <li class="dropdown-item" href="#"><a>Action 2.1 C</a></li>
-                                    <li class="dropdown-item dropdown">
-                                        <a class="dropdown-toggle" id="dropdown2-1-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown2.1.1</a>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdown2-1-1">
-                                            <li class="dropdown-item" href="#"><a>Action 2.1.1 A</a></li>
-                                            <li class="dropdown-item" href="#"><a>Action 2.1.1 B</a></li>
-                                            <li class="dropdown-item" href="#"><a>Action 2.1.1 C</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown-item dropdown">
-                                        <a class="dropdown-toggle" id="dropdown2-1-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown2.1.2</a>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdown2-1-2">
-                                            <li class="dropdown-item" href="#"><a>Action 2.1.2 A</a></li>
-                                            <li class="dropdown-item" href="#"><a>Action 2.1.2 B</a></li>
-                                            <li class="dropdown-item" href="#"><a>Action 2.1.2 C</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    -->
-                    
                 </ul>
 
             </div>
