@@ -15,18 +15,16 @@
             <h3 class="heading mb-4" ><?php echo isset($course_name['c_P_name'])?$course_name['c_P_name']:''; ?> FAQ's</h3>
 			
             <div id="accordion2">
-                <?php $cnt=1;foreach($faq_list as $list){ ?>
                 <div class="card">
-                    <div class="card-header" data-toggle="collapse" data-target="#faqOne<?php echo $cnt; ?>">
-                        <h6 class="mb-0"><?php echo isset($list['title'])?$list['title']:''; ?></h6>
+                    <div class="card-header" data-toggle="collapse" data-target="#faqOne11">
+                        <h6 class="mb-0"><?php echo isset($faq_list['title'])?$faq_list['title']:''; ?></h6>
                     </div>
-                    <div id="faqOne<?php echo $cnt; ?>" class="collapse" data-parent="#accordion2">
+                    <div id="faqOne11" class="active collapse show" data-parent="#accordion2">
                         <div class="card-body">
-                           <?php echo isset($list['description'])?$list['description']:''; ?>
+                           <?php echo isset($faq_list['description'])?$faq_list['description']:''; ?>
                         </div>
                     </div>
                 </div>
-				<?php $cnt++;} ?>
 				<div><a href="<?php echo base_url('courseprofile/index/'.$course_profile_id.'/'.$course_name['c_P_name']); ?>"><b>Load Less</b></a></div>
 				
                 

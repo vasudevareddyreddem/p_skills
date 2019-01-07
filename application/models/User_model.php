@@ -191,6 +191,14 @@ class User_model extends CI_Model
 	return $this->db->get()->result_array();
 	}
 	
+	public function get_interview_question_details_list_list($c_profile_id,$faq_id){
+		$this->db->select('*')->from('interview_questions');
+		$this->db->where('interview_questions.status',1);
+		$this->db->where('interview_questions.course_profile',$c_profile_id);
+		$this->db->where('interview_questions.i_q_id',$faq_id);
+		return $this->db->get()->row_array();
+	}
+	
 	
 	
 	

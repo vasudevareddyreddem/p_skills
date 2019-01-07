@@ -113,16 +113,19 @@ class Courseprofile extends Front_end {
 			
 		
 	}
-	public  function morefaqs(){
-		$course_profile_id=base64_decode($this->uri->segment(4));
+	public  function morefaqsdetails(){
+		echo $course_profile_id=base64_decode($this->uri->segment(3));
+		$faq_id=base64_decode($this->uri->segment(4));
 		if($course_profile_id==''){
 		$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
 		redirect('');
 		}
-		$data['course_profile_id']=$this->uri->segment(4);
+		$data['course_profile_id']=$this->uri->segment(3);
 		$data['course_name']=$this->User_model->course_name_list($course_profile_id);
-		$data['faq_list']=$this->User_model->get_interview_questions_list_list($course_profile_id);
+		$data['faq_list']=$this->User_model->get_interview_question_details_list_list($course_profile_id,$faq_id);
+		//echo $this->db->last_query();
 		$footer['footer_links']=$this->User_model->get_footer_links();
+		//echo '<pre>';print_r($data);exit;
 		$this->load->view('html/morefaqs',$data);
 		$this->load->view('html/footer',$footer);
 

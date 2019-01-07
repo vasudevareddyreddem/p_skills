@@ -233,7 +233,11 @@
                     </div>
                     <div id="faqOne<?php echo $cnt; ?>" class="collapse" data-parent="#accordion2">
                         <div class="card-body">
-                           <?php echo isset($list['description'])?$list['description']:''; ?>
+							<?php  echo substr($list['description'], 0, 250); ?>
+							<?php $strnlen=strlen($list['description']);?>
+							<?php if(isset($strnlen) && $strnlen>250){ ?>
+							<a href="<?php echo base_url('courseprofile/morefaqsdetails/'.$course_profile_id.'/'.base64_encode($list['i_q_id']).'/'.$course_name['c_P_name']); ?>"id="readmore22"><b>Read More ....</b></a>
+							<?php } ?>
                         </div>
                     </div>
                 </div>
@@ -249,7 +253,12 @@
                     </div>
                     <div id="faqOne<?php echo $cnt; ?>" class="collapse" data-parent="#accordion2">
                         <div class="card-body">
-                           <?php echo isset($list['description'])?$list['description']:''; ?>
+							<?php  echo substr($list['description'], 0, 250); ?>
+							<?php $strnlen=strlen($list['description']);?>
+							<?php if(isset($strnlen) && $strnlen>250){ ?>
+							<a href="<?php echo base_url('courseprofile/morefaqsdetails/'.$course_profile_id.'/'.base64_encode($list['i_q_id']).'/'.$course_name['c_P_name']); ?>"id="readmore22"><b>Read More ....</b></a>
+							<?php } ?>
+                           <?php //echo isset($list['description'])?$list['description']:''; ?>
                         </div>
                     </div>
                 </div>
@@ -409,6 +418,7 @@
       
       
        
-    });
+    }); 
+	
  </script>
  
