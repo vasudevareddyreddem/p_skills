@@ -9,7 +9,7 @@ class Course extends Admin_panel {
 		$this->load->model('Category_model');
 		
 	}
-	
+	/*
 	public function name()
 	{	
 		if($this->session->userdata('skill_user'))
@@ -204,7 +204,7 @@ if($this->session->userdata('skill_user'))
 		 redirect('admin');  
 	   }
     }
-	
+	*/
 	
 	/*course profile*/
 	

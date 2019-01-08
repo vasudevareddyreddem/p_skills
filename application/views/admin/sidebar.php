@@ -59,7 +59,7 @@
                     </ul>
                 </li>
 				<li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="menu-icon fa fa-users"></i>Course Name Creation</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="menu-icon fa fa-users"></i>Course Profile Creation</a>
                     <ul class="sub-menu children dropdown-menu">
    
                         <!--<li><i class="menu-icon fa fa-angle-left"></i><a href="<?php echo base_url('course/name');?>"> Add Course Name</a></li>
