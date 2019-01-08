@@ -201,7 +201,7 @@ p{
     top: 100%;
     z-index: 1;
     width: 20%;
-    min-height: 80vh;
+    min-height: 50vh;
     background: #fefefe;
 }
 
@@ -250,7 +250,13 @@ p{
     transform: translateY(-50%);
 }
 
+/*
 #navbar-menu-list .nml-step-1 .nml-step-2 .nml-step-3 li:hover > a::after {
+    content:"";
+}
+*/
+
+#navbar-menu-list .nml-step-1 .nml-step-2 li:hover > a::after {
     content:"";
 }
 
@@ -258,7 +264,7 @@ p{
     top: 0;
     left: 100%;
     width: 100%;
-    min-height: 80vh;
+    min-height: 50vh;
 }
 
 @media only screen and (max-width:992px) {
