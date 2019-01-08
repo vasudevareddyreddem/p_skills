@@ -41,11 +41,7 @@ class Category_model extends CI_Model
 	
 	/* sub category */
 	
-	public function get_Category_data(){
-	$this->db->select('category.c_id,category.category_name')->from('category');
-	$this->db->where('category.status ',1);
-	return $this->db->get()->result_array();
-	}
+	
 	public function save_sub_category_details($data){
 	$this->db->insert('sub_category',$data);
 	return $this->db->insert_id();	
@@ -164,9 +160,9 @@ class Category_model extends CI_Model
     return $this->db->update("training_batches",$data);		
 	}
 	/*  course profile*/
-	public function get_course_name_data(){
-	$this->db->select('sub_category.s_c_id,sub_category.sub_category_name')->from('sub_category');
-	$this->db->where('sub_category.status',1);
+	public function get_category_data(){
+	$this->db->select('category.c_id,category.category_name')->from('category');
+	$this->db->where('category.status',1);
 	return $this->db->get()->result_array();
 	}
 	public function save_course_profiles_details($data){
@@ -174,8 +170,8 @@ class Category_model extends CI_Model
 	return $this->db->insert_id();
 	}
 	public function get_courese_profiles_list(){
-	$this->db->select('course_profile.*,sub_category.sub_category_name')->from('course_profile');
-	$this->db->join('sub_category', 'sub_category.s_c_id = course_profile.course_name_id', 'left');
+	$this->db->select('course_profile.*,category.category_name')->from('course_profile');
+	$this->db->join('category', 'category.c_id = course_profile.course_name_id', 'left');
 	$this->db->where('course_profile.status!=',2);
 	return $this->db->get()->result_array();
 	}

@@ -14,7 +14,6 @@ class Dashboard extends Admin_panel {
 		{
 			$login_details=$this->session->userdata('skill_user');
 			$data['category_count']=$this->Dashboard_model->get_category_count_data();
-			$data['course_name_count']=$this->Dashboard_model->get_course_name_count_data();
 			$data['course_profile_count']=$this->Dashboard_model->get_course_profile_count_data();
 			//echo'<pre>';print_r($data);exit;
 			
