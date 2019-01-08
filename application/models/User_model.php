@@ -46,7 +46,6 @@ class User_model extends CI_Model
 	public  function get_all_category_wise_lists(){
 		$this->db->select('category.c_id,category.category_name')->from('course_profile');
 		$this->db->join('category ', 'category.c_id = course_profile.course_name_id', 'left');
-		$this->db->group_by('category.c_id');
 		$this->db->where('category.status',1);
 		$return=$this->db->get()->result_array();
 		//echo'<pre>';print_r($return);exit;
