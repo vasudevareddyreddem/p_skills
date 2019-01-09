@@ -231,14 +231,18 @@ p{
 #navbar-menu-list ul li a {
     padding: 10px;
     display: block;
-    color: #59698d;
+    color: #000000;
     font-weight: 500;
     word-wrap: break-word;
 }
 
 #navbar-menu-list ul li:hover {
-    border-left: 4px solid #59698d;
+/*    border-left: 4px solid #59698d;*/
     background: #efefef;
+}
+
+#navbar-menu-list ul li:hover > a{
+    color: #59698d;
 }
 
 #navbar-menu-list ul li:hover > a::after {
