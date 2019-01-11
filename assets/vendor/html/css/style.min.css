@@ -200,9 +200,10 @@ p{
     position: absolute;
     top: 100%;
     z-index: 1;
-    width: 20%;
-    min-height: 50vh;
+    width: 16%;
+    height: auto;
     background: #fefefe;
+    max-height: 80vh;
 }
 
 /*
@@ -268,7 +269,8 @@ p{
     top: 0;
     left: 100%;
     width: 100%;
-    min-height: 50vh;
+    max-height: 80vh;
+    overflow-y: scroll;
 }
 
 @media only screen and (max-width:992px) {
