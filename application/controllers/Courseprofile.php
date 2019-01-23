@@ -11,12 +11,15 @@ class Courseprofile extends Front_end {
 	public function index()
 	{	
 		
-		$course_profile_id=base64_decode($this->uri->segment(3));
-		if($course_profile_id==''){
+		$course_profile_name=$this->uri->segment(2);
+		if($course_profile_name==''){
 			$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");
 			redirect('');
 		}
-		$data['course_profile_id']=$this->uri->segment(3);
+	
+		$course_profile_id_details=$this->User_model->get_course_profile_id($course_profile_name);
+		$course_profile_id=$course_profile_id_details['c_id'];
+		$data['course_profile_id']=base64_encode($course_profile_id_details['c_id']);
 		$data['course_name']=$this->User_model->course_name_list($course_profile_id);
 		//echo'<pre>';print_r($data);exit;
 		$footer['footer_links']=$this->User_model->get_footer_links();
@@ -114,7 +117,7 @@ class Courseprofile extends Front_end {
 		
 	}
 	public  function morefaqsdetails(){
-		echo $course_profile_id=base64_decode($this->uri->segment(3));
+		$course_profile_id=base64_decode($this->uri->segment(3));
 		$faq_id=base64_decode($this->uri->segment(4));
 		if($course_profile_id==''){
 		$this->session->set_flashdata('error',"technical problem will occurred. Please try again.");

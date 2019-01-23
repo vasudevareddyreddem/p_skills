@@ -172,6 +172,12 @@ class User_model extends CI_Model
 		return $this->db->get()->result_array();
 	}
 	
+	public function get_course_profile_id($course_profile_name){
+	$this->db->select('course_profile.*')->from('course_profile');
+	$this->db->where('course_profile.status',1);
+	$this->db->where('course_profile.c_P_name',$course_profile_name);
+	return $this->db->get()->row_array();
+	}
 	public function course_name_list($course_profile_id){
 	$this->db->select('course_profile.*')->from('course_profile');
 	$this->db->where('course_profile.status',1);

@@ -109,7 +109,7 @@
                                         </a>
                                         <ul class="z-depth-3 nml-step-3">
                                         <?php foreach($lis['course_profiles'] as $li){ ?>
-                                            <li><a href="<?php echo base_url('courseprofile/index/'.base64_encode($li['c_id']).'/'.$li['c_P_name']); ?>"><?php echo isset($li['c_P_name'])?$li['c_P_name']:''; ?></a>
+                                            <li><a href="<?php echo base_url('courseprofile/'.$li['c_P_name']); ?>"><?php echo isset($li['c_P_name'])?$li['c_P_name']:''; ?></a>
                                             </li>
                                         <?php } ?>
                                         </ul>

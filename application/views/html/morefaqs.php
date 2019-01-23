@@ -25,7 +25,7 @@
                         </div>
                     </div>
                 </div>
-				<div><a href="<?php echo base_url('courseprofile/index/'.$course_profile_id.'/'.$course_name['c_P_name']); ?>"><b>Load Less</b></a></div>
+				<div><a href="<?php echo base_url('courseprofile/'.$course_name['c_P_name']); ?>"><b>Load Less</b></a></div>
 				
                 
             </div>
