@@ -36,7 +36,7 @@
                                 <thead>
                                     <tr>
                                         <th>S.No</th>
-                                        <th>Course  Name</th>
+                                        <th>Category Name</th>
 										<th>Course Profile Name</th>
 										<th>Status</th>
                                         <th>Action</th>
@@ -46,7 +46,7 @@
                                    <?php $cnt=1; foreach($courese_profile_list as $list){ ?>
                                     <tr>
                                         <td><?php echo $cnt; ?></td>
-                                        <td><?php echo $list['sub_category_name']; ?></td>
+                                        <td><?php echo $list['category_name']; ?></td>
 										<td><?php echo $list['c_P_name']; ?></td>
 										<td><?php if($list['status']==1){ echo "Active";}else{ echo "Deactive"; } ?></td>
                                         <td>

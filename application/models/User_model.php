@@ -45,45 +45,27 @@ class User_model extends CI_Model
 	
 	public  function get_all_category_wise_lists(){
 		$this->db->select('category.c_id,category.category_name')->from('course_profile');
-		$this->db->join('sub_category ', 'sub_category.s_c_id = course_profile.course_name_id', 'left');
-		$this->db->join('category ', 'category.c_id = sub_category.category', 'left');
-		$this->db->group_by('category.c_id');
-		$this->db->where('course_profile.status',1);
+		$this->db->join('category ', 'category.c_id = course_profile.course_name_id', 'left');
+		$this->db->where('category.status',1);
 		$return=$this->db->get()->result_array();
+		//echo'<pre>';print_r($return);exit;
 		foreach($return as $list){
-			$course_names=$this->get_course_name_details($list['c_id']);
+			$course_profile_names=$this->get_course_profiles_details($list['c_id']);
 			$data[$list['c_id']]=$list;
-			$data[$list['c_id']]['course_names']=$course_names;
+			$data[$list['c_id']]['course_profile_names']=$course_profile_names;
 		}
 		if(!empty($data)){
 			return $data;
 			
 		}
 	}
-	public  function get_course_name_details($c_id){
-		$this->db->select('sub_category.sub_category_name,sub_category.s_c_id')->from('course_profile');
-		$this->db->join('sub_category ', 'sub_category.s_c_id = course_profile.course_name_id', 'left');
-
-		$this->db->group_by('sub_category.s_c_id');
-		$this->db->where('sub_category.status',1);
-		$this->db->where('sub_category.category',$c_id);
-		$return=$this->db->get()->result_array();
-		foreach($return as $lis){
-			$course_profiles=$this->get_course_profiles_details($lis['s_c_id']);
-			$data[$lis['s_c_id']]=$lis;
-			$data[$lis['s_c_id']]['course_profiles']=$course_profiles;
-		}
-		if(!empty($data)){
-			return $data;
-			
-		}
-	}
-	public  function get_course_profiles_details($s_c_id){
+	public  function get_course_profiles_details($c_id){
 		$this->db->select('c_P_name,c_id')->from('course_profile');
 		$this->db->where('course_profile.status',1);
-		$this->db->where('course_profile.course_name_id',$s_c_id);
+		$this->db->where('course_profile.course_name_id',$c_id);
 		return $this->db->get()->result_array();
 	}
+	
 	
 	/* course profile list purpose */
 	

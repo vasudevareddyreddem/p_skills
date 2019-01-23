@@ -9,7 +9,7 @@ class Course extends Admin_panel {
 		$this->load->model('Category_model');
 		
 	}
-	
+	/*
 	public function name()
 	{	
 		if($this->session->userdata('skill_user'))
@@ -204,7 +204,7 @@ if($this->session->userdata('skill_user'))
 		 redirect('admin');  
 	   }
     }
-	
+	*/
 	
 	/*course profile*/
 	
@@ -213,7 +213,7 @@ if($this->session->userdata('skill_user'))
 		if($this->session->userdata('skill_user'))
 		{
 			$login_details=$this->session->userdata('skill_user');
-		   $data['course_name']=$this->Category_model->get_course_name_data();
+		   $data['category_name']=$this->Category_model->get_category_data();
 			//echo'<pre>';print_r($data);exit;
 			
 			$this->load->view('courseprofile/courseprofiles',$data);
@@ -283,7 +283,7 @@ if($this->session->userdata('skill_user'))
 		{
 			$login_details=$this->session->userdata('skill_user');
 			 $course=base64_decode($this->uri->segment(3));
-			 $data['course_name']=$this->Category_model->get_course_name_data();
+			 $data['category_name']=$this->Category_model->get_category_data();
 			//echo'<pre>';print_r($data);exit;
 			$data['edit_courese_profile']=$this->Category_model->get_edit_courese_profiles($course);	
 			//echo'<pre>';print_r($data);exit;

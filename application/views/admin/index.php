@@ -23,7 +23,7 @@
     <div class="animated fadeIn">
         <div class="row">
 
-            <div class="col-lg-4 col-md-4">
+            <div class="col-lg-6 col-md-6">
                 <div class="card">
                     <div class="card-body bg-flat-color-4">
                         <div class="h1 text-light text-right mb-4">
@@ -36,22 +36,9 @@
                 </div>
             </div><!-- /# column -->
 
-            <div class="col-lg-4 col-md-4">
-                <div class="card">
-                    <div class="card-body bg-flat-color-5">
-                        <div class="h1 text-right text-light mb-4">
-                            <i class="fa fa-pie-chart"></i>
-                        </div>
-                        <div class="h4 mb-0 text-light">
-                            <span class="count"><?php echo isset($course_name_count['course_name'])?$course_name_count['course_name']:''?></span>
-                        </div>
-                        <small class="text-uppercase font-weight-bold text-light">Course Name</small>
-                        <div class="progress progress-xs mt-3 mb-0 bg-light" style="width: 40%; height: 5px;"></div>
-                    </div>
-                </div>
-            </div><!-- /# column -->
+            
 
-            <div class="col-lg-4 col-md-4">
+            <div class="col-lg-6 col-md-6">
                 <div class="card">
                     <div class="card-body bg-flat-color-3">
                         <div class="h1 text-right mb-4">

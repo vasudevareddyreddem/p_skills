@@ -33,13 +33,13 @@
                             <div class="row"> 
                                 <div class="col-md-6">
 									<div class="form-group">
-								<label class=" control-label">Course Name</label>
+								<label class=" control-label">Category Name</label>
 								<div class="">
 								<select id="course_name_id" name="course_name_id"  class="form-control select2" style="padding:20px; ">
 								<option value="">Select</option>
-								<?php if(isset($course_name) && count($course_name)>0){ ?>
-									<?php foreach($course_name as $list){ ?>
-										<option value="<?php echo $list['s_c_id']; ?>"><?php echo $list['sub_category_name']; ?></option>
+								<?php if(isset($category_name) && count($category_name)>0){ ?>
+									<?php foreach($category_name as $list){ ?>
+										<option value="<?php echo $list['c_id']; ?>"><?php echo $list['category_name']; ?></option>
 										
 												<?php } ?>
 											   <?php } ?>
@@ -78,7 +78,7 @@
             course_name_id: {
                 validators: {
                     notEmpty: {
-                        message: 'Select Course Name Required'
+                        message: 'Select Category Name Required'
                     }
                 }
             },

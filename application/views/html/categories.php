@@ -72,7 +72,7 @@
 				<div class="col-md-4 cd-part-2">
 					<!-- Default form login -->
 					<form class="text-center p-3" method="post" action="<?php echo base_url('courseprofile/addpost'); ?>">
-						<p class="h4 mb-4">I am Interested in this course</p>
+						<p class="h4 mb-4">Quick Enquiry</p>
 						<input type="text" id="course_name" name="course_name" class="form-control mb-2" placeholder="Course Name" required>
 						<input type="text" id="name"  name="name"  class="form-control mb-2" placeholder="Name" required>
 						<input type="email" id="email" name="email" class="form-control mb-2" placeholder="E-mail" required>

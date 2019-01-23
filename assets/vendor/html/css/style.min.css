@@ -200,14 +200,17 @@ p{
     position: absolute;
     top: 100%;
     z-index: 1;
-    width: 20%;
-    min-height: 80vh;
+    width: 16%;
+    height: auto;
     background: #fefefe;
+    max-height: 80vh;
 }
 
+/*
 #navbar-menu-list ul li:nth-child(even){
     background: #efefef;
 }
+*/
 
 .nml-has-dropdown-1:hover .nml-step-1:before{
     content:"\f0d8";
@@ -217,6 +220,7 @@ p{
     position: absolute;
     top: -20px;
     left: 15px;
+    z-index: -1;
 }
 
 #navbar-menu-list li:hover > ul {
@@ -228,13 +232,18 @@ p{
 #navbar-menu-list ul li a {
     padding: 10px;
     display: block;
-    color: #59698d;
-    font-weight: 400;
+    color: #000000;
+    font-weight: 500;
     word-wrap: break-word;
 }
 
 #navbar-menu-list ul li:hover {
-    border-left: 4px solid #59698d;
+/*    border-left: 4px solid #59698d;*/
+    background: #efefef;
+}
+
+#navbar-menu-list ul li:hover > a{
+    color: #59698d;
 }
 
 #navbar-menu-list ul li:hover > a::after {
@@ -246,7 +255,13 @@ p{
     transform: translateY(-50%);
 }
 
+/*
 #navbar-menu-list .nml-step-1 .nml-step-2 .nml-step-3 li:hover > a::after {
+    content:"";
+}
+*/
+
+#navbar-menu-list .nml-step-1 .nml-step-2 li:hover > a::after {
     content:"";
 }
 
@@ -254,7 +269,8 @@ p{
     top: 0;
     left: 100%;
     width: 100%;
-    min-height: 80vh;
+    max-height: 80vh;
+    overflow-y: scroll;
 }
 
 @media only screen and (max-width:992px) {

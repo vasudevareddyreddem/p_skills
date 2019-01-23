@@ -35,17 +35,17 @@
                             <div class="row"> 
                                 <div class="col-md-6">
 									<div class="form-group">
-								<label class=" control-label">Course Name</label>
+								<label class=" control-label">Category Name</label>
 								<div class="">
 								<select id="course_name_id" name="course_name_id"  class="form-control select2" style="padding:20px; ">
 								<option value="">Select</option>
-								<?php if(isset($course_name) && count($course_name)>0){ ?>
-											<?php foreach($course_name as $list){ ?>
+								<?php if(isset($category_name) && count($category_name)>0){ ?>
+											<?php foreach($category_name as $list){ ?>
 											
-													<?php if($edit_courese_profile['course_name_id']==$list['s_c_id']){ ?>
-															<option selected value="<?php echo $list['s_c_id']; ?>"><?php echo $list['sub_category_name']; ?></option>
+													<?php if($edit_courese_profile['course_name_id']==$list['c_id']){ ?>
+															<option selected value="<?php echo $list['c_id']; ?>"><?php echo $list['category_name']; ?></option>
 													<?php }else{ ?>
-															<option value="<?php echo $list['s_c_id']; ?>"><?php echo $list['sub_category_name']; ?></option>
+															<option value="<?php echo $list['c_id']; ?>"><?php echo $list['category_name']; ?></option>
 													<?php } ?>
 											<?php } ?>
 										<?php } ?>
