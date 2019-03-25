@@ -138,11 +138,11 @@ CREATE TABLE `course_profile` (
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`c_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 /*Data for the table `course_profile` */
 
-insert  into `course_profile`(`c_id`,`course_name_id`,`c_P_name`,`status`,`created_at`,`updated_at`,`created_by`) values (11,26,'bootstrap',1,'2018-12-18 14:17:08','2018-12-18 14:17:08',1),(12,27,'Oracle Fusion Financials',1,'2018-12-18 14:17:31','2018-12-18 14:17:31',1),(13,28,'course profile',1,'2018-12-19 07:52:01','2018-12-19 07:52:01',1);
+insert  into `course_profile`(`c_id`,`course_name_id`,`c_P_name`,`status`,`created_at`,`updated_at`,`created_by`) values (11,26,'bootstrap',2,'2019-03-25 18:33:48','2019-03-25 14:03:48',1),(12,27,'Oracle Fusion Financials',2,'2019-03-25 18:33:50','2019-03-25 14:03:50',1),(13,28,'course profile',2,'2019-03-25 18:33:52','2019-03-25 14:03:52',1),(14,16,'boostrap',1,'2019-03-25 14:04:01','2019-03-25 14:04:01',1),(15,17,'course',1,'2019-03-25 14:04:14','2019-03-25 14:04:14',1);
 
 /*Table structure for table `header` */
 
