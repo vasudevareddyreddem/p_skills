@@ -75,7 +75,7 @@
 						<?php }else{ ?>
                                <div> No data available</div>
                                     <?php }?>
-						<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->

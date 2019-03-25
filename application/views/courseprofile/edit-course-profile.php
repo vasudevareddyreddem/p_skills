@@ -124,6 +124,8 @@
 						<a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
 					</div>
         </div>
+		
+		
           <div class="m-t-50 text-center">
 			<button type="submit" class="btn btn-sm btn-primary" name="signup" value="Sign up">Add</button>
             <button type="reset" class="btn btn-sm btn-danger">Reset</button>

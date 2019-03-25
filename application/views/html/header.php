@@ -101,21 +101,12 @@
                             <li class="nml-has-dropdown-2">
                                 <a href="#"><?php echo isset($list['category_name'])?$list['category_name']:''; ?></a>
                                 <ul class="z-depth-2 nml-step-2">
-                                <?php if(isset($list['course_names']) && count($list['course_names'])>0){ ?>
-								    <?php foreach($list['course_names'] as $lis){ ?>
-                                    <li class="nml-has-dropdown-3">
-                                        <a href="#">
-                                            <?php echo isset($lis['sub_category_name'])?$lis['sub_category_name']:''; ?>
-                                        </a>
-                                        <ul class="z-depth-3 nml-step-3">
-                                        <?php foreach($lis['course_profiles'] as $li){ ?>
+                               
+                                    <?php foreach($list['course_profile_names'] as $li){ ?>
                                             <li><a href="<?php echo base_url('courseprofile/'.$li['c_P_name']); ?>"><?php echo isset($li['c_P_name'])?$li['c_P_name']:''; ?></a>
                                             </li>
                                         <?php } ?>
-                                        </ul>
-                                    </li>
-                                    <?php } ?>
-				                <?php } ?>
+                                    
                                 </ul>
                             </li>
                             <?php } ?>
@@ -215,11 +206,11 @@
         </div>
     </div>
 	<?php if($this->session->flashdata('success')): ?>
-        <div class="alert_msg1 animated slideInUp bg-succ">
-            <?php echo $this->session->flashdata('success');?> &nbsp; <i class="fa fa-check text-success ico_bac" aria-hidden="true"></i> </div>
-        <?php endif; ?>
-        <?php if($this->session->flashdata('error')): ?>
-        <div class="alert_msg1 animated slideInUp bg-warn">
-            <?php echo $this->session->flashdata('error');?> &nbsp; <i class="fa fa-exclamation-triangle text-success ico_bac" aria-hidden="true"></i> </div>
-        <?php endif; ?>
+	<div class="alert_msg1 animated slideInUp bg-succ">
+		<?php echo $this->session->flashdata('success');?> &nbsp; <i class="fa fa-check text-success ico_bac" aria-hidden="true"></i> </div>
+	<?php endif; ?>
+	<?php if($this->session->flashdata('error')): ?>
+	<div class="alert_msg1 animated slideInUp bg-warn">
+		<?php echo $this->session->flashdata('error');?> &nbsp; <i class="fa fa-exclamation-triangle text-success ico_bac" aria-hidden="true"></i> </div>
+	<?php endif; ?>
     
