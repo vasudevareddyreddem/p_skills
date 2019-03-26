@@ -32,7 +32,7 @@
                                     <i class="fa fa-book fa-3x"></i>
                                 </li>
                                 <li class="list-inline-item">
-                                    <strong class="black-text">100+ Paid Courses</strong><br>
+                                    <strong class="black-text">Top highly paid job cources</strong><br>
                                     <a href="#"><?php echo isset($category_list['cnt'])?$category_list['cnt']:''; ?></a>
                                 </li>
                             </ul>

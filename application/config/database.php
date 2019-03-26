@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'skills',
+	'hostname' => '166.62.26.2',
+	'username' => 'skillschair_stag',
+	'password' => 'skillschair_stag@123',
+	'database' => 'skillschair_staging_db',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

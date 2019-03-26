@@ -226,7 +226,7 @@
 			
             <div id="accordion2">
                 <?php $cnt=1;foreach($faq_list as $list){ ?>
-				<?php if($cnt <=5){ ?>
+				<?php if($cnt <=2){ ?>
                 <div class="card">
                     <div class="card-header" data-toggle="collapse" data-target="#faqOne<?php echo $cnt; ?>">
                         <h6 class="mb-0"><?php echo isset($list['title'])?$list['title']:''; ?></h6>
@@ -246,17 +246,17 @@
 				
 				<div style="display:none" id="showmore1">
 				 <?php $cnt=1;foreach($faq_list as $list){ ?>
-				<?php if($cnt >5){ ?>
+				<?php if($cnt >2){ ?>
                 <div class="card">
                     <div class="card-header" data-toggle="collapse" data-target="#faqOne<?php echo $cnt; ?>">
                         <h6 class="mb-0"><?php echo isset($list['title'])?$list['title']:''; ?></h6>
                     </div>
                     <div id="faqOne<?php echo $cnt; ?>" class="collapse" data-parent="#accordion2">
-                        <div class="card-body">
+                        <div class="card-body text-center">
 							<?php  echo substr($list['description'], 0, 250); ?>
 							<?php $strnlen=strlen($list['description']);?>
 							<?php if(isset($strnlen) && $strnlen>250){ ?>
-							<a href="<?php echo base_url('courseprofile/morefaqsdetails/'.$course_profile_id.'/'.base64_encode($list['i_q_id']).'/'.$course_name['c_P_name']); ?>"id="readmore22"><b>Read More ....</b></a>
+							<a class="btn btn-primary btn-sm" href="<?php echo base_url('courseprofile/morefaqsdetails/'.$course_profile_id.'/'.base64_encode($list['i_q_id']).'/'.$course_name['c_P_name']); ?>"id="readmore22"><b>Read More ....</b></a>
 							<?php } ?>
                            <?php //echo isset($list['description'])?$list['description']:''; ?>
                         </div>
@@ -266,7 +266,7 @@
 				<?php $cnt++;} ?>
 				</div>
 				<?php if(isset($faq_list) && count($faq_list)>5){ ?>
-				<div><a id="readmore1"><b>Read More ....</b></a></div>
+				<div class="text-center"><a class="btn btn-primary btn-sm" id="readmore1"><b>Read More ....</b></a></div>
 				<?php } ?>
                 
             </div>
